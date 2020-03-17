@@ -15,8 +15,8 @@ export class CarrinhoComponent implements OnInit {
 
   constructor() { 
     this.carrinho.push(
-      new Carrinho(new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 10, 3), 1),
-      new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
+      new Carrinho(new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 3), 1),
+      new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 2), 1),
     )
     
     this.carrinho.forEach(item =>{

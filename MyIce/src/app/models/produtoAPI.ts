@@ -3,7 +3,10 @@ export class produtoAPI{
     public name?: string;
     public description?: string;
     public image?: string; 
-    public group?: number;
+    public group?: {
+        groupCode?: number,
+        description?: string
+    };
     public vlProduct?: number;
     public vlProductFull?: number
 }

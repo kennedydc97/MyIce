@@ -9,11 +9,11 @@ export class ProdutosService {
 
   constructor(private http: HttpClient) { }
 
-  public getApi(): Observable<any>{
-    return this.http.get("http://localhost:8080/find-product/list")
+  public getProdutos(){
+    return this.http.get("http://localhost:8080/ecommerce/find-product/list")
   }
 
   public buscarProdutoId(id: number){
-    return this.http.get("http://localhost:8080/find-product/" + id);
+    return this.http.get("http://localhost:8080/ecommerce/find-product/" + id);
   }
 }

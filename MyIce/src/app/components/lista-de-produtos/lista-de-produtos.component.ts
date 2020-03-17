@@ -15,11 +15,12 @@ export class ListaDeProdutosComponent implements OnInit {
   produtos: Produto[] = []
   produtosExibidos: Produto[] = []
 
-  produtoAPI: any = [];
+  produtoAPI: produtoAPI;
   erro: any;
 
   constructor(private router: Router, private serviceProduto: ProdutosService) {
     this.getter(); 
+    console.log(this.produtoAPI)
     this.produtos.push(
       new Produto(1, "assets/produto1.jpg", "Gelo Artificial", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint. Reiciendis impedit nam voluptatum nemo similique libero, asperiores laboriosam totam illo ullam earum doloremque. Culpa, quidem! Sequi architecto enim ipsa.", 27, 24, 2),
       new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 3),
@@ -72,9 +73,11 @@ export class ListaDeProdutosComponent implements OnInit {
   }
 
   getter() {
-    this.serviceProduto.getApi().subscribe(
+    this.serviceProduto.getProdutos().subscribe(
       (data: produtoAPI) => {
+        console.log(data)
         this.produtoAPI = data;
+        console.log(this.produtoAPI)
       }, (error: any) => {
         console.error("ERROR", error)
       })
