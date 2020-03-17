@@ -11,7 +11,7 @@ export class AdicionarProdutosComponent implements OnInit {
 
   formProduto: FormGroup;
   constructor() {
-    this.formProduto = this.createForm(new Produto(null, "", "", "", 0, 0, 0, 0));
+    this.formProduto = this.createForm(new Produto(null, "", "", "", 0, 0, 0));
    }
 
   private createForm(p: Produto):FormGroup{
@@ -22,7 +22,6 @@ export class AdicionarProdutosComponent implements OnInit {
       desc: new FormControl(p.desc),
       precoCheio: new FormControl(p.precoCheio),
       precoDesconto: new FormControl(p.precoDesconto),
-      precoBoleto: new FormControl(p.precoBoleto),
       idCategoria: new FormControl(p.idCategoria)
     })
   }

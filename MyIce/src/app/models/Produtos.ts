@@ -6,6 +6,5 @@ export class Produto{
                 public desc?: string, 
                 public precoCheio?: number,
                 public precoDesconto?: number,
-                public precoBoleto?: number,
                 public idCategoria?: number){}
 }
