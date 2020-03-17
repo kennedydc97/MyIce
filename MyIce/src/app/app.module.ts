@@ -20,8 +20,10 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
-import { PagamentoComponent } from './components/checkout/pagamento/pagamento.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { EnderecoComponent } from './components/endereco/endereco.component';
+import { TextMaskModule } from 'angular2-text-mask';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +43,8 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     CadastroComponent,
     FormularioComponent,
     AdicionarProdutosComponent,
-    PagamentoComponent,
     CarrinhoComponent,
+    EnderecoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produtos';
 import { Carrinho } from 'src/app/models/Carrinho';
+import { StorageService } from 'src/app/services/storage.service'
 
 @Component({
   selector: 'app-carrinho',
@@ -13,15 +14,16 @@ export class CarrinhoComponent implements OnInit {
   subTotal: number = 0;
   total: number = 0;
 
-  constructor() { 
+  constructor( private storage: StorageService ) { 
     this.carrinho.push(
-      new Carrinho(new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 10, 3), 1),
       new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
     )
     
     this.carrinho.forEach(item =>{
       this.subTotal += item.produto.precoDesconto * item.qtd;
     })
+    storage.salvarCarrinho(this.carrinho);
+    console.log(storage.recuperarCarrinho());
   }
 
   ngOnInit(): void {

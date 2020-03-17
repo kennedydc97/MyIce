@@ -103,6 +103,35 @@
 
 }
 
-a {
-    color: pink;
+
+.paginaCheckout{
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.tituloEntrega {
+    font-size: larger;
+    color: #1E90FF;
+    align-items: center;
+}
+
+
+.tituloFrete{
+    font-size: large;
+    font-weight: bold;
+    color: #1E90FF;
+    display: flex;
+    }
+
+.tituloPagamento{
+    font-size: larger;
+    color: rgb(32, 57, 197);
+    align-items: center;
+    font-weight: bold;
+
+}
+
+
+label{
+    font-weight: bold;
 }
