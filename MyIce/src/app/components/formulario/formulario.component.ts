@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from "@angular/forms";
-// import { Entrega } from 'src/app/models/Entrega';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Formulario } from 'src/app/models/Formulario';
 import { Address } from 'src/app/models/Address';
 import { CepService } from 'src/app/services/cep.service';
@@ -14,13 +13,14 @@ export class FormularioComponent implements OnInit {
 
   constructor(private cepService: CepService) {
     this.formFormulario = this.createForm(new Formulario());
-   }
 
-  address: Address = new Address("","","","","","")
+  }
+
+  address: Address = new Address("", "", "", "", "", "")
 
 
-  formFormulario: FormGroup
-
+  formFormulario: FormGroup;
+''
   private createForm(formulario: Formulario) {
     return new FormGroup({
       cod: new FormControl(formulario.codFormulario),
@@ -30,13 +30,19 @@ export class FormularioComponent implements OnInit {
       complemento: new FormControl(formulario.complementoEndereco),
       bairro: new FormControl(formulario.bairro),
       cidade: new FormControl(formulario.cidade),
-      estado: new FormControl(formulario.estado)
+      estado: new FormControl(formulario.estado),
+      cpf: new FormControl(formulario.cpf),
+      nome: new FormControl(formulario.nome),
+      tel: new FormControl(formulario.tel),
+      email: new FormControl(formulario.email),
+      senha: new FormControl(formulario.senha),
+
     })
   }
 
 
 
-  pegarCep(){
+  pegarCep() {
     this.cepService.getCep(this.formFormulario.value).subscribe((data) => {
       this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
       this.formFormulario.controls['endereco'].patchValue(this.address.endereco);
@@ -55,23 +61,18 @@ export class FormularioComponent implements OnInit {
 
 
 
-onSubmit() {
+  onSubmit() {
     // aqui você pode implementar a logica para fazer seu formulário salvar
     console.log(this.formFormulario);
     // Usar o método reset para limpar os controlesfna tela
-    this.formFormulario.reset(new  Formulario());
+    this.formFormulario.reset(new Formulario());
   }
 
-  // onSubmit() {
-  //   aqui você pode implementar a logica para fazer seu formulário salvar
-  //   console.log(this.formCliente.value);
-   
-  //   chamando a função createForm para limpar os campos na tela
-  //   this.createForm(new Cliente());
-  // }
-  
+
+
 
 
 
   ngOnInit(): void {
-}}
+  }
+}
