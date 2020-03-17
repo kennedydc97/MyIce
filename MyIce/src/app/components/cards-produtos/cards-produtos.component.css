@@ -1,0 +1,9 @@
+#card{
+display: flex;
+justify-content: space-around;
+}
+
+#produtosMaisVendidos{
+    background-color: #8ea9e4;
+    color: white;
+}
