@@ -64,4 +64,8 @@ export class Validar {
             if (resto != parseInt(cpf.substring(10, 11))) return false;
             return true;
         }
+
+        validarEmail(email){
+            
+        }
 }
