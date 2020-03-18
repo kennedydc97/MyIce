@@ -3,6 +3,7 @@ import { Produto } from 'src/app/models/Produtos';
 import { ActivatedRoute } from '@angular/router'
 import { ServicesService } from 'src/app/services/services.service';
 import { ProdutosService } from 'src/app/services/produtos.service';
+import { produtoAPI } from 'src/app/models/produtoAPI';
 
 @Component({
   selector: 'app-produto-sozinho',
@@ -11,10 +12,8 @@ import { ProdutosService } from 'src/app/services/produtos.service';
 })
 export class ProdutoSozinhoComponent implements OnInit {
 
-  produtos: Produto[] = [];
-
   public produtoId;
-  produtoTela: Produto;
+  produtoTela: produtoAPI;
 
 
   constructor(private route: ActivatedRoute, private service: ProdutosService) {
