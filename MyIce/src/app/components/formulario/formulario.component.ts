@@ -89,8 +89,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 // import { Usuario } from './formu';
+import { FormularioNovoUsuario } from 'src/app/formularioNovoUsuario';
 import { ValidacoesFormulario } from 'src/app/validacoesFormulario';
-import { Formulario } from 'src/app/models/Formulario';
+// import { Formulario } from 'src/app/models/Formulario';
 
 
 @Component({
@@ -113,7 +114,7 @@ export class FormularioComponent implements OnInit {
   enviarDados() {
     const dadosFormulario = this.formularioDeUsuario.value;
 
-    const formu = new Formulario(
+    const usuario = new FormularioNovoUsuario(
       dadosFormulario.nome,
       dadosFormulario.email,
       dadosFormulario.cpf,
@@ -121,7 +122,7 @@ export class FormularioComponent implements OnInit {
       dadosFormulario.senha
     );
 
-    alert(`O usuário ${formu.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(formu)}`);
+    // alert(`O usuário ${usuario.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(usuario)}`);
 
     this.formularioDeUsuario.reset();
   }
@@ -186,4 +187,41 @@ export class FormularioComponent implements OnInit {
   get confirmarSenha() {
     return this.formularioDeUsuario.get('confirmarSenha');
   }
+
+  //   onSubmit() {
+  //   // aqui você pode implementar a logica para fazer seu formulário salvar
+  //   console.log(this.formularioDeUsuario);
+  //   // Usar o método reset para limpar os controlesfna tela
+  //   this.formularioDeUsuario.reset(new FormGroup());
+  // }
+
+  
+//   constructor(private cepService: CepService) {
+//     this.formFormulario = this.createForm(new Formulario());
+
+//   }
+
+//   address: Address = new Address("", "", "", "", "", "")
+
+
+//   formFormulario: FormGroup;
+// ''
+//   private createForm(formulario: Formulario) {
+//     return new FormGroup({
+//       cod: new FormControl(formulario.codFormulario),
+//       cep: new FormControl(formulario.CEPUsuario),
+//       endereco: new FormControl(formulario.enderecoUsuario),
+//       nroEndereco: new FormControl(formulario.numeroEndereco),
+//       complemento: new FormControl(formulario.complementoEndereco),
+//       bairro: new FormControl(formulario.bairro),
+//       cidade: new FormControl(formulario.cidade),
+//       estado: new FormControl(formulario.estado),
+//       cpf: new FormControl(formulario.cpf),
+//       nome: new FormControl(formulario.nome),
+//       tel: new FormControl(formulario.tel),
+//       email: new FormControl(formulario.email),
+//       senha: new FormControl(formulario.senha),
+
+//     })
+//   }
 }
