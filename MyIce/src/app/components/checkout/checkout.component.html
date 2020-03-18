@@ -122,7 +122,7 @@
               <div class="form-group col-md-6">
                 <label for="numeroCartao">Número do Cartão</label>
                 <input class="form-control" type="text" id="numeroCartao" formControlName="numero"
-                  placeholder="Numero do cartão" [textMask]="{mask: numeroCartao}" required>
+                  placeholder="Numero do cartão" maxlength="16" required>
               </div>
               <div class="form-group col-md-4">
                 <label for="DtaValCartao">Data de Validade</label>
@@ -131,8 +131,8 @@
               </div>
               <div class="form-group col-md-2">
                 <label for="segurCartao">CVV</label>
-                <input class="form-control" type="text" id="segurCartao" formControlName="cvv" placeholder="CVV"
-                  [textMask]="{mask: cvv}" required>
+                <input class="form-control" type="text" id="segurCartao" formControlName="cvv" maxlength="3" placeholder="CVV"
+                   required>
               </div>
 
               <div class="form-group  col-md-7">
@@ -152,7 +152,7 @@
               <div class="form-group  col-md-5">
                 <label for="cpfTituCartao">CPF do Titular</label>
                 <input class="form-control" type="text" formControlName="cpf" placeholder="Digite o CPF"
-                  ng-model="CPFtitular" [textMask]="{mask: cpfMask}" required>
+                  ng-model="CPFtitular" maxlength="11" required>
                   <div *ngIf="!cpf.pristine && cpf.errors">
                     <p class="alert alert-danger" *ngIf="cpf.errors.invalidCpf">
                         CPF inválido.

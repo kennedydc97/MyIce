@@ -29,7 +29,6 @@ export class CheckoutComponent implements OnInit {
 
     console.log(storage.recuperarCarrinho());
 
-    this.validar = new Validar();
   }
 
     private createForm():FormGroup{
@@ -56,7 +55,7 @@ export class CheckoutComponent implements OnInit {
           Validators.required,
           Validators.maxLength(11),
           Validators.minLength(11),
-          Validar.ValidarCpf
+          Validar.validarCpf
         ]))
         
       });
