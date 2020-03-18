@@ -47,6 +47,9 @@ export class CarrinhoComponent implements OnInit {
 
     }
 
-    
+  // buscarProduto(){
+  //   let produtos = JSON.parse(localStorage.getItem("produto"))
+  //   return produtos == null ? [] : produtos.produto
+  // }
 
 }

@@ -27,4 +27,10 @@ export class ProdutoSozinhoComponent implements OnInit {
     )
   }
 
+  salvarProduto(){
+    let produto = this.produtoTela
+    let produto_json = JSON.stringify(this.produtoTela)
+    localStorage.setItem("produto", produto_json)
+  }
+
 }

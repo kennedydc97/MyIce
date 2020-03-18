@@ -18,9 +18,18 @@ export class ListaDeProdutosComponent implements OnInit {
   produtoAPI: produtoAPI;
   erro: any;
 
+  getter() {
+    this.serviceProduto.getProdutos().subscribe(
+      (data: produtoAPI) => {
+        this.produtoAPI = data;
+      }, (error: any) => {
+        console.error("ERROR", error)
+      })
+  }
+
+
   constructor(private router: Router, private serviceProduto: ProdutosService) {
-    this.getter(); 
-    console.log(this.produtoAPI)
+    this.getter();
     this.produtos.push(
       new Produto(1, "assets/produto1.jpg", "Gelo Artificial", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint. Reiciendis impedit nam voluptatum nemo similique libero, asperiores laboriosam totam illo ullam earum doloremque. Culpa, quidem! Sequi architecto enim ipsa.", 27, 24, 2),
       new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 3),
@@ -70,17 +79,6 @@ export class ListaDeProdutosComponent implements OnInit {
 
   produtoSelecionado(produto){
       this.router.navigate(['/lista-de-produtos', produto.id])
-  }
-
-  getter() {
-    this.serviceProduto.getProdutos().subscribe(
-      (data: produtoAPI) => {
-        console.log(data)
-        this.produtoAPI = data;
-        console.log(this.produtoAPI)
-      }, (error: any) => {
-        console.error("ERROR", error)
-      })
   }
 
 ngOnInit(): void {
