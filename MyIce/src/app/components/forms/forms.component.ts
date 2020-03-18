@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms'
+import { Usuario } from 'src/app/models/Usuario';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,17 +10,18 @@ import {FormGroup} from '@angular/forms'
 })
 export class FormsComponent implements OnInit {
 
- 
+  public form = new Usuario(1, 'andrehenrique@gmail.com');
+  public userForm: FormGroup;
+
+
   constructor() { }
 
-  onSubmit() {
-    // aqui você pode implementar a logica para fazer seu formulário salvar
-    console.log(this.formularioDeUsuario);
-    // Usar o método reset para limpar os controlesfna tela
-  }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this.userForm = new FormGroup({
+     'email': new FormControl(this.form.email, [Validators.required, Validators.email])
+    });
+   }
 
 
 }
