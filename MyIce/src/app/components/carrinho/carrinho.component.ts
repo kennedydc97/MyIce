@@ -17,6 +17,8 @@ export class CarrinhoComponent implements OnInit {
   constructor( private storage: StorageService ) { 
     this.carrinho.push(
       new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
+      new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
+
     )
     
     this.carrinho.forEach(item =>{

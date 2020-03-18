@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from "@angular/forms";
-import { Entrega } from 'src/app/models/Entrega';
-import { Address } from 'src/app/models/Address';
-import { CepService } from 'src/app/services/cep.service';
-
+import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
+import { StorageService } from 'src/app/services/storage.service'
+import { Carrinho } from 'src/app/models/Carrinho';
 import { Pagamento } from 'src/app/models/Pagamento';
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -13,6 +12,12 @@ import { Pagamento } from 'src/app/models/Pagamento';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  formPagamento
+  carrinho: Carrinho[] = [];
+  subTotal: number = 0;
+  total: number = 0;
+  valoresForm
+  conversao
 
   // constructor(private cepService: CepService) {
   //   this.formEntrega = this.createForm(new Entrega());
@@ -49,29 +54,57 @@ export class CheckoutComponent implements OnInit {
 
 
 
-  constructor() { 
-    this.formPagamento = this.createForm(new Pagamento("", new Date(), "", "", ""))
+  constructor(private storage: StorageService, private fb: FormBuilder) {
 
+    this.carrinho = storage.recuperarCarrinho()
+
+    console.log(storage.recuperarCarrinho());
   }
-  
+
   data: string;
-  formPagamento: FormGroup
 
-  private createForm(pagamento: Pagamento): FormGroup {
-    return new FormGroup({
-      numero: new FormControl(pagamento.numero),
-      vencimento: new FormControl(pagamento.vencimento),
-      cvv: new FormControl(pagamento.cvv),
-      nomeTitular: new FormControl(pagamento.nomeTitular),
-      cpf: new FormControl(pagamento.cpf)
-    })
-  }
+  // private createForm(pagamento: Pagamento): FormGroup {
+  //   return new FormGroup({
+  //     numero: new FormControl(pagamento.numero),
+  //     vencimento: new FormControl(pagamento.vencimento),
+  //     cvv: new FormControl(pagamento.cvv),
+  //     nomeTitular: new FormControl(pagamento.nomeTitular),
+  //     cpf: new FormControl(pagamento.cpf)
+  //   })
+  // }
 
 
-  
-  cpfMask = [ /[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
-  numeroCartao = [  /[0-9]/, /\d/, /\d/, /\d/,' ', /\d/, /\d/, /\d/,/\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/,/\d/,/\d/ ]
-  cvv = [ /[0-9]/, /\d/, /\d/ ]
+
+  cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
+  numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
+  cvv = [/[0-9]/, /\d/, /\d/]
+
+
+
 
   ngOnInit(): void {
-}}
+
+    this.formPagamento = this.fb.group({
+      numero: [''],
+      vencimento: [''],
+      cvv: [''],
+      nomeTitular: [''],
+      cpf: ['']
+
+    });
+    console.log(this.valoresForm);
+    this.formPagamento.valueChanges.pipe(
+      debounceTime(1000)).subscribe(res => {
+        console.log(res); 
+        this.valoresForm = res;
+      });
+  }
+
+
+
+
+  compraRealizada() {
+    this.conversao = JSON.stringify(this.valoresForm);
+    localStorage.setItem('Pagamento', this.conversao);
+  }
+}

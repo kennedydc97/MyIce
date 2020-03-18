@@ -121,6 +121,7 @@
     font-weight: bold;
     color: #1E90FF;
     display: flex;
+    text-align: center;
     }
 
 .tituloPagamento{
@@ -135,3 +136,4 @@
 label{
     font-weight: bold;
 }
+
