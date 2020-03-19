@@ -32,7 +32,6 @@ export class CheckoutComponent implements OnInit {
   }
 
 
-
   private createForm(): FormGroup {
     return this.fb.group({
       numero: new FormControl('', Validators.compose([
@@ -109,7 +108,6 @@ permitirNumeros(evento:any){
     const inputChar = String.fromCharCode(event.charCode);
 
     if (!pattern.test(inputChar)) {    
-        // invalid character, prevent input
         event.preventDefault();
     }
 }
