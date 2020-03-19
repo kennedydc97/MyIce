@@ -4,6 +4,19 @@ import { Pagamento } from 'src/app/models/Pagamento'
 
 
 export class Validar {
+
+    cancelarLetras(event: any) {
+        const pattern = /[0-9]/;
+        const inputChar = String.fromCharCode(event.charCode);
+   
+        if (!pattern.test(inputChar)) {    
+            // invalid character, prevent input
+            event.preventDefault();
+        }
+   }
+
+
+
     static validarCpf(controle: FormControl){
 
         const cpf: string = controle.value;

@@ -19,59 +19,62 @@ export class CheckoutComponent implements OnInit {
   valoresForm;
   conversao;
 
-  validar: Validar;
+  validar: Validar = new Validar ()
 
-  formPagamento : FormGroup;
+  formPagamento: FormGroup;
 
 
   constructor(private storage: StorageService, private fb: FormBuilder) {
 
     this.carrinho = storage.recuperarCarrinho()
-
     console.log(storage.recuperarCarrinho());
 
   }
 
-    private createForm():FormGroup{
-      return this.fb.group({
-        numero: new FormControl ('',  Validators.compose([
-          Validators.required,
-          Validators.minLength(16),
-          Validators.maxLength(16)
-        ])),
-        vencimento: new FormControl ('', Validators.compose([Validators.required            
-        ])),
-        cvv: new FormControl ('', Validators.compose([
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(3)
-        ])),
-        nomeTitular: new FormControl ('',
+
+
+  private createForm(): FormGroup {
+    return this.fb.group({
+      numero: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(16),
+        Validators.maxLength(16)
+      ])),
+      vencimento: new FormControl('', Validators.compose([Validators.required
+      ])),
+      cvv: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(3)
+      ])),
+      nomeTitular: new FormControl('',
         Validators.compose([
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(100)
         ])),
-        cpf: new FormControl ('', Validators.compose([
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-          Validar.validarCpf
-        ]))
-        
-      });
-  
-  
-    }
-  
+      cpf: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.maxLength(11),
+        Validators.minLength(11),
+        Validar.validarCpf
+      ]))
+
+    });
 
 
-  cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
-  numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
-  cvv = [/[0-9]/, /\d/, /\d/]
+  }
 
-    
 
+
+  // cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
+  // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
+  // cvv = [/[0-9]/, /\d/, /\d/]
+
+
+permitirNumeros(evento:any){
+  this.validar.cancelarLetras(evento);
+}
 
 
   get nome() {
@@ -87,18 +90,37 @@ export class CheckoutComponent implements OnInit {
     localStorage.setItem('Pagamento', this.conversao);
   }
 
-  ngOnInit(): void{
-    
+
+
+  ngOnInit(): void {
+
     this.formPagamento = this.createForm();
 
     console.log(this.valoresForm);
     this.formPagamento.valueChanges.pipe(
       debounceTime(1000)).subscribe(res => {
-        console.log(res); 
+        console.log(res);
         this.valoresForm = res;
       });
   }
+
+  keyPress(event: any) {
+    const pattern = /[0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {    
+        // invalid character, prevent input
+        event.preventDefault();
+    }
 }
+
+}
+
+  
+//   validarPagamento(): boolean {
+//     return this.validar.verificaPagamento(this.formPagamento.value);
+//   }
+// }
 
 
 

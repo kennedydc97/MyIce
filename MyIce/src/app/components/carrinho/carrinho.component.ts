@@ -32,12 +32,14 @@ export class CarrinhoComponent implements OnInit {
 
   aumentar(carrinho){
     carrinho.qtd++;
+    this.storage.salvarCarrinho(this.carrinho);
     this.subTotal += carrinho.produto.precoDesconto
   }
 
   diminuir(carrinho){
     if(carrinho.qtd > 1){
-      carrinho.qtd--;      
+      carrinho.qtd--;   
+      this.storage.salvarCarrinho(this.carrinho);   
       this.subTotal -= carrinho.produto.precoDesconto
     }
 
@@ -47,6 +49,7 @@ export class CarrinhoComponent implements OnInit {
     console.log(item)
     this.subTotal -= (item.produto.precoDesconto * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
+    this.storage.salvarCarrinho(this.carrinho);
 
     }
 
