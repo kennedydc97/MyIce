@@ -31,13 +31,13 @@
                 </ul>
             </nav>
             <section class="row" id="produtos">
-                <div class="card col-lg-3 col-md-4 col-5" (click)="produtoSelecionado(produto)" *ngFor="let produto of produtoAPI" style="width: 18rem;">
+                <div class="card col-lg-3 col-md-4 col-5" (click)="produtoSelecionado(produto)" *ngFor="let produto of produtos" style="width: 18rem;">
                     <img [src]="produto.image" height="220px" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-primary"><strong>{{produto.name}}</strong></h5> 
                         <a [routerLink]="['/lista-de-produtos', produto.idProduct]" class="card-text stretched-link" id="cardsDosProdutos">
-                            <p id="precos"><s>de: {{produto.vlProductFull.toFixed([2])}}</s> <br> <b id="preco">
-                                por {{produto.vlProduct.toFixed([2])}}</b></p>
+                            <p id="precos"><s>de: {{produto.vlProductFull}}</s> <br> <b id="preco">
+                                por {{produto.vlProductDiscount}}</b></p>
                         </a>
                     </div>
                 </div>

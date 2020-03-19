@@ -11,13 +11,13 @@
                                 ></div>
                         <div class="cart-sec">
                             <div class="cart-item cyc">
-                                <img src={{item.produto.imagem}} class="img-responsive"></div>
+                                <img [src]="item.produto.image" class="img-responsive"></div>
                             <div class="cart-item-info">
                                 <h5><a class="item_nome" href="#">
-                                        {{item.produto.nome}}</a>
+                                        {{item.produto.name}}</a>
                                     <span>Vendido e fornecido por: My Ice.</span>
                                 </h5>
-                                <span>R${{item.produto.precoDesconto}},00</span>
+                                <span>R${{item.produto.vlProductDiscount}},00</span>
                                 <ul>
                                     <p>Quantidade:
                                         <input type=image src="./assets/menos.png" width="14" height="14"
