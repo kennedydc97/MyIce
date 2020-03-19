@@ -23,6 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { PagamentoComponent } from './components/checkout/pagamento/pagamento.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     AdicionarProdutosComponent,
     PagamentoComponent,
     CarrinhoComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,8 +52,9 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
