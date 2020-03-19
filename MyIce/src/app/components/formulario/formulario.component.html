@@ -59,8 +59,8 @@
                 </div>
 
             <div class="form-group">
-                <label for="telefoneUsuario">Telefone</label>
-                <input class="form-control" type="tel" id="telefoneUsuario" name="telefoneUsuario"
+                <label for="tel">Telefone</label>
+                <input class="form-control" type="tel" id="tel" name="tel"
                     placeholder="Digite seu telefone" formControlName="tel" maxlength="11">
             </div>
             <div class="form-group">
@@ -115,8 +115,8 @@
                 <div class="form-group">
                     <label for="cep">CEP</label>
                     <input class="form-control" type="text" id="cep"  formControlName="cep"
-                        placeholder="Digite o CEP" maxlength="8" required>
-                        <!-- (blur)="pegarCep()" -->
+                        placeholder="Digite o CEP"  (blur)="pegarCep()" maxlength="8" required>
+                        
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
@@ -184,7 +184,7 @@
 
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary btn-lg" type="submit" data-toggle="modal"
-                    data-target="#cadastrofinalizado" [disabled]="!formularioDeUsuario.valid">Salvar</button>
+                     [disabled]="!formularioDeUsuario.valid">Salvar</button>
             </div>
         </div>
 
