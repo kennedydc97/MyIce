@@ -13,15 +13,20 @@ export class CarrinhoComponent implements OnInit {
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
+  produtosCarrinho = []
+
 
   constructor( private storage: StorageService ) { 
-    this.carrinho.push(
-      new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
-
-    )
+    this.buscarProduto()
     
+    for(let i = 0; i < this.produtosCarrinho.length; i++){
+      this.carrinho.push(new Carrinho(this.produtosCarrinho[i]))
+    }
+    
+
+
     this.carrinho.forEach(item =>{
-      this.subTotal += item.produto.precoDesconto * item.qtd;
+      this.subTotal += item.produto.vlProductDiscount * item.qtd;
     })
     storage.salvarCarrinho(this.carrinho);
     console.log(storage.recuperarCarrinho());
@@ -32,27 +37,37 @@ export class CarrinhoComponent implements OnInit {
 
   aumentar(carrinho){
     carrinho.qtd++;
+    this.subTotal += carrinho.produto.vlProductDiscount
     this.storage.salvarCarrinho(this.carrinho);
-    this.subTotal += carrinho.produto.precoDesconto
+
   }
 
   diminuir(carrinho){
     if(carrinho.qtd > 1){
-      carrinho.qtd--;   
-      this.storage.salvarCarrinho(this.carrinho);   
-      this.subTotal -= carrinho.produto.precoDesconto
+      carrinho.qtd--;      
+      this.subTotal -= carrinho.produto.vlProductDiscount
+      this.storage.salvarCarrinho(this.carrinho);
+
     }
 
   
   }
   excluirProduto(item){
     console.log(item)
-    this.subTotal -= (item.produto.precoDesconto * item.qtd)
+    this.subTotal -= (item.produto.vlProductDiscount * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
     this.storage.salvarCarrinho(this.carrinho);
 
+
     }
 
-    
+  buscarProduto(){
+    let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    for(let i = 0; i < produtos.length; i++){
+      this.produtosCarrinho.push(produtos[i])
+    }
+    return produtos == null ? [] : produtos.produto
+  }
 
 }
+

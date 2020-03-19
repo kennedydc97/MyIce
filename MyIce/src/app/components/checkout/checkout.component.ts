@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
   conversao;
 
   validar: Validar = new Validar ()
-
+  produtosCarrinho = []
   formPagamento: FormGroup;
 
 
@@ -64,7 +64,14 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-
+  buscarProduto(){
+    let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    for(let i = 0; i < produtos.length; i++){
+      this.produtosCarrinho.push(produtos[i])
+    }
+    return produtos == null ? [] : produtos.produto
+  }
+  
 
   // cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
   // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
@@ -91,6 +98,7 @@ permitirNumeros(evento:any){
 
 
 
+
   ngOnInit(): void {
 
     this.formPagamento = this.createForm();
@@ -103,14 +111,7 @@ permitirNumeros(evento:any){
       });
   }
 
-  keyPress(event: any) {
-    const pattern = /[0-9]/;
-    const inputChar = String.fromCharCode(event.charCode);
 
-    if (!pattern.test(inputChar)) {    
-        event.preventDefault();
-    }
-}
 
 }
 

@@ -13,7 +13,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardsProdutosComponent } from './components/cards-produtos/cards-produtos.component';
 import { HomeComponent } from './components/home/home.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
-import { ResumoCompraComponent } from './components/resumo-compra/resumo-compra.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
@@ -38,7 +37,6 @@ import { TextMaskModule } from 'angular2-text-mask';
     CardsProdutosComponent,
     HomeComponent,
     SobreNosComponent,
-    ResumoCompraComponent,
     CheckoutComponent,
     CadastroComponent,
     FormularioComponent,

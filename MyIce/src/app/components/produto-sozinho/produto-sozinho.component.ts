@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Produto } from 'src/app/models/Produtos';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { ProdutosService } from 'src/app/services/produtos.service';
+import { produtoAPI } from 'src/app/models/produtoAPI';
+import { count } from 'rxjs/operators';
 
 @Component({
   selector: 'app-produto-sozinho',
@@ -9,30 +11,43 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class ProdutoSozinhoComponent implements OnInit {
 
-  produtos: Produto []=[];
-
   public produtoId;
+  produtoTela: produtoAPI;
+  produtoLocal: produtoAPI[] = []
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: ProdutosService) {
+    this.produtoId = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.service.buscarProdutoId(this.produtoId).subscribe(
+      produto => this.produtoTela = produto
+    )
+  }
 
   ngOnInit(): void {
-      let id = parseInt(this.route.snapshot.paramMap.get('id'));
-      this.produtoId = id;
+    let produtosStorage = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    if (produtosStorage != null) {
+      for (let i = 0; i < produtosStorage.length; i++) {
+        if (produtosStorage != null) {
+          this.produtoLocal.push(produtosStorage[i])
+        }
+      }
+    }
+  }
 
-
-
-    this.produtos.push(
-      new Produto(1, "assets/produto1.jpg", "Gelo Artificial", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", 27, 23, 23, 1))
-    //   new Produto(2, "assets/gelodecoco.png", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 16.65, 10, 10, 1),
-    //   new Produto(3, "assets/produto3.jpg", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 30, 27, 27, 1),
-    //   new Produto(4, "assets/produto4.jpg", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 24, 23, 23, 1),
-    //   new Produto(5, "assets/produto5.jpg", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 12, 10, 10, 1),
-    //   new Produto(6, "assets/saco-de-gelo-1kg.png", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 10, 8, 8, 1),
-    //   new Produto(7, "assets/formasdegelo.jpg", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 15, 10, 10, 1),
-    //   new Produto(8, "assets/caixa-de-isopor.png", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 24, 23, 23, 1),
-    //   new Produto(9, "assets/pinguin1.png", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 1350, 1000, 1000, 1),
-    //   new Produto(10, "assets/Olaf.jpg", "Gelo Artificial Reutilizável Pote Com 20 Unidades Bolinha", "", 800, 500, 500, 1),)
+  salvarProduto() {
+    let count = 0
+    let produtos: produtoAPI[] = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    if (produtos != null) {
+      for (let i = 0; i < produtos.length; i++) {
+        if (produtos[i].name == this.produtoTela.name)
+          count++
+      }
+    }
+    if (count == 0) {
+      this.produtoLocal.push(this.produtoTela)
+      let produto_json = JSON.stringify(this.produtoLocal)
+      localStorage.setItem("produtoCarrinho", produto_json)
+    }
   }
 
 }
