@@ -52,7 +52,6 @@ export class CarrinhoComponent implements OnInit {
     this.subTotal -= (item.produto.vlProductDiscount * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
     this.storage.salvarCarrinho(this.carrinho);
-
     }
 
   buscarProduto(){

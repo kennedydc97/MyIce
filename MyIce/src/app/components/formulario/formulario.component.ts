@@ -91,6 +91,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 // import { Usuario } from './formu';
 import { FormularioNovoUsuario } from 'src/app/formularioNovoUsuario';
 import { ValidacoesFormulario } from 'src/app/validacoesFormulario';
+import { Cadastro } from 'src/app/models/Cadastro';
 // import { Formulario } from 'src/app/models/Formulario';
 
 
@@ -104,8 +105,35 @@ export class FormularioComponent implements OnInit {
   // E ele precisa ser do tipo FormGroup
   formularioDeUsuario: FormGroup;
 
+  formCadastro: FormGroup;
+
   // Via DI, nós obtemos o FormBuilder.
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.formularioDeUsuario = this.createForm(new Cadastro())
+   }
+
+  private createForm(c: Cadastro): FormGroup{
+    return new FormGroup({
+      nome: new FormControl(c.name),
+      nascimento: new FormControl(c.nasc),
+      cpf: new FormControl(c.cpf),
+      tel: new FormControl(c.tel),
+      email: new FormControl(c.email),
+      senha: new FormControl(c.senha),
+      confirmarSenha: new FormControl(c.confirmarSenha),
+      cep: new FormControl(c.cep),
+      endereco: new FormControl(c.endereco),
+      nroEndereco: new FormControl(c.numeroCasa),
+      complemento: new FormControl(c.complementoCasa),
+      bairro: new FormControl(c.bairro),
+      cidade: new FormControl(c.cidade),
+      estado: new FormControl(c.estado)
+    });
+  }
+
+  enviarCadastro(){
+    console.log(this.formularioDeUsuario)
+  }
 
   ngOnInit(): void {
     this.criarFormularioDeUsuario();
