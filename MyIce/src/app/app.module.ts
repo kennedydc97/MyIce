@@ -49,7 +49,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
