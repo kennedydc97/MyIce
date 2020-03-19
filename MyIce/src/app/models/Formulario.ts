@@ -7,5 +7,10 @@ export class Formulario {
         public bairro?: string,
         public cidade?: string,
         public estado?: string,
+        public cpf?: number,
+        public nome?: string,
+        public email?: string,
+        public tel?: number,
+        public senha?: number,
         ) {}
 }

@@ -1,4 +1,5 @@
 import { Address } from './address';
+import { Formulario } from './Formulario';
 
 
 export class Validar {
@@ -34,6 +35,16 @@ export class Validar {
             }
             return false;
         }
+
+
+// ---Verificar endereço Formulario---
+        verificarEnderecoForm(formulario: Formulario) {
+            if (formulario.bairro.replace(/\ /g, '').length < 10 || formulario.CEPUsuario.length != 8 || formulario.cidade.replace(/\ /g, '').length < 10 ||
+                (formulario.numeroEndereco == undefined) || formulario.enderecoUsuario.replace(/\ /g, '').length < 6 || formulario.estado == "") {
+                return true;
+            }
+            return false;
+        }
     
         verificarDadosPagamento(pagamento) {
             if (pagamento.numero.length == 16 && (pagamento.validade != null &&
@@ -64,4 +75,5 @@ export class Validar {
             if (resto != parseInt(cpf.substring(10, 11))) return false;
             return true;
         }
+        
 }
