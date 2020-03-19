@@ -14,9 +14,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                        <s>de: {{produtoTela.vlProductFull}}</s>
+                        <s>de: {{produtoTela.vlProductFull.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
                         <br>
-                        <b id="preco">por: {{produtoTela.vlProductDiscount}}</b>
+                        <b id="preco">por: {{produtoTela.vlProductDiscount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
                     </p>
                 </div>
                 <div class="col-lg-6 d-flex">
