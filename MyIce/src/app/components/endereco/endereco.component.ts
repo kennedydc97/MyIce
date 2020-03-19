@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from "@angular/forms";
+import { FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import { Entrega } from 'src/app/models/Entrega';
 import { Address } from 'src/app/models/Address';
 import { CepService } from 'src/app/services/cep.service';
@@ -10,10 +10,11 @@ import { CepService } from 'src/app/services/cep.service';
   styleUrls: ['./endereco.component.css']
 })
 export class EnderecoComponent implements OnInit {
+  conversaoEntrega;
+  valoresForm;
 
     
-    constructor(private cepService: CepService) {
-      this.formEntrega = this.createForm(new Entrega());
+    constructor(private cepService: CepService, private fb: FormBuilder) {
      }
   
     address: Address = new Address("","","","","","")
@@ -21,17 +22,30 @@ export class EnderecoComponent implements OnInit {
     formEntrega: FormGroup
   
   
-    private createForm(entrega: Entrega) {
-      return new FormGroup({
-        cod: new FormControl(entrega.codEntrega),
-        cep: new FormControl(entrega.CEPUsuario),
-        endereco: new FormControl(entrega.enderecoUsuario),
-        nroEndereco: new FormControl(entrega.numeroEndereco),
-        complemento: new FormControl(entrega.complementoEndereco),
-        bairro: new FormControl(entrega.bairro),
-        cidade: new FormControl(entrega.cidade),
-        estado: new FormControl(entrega.estado),
-      })
+    private createForm(address: Address):FormGroup{
+      return this.fb.group({
+        cep:new FormControl("",
+          Validators.compose([
+              Validators.required,
+              Validators.minLength(8),
+              Validators.maxLength(8)]
+          )
+        ),
+        endereco:new FormControl("", 
+          Validators.compose([Validators.required])),
+        bairro:new FormControl("",
+          Validators.compose([Validators.required])),
+          nroEndereco:new FormControl("",
+          Validators.compose([Validators.required])),
+        complemento:new FormControl(""),
+        estado:new FormControl("",
+          Validators.compose([
+            Validators.required
+
+          ])),
+        cidade:new FormControl("",
+          Validators.compose([Validators.required]))
+      });
     }
   
   
@@ -49,6 +63,14 @@ export class EnderecoComponent implements OnInit {
     cep = [ /[0-9]/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/ ]
 
     ngOnInit(): void {
+      this.formEntrega = this.createForm(this.address);
+
+    }
+
+    
+    envioEntrega() {
+      this.conversaoEntrega = JSON.stringify(this.valoresForm);
+      localStorage.setItem('Entrega', this.conversaoEntrega);
     }
   
     }

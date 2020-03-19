@@ -16,8 +16,9 @@ export class CheckoutComponent implements OnInit {
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
-  valoresForm
-  conversao
+  valoresForm;
+  conversao;
+
   validar: Validar;
 
   formPagamento : FormGroup;
