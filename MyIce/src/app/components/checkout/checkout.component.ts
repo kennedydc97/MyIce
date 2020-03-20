@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { StorageService } from 'src/app/services/storage.service'
 import { Carrinho } from 'src/app/models/Carrinho';
-import { debounceTime } from 'rxjs/operators';
 import { Validar } from 'src/app/models/Validar'
 import { Pagamento } from 'src/app/models/Pagamento';
+import { ClienteService } from 'src/app/services/cliente.service';
+
 
 
 @Component({
@@ -16,61 +17,37 @@ export class CheckoutComponent implements OnInit {
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
-  valoresForm;
-  conversao;
+
+  enderecos;
 
   validar: Validar = new Validar ()
   produtosCarrinho = []
-  formPagamento: FormGroup;
 
 
-  constructor(private storage: StorageService, private fb: FormBuilder) {
+  constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService) {
 
     this.carrinho = storage.recuperarCarrinho()
     console.log(storage.recuperarCarrinho());
 
+
+    this.cliente.buscarEndereco(1).subscribe(
+      dados => {
+        this.enderecos = dados
   }
 
 
-  private createForm(): FormGroup {
-    return this.fb.group({
-      numero: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(16),
-        Validators.maxLength(16)
-      ])),
-      vencimento: new FormControl('', Validators.compose([Validators.required
-      ])),
-      cvv: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(3)
-      ])),
-      nomeTitular: new FormControl('',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(100)
-        ])),
-      cpf: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.maxLength(11),
-        Validators.minLength(11),
-        Validar.validarCpf
-      ]))
-
-    });
-
-
   }
+ 
 
-  buscarProduto(){
-    let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
-    for(let i = 0; i < produtos.length; i++){
-      this.produtosCarrinho.push(produtos[i])
-    }
-    return produtos == null ? [] : produtos.produto
-  }
+
+
+  // buscarProduto(){
+  //   let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
+  //   for(let i = 0; i < produtos.length; i++){
+  //     this.produtosCarrinho.push(produtos[i])
+  //   }
+  //   return produtos == null ? [] : produtos.produto
+  // }
   
 
   // cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
@@ -78,37 +55,12 @@ export class CheckoutComponent implements OnInit {
   // cvv = [/[0-9]/, /\d/, /\d/]
 
 
-permitirNumeros(evento:any){
-  this.validar.cancelarLetras(evento);
-}
-
-
-  get nome() {
-    return this.formPagamento.get('nomeTitular');
-  }
-
-  get cpf() {
-    return this.formPagamento.get('cpf');
-  }
-
-  compraRealizada() {
-    this.conversao = JSON.stringify(this.valoresForm);
-    localStorage.setItem('Pagamento', this.conversao);
-  }
-
 
 
 
   ngOnInit(): void {
 
-    this.formPagamento = this.createForm();
 
-    console.log(this.valoresForm);
-    this.formPagamento.valueChanges.pipe(
-      debounceTime(1000)).subscribe(res => {
-        console.log(res);
-        this.valoresForm = res;
-      });
   }
 
 

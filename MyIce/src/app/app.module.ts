@@ -22,6 +22,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     AdicionarProdutosComponent,
     CarrinhoComponent,
     EnderecoComponent,
+    PagamentoComponent,
   ],
   imports: [
     BrowserModule,
