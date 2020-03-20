@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input class="form-control" type="text" id="cpf" name="cpf" maxlength="11"
+                <input class="form-control" type="text" id="cpf" name="cpf"
                     placeholder="Digite seu CPF" formControlName="cpf" maxlength="11">
             
                     <div *ngIf="!cpf.pristine && cpf.errors">
@@ -115,34 +115,36 @@
                 <div class="form-group">
                     <label for="cep">CEP</label>
                     <input class="form-control" type="text" id="cep"  formControlName="cep"
-                        placeholder="Digite o CEP"  (blur)="pegarCep()" maxlength="8" required>
-                        
+                        placeholder="Digite o CEP" maxlength="8" required>
+                        <!-- (blur)="pegarCep()" -->
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
                     <input class="form-control" type="text" id="endereco" formControlName="endereco"
-                        placeholder="Digite o endereço" required>
+                        placeholder="Digite o endereço" required maxlength="80">
                 </div>
                 <div class="form-group">
-                    <label for="numeroEnderecoUsuario">Número</label>
-                    <input class="form-control" type="text" id="numeroEnderecoUsuario" formControlName="nroEndereco"
-                        placeholder="Digite o numero" required></div>
+                    <label for="nroEndereco">Número</label>
+                    <input class="form-control" type="text" id="nroEndereco" formControlName="nroEndereco"
+                        placeholder="Digite o numero" required maxlength="5">
+                      
+                      </div>
 
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
                     <input class="form-control" type="text" id="complemento" formControlName="complemento"
-                        placeholder="Digite o complemento">
+                        placeholder="Digite o complemento" maxlength="80">
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro</label>
                     <input class="form-control" type="text" id="bairro" formControlName="bairro"
-                        placeholder="Digite o bairro" required>
+                        placeholder="Digite o bairro" required maxlength="30">
                 </div>
                 <div class="form-group row">
                     <div class="col-9">
                         <label for="cidade">Cidade</label>
                         <input class="form-control" type="text" id="cidade" formControlName="cidade"
-                            placeholder="Digite a cidade" required>
+                            placeholder="Digite a cidade" required maxlength="30">
 
                     </div>
                     <div class="form-group col-md-3">
@@ -184,7 +186,7 @@
 
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary btn-lg" type="submit" data-toggle="modal"
-                     [disabled]="!formularioDeUsuario.valid">Salvar</button>
+                    data-target="#cadastrofinalizado" [disabled]="!formularioDeUsuario.valid">Salvar</button>
             </div>
         </div>
 

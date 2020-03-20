@@ -1,6 +1,7 @@
 
 import { AbstractControl } from '../../node_modules/@angular/forms';
 
+
 export class ValidacoesFormulario {
   static ValidaCpf(controle: AbstractControl) {
     const cpf = controle.value;
@@ -48,6 +49,8 @@ export class ValidacoesFormulario {
     return { cpfInvalido: true };
   }
 
+  
+
   static MaiorQue18Anos(controle: AbstractControl) {
     const nascimento = controle.value;
     const [ano, mes, dia] = nascimento.split('-');
@@ -69,4 +72,7 @@ export class ValidacoesFormulario {
 
     controle.get('confirmarSenha').setErrors({ senhasNaoCoincidem: true });
   }
+
+
+  
 }
