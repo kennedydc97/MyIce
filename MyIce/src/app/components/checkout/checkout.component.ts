@@ -35,9 +35,11 @@ export class CheckoutComponent implements OnInit {
 
     console.log(storage.recuperarCarrinho());
 
+
+    //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
     // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
-    //   this.carrinho.forEach(item => {
-    //     this.total += (item.produto.vlProductDiscount * item.qtd);
+      this.carrinho.forEach(item => {
+        this.total += (item.produto.vlProductDiscount * item.qtd);
 
         this.cliente.buscarEndereco(1).subscribe(
           dados => {
@@ -48,7 +50,7 @@ export class CheckoutComponent implements OnInit {
             }
           }
         );
-  //     });
+      });
   //   } else {
   //   //   // this.route.navigate(["/home"])
   //   }
