@@ -35,27 +35,26 @@ export class CheckoutComponent implements OnInit {
 
     console.log(storage.recuperarCarrinho());
 
-    if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
-      this.carrinho.forEach(item => {
-        this.total += (item.produto.vlProductDiscount * item.qtd);
+    // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
+    //   this.carrinho.forEach(item => {
+    //     this.total += (item.produto.vlProductDiscount * item.qtd);
 
-        this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
+        this.cliente.buscarEndereco(1).subscribe(
           dados => {
             this.enderecos = dados
-            console.log(this.cliente)
-
+            console.log(this.enderecos)
             if (this.enderecos.length > 0) {
               this.principalEndereco = this.enderecos[0];
             }
           }
         );
-      });
-    } else {
-    //   // this.route.navigate(["/home"])
-    }
-    this.enderecos = [];
+  //     });
+  //   } else {
+  //   //   // this.route.navigate(["/home"])
+  //   }
+  //   this.enderecos = [];
 
-  }
+  // }
   
 
 
@@ -77,7 +76,7 @@ export class CheckoutComponent implements OnInit {
   // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
   // cvv = [/[0-9]/, /\d/, /\d/]
 
-
+        }
     
   
 
@@ -89,58 +88,3 @@ export class CheckoutComponent implements OnInit {
 
 }
 
-  
-//   validarPagamento(): boolean {
-//     return this.validar.verificaPagamento(this.formPagamento.value);
-//   }
-// }
-
-
-
-
-//   validarPagamento(): boolean {
-//     return this.validar.verificarDadosPagamento(this.formPagamento.value);
-//   }
-// }
-// constructor(private cepService: CepService) {
-  //   this.formEntrega = this.createForm(new Entrega());
-  //  }
-
-  // address: Address = new Address("","","","","","")
-
-  // formEntrega: FormGroup
-
-  // private createForm(entrega: Entrega) {
-  //   return new FormGroup({
-  //     cod: new FormControl(entrega.codEntrega),
-  //     cep: new FormControl(entrega.CEPUsuario),
-  //     endereco: new FormControl(entrega.enderecoUsuario),
-  //     nroEndereco: new FormControl(entrega.numeroEndereco),
-  //     complemento: new FormControl(entrega.complementoEndereco),
-  //     bairro: new FormControl(entrega.bairro),
-  //     cidade: new FormControl(entrega.cidade),
-  //     estado: new FormControl(entrega.estado),
-  //   })
-  // }
-
-
-
-  // pegarCep(){
-  //   this.cepService.getCep(this.formEntrega.value).subscribe((data) => {
-  //     this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-  //     this.formEntrega.controls['endereco'].patchValue(this.address.endereco);
-  //     this.formEntrega.controls['bairro'].patchValue(this.address.bairro);
-  //     this.formEntrega.controls['estado'].patchValue(this.address.estado);
-  //     this.formEntrega.controls['cidade'].patchValue(this.address.cidade);
-  //   })
-  // }
-
-  // private createForm(pagamento: Pagamento): FormGroup {
-  //   return new FormGroup({
-  //     numero: new FormControl(pagamento.numero),
-  //     vencimento: new FormControl(pagamento.vencimento),
-  //     cvv: new FormControl(pagamento.cvv),
-  //     nomeTitular: new FormControl(pagamento.nomeTitular),
-  //     cpf: new FormControl(pagamento.cpf)
-  //   })
-  // }

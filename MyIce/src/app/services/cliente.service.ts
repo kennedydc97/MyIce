@@ -15,9 +15,9 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   public buscarEndereco(id){
-    let url = this.http.get<any>("http://localhost:8080/ecommerce/find-address/" + id)
+    let url = this.http.get<any>("http://localhost:8080/ecommerce/address/" + id)
     return url.pipe(map(
-      enderecos => enderecos
+      address => address
     ))
   }
 }
