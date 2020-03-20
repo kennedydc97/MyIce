@@ -1,5 +1,6 @@
 package br.com.rd.ecommerce.Controller;
 
+import br.com.rd.ecommerce.Model.Entity.Address;
 import br.com.rd.ecommerce.Model.Entity.Client;
 import br.com.rd.ecommerce.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class ClientController {
 
     @GetMapping("/find-client/list")
     public List<Client> find(){ return clientRepository.findAll();  }
+
+
 
     @DeleteMapping("/delete-client/{id_client}")
     public void deleteById(@PathVariable("id_client") Long idOfClient) {

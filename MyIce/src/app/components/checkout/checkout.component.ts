@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
   subTotal: number = 0;
   total: number = 0;
 
-  principalEndereco;
+  principalEndereco = null;
   enderecos;
   usuario;
 
@@ -42,7 +42,8 @@ export class CheckoutComponent implements OnInit {
         this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
           dados => {
             this.enderecos = dados
-    
+            console.log(this.cliente)
+
             if (this.enderecos.length > 0) {
               this.principalEndereco = this.enderecos[0];
             }
@@ -50,7 +51,7 @@ export class CheckoutComponent implements OnInit {
         );
       });
     } else {
-      // this.route.navigate(["/home"])
+    //   // this.route.navigate(["/home"])
     }
     this.enderecos = [];
 
@@ -77,8 +78,8 @@ export class CheckoutComponent implements OnInit {
   // cvv = [/[0-9]/, /\d/, /\d/]
 
 
-
-
+    
+  
 
   ngOnInit(): void {
 
