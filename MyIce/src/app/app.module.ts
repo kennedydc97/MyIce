@@ -20,7 +20,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
-import { EnderecoComponent } from './components/endereco/endereco.component';
+import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 

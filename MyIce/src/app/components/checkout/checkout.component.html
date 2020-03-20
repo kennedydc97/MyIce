@@ -8,15 +8,17 @@
       </header>
       <div class="p-2"></div>
 
-      <div class="card" style="width: 44rem;">
+
+      <app-endereco *ngIf="enderecos.length != 0" [endereco]="principalEndereco"></app-endereco>
+      <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3">
+      <!-- <div class="card" style="width: 44rem;">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
           <p class="card-text">
-            <dt class="ng-binding ng-scope"></dt>
-            <dd class="ng-binding">{{address.address}}, {{address.numero}} - {{address.bairro}}</dd>
-            <dd class="ng-binding">{{address.cidade}}, {{address.estado}}</dd>
-            <dd class="ng-binding">CEP: {{address.cep}}</dd>
-          </p>
+            <p class="ng-binding ng-scope"></p>
+            <p>{{endereco.endereco}}, {{endereco.numero}} - {{endereco.bairro}}</p>
+            <p>{{endereco.cidade}}, {{enderecos.estado}}</p>
+            <p>CEP: {{enderecos.cep}}</p>
           <a class="btn btn-primary" href="#" role="button" class="btn btn-primary" type="button" data-toggle="modal"
             data-target="#alterarEndereco" class="card-link">Selecionar outro endereço</a>
         </div>
@@ -68,7 +70,7 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
 
       </div>
       <header class="tituloProduto"> CARRINHO

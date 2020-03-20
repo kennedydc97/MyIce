@@ -5,6 +5,8 @@ import { Carrinho } from 'src/app/models/Carrinho';
 import { Validar } from 'src/app/models/Validar'
 import { Pagamento } from 'src/app/models/Pagamento';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Address} from 'src/app/models/Address'
+import { Router } from '@angular/router';
 
 
 
@@ -18,25 +20,45 @@ export class CheckoutComponent implements OnInit {
   subTotal: number = 0;
   total: number = 0;
 
+  principalEndereco;
   enderecos;
+  usuario;
 
   validar: Validar = new Validar ()
   produtosCarrinho = []
 
 
-  constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService) {
+  constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService, private route: Router) {
 
     this.carrinho = storage.recuperarCarrinho()
+    this.usuario = this.storage.recuperarCliente();
+
     console.log(storage.recuperarCarrinho());
 
+    if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
+      this.carrinho.forEach(item => {
+        this.total += (item.produto.vlProductDiscount * item.qtd);
 
-    this.cliente.buscarEndereco(1).subscribe(
-      dados => {
-        this.enderecos = dados
+        this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
+          dados => {
+            this.enderecos = dados
+    
+            if (this.enderecos.length > 0) {
+              this.principalEndereco = this.enderecos[0];
+            }
+          }
+        );
+      });
+    } else {
+      // this.route.navigate(["/home"])
+    }
+    this.enderecos = [];
+
   }
+  
 
 
-  }
+  
  
 
 
@@ -59,7 +81,6 @@ export class CheckoutComponent implements OnInit {
 
 
   ngOnInit(): void {
-
 
   }
 
