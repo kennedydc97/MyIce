@@ -13,7 +13,11 @@ export class ProdutosService {
     return this.http.get("http://localhost:8080/ecommerce/find-product/list")
   }
 
+  public getCategoria(){
+    return this.http.get("http://localhost:8080/ecommerce/find-group/list")
+  }
+
   public buscarProdutoId(id: number){
-    return this.http.get("http://localhost:8080/ecommerce/find-product/" + id);
+    return this.http.get("http://localhost:8080/ecommerce/product/findProductById/" + id);
   }
 }

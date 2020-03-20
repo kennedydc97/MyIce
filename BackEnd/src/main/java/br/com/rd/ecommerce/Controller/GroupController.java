@@ -1,6 +1,7 @@
 package br.com.rd.ecommerce.Controller;
 
 import br.com.rd.ecommerce.Model.Entity.Group;
+import br.com.rd.ecommerce.Model.Entity.Product;
 import br.com.rd.ecommerce.Repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,14 +22,9 @@ public class GroupController {
         return groupRepository.save(group);
     }
 
-    @GetMapping("/group/findById/{id_group}")
+    @GetMapping("/group/{id_group}")
     public Group findById(@PathVariable("id_group") Long idOfGroup){
         return groupRepository.findById(idOfGroup).get();
-    }
-
-    @GetMapping("/group")
-    public Group findGroupById(@PathParam("id") Long id){
-        return groupRepository.findById(id).get();
     }
 
     @DeleteMapping("/delete-group/{id_group}")

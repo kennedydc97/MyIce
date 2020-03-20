@@ -34,9 +34,9 @@ public class Product {
     @JoinColumn(name = "cd_group")
     private Group group;
 
-    @Column(name = "vl_product")
-    private BigDecimal vlProduct;
-
     @Column(name = "vl_product_full")
     private BigDecimal vlProductFull;
+
+    @Column(name = "vl_product_discount")
+    private BigDecimal vlProductDiscount;
 }

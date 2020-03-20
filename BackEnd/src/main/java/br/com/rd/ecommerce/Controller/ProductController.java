@@ -67,7 +67,7 @@ public class ProductController {
     public Product modify(@RequestBody Product product) {
         Product productEntity = productRepository.getOne(product.getIdProduct());
         productEntity.setDescription(product.getDescription());
-        productEntity.setVlProduct(product.getVlProduct());
+        productEntity.setVlProductDiscount(product.getVlProductDiscount());
         productEntity.setGroup(product.getGroup());
         return productRepository.save(productEntity);
     }

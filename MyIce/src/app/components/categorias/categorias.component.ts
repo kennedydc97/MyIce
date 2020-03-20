@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Categoria } from 'src/app/models/categorias';
+import { CategoriaAPI } from 'src/app/models/categoriaAPI';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-categorias',
@@ -11,13 +13,21 @@ export class CategoriasComponent implements OnInit {
   public categoria: Categoria[] = []
   @Output() categoriaClicada = new EventEmitter();
 
-  constructor() {
 
-    this.categoria.push(new Categoria(0, "Todos"))
-    this.categoria.push(new Categoria(1, "Gelos"));
-    this.categoria.push(new Categoria(2, "Gelos para medicação"));
-    this.categoria.push(new Categoria(3, "Gelos para lazer"));
+  categoriaAPI: CategoriaAPI;
+  erro: any;
 
+  getter() {
+    this.serviceProduto.getCategoria().subscribe(
+      (data: CategoriaAPI) => {
+        this.categoriaAPI = data;
+      }, (error: any) => {
+        console.error("ERROR", error)
+      })
+  }
+
+  constructor(private serviceProduto: ProdutosService) {
+    this.getter()
   }
 
   ngOnInit(): void {

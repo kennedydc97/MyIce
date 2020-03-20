@@ -7,6 +7,6 @@ export class produtoAPI{
         groupCode?: number,
         description?: string
     };
-    public vlProduct?: number;
     public vlProductFull?: number
+    public vlProductDiscount?: number;
 }
