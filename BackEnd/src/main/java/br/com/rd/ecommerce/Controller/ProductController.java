@@ -2,6 +2,7 @@ package br.com.rd.ecommerce.Controller;
 
 import br.com.rd.ecommerce.Model.Entity.Product;
 import br.com.rd.ecommerce.Repository.ProductRepository;
+import br.com.rd.ecommerce.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,10 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ProductService productService;
+
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/create-product")
@@ -56,6 +61,11 @@ public class ProductController {
         } else {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping("/produto/buscar/{descricao}")
+    public ResponseEntity buscarPorDescricao(@PathVariable("descricao") String descricao) {
+        return productService.buscarPorDescricao(descricao);
     }
 
     @DeleteMapping("/delete-product/{id_product}")
