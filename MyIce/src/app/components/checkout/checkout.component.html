@@ -8,10 +8,17 @@
       </header>
       <div class="p-2"></div>
 
-      <div class="card" style="width: 44rem;">
+
+      <app-endereco *ngIf="enderecos.length != 0" [endereco]="principalEndereco"></app-endereco>
+      <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3">
+      <!-- <div class="card" style="width: 44rem;">
         <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">Nome da Pessoa</h6>
-          <p class="card-text">Endereço da Pessoa</p>
+          <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
+          <p class="card-text">
+            <p class="ng-binding ng-scope"></p>
+            <p>{{endereco.endereco}}, {{endereco.numero}} - {{endereco.bairro}}</p>
+            <p>{{endereco.cidade}}, {{enderecos.estado}}</p>
+            <p>CEP: {{enderecos.cep}}</p>
           <a class="btn btn-primary" href="#" role="button" class="btn btn-primary" type="button" data-toggle="modal"
             data-target="#alterarEndereco" class="card-link">Selecionar outro endereço</a>
         </div>
@@ -63,7 +70,7 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
 
       </div>
       <header class="tituloProduto"> CARRINHO
@@ -84,11 +91,9 @@
         </tr>
       </table>
       <div class="d-flex flex-row-reverse">
-        <h6 class="p-2 "><strong>Subtotal : R$ {{subTotal}},00</strong> </h6>
+        <div class="tituloTotal p-2">TOTAL : {{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}} </div> 
       </div>
-      <div class="d-flex flex-row-reverse">
-        <h6 class="p-2"><strong>Total: </strong></h6>
-      </div>
+
 
 
       <div class="p-2"></div>
@@ -107,86 +112,4 @@
         </div>
         <div class="p-2">
         </div>
-
-
-
-
-
-
-        <form [formGroup]="formPagamento" (ngSubmit)="compraRealizada()">
-
-          <header class="tituloPagamento"> PAGAMENTO
-          </header>
-          <div class="mt-4">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="numeroCartao">Número do Cartão</label>
-                <input class="form-control" type="text" (keypress)="permitirNumeros($event)" formControlName="numero"
-                  placeholder="Numero do cartão" maxlength="16">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="DtaValCartao">Data de Validade</label>
-                <input class="form-control" type="month" formControlName="vencimento" placeholder="Data de validade"
-                  required>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="segurCartao">CVV</label>
-                <input class="form-control" type="text" (keypress)="permitirNumeros($event)"
-                  formControlName="cvv" maxlength="3" placeholder="CVV">
-              </div>
-
-              <div class="form-group  col-md-7">
-                <label for="nomeCartao">Nome do Titular</label>
-                <input class="form-control" type="text" id="nomeCartao" formControlName="nomeTitular"
-                  placeholder="Nome do titular">
-                <div *ngIf="!nome.pristine && nome.errors">
-                  <p class="alert alert-danger" *ngIf="nome.errors.required">
-                    Nome é obrigatório.
-                  </p>
-                  <p class="alert alert-danger" *ngIf="nome.errors.minlength">
-                    Nome deve ter no mínimo 3 caracters.
-                  </p>
-
-                </div>
-              </div>
-              <div class="form-group  col-md-5">
-                <label for="cpfTituCartao">CPF do Titular</label>
-                <input (keypress)="permitirNumeros($event)" class="form-control" type="text" formControlName="cpf" placeholder="Digite o CPF"
-                  ng-model="CPFtitular" maxlength="11"  >
-                <div *ngIf="!cpf.pristine && cpf.errors">
-                  <p class="alert alert-danger" *ngIf="cpf.errors.invalidCpf">
-                    CPF inválido.
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="p-4"></div>
-          <div class="d-flex justify-content-center">
-            <button class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#compraFinalizada"
-              [disabled]="!formPagamento.valid">Finalize sua compra</button> </div>
-          <div class="p-2"></div>
-          <div id="compraFinalizada" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Compra realizada!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="ml-6">
-                    <p>Seu pedido está sendo processado. </p>
-                    Numero:
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#compraFinalizada"
-                    type="button" routerLink="/">Confirmado!</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <app-pagamento></app-pagamento>

@@ -23,5 +23,8 @@ public class ClientController {
     @GetMapping("/find-client/list")
     public List<Client> find(){ return clientRepository.findAll();  }
 
-
+    @DeleteMapping("/delete-client/{id_client}")
+    public void deleteById(@PathVariable("id_client") Long idOfClient) {
+        clientRepository.deleteById(idOfClient);
+    }
 }

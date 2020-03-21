@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020-03-18 16:47:44 jdbc[45]: null
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-200]
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -23,6 +24,9 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 18 more
 2020-03-18 20:43:37 jdbc[126]: null
+=======
+2020-03-20 12:15:55 jdbc[35]: null
+>>>>>>> f7d8ca50958f3886a9d40b6ccf4d8b2fab821437
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-200]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)

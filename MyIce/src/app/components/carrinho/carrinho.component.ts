@@ -15,13 +15,15 @@ export class CarrinhoComponent implements OnInit {
   total: number = 0;
   produtosCarrinho = []
 
-  constructor(private storage: StorageService) { 
+  constructor( private storage: StorageService ) { 
     this.buscarProduto()
     
     for(let i = 0; i < this.produtosCarrinho.length; i++){
       this.carrinho.push(new Carrinho(this.produtosCarrinho[i]))
     }
     
+
+
     this.carrinho.forEach(item =>{
       this.subTotal += item.produto.vlProductDiscount * item.qtd;
     })
@@ -42,7 +44,7 @@ export class CarrinhoComponent implements OnInit {
     if(carrinho.qtd > 1){
       carrinho.qtd--;      
       this.subTotal -= carrinho.produto.vlProductDiscount
-      this.storage.salvarCarrinho(this.carrinho);  
+      this.storage.salvarCarrinho(this.carrinho);
     }
 
   
@@ -61,5 +63,5 @@ export class CarrinhoComponent implements OnInit {
     }
     return produtos == null ? [] : produtos.produto
   }
-
 }
+

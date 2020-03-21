@@ -27,6 +27,4 @@ public class Suppliers_Product {
 
     @Column(name = "nr_quantity")
     private Integer quantity;
-
-
 }
