@@ -7,9 +7,9 @@
             <div class="segunda-coluna">
                 <h2 class="title-login title-segundario">Bem-vindo</h2>
                 <p class="descricao descricao-secundaria">Entre com sua conta</p>
-                <form name="formlogin" class="form">
+                <form name="formlogin" class="form" [formGroup] = "formularioLogin" (ngSubmit)="onSubmit()">
                     <label class="label-input">
-                        <input class="email" type="email" name="email" placeholder="Email" maxlength="70" required>
+                        <input class="email" type="email" name="email" placeholder="Email" maxlength="60" required>
                     </label>
                     <label class="label-input">
                         <input id="senha" type="password" name="password" placeholder="Senha" maxlength="20" required>
