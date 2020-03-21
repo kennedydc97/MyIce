@@ -92,8 +92,10 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 import { FormularioNovoUsuario } from 'src/app/formularioNovoUsuario';
 import { ValidacoesFormulario } from 'src/app/validacoesFormulario';
 import { Cadastro } from 'src/app/models/Cadastro';
+// import * as cep from 'cep-promise'
 // import { Formulario } from 'src/app/models/Formulario';
-
+// cep('05010000')
+  // .then(console.log)
 
 @Component({
   selector: 'app-formulario',
@@ -139,6 +141,9 @@ export class FormularioComponent implements OnInit {
     this.criarFormularioDeUsuario();
   }
 
+
+ 
+
   enviarDados() {
     const dadosFormulario = this.formularioDeUsuario.value;
 
@@ -147,7 +152,15 @@ export class FormularioComponent implements OnInit {
       dadosFormulario.email,
       dadosFormulario.cpf,
       dadosFormulario.nascimento,
-      dadosFormulario.senha
+      dadosFormulario.senha,
+      dadosFormulario.tel,
+      dadosFormulario.cep,
+      dadosFormulario.endereco,
+      dadosFormulario.nroEndereco,
+      dadosFormulario.complemento,
+      dadosFormulario.bairro,
+      dadosFormulario.cidade,
+      dadosFormulario.estado,
     );
 
     // alert(`O usuário ${usuario.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(usuario)}`);
@@ -183,8 +196,60 @@ export class FormularioComponent implements OnInit {
             Validators.maxLength(12)
           ])
         ],
-        confirmarSenha: ['', Validators.compose([Validators.required])]
+        confirmarSenha: ['', Validators.compose([Validators.required])],
+        cep: [
+          '',
+          Validators.compose([
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(8)
+          ])
+        ],
+        cidade: [
+          '',
+          Validators.compose([
+            Validators.required,
+
+          ])
+        ],
+        estado: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ])
+        ],
+        bairro: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ])
+        ],
+        complemento: [
+          '',
+          Validators.compose([
+          ])
+        ],
+        endereco: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ])
+        ],
+        nroEndereco: [
+          '',
+          Validators.compose([
+            Validators.required,
+            
+          ])
+        ],
+        tel: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ])
+        ],
       },
+      
       {
         validator: ValidacoesFormulario.SenhasCombinam
       }
@@ -223,33 +288,36 @@ export class FormularioComponent implements OnInit {
   //   this.formularioDeUsuario.reset(new FormGroup());
   // }
 
-  
-//   constructor(private cepService: CepService) {
-//     this.formFormulario = this.createForm(new Formulario());
 
-//   }
+  //   constructor(private cepService: CepService) {
+  //     this.formFormulario = this.createForm(new Formulario());
 
-//   address: Address = new Address("", "", "", "", "", "")
+  //   }
+
+  //   address: Address = new Address("", "", "", "", "", "")
 
 
-//   formFormulario: FormGroup;
-// ''
-//   private createForm(formulario: Formulario) {
-//     return new FormGroup({
-//       cod: new FormControl(formulario.codFormulario),
-//       cep: new FormControl(formulario.CEPUsuario),
-//       endereco: new FormControl(formulario.enderecoUsuario),
-//       nroEndereco: new FormControl(formulario.numeroEndereco),
-//       complemento: new FormControl(formulario.complementoEndereco),
-//       bairro: new FormControl(formulario.bairro),
-//       cidade: new FormControl(formulario.cidade),
-//       estado: new FormControl(formulario.estado),
-//       cpf: new FormControl(formulario.cpf),
-//       nome: new FormControl(formulario.nome),
-//       tel: new FormControl(formulario.tel),
-//       email: new FormControl(formulario.email),
-//       senha: new FormControl(formulario.senha),
+  //   formFormulario: FormGroup;
+  // ''
+  //   private createForm(formulario: Formulario) {
+  //     return new FormGroup({
+  //       cod: new FormControl(formulario.codFormulario),
+  //       cep: new FormControl(formulario.CEPUsuario),
+  //       endereco: new FormControl(formulario.enderecoUsuario),
+  //       nroEndereco: new FormControl(formulario.numeroEndereco),
+  //       complemento: new FormControl(formulario.complementoEndereco),
+  //       bairro: new FormControl(formulario.bairro),
+  //       cidade: new FormControl(formulario.cidade),
+  //       estado: new FormControl(formulario.estado),
+  //       cpf: new FormControl(formulario.cpf),
+  //       nome: new FormControl(formulario.nome),
+  //       tel: new FormControl(formulario.tel),
+  //       email: new FormControl(formulario.email),
+  //       senha: new FormControl(formulario.senha),
 
-//     })
-//   }
+  //     })
+  //   }
+
+
+
 }
