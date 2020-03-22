@@ -22,6 +22,7 @@ import { AdicionarProdutosComponent } from './components/adicionar-produtos/adic
 import { HttpClientModule } from "@angular/common/http";
 import { PagamentoComponent } from './components/checkout/pagamento/pagamento.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
     AdicionarProdutosComponent,
     PagamentoComponent,
     CarrinhoComponent,
+    PaginaDoClienteComponent,
   ],
   imports: [
     BrowserModule,

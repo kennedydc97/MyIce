@@ -1,3 +1,4 @@
+import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProdutoSozinhoComponent } from './components/produto-sozinho/produto-sozinho.component';
@@ -50,6 +51,10 @@ export const routes: Routes = [
   }, {
     path: 'cadastro',
     component: CadastroComponent
+  },
+  {
+    path: 'pagina-do-cliente',
+    component:PaginaDoClienteComponent
   }
 ];
 
