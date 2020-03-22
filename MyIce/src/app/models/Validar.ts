@@ -1,67 +1,74 @@
 import { Address } from './address';
+// import { Formulario } from './Formulario';
+import { FormControl} from '@angular/forms';
+import { Pagamento } from 'src/app/models/Pagamento'
 
 
 export class Validar {
-        cancelarLetras(event: any) {
-            let evento = event;
-            let key = evento.keyCode || evento.which;
-            key = String.fromCharCode(key);
-            //let regex = /^[0-9.,]+$/;
-            let regex = /^[0-9]+$/;
-            if (!regex.test(key)) {
-                evento.returnValue = false;
-                if (evento.preventDefault) evento.preventDefault();
-            }
+
+    cancelarLetras(event: any) {
+        const pattern = /[0-9]/;
+        const inputChar = String.fromCharCode(event.charCode);
+   
+        if (!pattern.test(inputChar)) {    
+            // invalid character, prevent input
+            event.preventDefault();
         }
-    
-        cancelarNumeros(event: any) {
-            let evento = event;
-            let key = evento.keyCode || evento.which;
-            key = String.fromCharCode(key);
-            //let regex = /^[0-9.,]+$/;
-            let regex = /^[a-z A-Z]+$/;
-            if (!regex.test(key)) {
-                evento.returnValue = false;
-                if (evento.preventDefault) evento.preventDefault();
-            }
+   }
+
+
+
+    static validarCpf(controle: FormControl){
+
+        const cpf: string = controle.value;
+
+        let soma:number = 0;
+        let resto:number = 0;
+        if(cpf.length == 0){
+            return null;
         }
-    
-        verificarEndereco(address: Address) {
-            if (address.bairro.replace(/\ /g, '').length < 10 || address.cep.length != 8 || address.cidade.replace(/\ /g, '').length < 10 ||
-                ( address.numero == undefined) || address.endereco.replace(/\ /g, '').length < 6 ||
-                address.estado == "") {
-                return true;
-            }
-            return false;
+        if (cpf == "00000000000" ||
+            cpf == "11111111111" ||
+            cpf == "22222222222" ||
+            cpf == "33333333333" ||
+            cpf == "44444444444" ||
+            cpf == "55555555555" ||
+            cpf == "66666666666" ||
+            cpf == "77777777777" ||
+            cpf == "88888888888" ||
+            cpf == "99999999999"
+        ) {
+            return { invalidCpf: true};
         }
-    
-        verificarDadosPagamento(pagamento) {
-            if (pagamento.numero.length == 16 && (pagamento.validade != null &&
-                pagamento.validade.length != 0) && pagamento.cvv.length == 3 &&
-                pagamento.nomeTitular.replace(/\ /g, '').length > 8 && this.validarCpf(pagamento.cpf)){
-                    return true;
-            }
-            return false;
+        for (let i = 1; i <= 9; i++) {
+            soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
         }
-    
-        validarCpf(cpf) {
-            let soma;
-            let resto;
-            soma = 0;
-            if (cpf == "00000000000") return false;
-    
-            for (let i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
-            resto = (soma * 10) % 11;
-    
-            if ((resto == 10) || (resto == 11)) resto = 0;
-            if (resto != parseInt(cpf.substring(9, 10))) return false;
-    
-            soma = 0;
-            for (var i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
-            resto = (soma * 10) % 11;
-    
-            if ((resto == 10) || (resto == 11)) resto = 0;
-            if (resto != parseInt(cpf.substring(10, 11))) return false;
-            return true;
+        resto = (soma * 10) % 11;
+
+        if ((resto == 10) || (resto == 11)) {
+            resto = 0;
         }
-}
+        if (resto != parseInt(cpf.substring(9, 10))) {
+            return { invalidCpf: true};
+        }
+
+        soma = 0;
+
+        for (let i = 1; i <= 10; i++) {
+            soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+        }
+        resto = (soma * 10) % 11;
+
+        if ((resto == 10) || (resto == 11)) {
+            resto = 0;
+        }
+        if (resto != parseInt(cpf.substring(10, 11))) {
+            return { invalidCpf: true};
+        }
+        return null;
+
+
+    }
+
+
+    }

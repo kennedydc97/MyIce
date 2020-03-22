@@ -11,7 +11,11 @@
                                 ></div>
                         <div class="cart-sec">
                             <div class="cart-item cyc">
+<<<<<<< HEAD
                                 <img src={{item.produto.imagem}} class="img-responsive"></div>
+=======
+                                <img src={{item.produto.image}} class="img-responsive"></div>
+>>>>>>> a4af297c892a9b366d4305d7ea41a464d564ede3
                             <div class="cart-item-info">
                                 <h5><a class="item_nome" href="#">
                                         {{item.produto.nome}}</a>
@@ -32,7 +36,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 cart-total">
                 <div class="tituloResumo"> RESUMO DA COMPRA  </div>
                 <div class="card" style="width: 20rem;">
@@ -40,7 +43,8 @@
                         <div id="subtotal">
                             <li class="list-group-item"><strong> Subtotal </strong>
                                 <p> <span id="subtotalValor"> R$ {{subTotal}},00 </span></p>
-                            </li>                    
+                            </li>
+                            </div>                    
                         <li class="list-group-item"><strong> Total </strong> <span id="totalValor">R${{subTotal}},00 </span> </li>
                         <div class="d-flex flex-column bd-highlight mb-3">
                             <div class="p-2 bd-highlight"><button type="button" class="btn btn-primary btn-block"
@@ -49,3 +53,4 @@
                                     class="btn btn-outline-primary btn-block" routerLink="/lista-de-produtos"> Escolher mais
                                     produtos </button></div>
                         </div>
+

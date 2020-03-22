@@ -13,16 +13,22 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CardsProdutosComponent } from './components/cards-produtos/cards-produtos.component';
 import { HomeComponent } from './components/home/home.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
-import { ResumoCompraComponent } from './components/resumo-compra/resumo-compra.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
-import { PagamentoComponent } from './components/checkout/pagamento/pagamento.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+<<<<<<< HEAD
 import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
+=======
+import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
+import { TextMaskModule } from 'angular2-text-mask';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
+
+
+>>>>>>> a4af297c892a9b366d4305d7ea41a464d564ede3
 
 @NgModule({
   declarations: [
@@ -37,23 +43,27 @@ import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-
     CardsProdutosComponent,
     HomeComponent,
     SobreNosComponent,
-    ResumoCompraComponent,
     CheckoutComponent,
     CadastroComponent,
     FormularioComponent,
     AdicionarProdutosComponent,
-    PagamentoComponent,
     CarrinhoComponent,
+<<<<<<< HEAD
     PaginaDoClienteComponent,
+=======
+    EnderecoComponent,
+    PagamentoComponent,
+>>>>>>> a4af297c892a9b366d4305d7ea41a464d564ede3
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TextMaskModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

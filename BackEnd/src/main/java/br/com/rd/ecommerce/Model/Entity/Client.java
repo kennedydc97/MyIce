@@ -12,7 +12,9 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_client")
-public class Client {
+
+public class Client  {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +41,4 @@ public class Client {
     @Column(name = "ds_password")
     private String password;
 
-    @NotNull
-    @Column(name = "ds_address")
-    private String address;
 }
