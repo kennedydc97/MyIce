@@ -1,9 +1,43 @@
-<h2 class="conteudoPaginaDoCliente p-5">Minha conta</h2>
-<ul class="nav nav-tabs">
-    <li class="nav-item d-flex justify-content-center">
-      <a class="nav-link active" href="#">Minha conta</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Meus pedidos</a>
-    </li>
-  </ul>
+<h2 class="conteudoPaginaDoCliente p-3 d-flex justify-content-center">Minha conta</h2>
+
+<main class="col-md-4" style="margin-left: 50px;">
+  <header class="text-light p-2 margin-top:30 rounded" style="background-color: #6fb2ff;">
+    Dados Pessoais
+  </header>
+  <div class="p-2">
+    <br>
+    <div class="form-group">
+      <label for="nome">Nome Completo</label>
+      <input class="form-control" type="text" id="nome" name="nome" placeholder="nome automatico do cliente"
+        formControlName="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="nascimento">Nascimento: </label>
+      <input class="input-group" type="date" formControlName="nascimento">
+    </div>
+
+
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input class="form-control" type="text" id="cpf" name="cpf" placeholder="cpf automatico" formControlName="cpf"
+        maxlength="11">
+    </div>
+
+    <div class="form-group">
+      <label for="tel">Telefone</label>
+      <input class="form-control" type="tel" id="tel" name="tel" placeholder="telefone automatico" formControlName="tel"
+        maxlength="11">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" id="email" name="email" placeholder="email automatico"
+        formControlName="email" maxlength="30">
+    </div>
+  </div>
+</main>
+
+<main class="col-md-4" style="margin-right: 50px;">
+
+
+</main>
