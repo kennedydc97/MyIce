@@ -34,8 +34,8 @@ export class ListaDeProdutosComponent implements OnInit {
   }
 
   categoriaSelecionada(categoriaAPI: CategoriaAPI) {
-    if(categoriaAPI.groupCode != 1){
-      this.produtos = this.produtosExibidos.filter(produto => produto.group.groupCode == categoriaAPI.groupCode)
+    if(categoriaAPI.idCategoria != 1){
+      this.produtos = this.produtosExibidos.filter(produto => produto.group.idCategoria == categoriaAPI.idCategoria)
     }else{
       this.produtos = this.produtosExibidos
     }
@@ -55,7 +55,7 @@ export class ListaDeProdutosComponent implements OnInit {
     }else if(id == 2){
       for(let i = 0; i < this.produtos.length; i++){
         for(let x = 0; x < this.produtos.length; x++){
-          if(this.produtos[i].vlProductDiscount < this.produtos[x].vlProductDiscount){
+          if(this.produtos[i].precoDesconto < this.produtos[x].precoDesconto){
             let aux = this.produtos[i];
             this.produtos[i] = this.produtos[x];
             this.produtos[x] = aux;

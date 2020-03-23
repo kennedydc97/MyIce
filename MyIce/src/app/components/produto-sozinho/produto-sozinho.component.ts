@@ -39,7 +39,7 @@ export class ProdutoSozinhoComponent implements OnInit {
     let produtos: produtoAPI[] = JSON.parse(localStorage.getItem("produtoCarrinho"))
     if (produtos != null) {
       for (let i = 0; i < produtos.length; i++) {
-        if (produtos[i].name == this.produtoTela.name)
+        if (produtos[i].nome == this.produtoTela.nome)
           count++
       }
     }

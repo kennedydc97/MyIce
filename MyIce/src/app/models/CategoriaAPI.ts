@@ -1,4 +1,4 @@
 export class CategoriaAPI{
-    groupCode?: number;
-    description?: string;
+    idCategoria?: number;
+    descricao?: string;
 }

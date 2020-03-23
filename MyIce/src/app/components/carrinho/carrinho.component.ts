@@ -26,7 +26,7 @@ export class CarrinhoComponent implements OnInit {
 
 
     this.carrinho.forEach(item =>{
-      this.subTotal += item.produto.vlProductDiscount * item.qtd;
+      this.subTotal += item.produto.precoDesconto * item.qtd;
     })
     storage.salvarCarrinho(this.carrinho);
     console.log(storage.recuperarCarrinho());
@@ -37,7 +37,7 @@ export class CarrinhoComponent implements OnInit {
 
   aumentar(carrinho){
     carrinho.qtd++;
-    this.subTotal += carrinho.produto.vlProductDiscount
+    this.subTotal += carrinho.produto.precoDesconto
     this.storage.salvarCarrinho(this.carrinho);
 
   }
@@ -45,7 +45,7 @@ export class CarrinhoComponent implements OnInit {
   diminuir(carrinho){
     if(carrinho.qtd > 1){
       carrinho.qtd--;      
-      this.subTotal -= carrinho.produto.vlProductDiscount
+      this.subTotal -= carrinho.produto.precoDesconto
       this.storage.salvarCarrinho(this.carrinho);
 
     }
@@ -54,7 +54,7 @@ export class CarrinhoComponent implements OnInit {
   }
   excluirProduto(item){
     console.log(item)
-    this.subTotal -= (item.produto.vlProductDiscount * item.qtd)
+    this.subTotal -= (item.produto.precoDesconto * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
     this.storage.salvarCarrinho(this.carrinho);
 
