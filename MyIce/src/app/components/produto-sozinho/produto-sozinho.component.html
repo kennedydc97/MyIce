@@ -4,19 +4,19 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-6">
-            <img [src]="produtoTela.image" width="60%" alt="">
+            <img src={{produtoTela.imagem}} width="60%" alt="">
         </div>
         <div class="col-lg-4">
-            <h4>{{produtoTela.name}}</h4>
-            <p>Código: {{produtoTela.idProduct}}</p>
+            <h4>{{produtoTela.nome}}</h4>
+            <p>Código: {{produtoTela.idProduto}}</p>
             <hr>
-            <p>{{produtoTela.description}}</p>
+            <p>{{produtoTela.descricao}}</p>
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                        <s>de: {{produtoTela.vlProductFull.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
+                        <s>de: {{produtoTela.precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
                         <br>
-                        <b id="preco">por: {{produtoTela.vlProductDiscount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
+                        <b id="preco">por: {{produtoTela.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
                     </p>
                 </div>
                 <div class="col-lg-6 d-flex">
