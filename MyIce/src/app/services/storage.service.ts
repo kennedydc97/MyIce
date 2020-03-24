@@ -19,6 +19,10 @@ export class StorageService {
   }
 
   removerCarrinho() {
+    localStorage.removeItem("produtoCarrinho");
+  }
+
+  removerCarrinho2() {
     localStorage.removeItem("carrinho");
   }
 

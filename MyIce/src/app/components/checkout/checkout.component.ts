@@ -33,6 +33,8 @@ export class CheckoutComponent implements OnInit {
     this.carrinho = storage.recuperarCarrinho()
     this.usuario = this.storage.recuperarCliente();
 
+
+
     console.log(storage.recuperarCarrinho());
 
 
