@@ -22,9 +22,7 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoId = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.service.buscarProdutoId(this.produtoId).subscribe(
-      produto => this.produtoTela = produto
-    )
+    this.service.buscarProdutoId(this.produtoId).subscribe()
   }
 
 }

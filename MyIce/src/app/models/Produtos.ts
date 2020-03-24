@@ -1,4 +1,5 @@
 export class Produto{
+  vlProductDiscount: number;
     constructor(
                 public id?:number, 
                 public imagem?: string,

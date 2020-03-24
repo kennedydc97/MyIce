@@ -1,3 +1,7 @@
 .conteudoPaginaDoCliente{
     margin: 100px;
 }
+.card-img-top{
+    margin: 0 auto;
+    width: 200px;
+}
