@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { StorageService } from './storage.service';
 import { map } from "rxjs/operators";
 import { Cadastro } from '../models/Cadastro';
+import { Login } from '../models/Login';
 
 
 const storage: StorageService = new StorageService();
@@ -18,13 +19,36 @@ export class ClienteService {
   cadastrarCliente(c: Cadastro){
     let cadastrarCliente = {
       cpf: c.cpf,
-      name: c.nome,
-      tel: c.tel,
+      nome: c.nome,
+      telefone: c.tel,
       email: c.email,
       password: c.senha
+      // enderecos: [{
+      //   endereco: c.endereco,
+      //   numero: c.numeroCasa,
+      //   cep: c.cep,
+      //   bairro: c.bairro,
+      //   complemento: c.complementoCasa,
+      //   cidade: c.cidade,
+      //   estado: c.estado,
+      //   cliente: c.idCadastro
+      // }]
     }
 
-    return this.http.post("http://localhost:8080/ecommerce/client", cadastrarCliente);
+    return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);
+  }
+
+  dado(login:Login){
+    return{
+      "email":login.email,
+      "password":login.password
+    }
+  }
+  fazerLogin(login:Login){
+    let comunicacao = this.dado(login)
+    let body:any
+    let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
+    return url.pipe(data=>data)
   }
 
   public buscarEndereco(id){
