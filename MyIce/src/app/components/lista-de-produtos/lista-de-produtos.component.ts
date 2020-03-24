@@ -71,5 +71,6 @@ export class ListaDeProdutosComponent implements OnInit {
   }
 
 ngOnInit(): void {
+  
 }
 }

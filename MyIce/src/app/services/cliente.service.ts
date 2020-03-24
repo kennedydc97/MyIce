@@ -38,14 +38,14 @@ export class ClienteService {
     return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);
   }
 
-  dado(login:Login){
+  dados(login:Login){
     return{
       "email":login.email,
       "password":login.password
     }
   }
   fazerLogin(login:Login){
-    let comunicacao = this.dado(login)
+    let comunicacao = this.dados(login)
     let body:any
     let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
     return url.pipe(data=>data)

@@ -22,7 +22,7 @@ export class FormsComponent implements OnInit {
       this.http.fazerLogin(usuario).subscribe(data => {
         console.log(data)
       })
-      alert ("Você está logado")
+      console.log("logado")
       console.log(this.formularioLogin)
     }
 
