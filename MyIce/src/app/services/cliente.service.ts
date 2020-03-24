@@ -17,7 +17,7 @@ export class ClienteService {
   public buscarEndereco(id){
     let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + id)
     return url.pipe(map(
-      address => address
+      endereco => endereco
     ))
   }
 }

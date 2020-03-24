@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Produto } from 'src/app/models/Produtos';
+import { produtoAPI } from 'src/app/models/produtoAPI';
 
 @Component({
   selector: 'app-adicionar-produtos',
@@ -11,7 +12,7 @@ export class AdicionarProdutosComponent implements OnInit {
 
   formProduto: FormGroup;
   constructor() {
-    this.formProduto = this.createForm(new Produto(null, "", "", "", 0, 0, 0, 0));
+    this.formProduto = this.createForm(new produtoAPI());
    }
 
   private createForm(p: Produto):FormGroup{
@@ -23,7 +24,7 @@ export class AdicionarProdutosComponent implements OnInit {
       precoCheio: new FormControl(p.precoCheio),
       precoDesconto: new FormControl(p.precoDesconto),
       precoBoleto: new FormControl(p.precoBoleto),
-      idCategoria: new FormControl(p.idCategoria)
+      // idCategoria: new FormControl(p.idCategoria)
     })
   }
 
