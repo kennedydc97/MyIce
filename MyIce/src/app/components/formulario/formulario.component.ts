@@ -93,6 +93,7 @@ import { FormularioNovoUsuario } from 'src/app/formularioNovoUsuario';
 import { ValidacoesFormulario } from 'src/app/validacoesFormulario';
 import { Cadastro } from 'src/app/models/Cadastro';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Router } from '@angular/router';
 // import * as cep from 'cep-promise'
 // import { Formulario } from 'src/app/models/Formulario';
 // cep('05010000')
@@ -111,7 +112,7 @@ export class FormularioComponent implements OnInit {
   formCadastro: FormGroup;
 
   // Via DI, nós obtemos o FormBuilder.
-  constructor(private fb: FormBuilder, private http: ClienteService) {
+  constructor(private fb: FormBuilder, private http: ClienteService, private router: Router) {
     this.formularioDeUsuario = this.createForm(new Cadastro())
    }
 
@@ -136,7 +137,9 @@ export class FormularioComponent implements OnInit {
 
   enviarCadastro(){
     this.http.cadastrarCliente(this.formularioDeUsuario.value).subscribe((data) => {
-      console.log(data)
+      let cadastro = JSON.stringify(data)
+      sessionStorage.setItem("usuario", cadastro)
+      this.router.navigate(['/home']);
     })
   }
 

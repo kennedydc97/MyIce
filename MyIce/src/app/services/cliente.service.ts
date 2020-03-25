@@ -38,17 +38,25 @@ export class ClienteService {
     return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);
   }
 
-  dados(login:Login){
+  logado(){
+    if(sessionStorage.getItem("usuario") == null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  dados(login: Login){
     return{
       "email":login.email,
       "password":login.password
     }
   }
-  fazerLogin(login:Login){
+  fazerLogin(login: Login){
     let comunicacao = this.dados(login)
-    let body:any
+    let body: any
     let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
-    return url.pipe(data=>data)
+    return url.pipe(data => data)
   }
 
   public buscarEndereco(id){

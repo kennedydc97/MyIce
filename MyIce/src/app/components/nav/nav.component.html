@@ -1,7 +1,7 @@
 <!-- logo do site -->
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4d85fe;">
-    <a class="navbar-brand" href="#"><img src="assets/LOGO3.png" alt="" width="100"></a>
+    <a class="navbar-brand" routerLink="/home"><img src="assets/LOGO3.png" alt="" width="100"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -41,18 +41,27 @@
         <!-- Login do site -->
 
         <div>
-        <a class="navbar-brand ml-3" routerLink="forms" >
-            <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
-            <a class="bem-vindo p-1">OLÁ,  </a>
-        </a>
+            <a class="navbar-brand ml-3" *ngIf="cliente.logado();else logadoDiv" routerLink="forms">
+                <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
+                <a class="bem-vindo p-1">register</a>
+            </a>
+            <ng-template #logadoDiv><a class="navbar-brand ml-3" routerLink="forms">
+                <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
+                <a class="bem-vindo p-1">Olá, {{usuario.nome.split(" ", 1)}}</a>
+            </a></ng-template>
         </div>
+
+
+        <!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>Content to render when condition is true.</ng-template>
+        <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
         <!-- Carrinho de compras -->
 
         <div>
-        <a class="navbar-brand ml-3" routerLink="/carrinho">
-            <img src="assets/carrinho-de-compras.png" width="30" height="30" alt="">
-        </a>
+            <a class="navbar-brand ml-3" routerLink="/carrinho">
+                <img src="assets/carrinho-de-compras.png" width="30" height="30" alt="">
+            </a>
         </div>
 
     </div>
