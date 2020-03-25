@@ -1,4 +1,5 @@
 export class Cadastro{
+  nome: any;
     constructor(
         public idCadastro?: number,
         public name?: string,

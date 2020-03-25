@@ -11,30 +11,30 @@
       <div class="p-2">
         <br>
         <div class="form-group">
-          <label for="nome">Nome Completo</label>
+          <label for="nome">{{usuario.nome}}</label>
           <input class="form-control" type="text" id="nome" name="nome" placeholder="nome automatico do cliente"
             formControlName="nome">
         </div>
 
-        <div class="form-group">
-          <label for="nascimento">Nascimento: </label>
+        <!-- <div class="form-group">
+          <label for="nascimento">{{cliente.nascimento}}</label>
           <input class="input-group" type="date" formControlName="nascimento">
-        </div>
+        </div> -->
 
 
         <div class="form-group">
-          <label for="cpf">CPF</label>
+          <label for="cpf">{{usuario.cpf}}</label>
           <input class="form-control" type="text" id="cpf" name="cpf" placeholder="cpf automatico" formControlName="cpf"
             maxlength="11">
         </div>
 
         <div class="form-group">
-          <label for="tel">Telefone</label>
+          <label for="tel">{{usuario.telefone}}</label>
           <input class="form-control" type="tel" id="tel" name="tel" placeholder="telefone automatico"
             formControlName="tel" maxlength="11">
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{{usuario.email}}</label>
           <input class="form-control" type="email" id="email" name="email" placeholder="email automatico"
             formControlName="email" maxlength="30">
         </div>
@@ -49,7 +49,7 @@
       <h4><strong>Pedido: #0001</strong></h4>
       <br>
       <div class="d-flex justify-content-center">
-        <div class="card col-md-8" style="margin-bottom: 50px;" >
+        <div class="card col-md-8" style="margin-bottom: 50px;">
           <img src="assets/gelodecoco.png" class="card-img-top" alt="...">
           <div class="card-body text-justify">
             <h5 class="text-center text-light rounded" style="background-color: #2ec754;" >Pedido Entregue</h5>
