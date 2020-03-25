@@ -9,6 +9,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 
 
 export const routes: Routes = [
@@ -50,7 +51,11 @@ export const routes: Routes = [
   }, {
     path: 'cadastro',
     component: CadastroComponent
+  }, {
+    path: 'sucesso',
+    component: SucessoPedidoRealizadoComponent
   }
+  
 ];
 
 @NgModule({
