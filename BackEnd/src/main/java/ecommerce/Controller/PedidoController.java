@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -13,10 +14,10 @@ public class PedidoController {
 
     @Autowired
     private PedidoRepository repository;
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/pedido")
     public Pedido save(@RequestBody Pedido pedido){
+        pedido.setDtPedido(new Date());
         return repository.save(pedido);
     }
 

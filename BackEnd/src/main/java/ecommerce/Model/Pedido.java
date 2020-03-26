@@ -35,13 +35,11 @@ public class Pedido {
     @Column(name = "vl_total")
     private BigDecimal vlTotal;
 
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_cartao")
-    private Cartao cartao;
+    private Long idCartao;
 
-    @ManyToOne
     @JoinColumn(name = "id_endereco")
-    private Endereco endereco;
+    private Long idEndereco;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")
