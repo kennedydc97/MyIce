@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Carrinho } from '../models/carrinho';
 import { Cliente } from '../models/clienteapi';
 
 
