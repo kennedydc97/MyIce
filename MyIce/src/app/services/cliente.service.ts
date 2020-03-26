@@ -7,13 +7,10 @@ import { Login } from '../models/Login';
 
 
 const storage: StorageService = new StorageService();
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-
   constructor(private http: HttpClient) { }
 
   cadastrarCliente(c: Cadastro){
@@ -45,7 +42,6 @@ export class ClienteService {
       return false;
     }
   }
-
   dados(login: Login){
     return{
       "email":login.email,
@@ -58,7 +54,6 @@ export class ClienteService {
     let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
     return url.pipe(data => data)
   }
-
   public buscarEndereco(id){
     let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + id)
     return url.pipe(map(

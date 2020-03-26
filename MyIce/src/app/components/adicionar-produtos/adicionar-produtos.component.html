@@ -3,11 +3,11 @@
     <h2>Adicionar Produto</h2>
     <form [formGroup]="formProduto" (ngSubmit)="enviarProduto()">
         <div>
-        <p>Código <br> <input type="text" formControlName="id"></p>
+        <p>Código <br> <input type="text" formControlName="cod"></p>
         
     </div>
     <div>
-        <p>Imagem <br> <input type="text" formControlName="imagem"></p>
+        <p>Imagem <br> <input type="file" formControlName="imagem"></p>
     
     </div>
     <div>
@@ -26,12 +26,10 @@
         <p>Preço com Desconto <br> <input type="text" formControlName="precoDesconto"></p>
         
     </div>
-    <!-- <div>
-        <p>ID Categoria <br><input type="number" formControlName="idCategoria"></p>
-    </div>
     <div>
-        <p>Descrição Categoria <br><input type="text" formControlName="descCategoria"></p>
-    </div> -->
+        <p>ID Categoria <br><input type="text" formControlName="idCategoria"></p>
+        
+    </div>
     <button class="btn btn-success" type="submit">Salvar</button>
 </form>
 </div>

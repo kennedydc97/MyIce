@@ -1,4 +1,13 @@
+<<<<<<< HEAD:MyIce-BackEnd/DB.trace.db
 2020-03-25 14:44:35 jdbc[35]: null
+=======
+<<<<<<< HEAD
+2020-03-18 14:00:45 jdbc[75]: null
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+2020-03-18 16:47:44 jdbc[45]: null
+>>>>>>> fbb0d92534a18fb4b3c6ce43d16b5925254a6d32:BackEnd.trace.db
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-200]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
@@ -22,7 +31,18 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 18 more
+<<<<<<< HEAD:MyIce-BackEnd/DB.trace.db
 2020-03-25 16:13:39 jdbc[66]: null
+=======
+2020-03-18 20:43:37 jdbc[126]: null
+=======
+2020-03-20 12:15:55 jdbc[35]: null
+>>>>>>> f7d8ca50958f3886a9d40b6ccf4d8b2fab821437
+=======
+2020-03-18 14:00:45 jdbc[75]: null
+>>>>>>> 77f4b99caae6599a703be6b83c668c5bb8c600ea
+>>>>>>> a4af297c892a9b366d4305d7ea41a464d564ede3
+>>>>>>> fbb0d92534a18fb4b3c6ce43d16b5925254a6d32:BackEnd.trace.db
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-200]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
