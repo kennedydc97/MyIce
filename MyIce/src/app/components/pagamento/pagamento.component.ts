@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Validar } from 'src/app/models/Validar'
@@ -10,10 +10,14 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./pagamento.component.css']
 })
 export class PagamentoComponent implements OnInit {
+
+  @Output() enviarCartao = new EventEmitter;
+
   valoresForm;
   conversao;
 
-  validar: Validar = new Validar ()
+
+  validar: Validar = new Validar()
 
   formPagamento: FormGroup;
 
@@ -61,22 +65,23 @@ export class PagamentoComponent implements OnInit {
       });
   }
 
-  permitirNumeros(evento:any){
+  permitirNumeros(evento: any) {
     this.validar.cancelarLetras(evento);
   }
-  
-  
-    get nome() {
-      return this.formPagamento.get('nomeTitular');
-    }
-  
-    get cpf() {
-      return this.formPagamento.get('cpf');
-    }
-  
-    compraRealizada() {
-      this.conversao = JSON.stringify(this.valoresForm);
-      localStorage.setItem('Pagamento', this.conversao);
-    }
-  
+
+
+  get nome() {
+    return this.formPagamento.get('nomeTitular');
+  }
+
+  get cpf() {
+    return this.formPagamento.get('cpf');
+  }
+
+  compraRealizada() {
+    this.conversao = JSON.stringify(this.valoresForm);
+    localStorage.setItem('Pagamento', this.conversao);
+    this.enviarCartao.emit();
+  }
+
 }
