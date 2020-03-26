@@ -29,7 +29,9 @@ public class CategoriaController {
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/categoria/lista")
-    public ResponseEntity<List<Categoria>> find(){ return ResponseEntity.ok().body(repository.findAll()); }
+    public ResponseEntity<List<Categoria>> find() {
+        return ResponseEntity.ok().body(repository.findAll());
+    }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/categoria/{id_categoria}")

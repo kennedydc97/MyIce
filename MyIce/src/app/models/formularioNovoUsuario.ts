@@ -1,11 +1,11 @@
 export class FormularioNovoUsuario {
 
-    constructor(nome: string, email: string, cpf: string, nascimento: Date, senha: string, tel: string, cep: string,
+    constructor(nome: string, email: string, cpf: string, nasc: Date, senha: string, tel: string, cep: string,
       endereco: string,nroEndereco: string,complemento: string,bairro: string,cidade: string,estado: string,) {
       this.nome = nome;
       this.email = email;
       this.cpf = cpf;
-      this.nascimento = nascimento;
+      this.nasc = nasc;
       this.senha = senha;
       this.tel = tel; 
       this.cep = cep;
@@ -20,7 +20,7 @@ export class FormularioNovoUsuario {
     nome: string;
     email: string;
     cpf: string;
-    nascimento: Date;
+    nasc: Date;
     senha: string;
     tel: string;
     cep: string;

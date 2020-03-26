@@ -1,9 +1,11 @@
 package ecommerce.Controller;
 
+import ecommerce.Model.Cliente;
 import ecommerce.Model.Endereco;
 import ecommerce.Repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,14 +24,13 @@ public class EnderecoController {
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/endereco/{id}")
-    public Endereco findEnderecoById(@PathVariable("id") Long id){
-        return repository.findById(id).get();
-    }
+    public ResponseEntity<List<Endereco>> findEnderecoById(@PathVariable("id") Long id){
+        return ResponseEntity.ok().body(repository.findByCliente(id)); }
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/endereco/lista")
-    public List<Endereco> find(){
-        return repository.findAll();
+    public ResponseEntity<List<Endereco>> find(){
+        return ResponseEntity.ok().body(repository.findAll());
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)

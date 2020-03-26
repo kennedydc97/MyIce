@@ -21,13 +21,13 @@ public class Pedido {
     @Column(name = "id_pedido")
     private Long idPedido;
 
-
     @Column(name = "dt_pedido")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtPedido;
 
+
     @Column(name = "id_cliente")
-    private Integer idCliente;
+    private Long idCliente;
 
     @Column(name = "vl_frete")
     private BigDecimal vlFrete;
@@ -35,11 +35,15 @@ public class Pedido {
     @Column(name = "vl_total")
     private BigDecimal vlTotal;
 
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_cartao")
-    private Cartao cartao;
+    private Long idCartao;
+
+    @JoinColumn(name = "id_endereco")
+    private Long idEndereco;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")
     private List<ItemPedido> itemPedido;
+
+
 }

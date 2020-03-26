@@ -40,7 +40,11 @@ public class Cliente {
     @Column(name = "ds_password")
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_endereco")
-    private List<Endereco> enderecos;
+    @OneToMany
+    @JoinColumn(name = "id_cliente")
+    private List<Pedido> pedido;
+
+    @OneToMany
+    @JoinColumn(name = "id_client")
+    private List<Endereco> endereco;
 }

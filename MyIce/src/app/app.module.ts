@@ -19,10 +19,10 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
-import { TextMaskModule } from 'angular2-text-mask';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
-
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 
 
 @NgModule({
@@ -42,16 +42,17 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
     FormularioComponent,
     AdicionarProdutosComponent,
     CarrinhoComponent,
+    PaginaDoClienteComponent,
     EnderecoComponent,
     PagamentoComponent,
+    SucessoPedidoRealizadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
-    TextMaskModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

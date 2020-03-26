@@ -40,6 +40,6 @@ public class Endereco {
     @Column(name = "estado")
     private String estado;
 
-    @Column(name="id_cliente")
+    @Column(name="id_client")
     private Long cliente;
 }

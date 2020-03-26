@@ -1,9 +1,9 @@
 
-import { AbstractControl } from '../../node_modules/@angular/forms';
+import { FormControl } from '@angular/forms';
 
 
 export class ValidacoesFormulario {
-  static ValidaCpf(controle: AbstractControl) {
+  static ValidaCpf(controle: FormControl) {
     const cpf = controle.value;
 
     let soma: number = 0;
@@ -51,7 +51,7 @@ export class ValidacoesFormulario {
 
   
 
-  static MaiorQue18Anos(controle: AbstractControl) {
+  static MaiorQue18Anos(controle: FormControl) {
     const nascimento = controle.value;
     const [ano, mes, dia] = nascimento.split('-');
     const hoje = new Date();
@@ -64,13 +64,13 @@ export class ValidacoesFormulario {
     return { menorDeIdade: true };
   }
 
-  static SenhasCombinam(controle: AbstractControl) {
+  static SenhasCombinam(controle: FormControl) {
     let senha = controle.get('senha').value;
-    let confirmarSenha = controle.get('confirmarSenha').value;
+    let confirmaSenha = controle.get('confirmaSenha').value;
 
-    if (senha === confirmarSenha) return null;
+    if (senha === confirmaSenha) return null;
 
-    controle.get('confirmarSenha').setErrors({ senhasNaoCoincidem: true });
+    controle.get('confirmaSenha').setErrors({ senhasNaoCoincidem: true });
   }
 
 

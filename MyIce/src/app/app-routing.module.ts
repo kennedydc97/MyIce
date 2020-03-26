@@ -1,3 +1,4 @@
+import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProdutoSozinhoComponent } from './components/produto-sozinho/produto-sozinho.component';
@@ -9,6 +10,7 @@ import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-d
 import { FormsComponent } from './components/forms/forms.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 
 
 export const routes: Routes = [
@@ -50,7 +52,15 @@ export const routes: Routes = [
   }, {
     path: 'cadastro',
     component: FormularioComponent
+  },
+  {
+    path: 'pagina-do-cliente',
+    component:PaginaDoClienteComponent
+  }, {
+    path: 'sucesso',
+    component: SucessoPedidoRealizadoComponent
   }
+  
 ];
 
 @NgModule({
