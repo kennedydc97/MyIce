@@ -10,6 +10,7 @@ import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-d
 import { FormsComponent } from './components/forms/forms.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 
 
 export const routes: Routes = [
@@ -55,7 +56,11 @@ export const routes: Routes = [
   {
     path: 'pagina-do-cliente',
     component:PaginaDoClienteComponent
+  }, {
+    path: 'sucesso',
+    component: SucessoPedidoRealizadoComponent
   }
+  
 ];
 
 @NgModule({

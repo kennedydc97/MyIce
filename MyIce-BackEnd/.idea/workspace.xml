@@ -2,32 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/resumo-compra/resumo-compra.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/resumo-compra/resumo-compra.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BackEnd.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/br/com/rd/ecommerce/Controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/br/com/rd/ecommerce/Controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/adicionar-produtos/adicionar-produtos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/adicionar-produtos/adicionar-produtos.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/adicionar-produtos/adicionar-produtos.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/adicionar-produtos/adicionar-produtos.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/categorias/categorias.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/categorias/categorias.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/ClienteAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/ClienteAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/categorias.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/pesquisar.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/pesquisar.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/pesquisar.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/pesquisar.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/clientes.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/formularioNovoUsuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/formularioNovoUsuario.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/storage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/validacoesFormulario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,21 +105,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585189344708" />
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1585191214546">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1585194562826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585191214546" />
-    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1585191214546">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
+    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1585194562826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585191214546" />
-    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1585191214546">
+    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
+    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1585194562824">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585191214546" />
-    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1585191214546">
+    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585194562824" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1585194562826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585191214546" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
   </component>
 </project>

@@ -7,6 +7,7 @@ import { Login } from '../models/Login';
 
 
 const storage: StorageService = new StorageService();
+
 @Injectable({
   providedIn: 'root'
 })
