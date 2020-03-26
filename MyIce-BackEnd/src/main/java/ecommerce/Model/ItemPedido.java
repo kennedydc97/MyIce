@@ -19,9 +19,8 @@ public class ItemPedido {
     @Column(name = "id_item_pedido")
     private Long idItemPedido;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pedido")
-    private Pedido pedido;
+    @Column(name = "id_pedido")
+    private Long pedido;
 
     @ManyToOne
     @JoinColumn(name = "id_produto")
@@ -30,6 +29,5 @@ public class ItemPedido {
     @Column(name = "nmr_quantidade")
     private Integer quantidade;
 
-    @Column(name = "vl_produto")
-    private BigDecimal vlProduto;
+
 }

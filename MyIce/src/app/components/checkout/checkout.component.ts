@@ -30,11 +30,14 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService, private route: Router) {
 
-    this.carrinho = storage.recuperarCarrinho()
+    let carrinhoStorage = storage.recuperarCarrinho()
     this.usuario = this.storage.recuperarCliente();
 
-    console.log(storage.recuperarCarrinho());
-
+    if(carrinhoStorage != null){
+      for(let i = 0; i < carrinhoStorage.length; i++){
+        this.carrinho.push(carrinhoStorage[i])
+      }
+    }
 
     //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
     // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
