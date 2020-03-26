@@ -26,7 +26,7 @@ export class FormsComponent implements OnInit {
     usuario.password = this.formularioLogin.value.password;
       this.http.fazerLogin(usuario).subscribe(data => {
         let cliente = JSON.stringify(data)
-        sessionStorage.setItem("usuario", cliente)
+        sessionStorage.setItem("usuario", btoa(cliente))
         this.router.navigate(['/home']);
         // console.log(data)
       })

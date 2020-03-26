@@ -8,13 +8,15 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class NavComponent implements OnInit {
   
-  usuario = JSON.parse(sessionStorage.getItem("usuario"))
-
+  usuario: any
+  
   constructor(public cliente: ClienteService) { 
-    cliente.logado(); 
+    cliente.logado();
+    if(sessionStorage.getItem("usuario") != null){
+      this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    }
   }
   
   ngOnInit(): void {
   }
-  
 }
