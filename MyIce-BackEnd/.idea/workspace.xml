@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/clientes.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/formularioNovoUsuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/formularioNovoUsuario.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/validacoesFormulario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,21 +94,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585189344708" />
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1585194562826">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1585195372971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
-    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1585194562826">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585195372971" />
+    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1585195372970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
-    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1585194562824">
+    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585195372970" />
+    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1585195372970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585194562824" />
-    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1585194562826">
+    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585195372970" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1585195372970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585194562826" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585195372970" />
   </component>
 </project>
