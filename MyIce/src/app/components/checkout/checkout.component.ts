@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
     //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
     // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
       this.carrinho.forEach(item => {
-        this.total += (item.produto.vlProductDiscount * item.qtd);
+        this.total += (item.produto.precoDesconto * item.qtd);
 
         this.cliente.buscarEndereco(1).subscribe(
           dados => {

@@ -15,7 +15,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -40,7 +39,6 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
     HomeComponent,
     SobreNosComponent,
     CheckoutComponent,
-    CadastroComponent,
     FormularioComponent,
     AdicionarProdutosComponent,
     CarrinhoComponent,

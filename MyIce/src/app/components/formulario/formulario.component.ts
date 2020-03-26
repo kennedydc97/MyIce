@@ -92,6 +92,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 import { FormularioNovoUsuario } from 'src/app/formularioNovoUsuario';
 import { ValidacoesFormulario } from 'src/app/validacoesFormulario';
 import { Cadastro } from 'src/app/models/Cadastro';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Router } from '@angular/router';
 // import * as cep from 'cep-promise'
 // import { Formulario } from 'src/app/models/Formulario';
 // cep('05010000')
@@ -110,13 +112,13 @@ export class FormularioComponent implements OnInit {
   formCadastro: FormGroup;
 
   // Via DI, nós obtemos o FormBuilder.
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: ClienteService, private router: Router) {
     this.formularioDeUsuario = this.createForm(new Cadastro())
    }
 
   private createForm(c: Cadastro): FormGroup{
     return new FormGroup({
-      nome: new FormControl(c.name),
+      nome: new FormControl(c.nome),
       nascimento: new FormControl(c.nasc),
       cpf: new FormControl(c.cpf),
       tel: new FormControl(c.tel),
@@ -134,7 +136,11 @@ export class FormularioComponent implements OnInit {
   }
 
   enviarCadastro(){
-    console.log(this.formularioDeUsuario)
+    this.http.cadastrarCliente(this.formularioDeUsuario.value).subscribe((data) => {
+      let cadastro = JSON.stringify(data)
+      sessionStorage.setItem("usuario", cadastro)
+      this.router.navigate(['/home']);
+    })
   }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  constructor() { }
-
+  
+  usuario: any
+  
+  constructor(public cliente: ClienteService) { 
+    cliente.logado();
+    if(sessionStorage.getItem("usuario") != null){
+      this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    }
+  }
+  
   ngOnInit(): void {
   }
-
 }
