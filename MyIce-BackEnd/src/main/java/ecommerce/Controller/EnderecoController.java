@@ -25,9 +25,7 @@ public class EnderecoController {
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/endereco/{id}")
     public ResponseEntity<List<Endereco>> findEnderecoById(@PathVariable("id") Long id){
-        Cliente cliente = new Cliente();
-        cliente.setIdCliente(id);
-        return ResponseEntity.ok().body(repository.findByCliente(cliente)); }
+        return ResponseEntity.ok().body(repository.findByCliente(id)); }
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/endereco/lista")

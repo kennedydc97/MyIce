@@ -10,9 +10,8 @@
 
       <!--descomentar essas 2 linhas abaixo -->
 
-
-      <!-- <app-endereco *ngIf="enderecos.length != 0" [endereco]="principalEndereco"></app-endereco>
-      <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3"> -->
+      <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
+      <!-- <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3"></div> -->
       <!-- <div class="card" style="width: 44rem;">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
@@ -74,7 +73,7 @@
 
         </div> -->
 
-      </div>
+      
       <header class="tituloProduto"> CARRINHO
       </header>
       <table border="1" class="bordaTabela">
@@ -114,4 +113,7 @@
         </div>
         <div class="p-2">
         </div>
-        <app-pagamento></app-pagamento>
+
+
+
+        <app-pagamento (enviarCartao)="finalizarCompra()" ></app-pagamento>
