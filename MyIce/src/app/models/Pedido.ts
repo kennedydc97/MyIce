@@ -5,7 +5,7 @@ export class Pedido {
         private idCliente: number,
         private vlFrete: number,
         private vlTotal: number,
-        private idCartao: number,
+        private formapgto: string,
         private idEndereco: number,
         private itemPedido: produtoAPI[],
         private idPedido?: number

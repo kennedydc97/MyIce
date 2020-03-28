@@ -27,19 +27,20 @@ export class ClienteService {
     let idCliente = 33;
     let carrinho = [];
     let total = 0;
+    let formapgto = "crédito"
     storage.recuperarCarrinho().forEach(el => { 
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     });
-    let cartao = JSON.parse(localStorage.getItem("Pagamento"));
-    let pedido = this.formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete);
+    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));
+    let pedido = this.formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido )
     return url.pipe(map(
       pedido => pedido 
     ))
   }
-  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete){
-    let pedido = new Pedido(idCliente, vlFrete, total, 1, idEndereco, carrinho );
+  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
       return pedido;
   }
 }
