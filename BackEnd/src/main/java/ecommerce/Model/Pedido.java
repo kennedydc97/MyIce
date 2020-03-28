@@ -35,8 +35,8 @@ public class Pedido {
     @Column(name = "vl_total")
     private BigDecimal vlTotal;
 
-    @JoinColumn(name="id_cartao")
-    private Long idCartao;
+    @Column(name="ds_formapgto")
+    private String formapgto;
 
     @JoinColumn(name = "id_endereco")
     private Long idEndereco;
