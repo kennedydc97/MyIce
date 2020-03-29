@@ -20,6 +20,7 @@ public class EnderecoController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/endereco")
     public Endereco save(@RequestBody Endereco endereco){
+
         return repository.save(endereco);
     }
 

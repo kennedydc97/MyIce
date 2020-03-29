@@ -44,7 +44,7 @@ public class Cliente {
     @JoinColumn(name = "id_cliente")
     private List<Pedido> pedido;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
     private List<Endereco> endereco;
 

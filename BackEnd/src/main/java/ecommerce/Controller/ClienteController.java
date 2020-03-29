@@ -1,6 +1,7 @@
 package ecommerce.Controller;
 
 import ecommerce.Model.Cliente;
+import ecommerce.Model.Endereco;
 import ecommerce.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
