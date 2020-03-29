@@ -24,7 +24,7 @@ export class ClienteService {
   }
   public mandarPedido(idEndereco, vlFrete){
     // let idcliente = storage.recuperarCliente().idCliente; pra login
-    let idCliente = 33;
+    let idCliente = 68;
     let carrinho = [];
     let total = 0;
     let formapgto = "crédito"

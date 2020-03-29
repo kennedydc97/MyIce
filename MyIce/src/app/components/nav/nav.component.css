@@ -36,3 +36,12 @@
   #btnBusca:hover{
       opacity: 0.6;
   }
+
+  .quantidade-itens-carrinho{
+    position: absolute;
+    width: 3.5vh;
+    height: 3.5vh;
+    margin-left: 23px;
+    margin-top: -6px;
+    color: rgb(7, 8, 70);    
+}
