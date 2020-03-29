@@ -23,17 +23,16 @@ export class ClienteService {
       nome: c.nome,
       telefone: c.tel,
       email: c.email,
-      password: c.senha
-      // enderecos: [{
-      //   endereco: c.endereco,
-      //   numero: c.numeroCasa,
-      //   cep: c.cep,
-      //   bairro: c.bairro,
-      //   complemento: c.complementoCasa,
-      //   cidade: c.cidade,
-      //   estado: c.estado,
-      //   cliente: c.idCadastro
-      // }]
+      password: c.senha,
+      enderecos: [{
+        endereco: c.endereco,
+        numero: c.numeroCasa,
+        cep: c.cep,
+        bairro: c.bairro,
+        complemento: c.complementoCasa,
+        cidade: c.cidade,
+        estado: c.estado,
+      }]
     }
 
     return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);

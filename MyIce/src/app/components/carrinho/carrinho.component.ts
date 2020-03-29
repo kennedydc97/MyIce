@@ -26,7 +26,7 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho.forEach(item =>{
       this.subTotal += item.produto.precoDesconto * item.qtd;
     })
-    storage.salvarCarrinho(this.carrinho);
+    // storage.salvarCarrinho(this.carrinho);
     console.log(storage.recuperarCarrinho());
   }
 

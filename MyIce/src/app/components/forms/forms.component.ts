@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Login } from 'src/app/models/Login';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
+import { window } from 'rxjs/operators';
 
 @Component({
   selector: 'app-forms',
@@ -27,7 +28,8 @@ export class FormsComponent implements OnInit {
       this.http.fazerLogin(usuario).subscribe(data => {
         let cliente = JSON.stringify(data)
         sessionStorage.setItem("usuario", btoa(cliente))
-        this.router.navigate(['/home']);
+        location.reload()
+        // this.router.navigate(['/home']);
         // console.log(data)
       })
       // console.log("logado")

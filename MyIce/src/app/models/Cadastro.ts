@@ -1,4 +1,6 @@
-export class Cadastro{
+import { Address } from './address';
+
+export class Cadastro {
     constructor(
         public idCadastro?: number,
         public nome?: string,
@@ -10,10 +12,10 @@ export class Cadastro{
         public confirmarSenha?: string,
         public cep?: string,
         public endereco?: string,
-        public numeroCasa?: number,
-        public complementoCasa?: string,
+        public numeroCasa?: string,
         public bairro?: string,
+        public complementoCasa?: string,
         public cidade?: string,
-        public estado?: string,
-        ){}
+        public estado?: string
+    ) { }
 }

@@ -1,20 +1,16 @@
 package ecommerce.Model;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_cliente", uniqueConstraints={@UniqueConstraint( columnNames = "ds_email", name = "nmr_cpf")})
+@Table(name = "tb_cliente")
 public class Cliente {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
@@ -44,7 +40,7 @@ public class Cliente {
     @JoinColumn(name = "id_cliente")
     private List<Pedido> pedido;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
-    private List<Endereco> endereco;
+    private List<Endereco> enderecos;
 }

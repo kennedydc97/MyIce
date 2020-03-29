@@ -40,7 +40,31 @@
 
         <!-- Login do site -->
 
-        <div>
+        <div class="dropdown navbar-brand">
+            <div *ngIf="cliente.logado();else logadoDiv" class="navbar-brand">
+                <img class="dropdown-toggle" src="assets/avatar.png" width="35" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Dropdown button />
+                    <p class="bem-vindo m-1" >Entre</p>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="forms">Login</a>
+                    <a class="dropdown-item" routerLink="cadastro">Cadastre-se</a>
+                </div>
+            </div>
+                <ng-template #logadoDiv class="navbar-brand">
+                    <img class="dropdown-toggle" src="assets/avatar.png" width="35" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        Dropdown button />
+                    <p class="bem-vindo m-1">Olá, {{usuario.nome.split(" ", 1)}}</p>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" routerLink="paginda-do-cliente">Minha conta</a>
+                        <a class="dropdown-item" routerLink="/home">Meus pedidos</a>
+                        <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+                    </div>
+                </ng-template>
+        </div>
+
+
+        <!-- <div >
             <a class="navbar-brand ml-3" *ngIf="cliente.logado();else logadoDiv" routerLink="forms">
                 <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
                 <a class="bem-vindo p-1">register</a>
@@ -49,7 +73,7 @@
                 <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
                 <a class="bem-vindo p-1">Olá, {{usuario.nome.split(" ", 1)}}</a>
             </a></ng-template>
-        </div>
+        </div > -->
 
 
         <!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>

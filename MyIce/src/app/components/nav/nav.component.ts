@@ -16,6 +16,10 @@ export class NavComponent implements OnInit {
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     }
   }
+
+  logout(){
+    sessionStorage.removeItem("usuario")
+  }
   
   ngOnInit(): void {
   }
