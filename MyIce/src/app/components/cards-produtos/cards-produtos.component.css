@@ -2,8 +2,7 @@
 display: flex;
 justify-content: space-around;
 }
-
 #produtosMaisVendidos{
-    background-color: #8ea9e4;
+    background-color: #4b7ae0;
     color: white;
 }

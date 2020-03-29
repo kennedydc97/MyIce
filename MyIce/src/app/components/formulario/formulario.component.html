@@ -1,9 +1,11 @@
-<div class="paginaCheckout container">
+<form [formGroup]="formCadastro" class="container" (ngSubmit)="enviarCadastro()">
 
 
-    <form [formGroup]="formFormulario" class="row ml-4 p-5" (ngSubmit)="onSubmit()">
+    <div class="paginaCheckout  row ml-4 p-5">
 
-        <!-- DADOS PESSOAIS -->
+
+
+
 
         <div class="col-md-6">
             <header class="text-light p-2 margin-top:30" style="background-color: #6fb2ff;">
@@ -11,34 +13,92 @@
             </header>
             <div class="p-2"></div>
             <div class="form-group">
-                <label for="nolme">Nome Completo</label>
-                <input class="form-control" type="text" id="nolme" name="nolme" placeholder="Digite seu nome completo"
-                    formControlName="name" maxlength="30">
+                <label for="nome">Nome Completo</label>
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite seu nome completo"
+                    formControlName="nome">
+                    <div *ngIf="!nome.pristine && nome.errors">
+                      <p class="alert alert-danger" *ngIf="nome.errors.required">
+                        Nome é obrigatório.
+                      </p>
+                      <p class="alert alert-danger" *ngIf="nome.errors.minlength">
+                        Nome deve ter no mínimo 3 caracters.
+                      </p>
+          
+                    </div>
             </div>
+
+            <div class="form-group">
+                <label for="nascimento">Nascimento: </label>
+                <input  class="input-group"  type="date" formControlName="nasc">
+                <div *ngIf="!nasc.pristine && nasc.errors">
+                  <p *ngIf="nasc.errors.required" style="color: red">
+                    Data de Nascimento é obrigatória.
+                  </p>
+                  <p *ngIf="nasc.errors.menorDeIdade" style="color: red">
+                    Você precisa ter mais de 18 anos para cadastrar-se.
+                  </p>
+                </div>
+              </div>
+
+
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input class="form-control" type="number" id="cpf" name="cpf" maxlength="11"
+                <input class="form-control" type="text" id="cpf" name="cpf"
                     placeholder="Digite seu CPF" formControlName="cpf" maxlength="11">
-            </div>
+            
+                    <div *ngIf="!cpf.pristine && cpf.errors">
+                        <p *ngIf="cpf.errors.required " style="color: red";>
+                          *CPF é obrigatório.
+                        </p>
+                        <p *ngIf="cpf.errors.cpfInvalido" style="color: red;" class="is-invalid">
+                          *Digite um CPF válido
+                        </p>
+                      </div>
+                </div>
+
             <div class="form-group">
-                <label for="telefoneUsuario">Telefone</label>
-                <input class="form-control" type="tel" id="telefoneUsuario" name="telefoneUsuario"
+                <label for="tel">Telefone</label>
+                <input class="form-control" type="tel" id="tel" name="tel"
                     placeholder="Digite seu telefone" formControlName="tel" maxlength="11">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input class="form-control" type="email" id="email" name="email" placeholder="Digite seu email"
-                    formControlName="email" maxlength="30">
+                    formControlName="email" maxlength="50">
+                    <div *ngIf="!email.pristine && email.errors">
+                        <p *ngIf="email.errors.email"style="color: red;">
+                          *Digite um e-mail válido.
+                        </p>
+                      </div>
             </div>
             <div class="form-group">
                 <label for="senha">Senha</label>
                 <input class="form-control" type="password" id="senha" name="senha" placeholder="Digite sua senha"
                     formControlName="senha">
+                    <div *ngIf="!senha.pristine && senha.errors">
+                        <p *ngIf="senha.errors.required">
+                          Senha é obrigatória.
+                        </p>
+                        <p *ngIf="senha.errors.minlength" style="color: red;">
+                          Senha deve ter no mínimo 6 caracters.
+                        </p>
+                        <p *ngIf="senha.errors.maxlength" style="color: red;">
+                          Senha deve ter no máximo 12 caracters.
+                        </p>
+                      </div>
             </div>
             <div class="form-group">
-                <label for="confirmarsenha">Confirme a Senha</label>
-                <input class="form-control" type="password" id="confirmarsenha" name="confirmarsenha"
-                    placeholder="Confirmar Senha" formControlName="senha">
+                <label for="confirmarSenha">Confirme a Senha</label>
+                <input class="form-control" type="password" id="password" name="confirmaSenha"
+                    placeholder="Confirmar Senha" formControlName="confirmaSenha">
+                    <div *ngIf="!confirmaSenha.pristine && confirmaSenha.errors">
+                        <p *ngIf="confirmaSenha.errors.required" style="color: red;">
+                          Confirme sua senha.
+                        </p>
+                        <p *ngIf="confirmaSenha.errors.senhasNaoCoincidem" style="color: red;">
+                          As senhas não coincidem.
+                        </p>
+                      </div>
             </div>
 
         </div>
@@ -52,34 +112,36 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" id="cep" (blur)="pegarCep()" formControlName="cep"
-                        placeholder="Digite o CEP" maxlength="8" required>
+                    <input class="form-control" type="text" id="cep"  formControlName="cep"
+                        placeholder="Digite o CEP" maxlength="8" (blur)="pegarCep()" required>
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
                     <input class="form-control" type="text" id="endereco" formControlName="endereco"
-                        placeholder="Digite o endereço" required>
+                        placeholder="Digite o endereço" required maxlength="80">
                 </div>
                 <div class="form-group">
-                    <label for="numeroEnderecoUsuario">Número</label>
-                    <input class="form-control" type="text" id="numeroEnderecoUsuario" formControlName="nroEndereco"
-                        placeholder="Digite o numero" required></div>
+                    <label for="nroEndereco">Número</label>
+                    <input class="form-control" type="text" id="nroEndereco" formControlName="numero"
+                        placeholder="Digite o numero" required maxlength="5">
+                      
+                      </div>
 
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
                     <input class="form-control" type="text" id="complemento" formControlName="complemento"
-                        placeholder="Digite o complemento">
+                        placeholder="Digite o complemento" maxlength="80">
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro</label>
                     <input class="form-control" type="text" id="bairro" formControlName="bairro"
-                        placeholder="Digite o bairro" required>
+                        placeholder="Digite o bairro" required maxlength="30">
                 </div>
                 <div class="form-group row">
                     <div class="col-9">
                         <label for="cidade">Cidade</label>
                         <input class="form-control" type="text" id="cidade" formControlName="cidade"
-                            placeholder="Digite a cidade" required>
+                            placeholder="Digite a cidade" required maxlength="30">
 
                     </div>
                     <div class="form-group col-md-3">
@@ -116,11 +178,20 @@
                     </div>
                 </div>
 
+
+
+                
+
             </div>
 
 
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary btn-lg" type="submit" data-toggle="modal"
-                    data-target="#compraFinalizada">Salvar</button>
+                    data-target="#cadastrofinalizado" [disabled]="!formCadastro.valid">Salvar</button>
             </div>
         </div>
+
+
+    </div>
+
+</form>
