@@ -43,8 +43,14 @@
     height: 3.5vh;
     margin-left: 23px;
     margin-top: -6px;
-    color: rgb(7, 8, 70);    
+    color: rgb(7, 8, 70); 
+  
 }
 .bem-vindo{
     font-size: 10px;
   }
+
+.fonte-icone-carrinho{
+  font-size: 16px;
+  font-weight: bold;
+}
