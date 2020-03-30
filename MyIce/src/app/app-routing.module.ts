@@ -43,7 +43,7 @@ export const routes: Routes = [
     component: CheckoutComponent
   },
   {
-    path: "forms",
+    path: "login",
     component: FormsComponent
   },
   {
