@@ -55,8 +55,8 @@ td{
 }
 
 .tituloTotal{
-    font-size: larger;
-    color: rgb(32, 57, 197);
+    font-size: inherit;
+    color: rgb(9, 39, 102);
     font-weight: bold;
 }
 

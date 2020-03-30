@@ -23,6 +23,7 @@ export class ClienteService {
       nome: c.nome,
       telefone: c.tel,
       email: c.email,
+      nasc: c.nasc,
       password: c.senha,
       endereco: [{
         endereco: c.endereco,

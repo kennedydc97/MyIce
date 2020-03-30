@@ -23,6 +23,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
     CarrinhoComponent,
     EnderecoComponent,
     PagamentoComponent,
+    FormasDeEnvioComponent,
   ],
   imports: [
     BrowserModule,

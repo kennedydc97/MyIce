@@ -3,6 +3,7 @@ export class Cadastro{
         public idCadastro: number,
         public nome: string,
         public cpf: string,
+        public nasc: Date,
         public tel: number,
         public email: string,
         public senha: string,
