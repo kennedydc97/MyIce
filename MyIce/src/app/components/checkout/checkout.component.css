@@ -40,14 +40,18 @@ label{
 }
 
 .bordaTabela{
-    border-color: rgb(78, 78, 189);
+    border-color: rgb(151, 151, 199);
     padding: 21px;
     background-color: white;
+    
 }
 
 td{
     color: rgb(55, 133, 185);
     padding: 5px;
+    text-align: center;
+
+
 }
 
 .tituloTotal{
@@ -55,3 +59,10 @@ td{
     color: rgb(32, 57, 197);
     font-weight: bold;
 }
+
+th {
+    color: darkblue;
+    text-align: center;
+
+}
+

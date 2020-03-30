@@ -18,8 +18,7 @@ export class ListaDeProdutosComponent implements OnInit {
   produtosExibidos: any = []
 
   getter() {
-    this.serviceProduto.getProdutos().
-    subscribe(
+    this.serviceProduto.getProdutos().subscribe(
       (data: produtoAPI) => {
         this.produtoAPI = data;
         this.produtos = this.produtoAPI
@@ -71,6 +70,5 @@ export class ListaDeProdutosComponent implements OnInit {
   }
 
 ngOnInit(): void {
-  
 }
 }

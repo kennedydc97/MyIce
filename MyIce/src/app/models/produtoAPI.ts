@@ -10,3 +10,4 @@ export class produtoAPI{
     public precoCheio?: number
     public precoDesconto?: number;
 }
+

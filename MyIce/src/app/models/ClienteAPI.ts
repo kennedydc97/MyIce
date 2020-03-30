@@ -1,5 +1,4 @@
 export class Cliente {
-  id: number;
     constructor(
     public idCliente?: number,
     public nome?: string,

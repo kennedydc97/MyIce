@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Categoria } from 'src/app/models/categorias';
 import { CategoriaAPI } from 'src/app/models/categoriaAPI';
 import { ProdutosService } from 'src/app/services/produtos.service';
 
@@ -9,6 +10,7 @@ import { ProdutosService } from 'src/app/services/produtos.service';
 })
 export class CategoriasComponent implements OnInit {
 
+  public categoria: Categoria[] = []
   @Output() categoriaClicada = new EventEmitter();
 
 

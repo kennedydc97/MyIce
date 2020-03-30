@@ -70,7 +70,7 @@ export class FormularioComponent implements OnInit {
   enviarCadastro(){
     this.clienteService.cadastrarCliente(this.formCadastro.value).subscribe((data) => {
       let cadastro = JSON.stringify(data)
-      sessionStorage.setItem("usuario", cadastro)
+      sessionStorage.setItem("usuario", btoa(cadastro))
       this.router.navigate(['/home']);
     })
   }
