@@ -5,3 +5,17 @@
     height: 375px;
     width: 100px;
 }
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: rgba(139, 139, 139, 0.287);
+    
+    
+    color: brown;
+     }
+
+
+.sr-only:hover {
+    color: rgb(255, 0, 0);
+    background-color: rgb(42, 71, 165);
+
+}
