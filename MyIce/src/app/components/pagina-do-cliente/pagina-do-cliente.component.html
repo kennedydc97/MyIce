@@ -1,71 +1,30 @@
-<h2 class="conteudoPaginaDoCliente p-3 d-flex justify-content-center">Minha conta</h2>
+<div class="conteudoPaginaDoCliente p-3">
+  <img src="assets/minha-conta.png" alt="">
+</div>
 
 <main class="container">
 
-  <form class="row mt-4">
+  <form>
 
-    <div class="col-md-6">
-      <header class="text-light p-2 margin-top:30 rounded" style="background-color: #6fb2ff;">
-        Dados Pessoais
-      </header>
-      <div class="p-2">
-        <br>
-        <div class="form-group">
-          <label for="nome">{{usuario.nome}}</label>
-          <input class="form-control" type="text" id="nome" name="nome" placeholder="nome automatico do cliente"
-            formControlName="nome">
-        </div>
+    <div>
 
-        <!-- <div class="form-group">
-          <label for="nascimento">{{cliente.nascimento}}</label>
-          <input class="input-group" type="date" formControlName="nascimento">
-        </div> -->
+      <ul class="nav nav-tabs rounded">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/minha-conta" routerLinkActive="active-link">Minha Conta</a>
+        </li>
+        &nbsp;
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/meus-pedidos"
+            routerLinkActive="active-link">Meus Pedidos</a>
+        </li>
+        &nbsp;
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/meus-endereços"
+            routerLinkActive="active-link">Meus Endereços</a>
+        </li>
+      </ul>
 
 
-        <div class="form-group">
-          <label for="cpf">{{usuario.cpf}}</label>
-          <input class="form-control" type="text" id="cpf" name="cpf" placeholder="cpf automatico" formControlName="cpf"
-            maxlength="11">
-        </div>
-
-        <div class="form-group">
-          <label for="tel">{{usuario.telefone}}</label>
-          <input class="form-control" type="tel" id="tel" name="tel" placeholder="telefone automatico"
-            formControlName="tel" maxlength="11">
-        </div>
-        <div class="form-group">
-          <label for="email">{{usuario.email}}</label>
-          <input class="form-control" type="email" id="email" name="email" placeholder="email automatico"
-            formControlName="email" maxlength="30">
-        </div>
-      </div>
     </div>
-
-    <div class="col-md-6">
-      <header class="text-light p-2 margin-top:30 rounded" style="background-color: #6fb2ff;">
-        Meus pedidos
-      </header>
-      <br>
-      <h4><strong>Pedido: #0001</strong></h4>
-      <br>
-      <div class="d-flex justify-content-center">
-        <div class="card col-md-8" style="margin-bottom: 50px;">
-          <img src="assets/gelodecoco.png" class="card-img-top" alt="...">
-          <div class="card-body text-justify">
-            <h5 class="text-center text-light rounded" style="background-color: #2ec754;" >Pedido Entregue</h5>
-            <br>
-            <h5 class="card-title text-center">Saco de Gelo 1kg</h5>
-            <p class="card-text">Nosso produto se diferencia por não conter em sua embalagem pedaços quebrados de gelo,
-              mas somente
-              os cubos, o que em termos de aproveitamento se reflete em economia para seu bolso.</p>
-            <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-              <p> <s>de: R$13,00 </s> <br> <b id="preco">por R$10,00</b></p>
-            </a>
-          </div>
-        </div>
-      </div>
-
-</div>
-
   </form>
 </main>
