@@ -2,14 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MyIce-BackEnd.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/formas-de-envio/formas-de-envio.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/formas-de-envio/formas-de-envio.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/formas-de-envio/formas-de-envio.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/formas-de-envio/formas-de-envio.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyIceDB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyIceDB.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/EnderecoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/EnderecoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CartaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CartaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/EnderecoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/EnderecoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/FornecedorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/FornecedorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/FornecedorProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/FornecedorProdutoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/NfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/NfController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/EcommerceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/EcommerceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Cartao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Cartao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Endereco.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Endereco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Fornecedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Fornecedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Fornecedor_Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Fornecedor_Produto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/ItemPedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/ItemPedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/NF.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/NF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Produto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CartaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CartaoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/EnderecoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/EnderecoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/FornecedorProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/FornecedorProdutoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/FornecedorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/FornecedorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ItemPedidoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ItemPedidoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/NfRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/NfRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/carrinho/carrinho.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/endereco/endereco.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/endereco/endereco.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/forms/forms.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/forms/forms.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nav/nav.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/pagamento/pagamento.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagamento/pagamento.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/Cadastro.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/Cadastro.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/ClienteAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/ClienteAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/Pedido.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/Pedido.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/storage.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +104,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -85,42 +145,41 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="400" y="23" key="#EcommerceApplication" timestamp="1585184564439">
+    <state x="400" y="23" key="#EcommerceApplication" timestamp="1585673173804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="400" y="23" key="#EcommerceApplication/0.0.1366.728@0.0.1366.728" timestamp="1585184564439" />
+    <state x="400" y="23" key="#EcommerceApplication/0.0.1366.728@0.0.1366.728" timestamp="1585673173804" />
     <state x="275" y="23" key="#Project_Structure" timestamp="1584733176397">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1584733176397" />
-    <state x="783" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584904412912">
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585673207864">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="783" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1584904412912" />
-    <state x="804" y="120" key="FileChooserDialogImpl" timestamp="1585428595067">
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585673207864" />
+    <state x="804" y="120" key="FileChooserDialogImpl" timestamp="1585422355272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585428595067" />
-    <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585189344708" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1585441556609">
+    <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585422355272" />
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1585673042820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585356258234" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1585441556609">
+    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585673042820" />
+    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1585673042820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585356258234" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1585441556608">
+    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585673042820" />
+    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1585673042820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556608" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585356258233" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1585441556609">
+    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585673042820" />
+    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1585673042820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585356258234" />
+    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585673042820" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1585050948628">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585050948628" />
   </component>
 </project>

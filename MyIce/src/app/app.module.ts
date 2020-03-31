@@ -23,6 +23,7 @@ import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-
 import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
+import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-rea
     PaginaDoClienteComponent,
     EnderecoComponent,
     PagamentoComponent,
-    SucessoPedidoRealizadoComponent
+    SucessoPedidoRealizadoComponent,
+    FormasDeEnvioComponent
   ],
   imports: [
     BrowserModule,

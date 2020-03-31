@@ -73,20 +73,16 @@
                 <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
                 <a class="bem-vindo p-1">Olá, {{usuario.nome.split(" ", 1)}}</a>
             </a></ng-template>
-        </div > -->
-
-
-        <!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>
-        <ng-template #thenBlock>Content to render when condition is true.</ng-template>
-        <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
-
-        <!-- Carrinho de compras -->
-
-        <div>
-            <a class="navbar-brand ml-3" routerLink="/carrinho">
-                <img src="assets/carrinho-de-compras.png" width="30" height="30" alt="">
-            </a>
         </div>
+
+         Carrinho de compras -->
+
+        <a class="navbar-brand ml-3" routerLink="/carrinho">
+            <div class="quantidade-itens-carrinho rounded-circle alert-primary d-flex align-items-center justify-content-center">
+                <span class="fonte-icone-carrinho">{{quantidade}}</span>
+            </div>
+            <img src="/assets/carrinho-de-compras.png" width="30" height="30" alt="">
+        </a>
 
     </div>
 

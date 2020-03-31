@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
-
+  formaDeEnvio: number = 0;
   principalEndereco = null;
   enderecos = [];
   usuario;
@@ -30,22 +30,20 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService, private route: Router) {
 
-    let carrinhoStorage = storage.recuperarCarrinho()
-    this.usuario = this.storage.recuperarCliente();
+    let carrinhoStorage = storage.recuperarCarrinho();
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
 
     if(carrinhoStorage != null){
       for(let i = 0; i < carrinhoStorage.length; i++){
         this.carrinho.push(carrinhoStorage[i])
       }
     }
-
-    //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
-    // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
+    if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
     this.carrinho.forEach(item => {
       this.total += (item.produto.precoDesconto * item.qtd);
 
-      this.cliente.buscarEndereco(33).subscribe(
-        dados => {
+      this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
+         dados => {
           this.enderecos = dados
           console.log(this.enderecos)
           if (this.enderecos.length > 0) {
@@ -54,18 +52,21 @@ export class CheckoutComponent implements OnInit {
         }
       );
     });
-    //   } else {
-    //   //   // this.route.navigate(["/home"])
-    //   }
-    //   this.enderecos = [];
+    this.subTotal = this.total;
+  } else {
+    this.route.navigate(["/home"])
+  }
+  this.enderecos = [];
 
-    // }
+}
 
-
-
-
-
-
+FormaDeEnvio(envio) {
+  if (envio != this.formaDeEnvio) {
+    this.total -= this.formaDeEnvio;
+    this.formaDeEnvio = envio;
+    this.total += this.formaDeEnvio;
+  }
+}
 
 
     // buscarProduto(){
@@ -81,8 +82,7 @@ export class CheckoutComponent implements OnInit {
     // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
     // cvv = [/[0-9]/, /\d/, /\d/]
 
-  }
-
+    
 
 
   ngOnInit(): void {
