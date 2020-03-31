@@ -21,6 +21,7 @@ export class ClienteService {
     let cadastrarCliente = {
       cpf: c.cpf,
       nome: c.nome,
+      nascimento: c.nasc,
       telefone: c.tel,
       email: c.email,
       password: c.senha,

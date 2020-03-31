@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 @NoArgsConstructor
 @Data
@@ -23,6 +24,9 @@ public class Cliente {
     @NotNull
     @Column(name = "ds_name")
     private String nome;
+
+    @Column(name = "ds_nascimento")
+    private Date nascimento;
 
     @NotNull
     @Column(name = "nmr_telefone")

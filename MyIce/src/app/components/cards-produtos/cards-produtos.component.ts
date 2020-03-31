@@ -12,6 +12,7 @@ export class CardsProdutosComponent implements OnInit {
 
   produtoAPI: produtoAPI;
   produtos: any = []
+  produtosExibidos: any = []
   erro: any;
 
   getter() {
@@ -20,6 +21,9 @@ export class CardsProdutosComponent implements OnInit {
       (data: produtoAPI) => {
         this.produtoAPI = data;
         this.produtos = this.produtoAPI
+        this.produtosExibidos = this.produtos
+        console.log(this.produtos);
+        
       }, (error: any) => {
         console.error("ERROR", error)
       })
@@ -27,9 +31,8 @@ export class CardsProdutosComponent implements OnInit {
 
   constructor(private serviceProduto: ProdutosService) {
     this.getter()
-    console.log(this.produtos)
-   }
-
+  }
+  
   ngOnInit(): void {
   }
 
