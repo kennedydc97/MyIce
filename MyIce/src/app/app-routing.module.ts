@@ -1,3 +1,5 @@
+import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
+import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.component';
 import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,9 +11,9 @@ import { AdicionarProdutosComponent } from './components/adicionar-produtos/adic
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
+import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
-
+import { FormularioComponent } from './components/formulario/formulario.component';
 
 export const routes: Routes = [
   {
@@ -56,6 +58,18 @@ export const routes: Routes = [
   {
     path: 'pagina-do-cliente',
     component:PaginaDoClienteComponent
+  },
+  {
+    path: 'meus-pedidos',
+    component:MeusPedidosComponent
+  },
+  {
+    path: 'minha-conta',
+    component: MinhaContaComponent
+  },
+  {
+    path: 'meus-enderecos',
+    component: MeusEnderecosComponent
   }, {
     path: 'sucesso',
     component: SucessoPedidoRealizadoComponent

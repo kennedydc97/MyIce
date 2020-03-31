@@ -22,6 +22,11 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.component';
+import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
+import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
+import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
+
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
 
@@ -47,7 +52,11 @@ import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/fo
     EnderecoComponent,
     PagamentoComponent,
     SucessoPedidoRealizadoComponent,
-    FormasDeEnvioComponent
+    FormasDeEnvioComponent,
+    MeusPedidosComponent,
+    MinhaContaComponent,
+    DetalhesPedidoComponent,
+    MeusEnderecosComponent,
   ],
   imports: [
     BrowserModule,
