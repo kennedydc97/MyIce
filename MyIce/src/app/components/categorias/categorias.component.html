@@ -2,16 +2,8 @@
     <h3 class="mb-3"><strong class="text-primary">CATEGORIAS</strong></h3>
     <div class="card" style="width: 13rem;">
     <ul id="categorias" class="rounded list-group list-group-flush">
-        <li id="tituloCategoria" class="mt-4 p-2 list-group-item" *ngFor="let c of categoria">
-            <a  routerLink="/produtos" (click)="categoriaClicada.emit(c)">{{c.desc}}</a>
+        <li id="tituloCategoria" class="mt-4 p-2 list-group-item" *ngFor="let c of categoriaAPI">
+            <a  routerLink="/lista-de-produtos" (click)="categoriaClicada.emit(c)">{{c.descricao}}</a>
         </li>
     </ul>
     <div>
-
-        <!-- <div class="card" style="width: 18rem;">
-            <ul class="">
-              <li class="">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-          </div> -->

@@ -5,6 +5,7 @@ import { CepService } from 'src/app/services/cep.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
+import { Cadastro } from 'src/app/models/Cadastro';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class FormularioComponent implements OnInit {
 
   formCadastro: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { }
+  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { 
+    this.formCadastro = this.createForm()
+  }
 
   private createForm():FormGroup{
     return this.fb.group({
@@ -29,11 +32,10 @@ export class FormularioComponent implements OnInit {
           Validators.email
         ])
       ),
-      senha:new FormControl('', Validators.compose([Validators.required])),
-      confirmaSenha:new FormControl('', Validators.compose([Validators.required])),
-      tel: new FormControl ('', Validators.compose([Validators.required,Validators.minLength(10),])),
+      senha:new FormControl("", Validators.compose([Validators.required])),
+      confirmaSenha:new FormControl("", Validators.compose([Validators.required])),
+      tel: new FormControl ("", Validators.compose([Validators.required,Validators.minLength(10),])),
       nome:new FormControl("", Validators.compose([Validators.required])),
-      sobrenome:new FormControl("", Validators.compose([Validators.required])),
       nasc:new FormControl("", Validators.compose([ ValidacoesFormulario.MaiorQue18Anos])),
       cpf:new FormControl("", Validators.compose([
         Validators.required,
@@ -64,15 +66,23 @@ export class FormularioComponent implements OnInit {
     }, 
     { validator: ValidacoesFormulario.SenhasCombinam});
   }
+
+  enviarCadastro(){
+    this.clienteService.cadastrarCliente(this.formCadastro.value).subscribe((data) => {
+      let cadastro = JSON.stringify(data)
+      sessionStorage.setItem("usuario", cadastro)
+      this.router.navigate(['/home']);
+    })
+  }
   
   pegarCep(){
-    this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
-      this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-      this.formCadastro.controls['endereco'].patchValue(data.logradouro);
-      this.formCadastro.controls['bairro'].patchValue(data.bairro);
-      this.formCadastro.controls['estado'].patchValue(data.uf);
-      this.formCadastro.controls['cidade'].patchValue(data.localidade);
-    })
+      this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
+        this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
+        this.formCadastro.controls['endereco'].patchValue(data.logradouro);
+        this.formCadastro.controls['bairro'].patchValue(data.bairro);
+        this.formCadastro.controls['estado'].patchValue(data.uf);
+        this.formCadastro.controls['cidade'].patchValue(data.localidade);
+      })
   }
   
   ngOnInit() {
@@ -118,4 +128,3 @@ export class FormularioComponent implements OnInit {
 
 
 }
-

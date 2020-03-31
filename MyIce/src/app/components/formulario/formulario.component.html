@@ -1,11 +1,11 @@
-<form [formGroup]="formCadastro" class="container" >
+<form [formGroup]="formCadastro" class="container" (ngSubmit)="enviarCadastro()">
 
 
     <div class="paginaCheckout  row ml-4 p-5">
 
 
 
-        <!-- DADOS PESSOAIS -->
+
 
         <div class="col-md-6">
             <header class="text-light p-2 margin-top:30" style="background-color: #6fb2ff;">
@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input class="form-control" type="email" id="email" name="email" placeholder="Digite seu email"
-                    formControlName="email" maxlength="30">
+                    formControlName="email" maxlength="50">
                     <div *ngIf="!email.pristine && email.errors">
                         <p *ngIf="email.errors.email"style="color: red;">
                           *Digite um e-mail válido.

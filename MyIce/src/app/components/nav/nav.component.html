@@ -12,16 +12,16 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto" id="search">
             <li class="nav-item active">
-                <a class="nav-link p-4" routerLink="home">INÍCIO<span class="sr-only">(página atual)</span></a>
+                <a class="nav-link p-4" routerLink="/home">INÍCIO<span class="sr-only">(página atual)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link p-4" routerLink="lista-de-produtos">PRODUTOS</a>
+                <a class="nav-link p-4" routerLink="/lista-de-produtos">PRODUTOS</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link p-4" href="#faleConoscoLink">FALE CONOSCO</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link p-4" routerLink="/sobre-nos">SOBRE NÓS</a>
+                <a class="nav-link p-4" routerLink="sobre-nos" routerLink="/sobre-nos">SOBRE NÓS</a>
             </li>
         </ul>
 
@@ -45,9 +45,11 @@
 
         <!-- Carrinho de compras -->
 
-        <a class="navbar-brand ml-3" routerLink="/carrinho">
-            <img src="/assets/carrinho-de-compras.png" width="30" height="30" alt="">
-        </a>
+        <div>
+            <a class="navbar-brand ml-3" routerLink="/carrinho">
+                <img src="assets/carrinho-de-compras.png" width="30" height="30" alt="">
+            </a>
+        </div>
 
     </div>
 

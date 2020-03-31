@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from "@angular/forms";
-import { Entrega } from 'src/app/models/Entrega';
-import { Address } from 'src/app/models/Address';
-import { CepService } from 'src/app/services/cep.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import { StorageService } from 'src/app/services/storage.service'
+import { Carrinho } from 'src/app/models/Carrinho';
+import { Validar } from 'src/app/models/Validar'
+import { Pagamento } from 'src/app/models/Pagamento';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Address } from 'src/app/models/Address'
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-checkout',
@@ -10,51 +16,85 @@ import { CepService } from 'src/app/services/cep.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  carrinho: Carrinho[] = [];
+  subTotal: number = 0;
+  total: number = 0;
 
-  constructor(private cepService: CepService) {
-    this.formEntrega = this.createForm(new Entrega());
-   }
+  principalEndereco = null;
+  enderecos = [];
+  usuario;
 
-  address: Address = new Address("","","","","","")
+  validar: Validar = new Validar()
+  produtosCarrinho = []
 
-  formEntrega: FormGroup
 
-  private createForm(entrega: Entrega) {
-    return new FormGroup({
-      cod: new FormControl(entrega.codEntrega),
-      cep: new FormControl(entrega.CEPUsuario),
-      endereco: new FormControl(entrega.enderecoUsuario),
-      nroEndereco: new FormControl(entrega.numeroEndereco),
-      complemento: new FormControl(entrega.complementoEndereco),
-      bairro: new FormControl(entrega.bairro),
-      cidade: new FormControl(entrega.cidade),
-      estado: new FormControl(entrega.estado),
-    })
+  constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService, private route: Router) {
+
+    let carrinhoStorage = storage.recuperarCarrinho()
+    this.usuario = this.storage.recuperarCliente();
+
+    if(carrinhoStorage != null){
+      for(let i = 0; i < carrinhoStorage.length; i++){
+        this.carrinho.push(carrinhoStorage[i])
+      }
+    }
+
+    //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
+    // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
+    this.carrinho.forEach(item => {
+      this.total += (item.produto.precoDesconto * item.qtd);
+
+      this.cliente.buscarEndereco(33).subscribe(
+        dados => {
+          this.enderecos = dados
+          console.log(this.enderecos)
+          if (this.enderecos.length > 0) {
+            this.principalEndereco = this.enderecos[0];
+          }
+        }
+      );
+    });
+    //   } else {
+    //   //   // this.route.navigate(["/home"])
+    //   }
+    //   this.enderecos = [];
+
+    // }
+
+
+
+
+
+
+
+
+    // buscarProduto(){
+    //   let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    //   for(let i = 0; i < produtos.length; i++){
+    //     this.produtosCarrinho.push(produtos[i])
+    //   }
+    //   return produtos == null ? [] : produtos.produto
+    // }
+
+
+    // cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
+    // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
+    // cvv = [/[0-9]/, /\d/, /\d/]
+
   }
-
-
-
-  pegarCpf(){
-    this.cepService.getCep(this.formEntrega.value).subscribe((data) => {
-      this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-      this.formEntrega.controls['endereco'].patchValue(this.address.endereco);
-      this.formEntrega.controls['bairro'].patchValue(this.address.bairro);
-      this.formEntrega.controls['estado'].patchValue(this.address.estado);
-      this.formEntrega.controls['cidade'].patchValue(this.address.cidade);
-    })
-  }
-
-
-
-  compraRealizada(){
-    console.log(this.formEntrega.value)
-  }
-
-
-
-  
 
 
 
   ngOnInit(): void {
-}}
+
+  }
+
+  finalizarCompra() {
+    this.cliente.mandarPedido(this.principalEndereco.idEndereco, 15).subscribe(
+      pedido => console.log(pedido)
+    )
+
+  }
+
+}
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from 'src/app/models/Produtos';
 import { Carrinho } from 'src/app/models/Carrinho';
+import { StorageService } from 'src/app/services/storage.service'
 
 @Component({
   selector: 'app-carrinho',
@@ -12,16 +12,22 @@ export class CarrinhoComponent implements OnInit {
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
+  produtosCarrinho = []
 
-  constructor() { 
-    this.carrinho.push(
-      new Carrinho(new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 10, 3), 1),
-      new Carrinho(new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 23, 2), 1),
-    )
+  constructor( private storage: StorageService ) { 
+    this.buscarProduto()
     
+    for(let i = 0; i < this.produtosCarrinho.length; i++){
+      this.carrinho.push(new Carrinho(this.produtosCarrinho[i]))
+    }
+    
+
+
     this.carrinho.forEach(item =>{
       this.subTotal += item.produto.precoDesconto * item.qtd;
     })
+    storage.salvarCarrinho(this.carrinho);
+    console.log(storage.recuperarCarrinho());
   }
 
   ngOnInit(): void {
@@ -30,12 +36,14 @@ export class CarrinhoComponent implements OnInit {
   aumentar(carrinho){
     carrinho.qtd++;
     this.subTotal += carrinho.produto.precoDesconto
+    this.storage.salvarCarrinho(this.carrinho);
   }
 
   diminuir(carrinho){
     if(carrinho.qtd > 1){
       carrinho.qtd--;      
       this.subTotal -= carrinho.produto.precoDesconto
+      this.storage.salvarCarrinho(this.carrinho);
     }
 
   
@@ -44,9 +52,15 @@ export class CarrinhoComponent implements OnInit {
     console.log(item)
     this.subTotal -= (item.produto.precoDesconto * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
-
+    this.storage.salvarCarrinho(this.carrinho);
     }
 
-    
-
+  buscarProduto(){
+    let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    for(let i = 0; i < produtos.length; i++){
+      this.produtosCarrinho.push(produtos[i])
+    }
+    return produtos == null ? [] : produtos.produto
+  }
 }
+
