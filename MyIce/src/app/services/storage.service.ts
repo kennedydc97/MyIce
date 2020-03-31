@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Carrinho } from '../models/carrinho';
 import { Cliente } from '../models/clienteapi';
 
 
@@ -19,6 +18,10 @@ export class StorageService {
   }
 
   removerCarrinho() {
+    localStorage.removeItem("produtoCarrinho");
+  }
+
+  removerCarrinho2() {
     localStorage.removeItem("carrinho");
   }
 
@@ -30,4 +33,5 @@ export class StorageService {
     return JSON.parse(localStorage.getItem('cliente'));
   }
 
+  
 }

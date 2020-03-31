@@ -15,7 +15,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -28,6 +27,7 @@ import { MinhaContaComponent } from './components/minha-conta/minha-conta.compon
 import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
 import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
 
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 
 
 @NgModule({
@@ -44,7 +44,6 @@ import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderec
     HomeComponent,
     SobreNosComponent,
     CheckoutComponent,
-    CadastroComponent,
     FormularioComponent,
     AdicionarProdutosComponent,
     CarrinhoComponent,
@@ -55,6 +54,7 @@ import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderec
     MinhaContaComponent,
     DetalhesPedidoComponent,
     MeusEnderecosComponent,
+    SucessoPedidoRealizadoComponent
   ],
   imports: [
     BrowserModule,

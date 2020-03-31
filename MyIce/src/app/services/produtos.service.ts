@@ -10,10 +10,14 @@ export class ProdutosService {
   constructor(private http: HttpClient) { }
 
   public getProdutos(){
-    return this.http.get("http://localhost:8080/ecommerce/find-product/list")
+    return this.http.get("http://localhost:8080/ecommerce/produto/lista")
+  }
+
+  public getCategoria(){
+    return this.http.get("http://localhost:8080/ecommerce/categoria/lista")
   }
 
   public buscarProdutoId(id: number){
-    return this.http.get("http://localhost:8080/ecommerce/find-product/" + id);
+    return this.http.get("http://localhost:8080/ecommerce/produto/" + id);
   }
 }

@@ -10,7 +10,6 @@
                     <option [value]="1">Maior Preço</option>
                     <option [value]="2">Menor Preço</option>
                 </select>
-                <!-- <button type="button" (click)="filtrar()" class="btn btn-secondary">Filtrar</button> -->
             </p>
             <nav class="justify-content-center form-inline" aria-label="...">
                 <ul class="pagination pagination-sm justify-content-center">
@@ -32,13 +31,13 @@
                 </ul>
             </nav>
             <section class="row" id="produtos">
-                <div class="card col-lg-3 col-md-4 col-5" (click)="produtoSelecionado(produto)" *ngFor="let produto of produtoAPI" style="width: 18rem;">
-                    <img [src]="produto.imagem" height="220px" class="card-img-top" alt="...">
+                <div class="card col-lg-3 col-md-4 col-5" (click)="produtoSelecionado(produto)" *ngFor="let produto of produtos" style="width: 18rem;">
+                    <img src={{produto.imagem}} height="220px" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-primary"><strong>{{produto.name}}</strong></h5> 
-                        <a routerLink="/produto-sozinho" class="card-text stretched-link" id="cardsDosProdutos">
-                            <p id="precos"><s>de: {{produto.vlProductFull}}</s> <br> <b id="preco">
-                                por {{produto.vlProduct}}</b></p>
+                        <h5 class="card-title text-primary"><strong>{{produto.nome}}</strong></h5> 
+                        <a [routerLink]="['/lista-de-produtos', produto.idProduto]" class="card-text stretched-link" id="cardsDosProdutos">
+                            <p id="precos"><s>de: {{produto.precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s> <br> <b id="preco">
+                                por {{produto.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b></p>
                         </a>
                     </div>
                 </div>

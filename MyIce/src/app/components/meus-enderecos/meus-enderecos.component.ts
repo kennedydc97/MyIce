@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/services/cliente.service';
+
 
 @Component({
   selector: 'app-meus-enderecos',
@@ -7,7 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeusEnderecosComponent implements OnInit {
 
-  constructor() { }
+  principalEndereco = null;
+  enderecos = [];
+  usuario;
+
+  constructor(private cliente: ClienteService) { 
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
+         dados => {
+          this.enderecos = dados
+          console.log(this.enderecos)
+          if (this.enderecos.length > 0) {
+            this.principalEndereco = this.enderecos[0];
+          }
+        }
+      );
+  }
 
   ngOnInit(): void {
   }

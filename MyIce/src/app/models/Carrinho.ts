@@ -1,6 +1,6 @@
-import { Produto } from './Produtos';
+import { produtoAPI } from './produtoAPI';
 ​
 export class Carrinho {
-    constructor(public produto: Produto, public qtd: number){}
+    constructor(public produto: produtoAPI, public qtd: number = 1){}
 
 }

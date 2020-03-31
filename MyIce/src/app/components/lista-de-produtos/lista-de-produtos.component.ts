@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/models/categorias';
-import { Produto } from 'src/app/models/Produtos';
 import { Router } from '@angular/router';
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
+import { CategoriaAPI } from 'src/app/models/categoriaAPI';
 
 @Component({
   selector: 'app-lista-de-produtos',
@@ -12,33 +11,32 @@ import { produtoAPI } from 'src/app/models/produtoAPI';
 })
 export class ListaDeProdutosComponent implements OnInit {
 
-  produtos: Produto[] = []
-  produtosExibidos: Produto[] = []
-
   produtoAPI: produtoAPI;
   erro: any;
 
-  constructor(private router: Router, private serviceProduto: ProdutosService) {
-    this.getter(); 
-    console.log(this.produtoAPI)
-    this.produtos.push(
-      new Produto(1, "assets/produto1.jpg", "Gelo Artificial", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, sint. Reiciendis impedit nam voluptatum nemo similique libero, asperiores laboriosam totam illo ullam earum doloremque. Culpa, quidem! Sequi architecto enim ipsa.", 27, 24, 2),
-      new Produto(2, "assets/gelodecoco.png", "Gelo de Coco", "", 16.65, 15, 3),
-      new Produto(3, "assets/produto3.jpg", "Gelo flexivel", "", 32.50, 30, 2),
-      new Produto(4, "assets/produto4.jpg", "Tech Gel", "", 27, 24, 2),
-      new Produto(5, "assets/produto5.jpg", "Gelo artificial em espuma", "", 24, 12, 2),
-      new Produto(6, "assets/saco-de-gelo-1kg.png", "Saco de Gelo 1kg", "", 13, 10, 1),
-      new Produto(7, "assets/formasdegelo.jpg", "Formas de Gelo", "", 18, 15, 0),
-      new Produto(8, "assets/caixa-de-isopor.png", "Caixa de isopor", "", 50, 24, 0),
-      new Produto(10, "assets/Olaf.png", "Olaf", "", 1000, 800, 3),)
-    for(let i = 0; i < this.produtos.length; i++){
-      this.produtosExibidos.push(this.produtos[i])
-    }
+  produtos: any = []
+  produtosExibidos: any = []
+
+  getter() {
+    this.serviceProduto.getProdutos().
+    subscribe(
+      (data: produtoAPI) => {
+        this.produtoAPI = data;
+        this.produtos = this.produtoAPI
+        this.produtosExibidos = this.produtos
+      }, (error: any) => {
+        console.error("ERROR", error)
+      })
   }
 
-  categoriaSelecionada(categoria: Categoria) {
-    if(categoria.idCategoria != 0){
-      this.produtos = this.produtosExibidos.filter(produto => produto.idCategoria == categoria.idCategoria)
+
+  constructor(private router: Router, private serviceProduto: ProdutosService) {
+    this.getter();
+  }
+
+  categoriaSelecionada(categoriaAPI: CategoriaAPI) {
+    if(categoriaAPI.idCategoria != 1){
+      this.produtos = this.produtosExibidos.filter(produto => produto.categoria.idCategoria == categoriaAPI.idCategoria)
     }else{
       this.produtos = this.produtosExibidos
     }
@@ -72,17 +70,7 @@ export class ListaDeProdutosComponent implements OnInit {
       this.router.navigate(['/lista-de-produtos', produto.id])
   }
 
-  getter() {
-    this.serviceProduto.getProdutos().subscribe(
-      (data: produtoAPI) => {
-        console.log(data)
-        this.produtoAPI = data;
-        console.log(this.produtoAPI)
-      }, (error: any) => {
-        console.error("ERROR", error)
-      })
-  }
-
 ngOnInit(): void {
+  
 }
 }

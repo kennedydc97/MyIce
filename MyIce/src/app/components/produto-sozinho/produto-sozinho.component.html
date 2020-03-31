@@ -4,23 +4,23 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-6">
-            <img src="assets/produto1.jpg" width="80%" alt="">
+            <img src={{produtoTela.imagem}} width="60%" alt="">
         </div>
         <div class="col-lg-4">
-            <h4>{{produtos[0].nome}}</h4>
-            <p>Código: 1</p>
+            <h4>{{produtoTela.nome}}</h4>
+            <p>Código: {{produtoTela.idProduto}}</p>
             <hr>
-            <p>{{produtos[0].desc}}</p>
+            <p>{{produtoTela.descricao}}</p>
             <div class="row">
                 <div class="col-lg-6">
                     <p>
-                        <s>de: {{produtos[0].precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
+                        <s>de: {{produtoTela.precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
                         <br>
-                        <b id="preco">por: {{produtos[0].precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
+                        <b id="preco">por: {{produtoTela.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
                     </p>
                 </div>
                 <div class="col-lg-6 d-flex">
-                    <button id="adcCarrinho" type="button" routerLink="/carrinho" class="btn btn-success align-self-center ml-2">Adicionar
+                    <button id="adcCarrinho" type="button" routerLink="/carrinho" class="btn btn-success align-self-center ml-2" (click)="salvarProduto()">Adicionar
                         ao carrinho</button>
                 </div>
             </div>
