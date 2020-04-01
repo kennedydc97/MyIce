@@ -32,10 +32,12 @@ export class FormularioComponent implements OnInit {
           Validators.email
         ])
       ),
-      senha:new FormControl("", Validators.compose([Validators.required])),
+      senha:new FormControl("", Validators.compose([Validators.required, Validators.minLength(6),
+        Validators.maxLength(12)])),
       confirmaSenha:new FormControl("", Validators.compose([Validators.required])),
-      tel: new FormControl ("", Validators.compose([Validators.required,Validators.minLength(10),])),
-      nome:new FormControl("", Validators.compose([Validators.required])),
+      tel: new FormControl ("", Validators.compose([Validators.required,Validators.minLength(11),])),
+      nome:new FormControl("", Validators.compose([Validators.required,Validators.minLength(3),
+        Validators.maxLength(100)])),
       nasc:new FormControl("", Validators.compose([ ValidacoesFormulario.MaiorQue18Anos])),
       cpf:new FormControl("", Validators.compose([
         Validators.required,
