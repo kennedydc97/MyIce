@@ -22,6 +22,9 @@ export class FormularioComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { 
     this.formCadastro = this.createForm()
+    if(sessionStorage.getItem("usuario") != null){
+      this.router.navigate(['/home']);
+    }
   }
 
   private createForm():FormGroup{
@@ -69,9 +72,11 @@ export class FormularioComponent implements OnInit {
 
   enviarCadastro(){
     this.clienteService.cadastrarCliente(this.formCadastro.value).subscribe((data) => {
+      console.log(data)
       let cadastro = JSON.stringify(data)
       sessionStorage.setItem("usuario", btoa(cadastro))
-      this.router.navigate(['/home']);
+      location.reload()
+      // this.router.navigate(['/home']);
     })
   }
 

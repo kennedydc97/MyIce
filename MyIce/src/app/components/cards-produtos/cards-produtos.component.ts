@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosService } from 'src/app/services/produtos.service';
+import { produtoAPI } from 'src/app/models/produtoAPI';
 
 @Component({
   selector: 'app-cards-produtos',
@@ -7,7 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsProdutosComponent implements OnInit {
 
-  constructor() { }
+
+  produtoAPI: produtoAPI;
+  produtos: any = []
+  erro: any;
+
+  getter() {
+    this.serviceProduto.getProdutos().
+    subscribe(
+      (data: produtoAPI) => {
+        this.produtoAPI = data;
+        this.produtos = this.produtoAPI
+      }, (error: any) => {
+        console.error("ERROR", error)
+      })
+  }
+
+  constructor(private serviceProduto: ProdutosService) {
+    this.getter()
+    console.log(this.produtos)
+   }
 
   ngOnInit(): void {
   }

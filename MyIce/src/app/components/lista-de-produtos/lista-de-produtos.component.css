@@ -37,4 +37,13 @@
     .card {
       margin: 10px 10px 0 0;
     }
+    #precos{
+        font-size: small;
+    }
+    #preco{
+        font-size: medium;
+    }
+    .card-body{
+        padding: 0%;
+    }
   }

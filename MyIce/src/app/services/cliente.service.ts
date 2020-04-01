@@ -38,7 +38,7 @@ export class ClienteService {
       nome: c.nome,
       telefone: c.tel,
       email: c.email,
-      nasc: c.nasc,
+      nascimento: c.nasc,
       password: c.senha,
       endereco: [{
         logradouro: c.logradouro,
@@ -87,6 +87,7 @@ export class ClienteService {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     //pra login
     // let idCliente = 68;
+    let dtPedido = new Date(); 
     let carrinho = [];
     let total = 0;
     let formapgto = "crédito"
@@ -95,7 +96,7 @@ export class ClienteService {
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     });
     // let cartao = JSON.parse(localStorage.getItem("Pagamento"));
-    let pedido = this.formatoPedido(idEndereco, usuario.idCliente , carrinho, total, vlFrete, formapgto);
+    let pedido = this.formatoPedido(idEndereco, usuario.idCliente , carrinho, total, vlFrete, formapgto, dtPedido);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido )
     return url.pipe(map(
       pedido => pedido 
@@ -110,9 +111,40 @@ export class ClienteService {
     ))
   }
 
-  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
-    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
+  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido){
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho, dtPedido );
       return pedido;
+  }
+
+
+  public getPedidos(){
+    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/" + usuario.idCliente);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
+  }
+
+
+  update(c: Cadastro) {
+    let editarCliente = {
+      nome: c.nome,
+      telefone: c.tel,
+      password: c.senha
+      // enderecos: [{
+      //   endereco: c.endereco,
+      //   numero: c.numeroCasa,
+      //   cep: c.cep,
+      //   bairro: c.bairro,
+      //   complemento: c.complementoCasa,
+      //   cidade: c.cidade,
+      //   estado: c.estado,
+      //   cliente: c.idCadastro
+      // }]
+    }
+    return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
   }
 }
 

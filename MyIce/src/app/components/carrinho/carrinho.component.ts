@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from 'src/app/models/Produtos';
 import { Carrinho } from 'src/app/models/Carrinho';
 import { StorageService } from 'src/app/services/storage.service'
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrinho',
@@ -10,27 +11,23 @@ import { StorageService } from 'src/app/services/storage.service'
 })
 export class CarrinhoComponent implements OnInit {
 
-  carrinho: Carrinho[] = [];
+  carrinho: Carrinho [];
   subTotal: number = 0;
   total: number = 0;
   produtosCarrinho = []
-
   atualizarCarrinho: boolean;
 
-  constructor( private storage: StorageService ) { 
-    this.buscarProduto()
-    
-    for(let i = 0; i < this.produtosCarrinho.length; i++){
-      this.carrinho.push(new Carrinho(this.produtosCarrinho[i]))
-    }
-    
+  constructor( private storage: StorageService, private cliente: ClienteService, private router: Router ) { 
 
-
-    this.carrinho.forEach(item =>{
-      this.subTotal += item.produto.precoDesconto * item.qtd;
-    })
-    storage.salvarCarrinho(this.carrinho);
     console.log(storage.recuperarCarrinho());
+    if(this.storage.recuperarCarrinho() != null){
+      this.carrinho = this.storage.recuperarCarrinho()
+      this.carrinho.forEach(item =>{
+        this.subTotal += item.produto.precoDesconto * item.qtd;
+      })
+    }
+    console.log(this.carrinho);
+
   }
 
   ngOnInit(): void {
@@ -40,7 +37,6 @@ export class CarrinhoComponent implements OnInit {
     carrinho.qtd++;
     this.subTotal += carrinho.produto.precoDesconto
     this.storage.salvarCarrinho(this.carrinho);
-
   }
 
   diminuir(carrinho){
@@ -48,7 +44,6 @@ export class CarrinhoComponent implements OnInit {
       carrinho.qtd--;      
       this.subTotal -= carrinho.produto.precoDesconto
       this.storage.salvarCarrinho(this.carrinho);
-
     }
 
   
@@ -58,18 +53,16 @@ export class CarrinhoComponent implements OnInit {
     this.subTotal -= (item.produto.precoDesconto * item.qtd)
     this.carrinho = this.carrinho.filter(itemP => itemP != item)
     this.storage.salvarCarrinho(this.carrinho);
-
     this.atualizarCarrinho = !this.atualizarCarrinho 
-
     }
 
-  buscarProduto(){
-    let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
-    for(let i = 0; i < produtos.length; i++){
-      this.produtosCarrinho.push(produtos[i])
+  entrarCheckout(){
+    if(!this.cliente.logado()){
+      this.router.navigate(["/checkout"])
+    }else{
+      alert("você precisa estar logado")
+      this.router.navigate(["/login"])
     }
-    return produtos == null ? [] : produtos.produto
   }
-
 }
 

@@ -16,14 +16,19 @@ import { HomeComponent } from './components/home/home.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AdicionarProdutosComponent } from './components/adicionar-produtos/adicionar-produtos.component';
 import { HttpClientModule } from "@angular/common/http";
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
 import { EnderecoComponent } from './components/checkout/endereco/endereco.component';
-import { TextMaskModule } from 'angular2-text-mask';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.component';
+import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
+import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
+import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
+
+import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
 import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 
@@ -42,14 +47,19 @@ import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cada
     HomeComponent,
     SobreNosComponent,
     CheckoutComponent,
-    CadastroComponent,
     FormularioComponent,
     AdicionarProdutosComponent,
     CarrinhoComponent,
+    PaginaDoClienteComponent,
     EnderecoComponent,
     PagamentoComponent,
+    SucessoPedidoRealizadoComponent,
     FormasDeEnvioComponent,
     CadastrarEnderecoComponent,
+    MeusPedidosComponent,
+    MinhaContaComponent,
+    DetalhesPedidoComponent,
+    MeusEnderecosComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,11 +67,10 @@ import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cada
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    TextMaskModule,
-    ModalModule.forRoot()
-
+    ModalModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

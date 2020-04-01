@@ -1,4 +1,6 @@
-export class Cadastro{
+import { Address } from './address';
+
+export class Cadastro {
     constructor(
         public idCadastro: number,
         public nome: string,

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Carrinho } from '../models/carrinho';
 import { Cliente } from '../models/clienteapi';
 
 
@@ -19,7 +18,7 @@ export class StorageService {
   }
 
   removerCarrinho() {
-    localStorage.removeItem("produtoCarrinho");
+    localStorage.removeItem("carrinho");
   }
 
   removerCarrinho2() {

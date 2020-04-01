@@ -1,0 +1,63 @@
+<div class="pagina md-12" id="paginas">
+
+    <div class="row md-12 z-depth-1">
+
+
+        <!--Section: Content-->
+        <section class="dark-grey-text">
+
+            <div class="row md-12 pr-lg-5">
+                <div class="col-md-2 mb-4" style="text-align: end;">
+
+                
+
+                </div>
+                <div class="col-md-6 d-flex align-items-center" *ngIf = "pedido != null" >
+                    <div>
+                        <div class="view" style="margin-top: 40px; margin-bottom: 20px;">
+                            <img src="./assets/check-sucesso-pedido.png" class="img-fluid" style="width: 90px;"
+                                alt="smaple image">
+                        </div>
+                        <h2 class="font-weight-bold mb-4">Pedido realizado com sucesso!</h2>
+
+                        <p style="color: rgb(55, 119, 238);">Seu pedido será enviado de acordo com o frete escolhido,
+                            caso tenha alguma inconformidade, entre em contato antes da postagem.</p>
+
+                        <p class="">Código do pedido: {{pedido.idPedido}}</p>
+                        <p>Data do Pedido: {{pedido.dtPedido | date:"dd/MM/yyyy"}}</p>
+                        <p></p>
+
+                        
+
+
+                        <div class="d-flex justify-content-start" style="margin-top: 40px; margin-bottom: 110px;">
+                            <button class="btn btn-primary btn-lg" type="submit" id="home"
+                                >Mais detalhes</button>
+                        </div>
+
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+
+                    <div class="view" style="margin-top: 190px;">
+                        <img src="./assets/pedido-concluido pinguin.png" class="img-fluid" style="width: 390px;"
+                            alt="smaple image">
+                    </div>
+                </div>
+
+
+                
+            </div>
+
+            
+
+        </section>
+        <!--Section: Content-->
+
+        
+
+
+    </div>
+</div>

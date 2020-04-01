@@ -2,12 +2,13 @@ import { produtoAPI } from './produtoAPI';
 
 export class Pedido {
     constructor(
-        private idCliente: number,
-        private vlFrete: number,
-        private vlTotal: number,
-        private formapgto: string,
-        private idEndereco: number,
-        private itemPedido: produtoAPI[],
-        private idPedido?: number
+        public idCliente: number,
+        public vlFrete: number,
+        public vlTotal: number,
+        public formapgto: string,
+        public dtPedido: Date,
+        public idEndereco: number,
+        public itemPedido: produtoAPI[],
+        public idPedido?: number
     ) { }
 }

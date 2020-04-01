@@ -85,14 +85,28 @@ export class CheckoutComponent implements OnInit {
   }
 
 
+  // finalizarCompra() {
+  //   this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
+  //     pedido => console.log(pedido)
+  //   )
+  // }
   finalizarCompra() {
-    this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
-      pedido => console.log(pedido)
-    )
-
-  }
-
-
+      this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
+        dados => {
+          if (dados != null) {
+            let cliente = JSON.parse(atob((sessionStorage.getItem("usuario"))));
+            if(cliente.pedido == null){
+              cliente.pedido = [];
+            }
+            cliente.pedido.push(dados);
+            this.storage.salvarCliente(cliente);
+            this.storage.removerCarrinho();
+            this.route.navigate(['/sucesso'])
+          }
+        }
+      )
+      }
+    
   cadastrarEndereco(endereco: Endereco) {
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     this.cliente.cadastrarEndereco(endereco, this.usuario.idCliente).subscribe(
@@ -110,4 +124,7 @@ export class CheckoutComponent implements OnInit {
     this.principalEndereco = address;
     this.modalRef.hide();
   }
+
+
 }
+

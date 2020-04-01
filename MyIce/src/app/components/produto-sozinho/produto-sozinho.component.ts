@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
-import { count } from 'rxjs/operators';
+import { Carrinho } from 'src/app/models/Carrinho';
 
 @Component({
   selector: 'app-produto-sozinho',
@@ -13,7 +13,7 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   public produtoId;
   produtoTela: produtoAPI;
-  produtoLocal: produtoAPI[] = []
+  produtoLocal: Carrinho[] = []
 
 
   constructor(private route: ActivatedRoute, private service: ProdutosService) {
@@ -24,7 +24,7 @@ export class ProdutoSozinhoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let produtosStorage = JSON.parse(localStorage.getItem("produtoCarrinho"))
+    let produtosStorage = JSON.parse(localStorage.getItem("carrinho"))
     if (produtosStorage != null) {
       for (let i = 0; i < produtosStorage.length; i++) {
         if (produtosStorage != null) {
@@ -36,18 +36,17 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   salvarProduto() {
     let count = 0
-    let produtos: produtoAPI[] = JSON.parse(localStorage.getItem("produtoCarrinho"))
-    if (produtos != null) {
-      for (let i = 0; i < produtos.length; i++) {
-        if (produtos[i].nome == this.produtoTela.nome)
+    let carrinho: Carrinho[] = JSON.parse(localStorage.getItem("carrinho"))
+    if (carrinho != null) {
+      for (let i = 0; i < carrinho.length; i++) {
+        if (carrinho[i].produto.idProduto == this.produtoTela.idProduto)
           count++
       }
     }
     if (count == 0) {
-      this.produtoLocal.push(this.produtoTela)
+      this.produtoLocal.push(new Carrinho(this.produtoTela))
       let produto_json = JSON.stringify(this.produtoLocal)
-      localStorage.setItem("produtoCarrinho", produto_json)
+      localStorage.setItem("carrinho", produto_json)
     }
   }
-
 }

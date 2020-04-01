@@ -2,8 +2,15 @@
 display: flex;
 justify-content: space-around;
 }
-
 #produtosMaisVendidos{
-    background-color: #8ea9e4;
+    display: flex;
+    justify-content: center;
+    background-color: #4b7ae0;
     color: white;
+    margin-top: 20px;
+    margin-left: 392px;
+    padding: 5px;
+}
+#preco{
+    font-size: x-large;
 }
