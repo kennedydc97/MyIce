@@ -1,6 +1,4 @@
-
 import { FormControl } from '@angular/forms';
-
 
 export class ValidacoesFormulario {
   static ValidaCpf(controle: FormControl) {

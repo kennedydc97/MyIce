@@ -25,7 +25,7 @@ export class ClienteService {
       telefone: c.tel,
       email: c.email,
       password: c.senha,
-      enderecos: [{
+      endereco: [{
         endereco: c.endereco,
         numero: c.numeroCasa,
         cep: c.cep,
@@ -58,31 +58,53 @@ export class ClienteService {
     let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
     return url.pipe(data => data)
   }
-  public buscarEndereco(id){
-    let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + id)
+  public buscarEndereco(idCliente){
+    let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + idCliente)
     return url.pipe(map(
       endereco => endereco
     ))
   }
   public mandarPedido(idEndereco, vlFrete){
-    // let idcliente = storage.recuperarCliente().idCliente; pra login
-    let idCliente = 33;
+    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    //pra login
+    // let idCliente = 68;
     let carrinho = [];
     let total = 0;
+    let formapgto = "crédito"
     storage.recuperarCarrinho().forEach(el => { 
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     });
-    let cartao = JSON.parse(localStorage.getItem("Pagamento"));
-    let pedido = this.formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete);
+    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));
+    let pedido = this.formatoPedido(idEndereco, usuario.idCliente , carrinho, total, vlFrete, formapgto);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido )
     return url.pipe(map(
       pedido => pedido 
     ))
   }
-  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete){
-    let pedido = new Pedido(idCliente, vlFrete, total, 1, idEndereco, carrinho );
+  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
       return pedido;
   }
+
+  update(c: Cadastro) {
+    let editarCliente = {
+      nome: c.nome,
+      telefone: c.tel,
+      password: c.senha
+      // enderecos: [{
+      //   endereco: c.endereco,
+      //   numero: c.numeroCasa,
+      //   cep: c.cep,
+      //   bairro: c.bairro,
+      //   complemento: c.complementoCasa,
+      //   cidade: c.cidade,
+      //   estado: c.estado,
+      //   cliente: c.idCadastro
+      // }]
+    }
+    return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
+  }
 }
+
 

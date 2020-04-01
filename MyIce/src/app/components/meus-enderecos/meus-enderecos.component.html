@@ -1,0 +1,23 @@
+<main class="container">
+    <form>
+        <div>
+            <app-pagina-do-cliente></app-pagina-do-cliente>
+
+            <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
+
+            <!-- <div class="card" style="width: 27rem;">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
+                  <p class="card-text">
+                    <p>{{enderecos._endereco}}, {{enderecos._numero}} - {{enderecos._bairro}}</p>
+                    <p>{{enderecos._cidade}}, {{enderecos._estado}}</p>
+                    <p>CEP: {{endereco.cep}}</p>
+                  <a class="btn btn-primary" href="#" role="button" class="btn btn-primary" type="button" data-toggle="modal"
+                    data-target="#alterarEndereco" class="card-link">Selecionar outro endereço</a>
+                </div>
+              </div> -->
+
+
+        </div>
+    </form>
+</main>
