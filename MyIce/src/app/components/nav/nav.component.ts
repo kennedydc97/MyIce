@@ -32,7 +32,7 @@ export class NavComponent implements OnChanges {
 
    logout(){
     sessionStorage.removeItem("usuario")
-    localStorage.clear
+    localStorage.removeItem("carrinho")
   }
 
   ngOnChanges(): void {
