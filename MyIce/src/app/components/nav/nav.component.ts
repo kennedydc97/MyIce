@@ -27,7 +27,6 @@ export class NavComponent implements OnChanges {
       this.quantidade = this.storage.recuperarCarrinho().length;
     }else{
       this.quantidade = 0;
-      location.reload()
     }
    }
 

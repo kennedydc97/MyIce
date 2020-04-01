@@ -12,7 +12,7 @@ import { Endereco } from '../models/endereco';
 const storage: StorageService = new StorageService();
 
 
-const bancoEndereco = (endereco, idCliente) =>{
+const enderecodb = (endereco, idCliente) =>{
   return {
     "logradouro": endereco.logradouro,
     "numero": endereco.numero,
@@ -42,10 +42,10 @@ export class ClienteService {
       password: c.senha,
       endereco: [{
         logradouro: c.logradouro,
-        numero: c.numeroCasa,
+        numero: c.numero,
         cep: c.cep,
         bairro: c.bairro,
-        complemento: c.complementoCasa,
+        complemento: c.complemento,
         localidade: c.localidade,
         uf: c.uf,
       }]
@@ -104,7 +104,7 @@ export class ClienteService {
 
 
   public cadastrarEndereco(endereco: Endereco, idCliente){
-    let url = this.http.post("http://localhost:8080/ecommerce/endereco", bancoEndereco(endereco, idCliente));
+    let url = this.http.post("http://localhost:8080/ecommerce/endereco", enderecodb(endereco, idCliente));
     return url.pipe(map(
       dados => dados
     ))
