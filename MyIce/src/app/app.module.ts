@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
@@ -24,6 +25,7 @@ import { EnderecoComponent } from './components/checkout/endereco/endereco.compo
 import { TextMaskModule } from 'angular2-text-mask';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
+import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/fo
     EnderecoComponent,
     PagamentoComponent,
     FormasDeEnvioComponent,
+    CadastrarEnderecoComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,9 @@ import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/fo
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    TextMaskModule
+    TextMaskModule,
+    ModalModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

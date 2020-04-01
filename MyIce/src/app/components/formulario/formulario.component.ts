@@ -48,20 +48,20 @@ export class FormularioComponent implements OnInit {
             Validators.minLength(8),
           ])
       ),
-      endereco:new FormControl("", 
+      logradouro:new FormControl("", 
         Validators.compose([Validators.required])),
       bairro:new FormControl("",
         Validators.compose([Validators.required])),
       numero:new FormControl("",
         Validators.compose([Validators.required])),
-      complementoCasa:new FormControl(""),
-      estado:new FormControl("",
+      complemento:new FormControl(""),
+      uf:new FormControl("",
         Validators.compose([
           Validators.required,
           Validators.minLength(2),
           Validators.maxLength(2)
         ])),
-      cidade:new FormControl("",
+      localidade:new FormControl("",
         Validators.compose([Validators.required]))
     }, 
     { validator: ValidacoesFormulario.SenhasCombinam});
@@ -74,25 +74,38 @@ export class FormularioComponent implements OnInit {
       this.router.navigate(['/home']);
     })
   }
-  
-  pegarCep(){
-      this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
-        this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-        this.formCadastro.controls['endereco'].patchValue(data.logradouro);
-        this.formCadastro.controls['bairro'].patchValue(data.bairro);
-        this.formCadastro.controls['estado'].patchValue(data.uf);
-        this.formCadastro.controls['cidade'].patchValue(data.localidade);
-      })
+
+
+  preencherEndereco(){
+    if(this.formCadastro.value.cep.length == 8){
+      this.cepService.getEnderecoViaCep(this.formCadastro.value.cep).subscribe(
+        dados => {
+          this.formCadastro.patchValue({
+            localidade: dados.localidade,
+            bairro: dados.bairro,
+            uf: dados.uf,
+            logradouro: dados.logradouro
+          })
+        }
+      )
+    }
   }
+  
+  // pegarCep(){
+  //     this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
+  //       this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
+  //       this.formCadastro.controls['endereco'].patchValue(data.logradouro);
+  //       this.formCadastro.controls['bairro'].patchValue(data.bairro);
+  //       this.formCadastro.controls['estado'].patchValue(data.uf);
+  //       this.formCadastro.controls['cidade'].patchValue(data.localidade);
+  //     })
+  // }
   
   ngOnInit() {
     this.formCadastro = this.createForm();
   }
   get numero() {
     return this.formCadastro.get('numero');
-  }
-  get cep() {
-    return this.formCadastro.get('cep');
   }
   get sobrenome() {
     return this.formCadastro.get('sobrenome');

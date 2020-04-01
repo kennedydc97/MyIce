@@ -6,9 +6,24 @@ import { Cadastro } from '../models/Cadastro';
 import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
+import { Address } from '../models/address';
 
 
 const storage: StorageService = new StorageService();
+
+
+const bancoEndereco = (endereco, idCliente) =>{
+  return {
+    "logradouro": endereco.endereco,
+    "numero": endereco.numero,
+    "bairro": endereco.bairro,
+    "complemento": endereco.complemento,
+    "cidade": endereco.localidade,
+    "estado": endereco.uf,
+    "cep": endereco.cep,
+    "idCliente":idCliente
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -46,24 +61,28 @@ export class ClienteService {
       return false;
     }
   }
+
   dados(login: Login){
     return{
       "email":login.email,
       "password":login.password
     }
   }
+
   fazerLogin(login: Login){
     let comunicacao = this.dados(login)
     let body: any
     let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
     return url.pipe(data => data)
   }
+
   public buscarEndereco(idCliente){
     let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + idCliente)
     return url.pipe(map(
       endereco => endereco
     ))
   }
+
   public mandarPedido(idEndereco, vlFrete){
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     //pra login
@@ -82,10 +101,21 @@ export class ClienteService {
       pedido => pedido 
     ))
   }
+
+
+  public cadastrarEndereco(address: Address, idCliente){
+    let url = this.http.post("http://localhost:8080/ecommerce/endereco", bancoEndereco(address, idCliente));
+    return url.pipe(map(
+      dados => dados
+    ))
+  }
+
   public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
     let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
       return pedido;
   }
 }
+
+
 
 

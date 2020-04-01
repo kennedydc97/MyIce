@@ -113,11 +113,11 @@
                 <div class="form-group">
                     <label for="cep">CEP</label>
                     <input class="form-control" type="text" id="cep"  formControlName="cep"
-                        placeholder="Digite o CEP" maxlength="8" (blur)="pegarCep()" required>
+                        placeholder="Digite o CEP" maxlength="8" (keyup)="preencherEndereco()" required>
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
-                    <input class="form-control" type="text" id="endereco" formControlName="endereco"
+                    <input class="form-control" type="text" id="endereco" formControlName="logradouro"
                         placeholder="Digite o endereço" required maxlength="80">
                 </div>
                 <div class="form-group">
@@ -140,13 +140,13 @@
                 <div class="form-group row">
                     <div class="col-9">
                         <label for="cidade">Cidade</label>
-                        <input class="form-control" type="text" id="cidade" formControlName="cidade"
+                        <input class="form-control" type="text" id="cidade" formControlName="localidade"
                             placeholder="Digite a cidade" required maxlength="30">
 
                     </div>
                     <div class="form-group col-md-3">
                         <label for="estado">Estado</label>
-                        <select class="form-control" formControlName="estado" id="estado" required>
+                        <select class="form-control" formControlName="uf" id="estado" required>
                             <option value="" disabled selected>Estado</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
