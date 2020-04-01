@@ -1,45 +1,46 @@
 
   
   
-   <form class="border border-top-0 pb-2 pr-4 pl-4 novo-endereco-modal" [formGroup]="formEntrega">
+   <form class="border border-top-0 pb-2 pr-4 pl-4 modal-endereco" [formGroup]="formEntrega">
   
-    <div class="modal-header d-flex justify-content-center mb-4">
-      <h5 class="text-center">Cadastrar novo endereço</h5>
+    <div class="modal-header d-flex justify-content-center mb-3">
+      <h5 class="tituloEntrega">Cadastrar novo endereço</h5>
     </div>
-      <div class="p-3"></div>
-      <div class="form-row">
-          <div class="form-group col-md-4">
+          <div class="form-group">
               <label for="cep">CEP</label>
               <input class="form-control" type="text" id="cep"  (keyup)="preencherEndereco()" formControlName="cep"
                   placeholder="CEP" maxlength="8" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group">
               <label for="endereco">Endereço</label>
               <input class="form-control" type="text" id="endereco" formControlName="logradouro"
                   placeholder="Endereço" required>
           </div>
-          <div class="form-group col-md-3">
-              <label for="numeroEnderecoUsuario">Número</label>
-              <input class="form-control" type="text" id="numeroEnderecoUsuario"  formControlName="nroEndereco"
+          <div class="form-group row">
+            <div class="col-6">
+               <label for="numeroEnderecoUsuario">Número</label>
+              <input class="form-control" type="text" id="numeroEnderecoUsuario"  formControlName="numero"
                   placeholder="Numero" required>
           </div>
-          <div class="form-group col-md-7">
-              <label for="complementoUsuario">Complemento</label>
+          <div class="col-6">
+            <label for="complementoUsuario">Complemento</label>
               <input class="form-control" type="text" id="complementoUsuario" formControlName="complemento"
                   placeholder="Complemento">
           </div>
-          <div class="form-group col-md-3">
+         </div>
+          <div class="form-group">
               <label for="bairro">Bairro</label>
               <input class="form-control" type="text" id="bairro" formControlName="bairro" placeholder="Bairro"
                   required>
           </div>
-          <div class="form-group col-md-3">
-              <label for="cidade">Cidade</label>
+          <div class="form-group row">
+            <div class="col-6">
+                  <label for="cidade">Cidade</label>
               <input class="form-control" type="text" id="cidade" formControlName="localidade" placeholder="Cidade"
                   required>
           </div>
-          <div class="form-group col-md-4">
-              <label for="estado">Estado</label>
+          <div class="col-6">
+            <label for="estado">Estado</label>
               <select class="form-control" formControlName="uf" id="estado" placeholder="Estado" required>
                   <option value="" selected>Estado</option>
                   <option value="AC">Acre</option>
@@ -71,7 +72,7 @@
                   <option value="TO">Tocantins</option>
               </select>
           </div> 
-          <div class="text-center">
+          <div class="text-center mt-2 mb-3">
             <button class="btn btn-primary" (click)="novoEndereco.emit(formEntrega.value)">Cadastrar endereço</button>
         </div>
 

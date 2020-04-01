@@ -12,25 +12,25 @@
 
         <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
         <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3">
-          <button class="btn btn-success" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
+          <button class="btn btn-primary" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
         </div>
-        <a class="btn btn-primary text-light mt-2" (click)="abrirModal(listaEnderecos)">Selecionar outro endereço</a>
+        <a class="btn btn-primary text-light mt-2" (click)="abrirModal(listagemEnderecos)">Selecionar outro endereço</a>
 
 
         <ng-template #novoEndereco>
           <app-cadastrar-endereco (novoEndereco)="cadastrarEndereco($event)"></app-cadastrar-endereco>
       </ng-template>
       
-      <ng-template #listaEnderecos>
-          <div class="lista-enderecos d-flex flex-column">
+      <ng-template #listagemEnderecos>
+          <div class="listagemenderecos d-flex flex-column border border-top-0 pb-2 pr-4 pl-4">
               <div class="card ng-scope text-center sticky-top">
-                  <h5 class="card-header">Escolha o endereço</h5>
+                  <h5 class="card-header tituloLista">Escolha o endereço</h5>
               </div>
               <a *ngFor="let item of enderecos" (click)="mudarEndereco(item)">
                   <app-endereco [endereco]="item"></app-endereco>
               </a>
               <div class="text-center mt-2 mb-3">
-                  <button class="btn btn-success" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
+                  <button class="btn btn-primary" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
               </div>
           </div>
       </ng-template>

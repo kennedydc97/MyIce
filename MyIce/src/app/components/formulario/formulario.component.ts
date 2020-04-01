@@ -52,7 +52,7 @@ export class FormularioComponent implements OnInit {
         Validators.compose([Validators.required])),
       bairro:new FormControl("",
         Validators.compose([Validators.required])),
-      numero:new FormControl("",
+        numero:new FormControl("",
         Validators.compose([Validators.required])),
       complemento:new FormControl(""),
       uf:new FormControl("",

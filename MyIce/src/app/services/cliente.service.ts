@@ -6,7 +6,7 @@ import { Cadastro } from '../models/Cadastro';
 import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
-import { Address } from '../models/address';
+import { Endereco } from '../models/endereco';
 
 
 const storage: StorageService = new StorageService();
@@ -14,14 +14,14 @@ const storage: StorageService = new StorageService();
 
 const bancoEndereco = (endereco, idCliente) =>{
   return {
-    "logradouro": endereco.endereco,
+    "logradouro": endereco.logradouro,
     "numero": endereco.numero,
     "bairro": endereco.bairro,
     "complemento": endereco.complemento,
-    "cidade": endereco.localidade,
-    "estado": endereco.uf,
+    "localidade": endereco.localidade,
+    "uf": endereco.uf,
     "cep": endereco.cep,
-    "idCliente":idCliente
+    "cliente":idCliente
   }
 }
 
@@ -41,13 +41,13 @@ export class ClienteService {
       nasc: c.nasc,
       password: c.senha,
       endereco: [{
-        endereco: c.endereco,
+        logradouro: c.logradouro,
         numero: c.numeroCasa,
         cep: c.cep,
         bairro: c.bairro,
         complemento: c.complementoCasa,
-        cidade: c.cidade,
-        estado: c.estado,
+        localidade: c.localidade,
+        uf: c.uf,
       }]
     }
 
@@ -103,8 +103,8 @@ export class ClienteService {
   }
 
 
-  public cadastrarEndereco(address: Address, idCliente){
-    let url = this.http.post("http://localhost:8080/ecommerce/endereco", bancoEndereco(address, idCliente));
+  public cadastrarEndereco(endereco: Endereco, idCliente){
+    let url = this.http.post("http://localhost:8080/ecommerce/endereco", bancoEndereco(endereco, idCliente));
     return url.pipe(map(
       dados => dados
     ))

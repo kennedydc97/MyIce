@@ -7,7 +7,9 @@ import { Pagamento } from 'src/app/models/Pagamento';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Address } from 'src/app/models/Address'
 import { Router } from '@angular/router';
-import { BsModalRef, BsModalService, ModalBackdropComponent } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Endereco } from 'src/app/models/endereco'
+
 
 
 
@@ -29,7 +31,6 @@ export class CheckoutComponent implements OnInit {
   usuario;
   validar: Validar = new Validar()
   produtosCarrinho = []
-  // modalRef: BsModalRef;
 
 
   constructor(private storage: StorageService, private cliente: ClienteService, private route: Router, private modalService: BsModalService) {
@@ -85,15 +86,16 @@ export class CheckoutComponent implements OnInit {
 
 
   finalizarCompra() {
-    this.cliente.mandarPedido(this.principalEndereco.idEndereco, 15).subscribe(
+    this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
       pedido => console.log(pedido)
     )
 
   }
 
 
-  cadastrarEndereco(address: Address) {
-    this.cliente.cadastrarEndereco(address, this.usuario.idCliente).subscribe(
+  cadastrarEndereco(endereco: Endereco) {
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    this.cliente.cadastrarEndereco(endereco, this.usuario.idCliente).subscribe(
       dados => {
         if (this.enderecos.length == 0) {
           this.principalEndereco = dados;

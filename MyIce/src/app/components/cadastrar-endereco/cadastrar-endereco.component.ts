@@ -35,13 +35,12 @@ export class CadastrarEnderecoComponent implements OnInit {
        Validators.compose([Validators.required])),
      bairro:new FormControl("",
        Validators.compose([Validators.required])),
-       nroEndereco:new FormControl("",
+     numero:new FormControl("",
        Validators.compose([Validators.required])),
      complemento:new FormControl(""),
      uf:new FormControl("",
        Validators.compose([
          Validators.required
-
        ])),
      localidade:new FormControl("",
        Validators.compose([Validators.required]))
