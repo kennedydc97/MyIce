@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
@@ -26,10 +26,12 @@ import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.com
 import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
 import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
 import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
-
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -65,7 +67,10 @@ import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/fo
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -18,8 +18,8 @@
                                     <span>Vendido e fornecido por: My Ice.</span>
                                 </h5>
 
-                                <span>De: <s>R${{item.produto.precoCheio}},00</s> </span> <br> Por:
-                                    <span class="preco"> R${{item.produto.precoDesconto}},00</span>
+                                <span>De: <s>{{item.produto.precoCheio | currency:"BRL"}}</s> </span> <br> Por:
+                                    <span class="preco">{{item.produto.precoDesconto | currency:"BRL"}}</span>
                                 <ul>
                                     <p> <span class="quantidade"> Quantidade: </span>
                                         <input type=image src="./assets/menos.png" width="14" height="14"
@@ -40,10 +40,10 @@
                     <ul class="list-group list-group-flush">
                         <div id="subtotal">
                             <li class="list-group-item"><strong> Subtotal </strong>
-                                <p> <span id="subtotalValor"> R$ {{subTotal}},00 </span></p>
+                                <p> <span id="subtotalValor"> {{subTotal | currency:"BRL"}}</span></p>
                             </li>
                         </div>
-                        <li class="list-group-item"><strong> Total </strong> <span id="totalValor">R${{subTotal}},00
+                        <li class="list-group-item"><strong> Total </strong> <span id="totalValor">{{subTotal | currency:"BRL"}}
                             </span> </li>
                         <div class="d-flex flex-column bd-highlight mb-3">
                             <div class="p-2 bd-highlight"><button type="button" class="btn btn-primary btn-block"

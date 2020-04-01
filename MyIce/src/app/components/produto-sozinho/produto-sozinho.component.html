@@ -7,19 +7,19 @@
             <img src={{produtoTela.imagem}} width="60%" alt="">
         </div>
         <div class="col-lg-4">
-            <h4>{{produtoTela.nome}}</h4>
+            <h4><strong>{{produtoTela.nome}}</strong></h4>
             <p>Código: {{produtoTela.idProduto}}</p>
             <hr>
             <p>{{produtoTela.descricao}}</p>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <p>
                         <s>de: {{produtoTela.precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s>
                         <br>
                         <b id="preco">por: {{produtoTela.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b>
                     </p>
                 </div>
-                <div class="col-lg-6 d-flex">
+                <div class="col-lg-12 d-flex">
                     <button id="adcCarrinho" type="button" routerLink="/carrinho" class="btn btn-success align-self-center ml-2" (click)="salvarProduto()">Adicionar
                         ao carrinho</button>
                 </div>

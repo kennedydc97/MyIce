@@ -36,8 +36,8 @@
                     <div class="card-body">
                         <h5 class="card-title text-primary"><strong>{{produto.nome}}</strong></h5> 
                         <a [routerLink]="['/lista-de-produtos', produto.idProduto]" class="card-text stretched-link" id="cardsDosProdutos">
-                            <p id="precos"><s>de: {{produto.precoCheio.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</s> <br> <b id="preco">
-                                por {{produto.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</b></p>
+                            <p id="precos"><s>de: {{produto.precoCheio | currency:"BRL"}}</s> <br> <b id="preco">
+                                por {{produto.precoDesconto | currency:"BRL"}}</b></p>
                         </a>
                     </div>
                 </div>

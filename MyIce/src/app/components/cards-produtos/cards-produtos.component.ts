@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards-produtos',
@@ -29,11 +30,14 @@ export class CardsProdutosComponent implements OnInit {
       })
   }
 
-  constructor(private serviceProduto: ProdutosService) {
+  constructor(private serviceProduto: ProdutosService, private router: Router) {
     this.getter()
   }
   
   ngOnInit(): void {
   }
 
+  produtoSelecionado(produto){
+    this.router.navigate(['/lista-de-produtos', produto.id])
+}
 }
