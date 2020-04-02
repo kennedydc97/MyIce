@@ -30,7 +30,7 @@ export class NavComponent implements OnChanges {
     }
 
     cliente.clienteLogado.subscribe(logado =>{
-      console.log(logado)
+      this.usuario = logado
     })
    }
 

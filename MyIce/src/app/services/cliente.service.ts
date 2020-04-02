@@ -109,7 +109,7 @@ export class ClienteService {
     return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
   }
 
-  disparaEventoClienteLogado(c: Cadastro){
+  public disparaEventoClienteLogado(c: Cadastro){
     this.clienteLogado.emit(c)
   }
 }
