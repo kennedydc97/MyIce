@@ -5,7 +5,7 @@ import { CepService } from 'src/app/services/cep.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
-import { Cadastro } from 'src/app/models/Cadastro';
+import { Validar } from 'src/app/models/Validar';
 
 
 @Component({
@@ -17,6 +17,7 @@ export class FormularioComponent implements OnInit {
   
   address: Address = new Address("","","","","","")
   validar: ValidacoesFormulario = new ValidacoesFormulario ()
+  validarCPF: Validar = new Validar()
 
   formCadastro: FormGroup;
 
@@ -43,7 +44,7 @@ export class FormularioComponent implements OnInit {
       cpf:new FormControl("", Validators.compose([
         Validators.required,
         Validators.minLength(11),
-        ValidacoesFormulario.ValidaCpf
+        Validar.validarCpf
       ])),
       cep:new FormControl("",
         Validators.compose([

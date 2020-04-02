@@ -47,13 +47,10 @@
                     placeholder="Digite seu CPF" formControlName="cpf" maxlength="11">
             
                     <div *ngIf="!cpf.pristine && cpf.errors">
-                        <p *ngIf="cpf.errors.required " style="color: red";>
-                          *CPF é obrigatório.
-                        </p>
-                        <p *ngIf="cpf.errors.cpfInvalido" style="color: red;" class="is-invalid">
-                          *Digite um CPF válido
-                        </p>
-                      </div>
+                      <p class="alert alert-danger" *ngIf="cpf.errors.invalidCpf">
+                        CPF inválido.
+                      </p>
+                    </div>
                 </div>
 
             <div class="form-group">
