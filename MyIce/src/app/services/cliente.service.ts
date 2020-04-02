@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { StorageService } from './storage.service';
 import { map } from "rxjs/operators";
@@ -7,7 +7,6 @@ import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 
-
 const storage: StorageService = new StorageService();
 
 @Injectable({
@@ -15,7 +14,11 @@ const storage: StorageService = new StorageService();
 })
 export class ClienteService {
 
-  constructor(private http: HttpClient, private storage : StorageService) { }
+  public clienteLogado: EventEmitter<Cadastro>;
+
+  constructor(private http: HttpClient, private storage : StorageService) {
+    this.clienteLogado = new EventEmitter()
+   }
 
   cadastrarCliente(c: Cadastro){
     let cadastrarCliente = {
@@ -104,6 +107,10 @@ export class ClienteService {
       // }]
     }
     return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
+  }
+
+  disparaEventoClienteLogado(c: Cadastro){
+    this.clienteLogado.emit(c)
   }
 }
 

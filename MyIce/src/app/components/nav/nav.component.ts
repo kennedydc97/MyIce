@@ -28,6 +28,10 @@ export class NavComponent implements OnChanges {
     }else{
       this.quantidade = 0;
     }
+
+    cliente.clienteLogado.subscribe(logado =>{
+      console.log(logado)
+    })
    }
 
    logout(){
@@ -46,4 +50,6 @@ export class NavComponent implements OnChanges {
     }
 
   }
+
+
 }
