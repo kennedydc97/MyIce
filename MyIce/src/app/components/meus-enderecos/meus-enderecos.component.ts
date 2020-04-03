@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 
@@ -8,6 +8,9 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./meus-enderecos.component.css']
 })
 export class MeusEnderecosComponent implements OnInit {
+
+  @Input() endereco;
+
 
   principalEndereco = null;
   enderecos = [];

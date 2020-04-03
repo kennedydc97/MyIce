@@ -18,11 +18,11 @@
         <th class="text-center" style="width:200px">Valor</th>
       </thead>
       <thead>
-      <tr>
-        <th class="text-center">#0001</th>
-        <th class="text-center">28/03/2020 21:59</th>
+        <tr>
+          <th class="text-center">#{{pedido.idPedido}}</th>
+        <th class="text-center">#{{pedido.dtPedido | date:"dd/MM/yyyy"}}</th>
         <th class="text-center">Em Processamento</th>
-        <th class="text-center">R$ 100,00</th>
+        <th class="text-center">{{pedido.vlTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</th>
       </thead>
     </table>
   

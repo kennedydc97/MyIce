@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Pedido } from 'src/app/models/Pedido';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sucesso-pedido-realizado',
@@ -12,7 +13,7 @@ export class SucessoPedidoRealizadoComponent implements OnInit {
   pedido: Pedido;
 
 
-  constructor( private cliente : ClienteService) { }
+  constructor( private cliente : ClienteService, private router: Router) { }
 
   ngOnInit(): void {   
     this.cliente.getPedidos().subscribe(
@@ -22,6 +23,11 @@ export class SucessoPedidoRealizadoComponent implements OnInit {
       }
     )
   }
+
+  entrarPagCliente() {
+    if(this.cliente.logado)
+      this.router.navigate(["/meus-pedidos"])
+    }
 }
 
 
