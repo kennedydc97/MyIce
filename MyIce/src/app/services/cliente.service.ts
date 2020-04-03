@@ -128,7 +128,7 @@ export class ClienteService {
 
   public getPedidos(){
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-    let url = this.http.get("http://localhost:8080/ecommerce/pedido/" + usuario.idCliente);
+    let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/" + usuario.idCliente);
     return url.pipe(
       map(
         data => data
