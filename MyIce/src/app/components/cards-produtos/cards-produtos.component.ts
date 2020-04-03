@@ -23,8 +23,6 @@ export class CardsProdutosComponent implements OnInit {
         this.produtoAPI = data;
         this.produtos = this.produtoAPI
         this.produtosExibidos = this.produtos
-        console.log(this.produtos);
-        
       }, (error: any) => {
         console.error("ERROR", error)
       })

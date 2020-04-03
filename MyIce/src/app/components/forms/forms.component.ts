@@ -3,7 +3,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Login } from 'src/app/models/Login';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
-import { window } from 'rxjs/operators';
 import { Cadastro } from 'src/app/models/Cadastro';
 
 @Component({
