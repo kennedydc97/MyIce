@@ -25,12 +25,14 @@
 
         <!-- Espaço de pesquisa -->
 
-         <form id="barra-de-pesquisa" class="form-inline my-6 my-lg-0">
+         <div id="barra-de-pesquisa" class="form-inline my-6 my-lg-0">
             <div id="divBusca">
-                <input  type="text" id="txtBusca" placeholder="Pesquisar..."/>
-                <button class="btn rounded" ><img  src="assets/loupe (1).png" style="align-items: baseline;" width="30" id="btnBusca" alt="Buscar"/></button>
+                <input  type="text" id="txtBusca" (keyup.enter)="buscarProduto( txtBuscar.value )" placeholder="Pesquisar..." #txtBuscar/>
+                <!-- <button class="btn rounded" > -->
+                    <img  src="assets/loupe (1).png" style="align-items: baseline;" width="30" id="btnBusca" alt="Buscar"/>
+                <!-- </button> -->
               </div>
-        </form>
+            </div>
 
 
 

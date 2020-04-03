@@ -1,6 +1,7 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,7 @@ export class NavComponent implements OnChanges {
   @Input() atualizarQuantidade: boolean;  
   @Output() atualizarCarrinho: EventEmitter<any> = new EventEmitter();
 
-  constructor( private storage : StorageService, public cliente : ClienteService) { 
+  constructor( private storage : StorageService, public cliente : ClienteService, private router: Router) { 
     cliente.logado();
     if(sessionStorage.getItem("usuario") != null){
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
@@ -49,6 +50,15 @@ export class NavComponent implements OnChanges {
       })
     }
 
+  }
+
+  buscarProduto( palavra: string ){
+
+    if(palavra.length < 1){
+      return;
+    }
+
+    this.router.navigate(['busca', palavra]);
   }
 
 

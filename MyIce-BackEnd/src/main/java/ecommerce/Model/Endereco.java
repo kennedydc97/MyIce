@@ -14,8 +14,8 @@ public class Endereco {
     @Column(name = "id_endereco")
     private Long idEndereco;
 
-    @Column(name = "endereco")
-    private String endereco;
+    @Column(name = "logradouro")
+    private String logradouro;
 
     @Column(name = "nro_endereco",length=6)
     private String numero;
@@ -29,11 +29,11 @@ public class Endereco {
     @Column(name = "complemento")
     private String complemento;
 
-    @Column(name = "cidade")
-    private String cidade;
+    @Column(name = "localidade")
+    private String localidade;
 
-    @Column(name = "estado")
-    private String estado;
+    @Column(name = "uf")
+    private String uf;
 
     @Column(name="id_client")
     private Long cliente;

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long>  {
-//    List<Pedido> findByCliente(Long cliente);
+    List<Pedido> findByCliente(Long cliente);
 }
