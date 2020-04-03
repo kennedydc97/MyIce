@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { retry } from 'rxjs/operators'
 import { Address } from '../models/Address';
 import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
+
 
 const URL: string = "https://viacep.com.br/ws/";
 
@@ -24,15 +26,11 @@ export class CepService {
   
 
   
-  getCep(address: Address): Observable<iViaCep>{
-
-    let endereco = this.httpClient.get(URL + address.cep + "/json/");
-
-    return this.httpClient.get<iViaCep>(URL + address.cep + "/json/")
-    .pipe(
-      retry(2));
-      
-  }
-
-
-}
+  getEnderecoViaCep(cep: string) {
+    let url = this.httpClient.get<Address>(`https://viacep.com.br/ws/${cep}/json/`);
+    return url.pipe(
+      map(
+        dados => dados
+      )
+    )
+  }}

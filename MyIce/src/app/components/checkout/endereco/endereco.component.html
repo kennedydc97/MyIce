@@ -1,86 +1,10 @@
-
 <div class="card" style="width: 27rem;">
     <div class="card-body">
       <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
       <p class="card-text">
-        <p>{{endereco.endereco}}, {{endereco.numero}} - {{endereco.bairro}}</p>
-        <p>{{endereco.cidade}}, {{endereco.estado}}</p>
+        <dd class="ng-binding">{{endereco.logradouro}}, {{endereco.numero}} - {{endereco.bairro}}</dd>
+        <dd class="ng-binding">{{endereco.localidade}}, {{endereco.uf}}</dd>
         <p>CEP: {{endereco.cep}}</p>
-      <a class="btn btn-primary" href="#" role="button" class="btn btn-primary" type="button" data-toggle="modal"
-        data-target="#alterarEndereco" class="card-link">Selecionar outro endereço</a>
     </div>
   </div>
 
-
-
-
-<!-- <form [formGroup]="formEntrega"  (ngSubmit)="envioEntrega()">
-
-    <header class="tituloEntrega">
-        <strong> ENTREGA </strong>
-    </header>
-    <div class="p-3"></div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="cep">CEP</label>
-            <input class="form-control" type="text" id="cep" (blur)="pegarCep()" formControlName="cep"
-                placeholder="CEP" maxlength="8" required>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="endereco">Endereço</label>
-            <input class="form-control" type="text" id="endereco" formControlName="endereco"
-                placeholder="Endereço" required>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="numeroEnderecoUsuario">Número</label>
-            <input class="form-control" type="text" id="numeroEnderecoUsuario" formControlName="nroEndereco"
-                placeholder="Numero" required>
-        </div>
-        <div class="form-group col-md-7">
-            <label for="complementoUsuario">Complemento</label>
-            <input class="form-control" type="text" id="complementoUsuario" formControlName="complemento"
-                placeholder="Complemento">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="bairro">Bairro</label>
-            <input class="form-control" type="text" id="bairro" formControlName="bairro" placeholder="Bairro"
-                required>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="cidade">Cidade</label>
-            <input class="form-control" type="text" id="cidade" formControlName="cidade" placeholder="Cidade"
-                required>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="estado">Estado</label>
-            <select class="form-control" formControlName="estado" id="estado" placeholder="Estado" required>
-                <option value="" selected>Estado</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-        </div> -->

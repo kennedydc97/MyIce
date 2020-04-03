@@ -12,7 +12,7 @@
                 
 
                 </div>
-                <div class="col-md-6    d-flex align-items-center">
+                <div class="col-md-6 d-flex align-items-center" *ngIf = "pedido != null" >
                     <div>
                         <div class="view" style="margin-top: 40px; margin-bottom: 20px;">
                             <img src="./assets/check-sucesso-pedido.png" class="img-fluid" style="width: 90px;"
@@ -23,8 +23,8 @@
                         <p style="color: rgb(55, 119, 238);">Seu pedido será enviado de acordo com o frete escolhido,
                             caso tenha alguma inconformidade, entre em contato antes da postagem.</p>
 
-                        <p class="">Código do pedido:</p>
-                        <p>Data do Pedido:</p>
+                        <p class="">Código do pedido: {{pedido.idPedido}}</p>
+                        <p>Data do Pedido: {{pedido.dtPedido | date:"dd/MM/yyyy"}}</p>
                         <p></p>
 
                         
@@ -32,7 +32,7 @@
 
                         <div class="d-flex justify-content-start" style="margin-top: 40px; margin-bottom: 110px;">
                             <button class="btn btn-primary btn-lg" type="submit" id="home"
-                                data-target="#cadastrofinalizado">Mais detalhes</button>
+                                >Mais detalhes</button>
                         </div>
 
                     </div>

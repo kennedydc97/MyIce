@@ -25,6 +25,15 @@
 
 }
 
+.listagemenderecos {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+    top: 10px;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
 
 label{
     font-weight: bold;
@@ -66,3 +75,9 @@ th {
 
 }
 
+.tituloLista{
+    font-size: larger;
+    color: rgb(32, 57, 197);
+    align-items: center;
+    font-weight: bold;
+}

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxMaskModule } from 'ngx-mask';
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
@@ -30,6 +31,7 @@ import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-rea
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -55,6 +57,7 @@ registerLocaleData(localePt, 'pt');
     PagamentoComponent,
     SucessoPedidoRealizadoComponent,
     FormasDeEnvioComponent,
+    CadastrarEnderecoComponent,
     MeusPedidosComponent,
     MinhaContaComponent,
     DetalhesPedidoComponent,
@@ -65,7 +68,10 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot(),
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [{
     provide: LOCALE_ID,

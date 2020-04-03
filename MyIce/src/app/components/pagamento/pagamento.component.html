@@ -8,7 +8,7 @@
         <div class="form-group col-md-6">
           <label for="numeroCartao">Número do Cartão</label>
           <input class="form-control" type="text" (keypress)="permitirNumeros($event)" formControlName="numero"
-            placeholder="Numero do cartão" maxlength="16">
+            placeholder="Numero do cartão" mask="0000 0000 0000 0000" maxlength="19">
         </div>
         <div class="form-group col-md-4">
           <label for="DtaValCartao">Data de Validade</label>
@@ -38,7 +38,7 @@
         <div class="form-group  col-md-5">
           <label for="cpfTituCartao">CPF do Titular</label>
           <input (keypress)="permitirNumeros($event)" class="form-control" type="text" formControlName="cpf" placeholder="Digite o CPF"
-            ng-model="CPFtitular" maxlength="11"  >
+            ng-model="CPFtitular" mask="000.000.000-00" maxlength="18"  >
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class="alert alert-danger" *ngIf="cpf.errors.invalidCpf">
               CPF inválido.

@@ -36,12 +36,12 @@
 
         <!-- Login do site -->
 
-        <div class="dropdown navbar-brand">
+        <div class="dropdown navbar-brand ">
             <div *ngIf="cliente.logado();else logadoDiv" class="navbar-brand">
                 <img class="dropdown-toggle" src="assets/favicon-Recuperado.png" width="110px" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Dropdown button />
                     <!-- <p class="bem-vindo m-1" >Entre</p> -->
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" routerLink="login">Login</a>
                     <a class="dropdown-item" routerLink="cadastro">Cadastre-se</a>
                 </div>
@@ -51,7 +51,7 @@
                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                         Dropdown button />
                     <p class="bem-vindo m-1">Olá, {{usuario.nome.split(" ", 1)}}</p>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" routerLink="paginda-do-cliente">Minha conta</a>
                         <a class="dropdown-item" routerLink="/home">Meus pedidos</a>
                         <a class="dropdown-item" routerLink="/home" (click)="logout()">Logout</a>
