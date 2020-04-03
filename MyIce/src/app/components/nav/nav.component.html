@@ -1,15 +1,15 @@
 <!-- logo do site -->
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4d85fe;">
-    <a class="navbar-brand" routerLink="/home"><img src="assets/LOGO3.png" alt="" width="100"></a>
+<nav id="top" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4d85fe;">
+    <a class="navbar-brand" href="#"><img src="assets/LOGO3.png" alt="" width="100"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    
     <!-- Menu do site -->
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <div class="collapse navbar-collapse mr-auto" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto" id="search">
             <li class="nav-item active">
                 <a class="nav-link p-4" routerLink="/home">INÍCIO<span class="sr-only">(página atual)</span></a>
@@ -28,19 +28,42 @@
 
         <!-- Espaço de pesquisa -->
 
-        <form id="barra-de-pesquisa" class="form-inline my-2 my-lg-0">
+         <form id="barra-de-pesquisa" class="form-inline my-6 my-lg-0">
             <div id="divBusca">
-                <input type="text" id="txtBusca" placeholder="Pesquisar..." />
-                <button class="btn rounded"><img src="assets/loupe (1).png" width="30" id="btnBusca"
-                        alt="Buscar" /></button>
-            </div>
+                <input  type="text" id="txtBusca" placeholder="Pesquisar..."/>
+                <button class="btn rounded" ><img  src="assets/loupe (1).png" style="align-items: baseline;" width="30" id="btnBusca" alt="Buscar"/></button>
+              </div>
         </form>
 
 
 
         <!-- Login do site -->
 
-        <div>
+        <div class="dropdown navbar-brand ">
+            <div *ngIf="cliente.logado();else logadoDiv" class="navbar-brand">
+                <img class="dropdown-toggle" src="assets/avatar.png" width="35" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Dropdown button />
+                    <p class="bem-vindo m-1" >Entre</p>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="login">Login</a>
+                    <a class="dropdown-item" routerLink="cadastro">Cadastre-se</a>
+                </div>
+            </div>
+                <ng-template #logadoDiv class="navbar-brand">
+                    <img class="dropdown-toggle" src="assets/avatar.png" width="35" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        Dropdown button />
+                    <p class="bem-vindo m-1">Olá, {{usuario.nome.split(" ", 1)}}</p>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" routerLink="/minha-conta">Minha conta</a>
+                        <a class="dropdown-item" routerLink="/meus-pedidos">Meus pedidos</a>
+                        <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+                    </div>
+                </ng-template>
+        </div>
+
+
+        <!-- <div >
             <a class="navbar-brand ml-3" *ngIf="cliente.logado();else logadoDiv" routerLink="forms">
                 <img src="assets/avatar.png" width="35" style="margin-bottom: 9px;" alt=""><br>
                 <a class="bem-vindo p-1">register</a>
@@ -51,18 +74,14 @@
             </a></ng-template>
         </div>
 
+         Carrinho de compras -->
 
-        <!-- <div *ngIf="condition; then thenBlock else elseBlock"></div>
-        <ng-template #thenBlock>Content to render when condition is true.</ng-template>
-        <ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
-
-        <!-- Carrinho de compras -->
-
-        <div>
-            <a class="navbar-brand ml-3" routerLink="/carrinho">
-                <img src="assets/carrinho-de-compras.png" width="30" height="30" alt="">
-            </a>
-        </div>
+        <a class="navbar-brand ml-3" routerLink="/carrinho">
+            <div class="quantidade-itens-carrinho rounded-circle alert-primary d-flex align-items-center justify-content-center">
+                <span class="fonte-icone-carrinho">{{quantidade}}</span>
+            </div>
+            <img src="/assets/carrinho-de-compras.png" width="30" height="30" alt="">
+        </a>
 
     </div>
 

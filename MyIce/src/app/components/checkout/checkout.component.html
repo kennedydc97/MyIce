@@ -1,119 +1,74 @@
 <div class="paginaCheckout">
 
+
   <main class=container>
-    <div class="p-4"></div>
-    <div class="col-md-8 offset-md-2">
-      <header class="tituloEntrega">
-        <strong> ENTREGA </strong>
-      </header>
-      <div class="p-2"></div>
+    <div class="col-md-12 row">
+      <div class="col-md-6">
+        <div class="p-4"></div>
+        <header class="tituloEntrega">
+          <strong> ENTREGA </strong>
+        </header>
+        <div class="p-2"></div>
 
-      <!--descomentar essas 2 linhas abaixo -->
-
-      <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
-      <!-- <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3"></div> -->
-      <!-- <div class="card" style="width: 44rem;">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">Endereço</h6>
-          <p class="card-text">
-            <p class="ng-binding ng-scope"></p>
-            <p>{{endereco.endereco}}, {{endereco.numero}} - {{endereco.bairro}}</p>
-            <p>{{endereco.cidade}}, {{enderecos.estado}}</p>
-            <p>CEP: {{enderecos.cep}}</p>
-          <a class="btn btn-primary" href="#" role="button" class="btn btn-primary" type="button" data-toggle="modal"
-            data-target="#alterarEndereco" class="card-link">Selecionar outro endereço</a>
+        <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
+        <div *ngIf="enderecos.length == 0" class="text-center mt-2 mb-3">
+          <button class="btn btn-primary" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
         </div>
+        <a class="btn btn-primary text-light mt-2" (click)="abrirModal(listagemEnderecos)">Selecionar outro endereço</a>
 
-        <div id="alterarEndereco" class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Alterar Endereço</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="card" style="width: 18rem;">
-                  <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">Nome da Pessoa</h6>
-                    <p class="card-text">Endereco da pessoa</p>
-                    <a href="#" class="card-link">Excluir</a>
-                    <a href="#" class="card-link">Alterar endereço</a>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal"
-                  data-target="#adicionarEndereco">Adicionar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="modal" tabindex="-1" role="dialog" id="adicionarEndereco">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Novo Endereço</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <app-endereco></app-endereco>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Salvar</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-          </div>
-
-        </div> -->
-
+        <ng-template #novoEndereco>
+          <app-cadastrar-endereco (novoEndereco)="cadastrarEndereco($event)"></app-cadastrar-endereco>
+      </ng-template>
       
-      <header class="tituloProduto"> CARRINHO
-      </header>
-      <table border="1" class="bordaTabela">
-        <tr>
-          <td> </td>
-          <td> Produto </td>
-          <td> Preço </td>
-          <td> Quantidade </td>
-
-        </tr>
-        <tr *ngFor="let item of carrinho">
-          <td> <img src={{item.produto.imagem}} width="50" height="50"> </td>
-          <td>{{item.produto.nome}}</td>
-          <td>R$ {{item.produto.precoDesconto}},00</td>
-          <td>{{item.qtd}}</td>
-        </tr>
-      </table>
-      <div class="d-flex flex-row-reverse">
-        <div class="tituloTotal p-2">TOTAL : {{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}} </div> 
-      </div>
-
-
-
-      <div class="p-2"></div>
-      <h5 class="card-header tituloFrete"> Tipos de Entrega </h5>
-      <form>
-        <div class="form-row align-items-center">
-          <div class="col-auto my-1">
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Escolha um tipo</label>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Escolher um tipo de frete...</option>
-              <option value="1">Frete rápido - 2 dias úteis - R$30,00</option>
-              <option value="2">Frete normal - Até 7 dias úteis - R$15,00</option>
-            </select>
+      <ng-template #listagemEnderecos>
+          <div class="listagemenderecos d-flex flex-column border border-top-0 pb-2 pr-4 pl-4">
+              <div class="card ng-scope text-center sticky-top">
+                  <h5 class="card-header tituloLista">Escolha o endereço</h5>
+              </div>
+              <a *ngFor="let item of enderecos" (click)="mudarEndereco(item)">
+                  <app-endereco [endereco]="item"></app-endereco>
+              </a>
+              <div class="text-center mt-2 mb-3">
+                  <button class="btn btn-primary" (click)="abrirModal(novoEndereco)">Cadastrar novo endereço</button>
+              </div>
           </div>
+      </ng-template>
 
+        <app-formas-de-envio (enviarFormaDeEnvio)="FormaDeEnvio($event)"></app-formas-de-envio>
+
+
+      </div>
+      <div class="col-md-6">
+
+        <header class="tituloProduto"> RESUMO DA COMPRA
+        </header>
+        <table border="1" bordercolor=white class="bordaTabela">
+          <thead>
+            <tr>
+              <td> </td>
+              <th style="width:160px"> Produto </th>
+              <th style="width:100px"> Preço </th>
+              <th style="width:200px"> Quantidade </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of carrinho">
+              <td> <img src={{item.produto.imagem}} width="50" height="50"> </td>
+              <td>{{item.produto.nome}}</td>
+              <td>R$ {{item.produto.precoDesconto}},00</td>
+              <td>{{item.qtd}}</td>
+          </tbody>
+        </table>
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <div class="tituloTotal p-2">SUBTOTAL :
+            {{subTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
+          </div>
         </div>
-        <div class="p-2">
+        <div class="d-flex flex-row-reverse bd-highlight">
+
+          <div class="tituloTotal p-2">TOTAL : {{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
+          </div>
         </div>
 
 
-
-        <app-pagamento (enviarCartao)="finalizarCompra()" ></app-pagamento>
+        <app-pagamento (enviarCartao)="finalizarCompra()"></app-pagamento>

@@ -1,0 +1,129 @@
+
+  
+  
+   <form class="border border-top-0 pb-2 pr-4 pl-4 modal-endereco" [formGroup]="formEntrega">
+  
+    <div class="modal-header d-flex justify-content-center mb-3">
+      <h5 class="tituloEntrega">Cadastrar novo endereço</h5>
+    </div>
+          <div class="form-group">
+              <label for="cep">CEP</label>
+              <input class="form-control" type="text" id="cep"  (keyup)="preencherEndereco()" formControlName="cep"
+                  placeholder="CEP" maxlength="8" required>
+          </div>
+          <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input class="form-control" type="text" id="endereco" formControlName="logradouro"
+                  placeholder="Endereço" required>
+          </div>
+          <div class="form-group row">
+            <div class="col-6">
+               <label for="numeroEnderecoUsuario">Número</label>
+              <input class="form-control" type="text" id="numeroEnderecoUsuario"  formControlName="numero"
+                  placeholder="Numero" required>
+          </div>
+          <div class="col-6">
+            <label for="complementoUsuario">Complemento</label>
+              <input class="form-control" type="text" id="complementoUsuario" formControlName="complemento"
+                  placeholder="Complemento">
+          </div>
+         </div>
+          <div class="form-group">
+              <label for="bairro">Bairro</label>
+              <input class="form-control" type="text" id="bairro" formControlName="bairro" placeholder="Bairro"
+                  required>
+          </div>
+          <div class="form-group row">
+            <div class="col-6">
+                  <label for="cidade">Cidade</label>
+              <input class="form-control" type="text" id="cidade" formControlName="localidade" placeholder="Cidade"
+                  required>
+          </div>
+          <div class="col-6">
+            <label for="estado">Estado</label>
+              <select class="form-control" formControlName="uf" id="estado" placeholder="Estado" required>
+                  <option value="" selected>Estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+              </select>
+          </div> 
+        </div>
+          <div class="text-center mt-2 mb-3">
+            <button class="btn btn-primary" (click)="novoEndereco.emit(formEntrega.value)">Cadastrar endereço</button>
+        </div>
+
+          <!-- 
+        <div id="alterarEndereco" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Alterar Endereço</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted">Nome da Pessoa</h6>
+                      <p class="card-text">Endereco da pessoa</p>
+                      <a href="#" class="card-link">Excluir</a>
+                      <a href="#" class="card-link">Alterar endereço</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-toggle="modal"
+                    data-target="#adicionarEndereco">Adicionar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="modal" tabindex="-1" role="dialog" id="adicionarEndereco">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Novo Endereço</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <app-endereco></app-endereco>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+  
+          </div> -->
+  

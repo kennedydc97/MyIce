@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Pedido } from 'src/app/models/Pedido';
 
 @Component({
   selector: 'app-sucesso-pedido-realizado',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SucessoPedidoRealizadoComponent implements OnInit {
 
-  constructor() { }
+  pedido: Pedido;
 
-  ngOnInit(): void {
+
+  constructor( private cliente : ClienteService) { }
+
+  ngOnInit(): void {    
+    this.cliente.getPedidos().subscribe(
+      dados => {
+        this.pedido = dados;
+        console.log(this.pedido)
+      }
+    )
   }
-
 }
+
+

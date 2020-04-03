@@ -22,6 +22,9 @@ export class FormularioComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { 
     this.formCadastro = this.createForm()
+    if(sessionStorage.getItem("usuario") != null){
+      this.router.navigate(['/home']);
+    }
   }
 
   private createForm():FormGroup{
@@ -48,20 +51,20 @@ export class FormularioComponent implements OnInit {
             Validators.minLength(8),
           ])
       ),
-      endereco:new FormControl("", 
+      logradouro:new FormControl("", 
         Validators.compose([Validators.required])),
       bairro:new FormControl("",
         Validators.compose([Validators.required])),
-      numero:new FormControl("",
+        numero:new FormControl("",
         Validators.compose([Validators.required])),
       complemento:new FormControl(""),
-      estado:new FormControl("",
+      uf:new FormControl("",
         Validators.compose([
           Validators.required,
           Validators.minLength(2),
           Validators.maxLength(2)
         ])),
-      cidade:new FormControl("",
+      localidade:new FormControl("",
         Validators.compose([Validators.required]))
     }, 
     { validator: ValidacoesFormulario.SenhasCombinam});
@@ -69,30 +72,45 @@ export class FormularioComponent implements OnInit {
 
   enviarCadastro(){
     this.clienteService.cadastrarCliente(this.formCadastro.value).subscribe((data) => {
+      console.log(data)
       let cadastro = JSON.stringify(data)
-      sessionStorage.setItem("usuario", cadastro)
-      this.router.navigate(['/home']);
+      sessionStorage.setItem("usuario", btoa(cadastro))
+      location.reload()
+      // this.router.navigate(['/home']);
     })
   }
-  
-  pegarCep(){
-      this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
-        this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-        this.formCadastro.controls['endereco'].patchValue(data.logradouro);
-        this.formCadastro.controls['bairro'].patchValue(data.bairro);
-        this.formCadastro.controls['estado'].patchValue(data.uf);
-        this.formCadastro.controls['cidade'].patchValue(data.localidade);
-      })
+
+
+  preencherEndereco(){
+    if(this.formCadastro.value.cep.length == 8){
+      this.cepService.getEnderecoViaCep(this.formCadastro.value.cep).subscribe(
+        dados => {
+          this.formCadastro.patchValue({
+            localidade: dados.localidade,
+            bairro: dados.bairro,
+            uf: dados.uf,
+            logradouro: dados.logradouro
+          })
+        }
+      )
+    }
   }
+  
+  // pegarCep(){
+  //     this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
+  //       this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
+  //       this.formCadastro.controls['endereco'].patchValue(data.logradouro);
+  //       this.formCadastro.controls['bairro'].patchValue(data.bairro);
+  //       this.formCadastro.controls['estado'].patchValue(data.uf);
+  //       this.formCadastro.controls['cidade'].patchValue(data.localidade);
+  //     })
+  // }
   
   ngOnInit() {
     this.formCadastro = this.createForm();
   }
   get numero() {
     return this.formCadastro.get('numero');
-  }
-  get cep() {
-    return this.formCadastro.get('cep');
   }
   get sobrenome() {
     return this.formCadastro.get('sobrenome');

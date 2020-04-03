@@ -1,0 +1,19 @@
+.modal-endereco{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 530px;
+}
+
+label{
+    font-weight: bold;
+}
+
+
+
+.tituloEntrega{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(32, 57, 197);
+    display: flex;
+    text-align: center;
+    }

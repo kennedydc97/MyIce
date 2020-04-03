@@ -4,54 +4,97 @@
 
     <div>
 
-    <app-pagina-do-cliente></app-pagina-do-cliente>
+      <app-pagina-do-cliente></app-pagina-do-cliente>
 
 
-    <header style="margin-top: 30px;" class="tituloProduto text-center">Resumo da compra
-    </header>
-    <table border="2" bordercolor=black class="bordaTabela">
-      <thead>
-      <tr>
-        <th class="text-center" style="width:160px">Nº Pedido</th>
-        <th class="text-center" style="width:200px">Data</th>
-        <th class="text-center" style="width:200px">Situação</th>
-        <th class="text-center" style="width:200px">Valor</th>
-      </thead>
-      <thead>
-      <tr>
-        <th class="text-center">#0001</th>
-        <th class="text-center">28/03/2020 21:59</th>
-        <th class="text-center">Em Processamento</th>
-        <th class="text-center">R$ 100,00</th>
-      </thead>
-    </table>
-  
-    <button class="btn btn-success" routerLink="/detalhes-pedido">Ver detalhes</button>
+      <p>{{pedidos.idPedido}}</p>
+      <header style="margin-top: 30px;" class="tituloProduto text-center">Resumo da compra
+      </header>
+      <table border="2" bordercolor=black class="bordaTabela">
+        <thead>
+            <th class="text-center" style="width:160px">Nº Pedido</th>
+            <th class="text-center" style="width:200px">Data</th>
+            <th class="text-center" style="width:200px">Situação</th>
+            <th class="text-center" style="width:200px">Valor</th>
+            <th class="text-center" style="width:150px">Detalhes</th>
+        </thead>
+        <thead>
+          <tr class="text-center" *ngFor="let item of teste">
+            <th class="text-center">#{{item.idPedido}}</th>
+            <th class="text-center">{{item.dtPedido | date:"dd/MM/yyyy"}}</th>
+            <th class="text-center">Em Processamento</th>
+            <th class="text-center">{{item.vlTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</th>
+            <th class="text-center"><input type="image" src="assets/loupe (1).png" width="25px"></th>
+        </thead>
+      </table>
+
+      
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Pedido (#)</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-center">
+                <div class="card col-md-10" style="margin-bottom: 50px;">
+                  <img src="assets/gelodecoco.png" class="card-img-top" alt="...">
+                  <div class="card-body text-justify">
+                    <h5 class="text-center text-light rounded" style="background-color: #2ec754;">Pedido Entregue</h5>
+                    <br>
+                    <h5 class="card-title text-center">Saco de Gelo 1kg</h5>
+                    <a class="card-text stretched-link">
+                      <p class="text-center"><b id="preco">R$10,00</b></p>
+                    </a>
+                    <h5 class="text-center">Quantidade: 1</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="d-flex justify-content-center">
+                <div class="card col-md-10" style="margin-top: 50px;">
+                     <div class="card-body">
+                       <h6 class="card-subtitle mb-2 text-muted">Endereço de envio</h6>
+                       <p class="card-text">
+                         <p>{{enderecos._endereco}}, {{enderecos._numero}} - {{enderecos._bairro}}</p>
+                         <p>{{enderecos._cidade}}, {{enderecos._estado}}</p>
+                         <p>CEP: {{endereco.cep}}</p>
+                     </div>
+              </div>
+            </div> -->
+
+              <!-- <div class="d-flex justify-content-center">
+                <div class="card col-md-10" style="margin-bottom: 50px;">
+                  Total
+                  <div class="card-body text-justify">
+                    <h5 class="text-center">Subtotal: R$ 10,00</h5>
+                    <br>
+                    <h5 class="card-title text-center">Frete: R$ 30,00</h5>
+                    <a class="card-text stretched-link">
+                      <p class="text-center"><b id="preco">Total: R$ 40,00</b></p>
+                    </a>
+                    <h5 class="text-center">em 1x no cartão de crédito MasterCard</h5>
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </div>
 
 
-      <!-- <div class="">
-        <br>
-        <h4><strong>Pedido: #0001</strong></h4>
-        <br>
-        <div class="d-flex justify-content-center">
-          <div class="card col-md-8" style="margin-bottom: 50px;">
-            <img src="assets/gelodecoco.png" class="card-img-top" alt="...">
-            <div class="card-body text-justify">
-              <h5 class="text-center text-light rounded" style="background-color: #2ec754;">Pedido Entregue</h5>
-              <br>
-              <h5 class="card-title text-center">Saco de Gelo 1kg</h5>
-              <p class="card-text">Nosso produto se diferencia por não conter em sua embalagem pedaços quebrados de
-                gelo,
-                mas somente
-                os cubos, o que em termos de aproveitamento se reflete em economia para seu bolso.</p>
-              <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                <p> <s>de: R$13,00 </s> <br> <b id="preco">por R$10,00</b></p>
-              </a>
             </div>
           </div>
         </div>
-      </div> -->
 
-    </div>
+      </div>
   </form>
 </main>

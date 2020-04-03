@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { StorageService } from 'src/app/services/storage.service'
 import { Carrinho } from 'src/app/models/Carrinho';
@@ -7,6 +7,10 @@ import { Pagamento } from 'src/app/models/Pagamento';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Address } from 'src/app/models/Address'
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Endereco } from 'src/app/models/endereco'
+
+
 
 
 
@@ -16,72 +20,59 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+
+  modalRef: BsModalRef;
   carrinho: Carrinho[] = [];
   subTotal: number = 0;
   total: number = 0;
-
+  formaDeEnvio: number = 0;
   principalEndereco = null;
   enderecos = [];
   usuario;
-
   validar: Validar = new Validar()
   produtosCarrinho = []
 
 
-  constructor(private storage: StorageService, private fb: FormBuilder, private cliente: ClienteService, private route: Router) {
+  constructor(private storage: StorageService, private cliente: ClienteService, private route: Router, private modalService: BsModalService) {
 
-    let carrinhoStorage = storage.recuperarCarrinho()
-    this.usuario = this.storage.recuperarCliente();
+    let carrinhoStorage = storage.recuperarCarrinho();
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
 
-    if(carrinhoStorage != null){
-      for(let i = 0; i < carrinhoStorage.length; i++){
+    if (carrinhoStorage != null) {
+      for (let i = 0; i < carrinhoStorage.length; i++) {
         this.carrinho.push(carrinhoStorage[i])
       }
     }
+    if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
+      this.carrinho.forEach(item => {
+        this.total += (item.produto.precoDesconto * item.qtd);
 
-    //quando o usuario tiver logado descomentar abaixo e no parametro buscarEndereco colocar o idclient (no service tb)
-    // if (this.carrinho != null && this.carrinho.length != 0 && this.usuario != null) {
-    this.carrinho.forEach(item => {
-      this.total += (item.produto.precoDesconto * item.qtd);
-
-      this.cliente.buscarEndereco(33).subscribe(
-        dados => {
-          this.enderecos = dados
-          console.log(this.enderecos)
-          if (this.enderecos.length > 0) {
-            this.principalEndereco = this.enderecos[0];
+        this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
+          dados => {
+            this.enderecos = dados
+            console.log(this.enderecos)
+            if (this.enderecos.length > 0) {
+              this.principalEndereco = this.enderecos[0];
+            }
           }
-        }
-      );
-    });
-    //   } else {
-    //   //   // this.route.navigate(["/home"])
-    //   }
-    //   this.enderecos = [];
-
-    // }
-
-
-
-
-
-
-
-
-    // buscarProduto(){
-    //   let produtos = JSON.parse(localStorage.getItem("produtoCarrinho"))
-    //   for(let i = 0; i < produtos.length; i++){
-    //     this.produtosCarrinho.push(produtos[i])
-    //   }
-    //   return produtos == null ? [] : produtos.produto
-    // }
-
-
-    // cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, "-", /\d/, /\d/];
-    // numeroCartao = [/[0-9]/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, " ", /\d/, /\d/, /\d/, /\d/]
-    // cvv = [/[0-9]/, /\d/, /\d/]
+        );
+      });
+      this.subTotal = this.total;
+    } else {
+      this.route.navigate(["/home"])
+    }
+    this.enderecos = [];
 
   }
+
+  FormaDeEnvio(envio) {
+    if (envio != this.formaDeEnvio) {
+      this.total -= this.formaDeEnvio;
+      this.formaDeEnvio = envio;
+      this.total += this.formaDeEnvio;
+    }
+  }
+
 
 
 
@@ -89,12 +80,51 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  finalizarCompra() {
-    this.cliente.mandarPedido(this.principalEndereco.idEndereco, 15).subscribe(
-      pedido => console.log(pedido)
-    )
-
+  abrirModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template)
   }
+
+
+  // finalizarCompra() {
+  //   this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
+  //     pedido => console.log(pedido)
+  //   )
+  // }
+  finalizarCompra() {
+      this.cliente.mandarPedido(this.principalEndereco.idEndereco, this.formaDeEnvio).subscribe(
+        dados => {
+          if (dados != null) {
+            let cliente = JSON.parse(atob((sessionStorage.getItem("usuario"))));
+            if(cliente.pedido == null){
+              cliente.pedido = [];
+            }
+            cliente.pedido.push(dados);
+            this.storage.salvarCliente(cliente);
+            this.storage.removerCarrinho();
+            this.route.navigate(['/sucesso'])
+          }
+        }
+      )
+      }
+    
+  cadastrarEndereco(endereco: Endereco) {
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    this.cliente.cadastrarEndereco(endereco, this.usuario.idCliente).subscribe(
+      dados => {
+        if (this.enderecos.length == 0) {
+          this.principalEndereco = dados;
+        }
+        this.enderecos.push(dados)
+      }
+    )
+  this.modalRef.hide();
+}
+
+  mudarEndereco(address: Address) {
+    this.principalEndereco = address;
+    this.modalRef.hide();
+  }
+
 
 }
 

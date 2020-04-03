@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
@@ -28,6 +29,8 @@ import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-p
 import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
 
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
+import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
+import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 
 
 @NgModule({
@@ -50,17 +53,21 @@ import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-rea
     PaginaDoClienteComponent,
     EnderecoComponent,
     PagamentoComponent,
+    SucessoPedidoRealizadoComponent,
+    FormasDeEnvioComponent,
+    CadastrarEnderecoComponent,
     MeusPedidosComponent,
     MinhaContaComponent,
     DetalhesPedidoComponent,
     MeusEnderecosComponent,
-    SucessoPedidoRealizadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    ModalModule.forRoot(),
     HttpClientModule
   ],
   providers: [],
