@@ -40,7 +40,7 @@ export class ClienteService {
       email: c.email,
       nascimento: c.nasc,
       password: c.senha,
-      endereco: [{
+      enderecos: [{
         logradouro: c.logradouro,
         numero: c.numero,
         cep: c.cep,
@@ -90,29 +90,23 @@ export class ClienteService {
     let dtPedido = new Date(); 
     let carrinho = [];
     let total = 0;
-    let formapgto = "crédito"
+    let formapgto = "crédito";
     storage.recuperarCarrinho().forEach(el => { 
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     });
-    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));
+    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));       
     let pedido = this.formatoPedido(idEndereco, usuario.idCliente , carrinho, total, vlFrete, formapgto, dtPedido);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido )
     return url.pipe(map(
       pedido => pedido 
+      
     ))
   }
 
-
-  public cadastrarEndereco(endereco: Endereco, idCliente){
-    let url = this.http.post("http://localhost:8080/ecommerce/endereco", enderecodb(endereco, idCliente));
-    return url.pipe(map(
-      dados => dados
-    ))
-  }
 
   public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido){
-    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho, dtPedido );
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, carrinho,  );
       return pedido;
   }
 
@@ -126,6 +120,15 @@ export class ClienteService {
       )
     )
   }
+
+
+  public cadastrarEndereco(endereco: Endereco, idCliente){
+    let url = this.http.post("http://localhost:8080/ecommerce/endereco", enderecodb(endereco, idCliente));
+    return url.pipe(map(
+      dados => dados
+    ))
+  }
+
 
 
   update(c: Cadastro) {

@@ -14,7 +14,7 @@ export class SucessoPedidoRealizadoComponent implements OnInit {
 
   constructor( private cliente : ClienteService) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
     this.cliente.getPedidos().subscribe(
       dados => {
         this.pedido = dados;

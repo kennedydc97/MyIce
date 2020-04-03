@@ -90,8 +90,11 @@ export class CheckoutComponent implements OnInit {
   //     pedido => console.log(pedido)
   //   )
   // }
+
+  
+  
   finalizarCompra() {
-      this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
+      this.cliente.mandarPedido(this.principalEndereco.idEndereco, this.formaDeEnvio).subscribe(
         dados => {
           if (dados != null) {
             let cliente = JSON.parse(atob((sessionStorage.getItem("usuario"))));
@@ -106,6 +109,9 @@ export class CheckoutComponent implements OnInit {
         }
       )
       }
+
+
+
     
   cadastrarEndereco(endereco: Endereco) {
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
