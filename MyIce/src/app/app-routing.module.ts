@@ -1,3 +1,4 @@
+import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
 import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
 import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.component';
 import { PaginaDoClienteComponent } from './components/pagina-do-cliente/pagina-do-cliente.component';
@@ -79,6 +80,10 @@ export const routes: Routes = [
   {
     path: 'busca/:palavra',
     component: BuscaComponent
+  },
+  {
+    path: 'detalhes-pedido',
+    component: DetalhesPedidoComponent
   }
   
 ];

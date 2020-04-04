@@ -1,4 +1,6 @@
+import { Pedido } from './../../models/Pedido';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-detalhes-pedido',

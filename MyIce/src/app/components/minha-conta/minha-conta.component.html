@@ -1,5 +1,5 @@
 <main class="container" class="conteudoPaginaDoCliente">
-    <form [formGroup]="atualizarCliente" (ngSubmit)="onSubmit()">
+    <form [formGroup]="atualizarCliente">
         <div>
 
             <app-pagina-do-cliente></app-pagina-do-cliente>
@@ -10,9 +10,8 @@
                 <div class="form-group">
                   <label for="nome">Nome</label>
                   <input class="form-control" type="text" id="nome" name="nome" placeholder="{{usuario.nome}}"
-                    formControlName="nome">
+                    formControlName="nome" disabled>
                 </div>
-            
             
                 <div class="form-group">
                   <label for="cpf">CPF</label>
@@ -22,45 +21,18 @@
             
                 <div class="form-group">
                   <label for="tel">Telefone</label>
-                  <input class="form-control" type="tel" id="tel" name="tel" placeholder="{{usuario.telefone}}"
-                    formControlName="tel" maxlength="11">
+                  <input class="form-control" type="tel" id="tel" value="{{usuario.telefone}}" name="tel" placeholder=""
+                    formControlName="tel" maxlength="11" disabled>
                 </div>
+
                 <div class="form-group">
                   <label for="email">E-mail</label>
-                  <input class="form-control" type="email" id="email" name="email" placeholder="{{usuario.email}}"
-                    formControlName="email" maxlength="30">
+                  <input class="form-control" type="email" id="email" value="{{usuario.email}}" name="email" placeholder=""
+                    formControlName="email" maxlength="30" disabled>
                 </div>
-              </div>
-            
-            
-            <!-- Button trigger modal -->
-            
-            <button type="button" class="btn btn-success" style="margin-bottom: 30px;" data-toggle="modal" data-target="#exampleModal">
-              Salvar
-            </button>
-            
-            <!-- Modal -->
-            
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmação de alteração de dados</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Você acabou de alterar seus dados em nosso site! <br> Aproveite e continue comprando :D
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar!</button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
+              </div>
+            
         </div>
     </form>
 </main>

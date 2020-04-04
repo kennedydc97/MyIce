@@ -17,7 +17,7 @@ public class PedidoController {
         return repository.save(pedido);
     }
     @ResponseStatus(HttpStatus.FOUND)
-    @GetMapping("/pedidos/{id}")
+    @GetMapping("/pedidos/lista/{id}")
     public ResponseEntity<List<Pedido>> findPedidosByCliente(@PathVariable("id") Long id){
         return ResponseEntity.ok().body(repository.findByCliente(id)); }
     @ResponseStatus(HttpStatus.FOUND)

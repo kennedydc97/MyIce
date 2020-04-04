@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 
@@ -12,6 +12,8 @@ export class MeusEnderecosComponent implements OnInit {
   principalEndereco = null;
   enderecos = [];
   usuario;
+
+  @Input() endereco;
 
   constructor(private cliente: ClienteService) { 
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))

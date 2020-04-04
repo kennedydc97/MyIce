@@ -27,6 +27,7 @@ const enderecodb = (endereco, idCliente) =>{
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClienteService {
 
   public clienteLogado: EventEmitter<Cadastro>;
@@ -53,10 +54,8 @@ export class ClienteService {
         uf: c.uf,
       }]
     }
-
     return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);
   }
-
   logado(){
     if(sessionStorage.getItem("usuario") == null){
       return true;
@@ -106,6 +105,10 @@ export class ClienteService {
       
     ))
   }
+  // public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
+  //   let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
+  //     return pedido;
+  // }
 
 
   public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido){
@@ -132,25 +135,14 @@ export class ClienteService {
     ))
   }
 
-
-
-  update(c: Cadastro) {
-    let editarCliente = {
-      nome: c.nome,
-      telefone: c.tel,
-      password: c.senha
-      // enderecos: [{
-      //   endereco: c.endereco,
-      //   numero: c.numeroCasa,
-      //   cep: c.cep,
-      //   bairro: c.bairro,
-      //   complemento: c.complementoCasa,
-      //   cidade: c.cidade,
-      //   estado: c.estado,
-      //   cliente: c.idCadastro
-      // }]
-    }
-    return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
+  public getPedidosLista(){
+    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    let url = this.http.get("http://localhost:8080/ecommerce/pedidos/lista/" + usuario.idCliente);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
   }
 
   public disparaEventoClienteLogado(c: Cadastro){
