@@ -76,8 +76,9 @@ export class FormularioComponent implements OnInit {
       console.log(data)
       let cadastro = JSON.stringify(data)
       sessionStorage.setItem("usuario", btoa(cadastro))
-      location.reload()
-      // this.router.navigate(['/home']);
+      this.clienteService.disparaEventoClienteLogado(this.formCadastro.value)
+      // location.reload()
+      this.router.navigate(['/home']);
     })
   }
 
