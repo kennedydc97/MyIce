@@ -32,7 +32,11 @@ export class FormsComponent implements OnInit {
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
       this.http.disparaEventoClienteLogado(this.usuario)
       // location.reload()
-      this.router.navigate(['/home']);
+      if(localStorage.getItem("carrinho") != null){
+        this.router.navigate(['/checkout'])
+      }else{
+        this.router.navigate(['/home']);
+      }
       // console.log(data)
     })
     // console.log("logado")

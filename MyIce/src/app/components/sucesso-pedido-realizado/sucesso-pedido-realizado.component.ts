@@ -9,7 +9,7 @@ import { Pedido } from 'src/app/models/Pedido';
 })
 export class SucessoPedidoRealizadoComponent implements OnInit {
 
-  pedido: Pedido;
+  pedido: any;
 
 
   constructor( private cliente : ClienteService) { }
