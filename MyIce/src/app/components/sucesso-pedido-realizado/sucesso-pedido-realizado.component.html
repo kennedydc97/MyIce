@@ -23,10 +23,10 @@
                         <p style="color: rgb(55, 119, 238); margin-bottom: 50px;">Seu pedido será enviado de acordo com o frete escolhido,
                             caso tenha alguma inconformidade, entre em contato antes da postagem.</p>
 
-                        <p class="">Código do pedido:</p>
-                        <p>Data do Pedido:</p>
-                        <p>Forma de pagamento:</p>
-                        <p>Endereço de entrega:</p>
+                        <p class="">Código do pedido: {{pedido.idPedido}}</p>
+                        <p>Data do Pedido: {{pedido.dtPedido | date:"dd/MM/yyyy"}}</p>
+                        <p>Forma de pagamento: {{pedido.formapgto}}</p>
+                        <p>Endereço de entrega: {{pedido.endereco}}</p>
 
                         
 
