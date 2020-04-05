@@ -19,4 +19,11 @@ export class BuscaComponent implements OnInit {
     })
   }
 
+  resultadoBusca(){
+    if(this.produtoService.produtosFiltrados.length < 1){
+      return true;
+    }else{
+      return false
+    }
+  }
 }

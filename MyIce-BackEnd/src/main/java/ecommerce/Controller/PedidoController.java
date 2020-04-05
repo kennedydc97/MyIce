@@ -10,11 +10,28 @@ import java.util.List;
 public class PedidoController {
     @Autowired
     private PedidoRepository repository;
-    @ResponseStatus(HttpStatus.CREATED)
+
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @PostMapping("/pedido")
+//    public Pedido save(@RequestBody Pedido pedido){
+//        return repository.save(pedido);
+//    }
+
     @PostMapping("/pedido")
-    public Pedido save(@RequestBody Pedido pedido){
-        return repository.save(pedido);
+    public ResponseEntity<?> criar(@RequestBody Pedido pedido) {
+        if (pedido == null) {
+            return ResponseEntity.status(400).body("Pedido não pode estar vazio");
+        }else if(pedido.getCliente() == null){
+            return ResponseEntity.status(400).body("Cliente não pode estar vazio");
+        }else if(pedido.getVlFrete().equals(0.00)){
+            return ResponseEntity.status(400).body("frete não pode estar vazio");
+        }else if(pedido.getEndereco() == null){
+            return ResponseEntity.status(400).body("Endereço não pode estar vazio");
+        }
+        Pedido pedidoAtualizado = repository.save(pedido);
+        return ResponseEntity.status(201).body(pedido);
     }
+
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/pedidos/lista/{id}")
     public ResponseEntity<List<Pedido>> findPedidosByCliente(@PathVariable("id") Long id){

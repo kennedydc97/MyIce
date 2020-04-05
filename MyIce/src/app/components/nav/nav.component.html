@@ -1,7 +1,7 @@
 <!-- logo do site -->
 
 <nav id="top" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4d85fe;">
-    <a class="navbar-brand" href="#"><img src="assets/LOGO3.png" alt="" width="100"></a>
+    <a class="navbar-brand" routerLink="/home"><img src="assets/LOGO3.png" alt="" width="100"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -28,9 +28,9 @@
          <div id="barra-de-pesquisa" class="form-inline my-6 my-lg-0">
             <div id="divBusca">
                 <input  type="text" id="txtBusca" (keyup.enter)="buscarProduto( txtBuscar.value )" placeholder="Pesquisar..." #txtBuscar/>
-                <!-- <button class="btn rounded" > -->
+                <button class="btn rounded" (click)="buscarProduto(txtBuscar.value)">
                     <img  src="assets/loupe (1).png" style="align-items: baseline;" width="30" id="btnBusca" alt="Buscar"/>
-                <!-- </button> -->
+                </button>
               </div>
             </div>
 
