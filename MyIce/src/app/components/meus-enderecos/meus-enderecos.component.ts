@@ -9,11 +9,12 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class MeusEnderecosComponent implements OnInit {
 
+  @Input() endereco;
+
+
   principalEndereco = null;
   enderecos = [];
   usuario;
-
-  @Input() endereco;
 
   constructor(private cliente: ClienteService) { 
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))

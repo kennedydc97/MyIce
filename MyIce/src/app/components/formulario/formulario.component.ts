@@ -5,8 +5,8 @@ import { CepService } from 'src/app/services/cep.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
-import { Validar } from 'src/app/models/Validar';
-
+import { Cadastro } from 'src/app/models/Cadastro';
+import { Validar } from 'src/app/models/validar'
 
 @Component({
   selector: 'app-formulario',
@@ -17,7 +17,7 @@ export class FormularioComponent implements OnInit {
   
   address: Address = new Address("","","","","","")
   validar: ValidacoesFormulario = new ValidacoesFormulario ()
-  validarCPF: Validar = new Validar()
+  validacao:Validar = new Validar()
 
   formCadastro: FormGroup;
 
@@ -82,6 +82,9 @@ export class FormularioComponent implements OnInit {
     })
   }
 
+  permitirNumeros(evento: any) {
+    this.validacao.cancelarLetras(evento);
+  }
 
   preencherEndereco(){
     if(this.formCadastro.value.cep.length == 8){

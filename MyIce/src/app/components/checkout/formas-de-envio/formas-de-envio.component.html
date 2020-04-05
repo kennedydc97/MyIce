@@ -3,8 +3,8 @@
   <div class="form-row align-items-center">
     <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Escolha um tipo</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" (click)="enviarFormaDeEnvio.emit(formaDeEnvio)" [(ngModel)]="formaDeEnvio">
-        <option value="0" disabled selected>Escolher um tipo de frete...</option>
+      <select  class="custom-select mr-sm-2" id="inlineFormCustomSelect" (click)="enviarFormaDeEnvio.emit(formaDeEnvio)" [(ngModel)]="formaDeEnvio" required>
+        <option value="0">Escolher um tipo de frete...</option>
         <option [ngValue]="30">Frete rápido - 2 dias úteis - R$30,00</option>
         <option [ngValue]="15">Frete normal - Até 7 dias úteis - R$15,00</option>
       </select>
