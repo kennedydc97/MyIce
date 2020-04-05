@@ -4,6 +4,8 @@
             <div class="col-md-7">
                 <div class="cart-items">
                     <div class="tituloCarrinho"> MEU CARRINHO</div>
+                    <div *ngIf="carrinho == null || carrinho.length == 0" class="alert alert-primary" > <img src="./assets/carrinho.png" width="30" class="mr-3"> 
+                        Seu carrinho de compras do Mi Ice está vazio! </div>
                     <div class="p-4"></div>
                     <div class="cart-header row" *ngFor="let item of carrinho">
                         <div class="cart-sec">

@@ -64,5 +64,7 @@ export class CarrinhoComponent implements OnInit {
       this.router.navigate(["/login"])
     }
   }
+
+
 }
 

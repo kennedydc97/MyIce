@@ -21,7 +21,13 @@ export class NavComponent implements OnChanges {
     if(sessionStorage.getItem("usuario") != null){
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
       console.log(this.usuario)
+
     }
+    
+    setInterval(() => {      
+      this.quantidade = this.storage.recuperarCarrinho().length;
+    }, 400);
+
 
     if(this.storage.recuperarCarrinho() != null){
       this.quantidade = this.storage.recuperarCarrinho().length;
@@ -44,6 +50,8 @@ export class NavComponent implements OnChanges {
         
       })
     }
+    
+
 
   }
 }
