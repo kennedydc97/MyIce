@@ -1,60 +1,42 @@
 package ecommerce.Controller;
-
 import ecommerce.Model.Cliente;
 import ecommerce.Repository.ClienteRepository;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
-
 @RestController
 public class ClienteController {
-
     @Autowired
     private ClienteRepository repository;
-
     @PostMapping("/cliente")
-    public ResponseEntity<?> criar(@RequestBody Cliente cliente) {
-        if (cliente == null) {
-            return ResponseEntity.status(400).body("Cliente não pode estar vazio");
-        }
-        Cliente clienteAtualizado = repository.save(cliente);
-        return ResponseEntity.status(201).body(clienteAtualizado);
+    public ResponseEntity criarCliente(@RequestBody Cliente cliente) {
+        String password = BCrypt.hashpw(cliente.getPassword(), BCrypt.gensalt());
+        cliente.setPassword(password);
+        return ResponseEntity.ok().body(repository.save(cliente));
     }
-
-    @GetMapping("/cliente/{id_cliente}")
-    public ResponseEntity<?> mostrar(@PathVariable("id_cliente") Long id) {
-        Optional<Cliente> opt_cliente = repository.findById(id);
-        Cliente cliente = opt_cliente.orElse(null);
-        if (cliente == null) {
-            return ResponseEntity.status(404).build();
-        }
-        return ResponseEntity.status(200).body(cliente);
+    @ResponseStatus(HttpStatus.FOUND)
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<Cliente> findClienteById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok().body(repository.findById(id).get());
     }
-
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/cliente/lista")
     public List<Cliente> find() {
         return repository.findAll();
     }
-
+    @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/cliente/{id_cliente}")
-    public ResponseEntity<?> remover(@PathVariable("id_cliente") Long idDoCliente) {
-        return repository.findById(idDoCliente)
-                .map(cliente -> {
-                    repository.delete(cliente);
-                    return ResponseEntity.status(204).body("Cliente excluido");
-                }).orElse(ResponseEntity.status(404).build());
+    public void deleteById(@PathVariable("id_cliente") Long idDoCliente) {
+        repository.deleteById(idDoCliente);
     }
-
     @PostMapping("/login")
     public ResponseEntity fazerLogin(@RequestBody() Cliente user) {
         try {
             Cliente client = repository.findByEmail(user.getEmail());
-            if (client != null && client.getPassword().equals(user.getPassword())) {
+            if (client != null && BCrypt.checkpw(user.getPassword(), client.getPassword())) {
                 System.out.println(client);
                 return ResponseEntity.ok().body(client);
             } else {
