@@ -26,7 +26,9 @@
                         <p class="">Código do pedido: {{pedido.idPedido}}</p>
                         <p>Data do Pedido: {{pedido.dtPedido | date:"dd/MM/yyyy"}}</p>
                         <p>Forma de pagamento: {{pedido.formapgto}}</p>
-                        <p>Endereço de entrega: {{endereco.cep}}</p>
+                        <p>Valor do frete: R$ {{pedido.vlFrete}},00</p>
+                        <p>Valor total dos Produtos: R$ {{pedido.vlTotal}},00</p>
+                        <!-- <p>Endereço de entrega: {{endereco.cep}}</p> -->
 
                         
 

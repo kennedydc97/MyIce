@@ -25,14 +25,14 @@ export class SucessoPedidoRealizadoComponent implements OnInit {
     )
   }
 
-  enderecoEntrega() : void {
-    this.cliente.getEnderecos().subscribe(
-      dados => {
-        this.endereco = dados;
-        console.log(this.endereco)
-      }
-    )
-  }
+  // enderecoEntrega() : void {
+  //   this.cliente.getEnderecos().subscribe(
+  //     dados => {
+  //       this.endereco = dados;
+  //       console.log(this.endereco)
+  //     }
+  //   )
+  // }
 
   
    

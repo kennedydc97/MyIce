@@ -122,15 +122,15 @@ export class ClienteService {
     )
   }
 
-  public getEnderecos() {
-    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-    let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco" + usuario.idCliente);
-    return url.pipe(
-      map(
-        data => data
-      )
-    )
-  }
+  // public getEnderecos() {
+  //   let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+  //   let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco" + usuario.idCliente);
+  //   return url.pipe(
+  //     map(
+  //       data => data
+  //     )
+  //   )
+  // }
 
 
   public cadastrarEndereco(endereco: Endereco, idCliente) {
