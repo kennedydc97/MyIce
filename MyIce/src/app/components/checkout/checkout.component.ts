@@ -65,17 +65,18 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  
+  
   FormaDeEnvio(envio) {
-    if (envio != this.formaDeEnvio) {
-      this.total -= this.formaDeEnvio;
-      this.formaDeEnvio = envio;
-      this.total += this.formaDeEnvio;
-    }
+    if ( this.formaDeEnvio != null ) { 
+      if (envio != this.formaDeEnvio) {
+        this.total -= this.formaDeEnvio;
+        this.formaDeEnvio = envio;
+        this.total += this.formaDeEnvio;
+      }
   }
-
-
-
-
+  }
+ 
   ngOnInit(): void {
 
   }
