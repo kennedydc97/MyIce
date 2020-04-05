@@ -76,7 +76,7 @@ export const routes: Routes = [
     component: SucessoPedidoRealizadoComponent
   },
   {
-    path: 'detalhes-pedido',
+    path: 'detalhes-pedido/:id',
     component: DetalhesPedidoComponent
   }
   
