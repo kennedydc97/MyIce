@@ -65,17 +65,18 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  
+  
   FormaDeEnvio(envio) {
-    if (envio != this.formaDeEnvio) {
-      this.total -= this.formaDeEnvio;
-      this.formaDeEnvio = envio;
-      this.total += this.formaDeEnvio;
-    }
+    if ( this.formaDeEnvio != null ) { 
+      if (envio != this.formaDeEnvio) {
+        this.total -= this.formaDeEnvio;
+        this.formaDeEnvio = envio;
+        this.total += this.formaDeEnvio;
+      }
   }
-
-
-
-
+  }
+ 
   ngOnInit(): void {
 
   }
@@ -85,14 +86,6 @@ export class CheckoutComponent implements OnInit {
   }
 
 
-  // finalizarCompra() {
-  //   this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
-  //     pedido => console.log(pedido)
-  //   )
-  // }
-
-  
-  
   finalizarCompra() {
       this.cliente.mandarPedido(this.principalEndereco.idEndereco, this.formaDeEnvio).subscribe(
         dados => {
@@ -104,6 +97,7 @@ export class CheckoutComponent implements OnInit {
             cliente.pedido.push(dados);
             this.storage.salvarCliente(cliente);
             this.storage.removerCarrinho();
+            this.zerarCarrinho()
             this.route.navigate(['/sucesso'])
           }
         }
@@ -131,6 +125,10 @@ export class CheckoutComponent implements OnInit {
     this.modalRef.hide();
   }
 
+  zerarCarrinho(){
+    let zerar = this.carrinho.length
+    this.storage.zerarCarrinho(zerar)
+  }
 
 }
 

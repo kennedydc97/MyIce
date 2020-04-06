@@ -31,16 +31,14 @@ export class FormsComponent implements OnInit {
       sessionStorage.setItem("usuario", btoa(cliente));
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
       this.http.disparaEventoClienteLogado(this.usuario)
-      // location.reload()
       if(localStorage.getItem("carrinho") != null){
         this.router.navigate(['/checkout'])
       }else{
         this.router.navigate(['/home']);
       }
-      // console.log(data)
+    },()=>{
+      return alert("Usuario ou senha inválidos")
     })
-    // console.log("logado")
-    // console.log(this.formularioLogin)
   }
 
 

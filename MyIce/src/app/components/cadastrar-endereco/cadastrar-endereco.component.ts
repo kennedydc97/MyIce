@@ -70,29 +70,8 @@ preencherEndereco(){
   }
 }
 
-
-
-//  pegarCep(){
-//   this.cepService.getCep(this.formEntrega.value).subscribe((data) => {
-//     this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-//     this.formEntrega.controls['endereco'].patchValue(this.address.endereco);
-//     this.formEntrega.controls['bairro'].patchValue(this.address.bairro);
-//     this.formEntrega.controls['estado'].patchValue(this.address.estado);
-//     this.formEntrega.controls['cidade'].patchValue(this.address.cidade);
-//   })
-// }
-
-
 ngOnInit(): void {
     this.formEntrega = this.createForm(this.address);
 
    }
   }
-  
-
-  // envioEntrega() {
-    //   this.conversaoEntrega = JSON.stringify(this.valoresForm);
-    //   localStorage.setItem('Entrega', this.conversaoEntrega);
-    // }
-  
-    // }

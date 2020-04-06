@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Cliente } from '../models/clienteapi';
 
 
@@ -7,7 +7,11 @@ import { Cliente } from '../models/clienteapi';
 })
 export class StorageService {
 
-  constructor() { }
+  produtosCarrinho: EventEmitter<Number>
+
+  constructor() {
+    this.produtosCarrinho = new EventEmitter()
+   }
 
   salvarCarrinho(carrinho){
     localStorage.setItem("carrinho", JSON.stringify(carrinho))
@@ -33,5 +37,7 @@ export class StorageService {
     return JSON.parse(localStorage.getItem('cliente'));
   }
 
-  
+  zerarCarrinho(zerar: number){
+    this.produtosCarrinho.emit(zerar)
+  }
 }

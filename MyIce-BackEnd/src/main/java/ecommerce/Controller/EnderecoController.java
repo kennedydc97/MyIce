@@ -39,4 +39,12 @@ public class EnderecoController {
     public void deleteById(@PathVariable("id_endereco") Long idDoEndereco){
         repository.deleteById(idDoEndereco);
     }
+
+    @ResponseStatus(HttpStatus.FOUND)
+    @GetMapping("/endereco/selecionado/{id}")
+    public ResponseEntity<Endereco> findEnderecoByIdEndereco(@PathVariable("id") Long id){
+        return repository.findById(id).map(endereco -> {
+            return ResponseEntity.ok().body(endereco);
+        }).orElse(ResponseEntity.notFound().build());
+    }
 }

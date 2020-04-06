@@ -82,7 +82,11 @@ export const routes: Routes = [
     component: BuscaComponent
   },
   {
-    path: 'detalhes-pedido',
+    path: 'detalhes-pedido/:id',
+    component: DetalhesPedidoComponent
+  },
+  {
+    path: 'detalhes-pedido/',
     component: DetalhesPedidoComponent
   }
   

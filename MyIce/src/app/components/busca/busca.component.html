@@ -1,4 +1,4 @@
-<h1 *ngIf="resultadoBusca();else produtosPesquisados">Não foi encontrado produtos que coincidem com a busca</h1>
+<h3 *ngIf="resultadoBusca();else produtosPesquisados" class="text-center">Não foi encontrado produtos que coincidem com a busca</h3>
 <ng-template #produtosPesquisados>
     <div class="container mb-3">
         <p>Resultado da pesquisa: </p>

@@ -11,25 +11,26 @@ import { Router } from '@angular/router';
 export class MeusPedidosComponent implements OnInit {
 
   pedido: Pedido;
-  pedidos: Pedido [] = [];
-  teste: any[]
+  pedidos: Pedido[] = [];
 
-
-  constructor(private cliente : ClienteService, private router: Router) {
+  constructor(private cliente: ClienteService, private router: Router) {
     this.cliente.getPedidosLista().subscribe(
       (dados: Pedido[]) => {
         console.log(dados)
         this.pedidos = dados;
-        this.teste = this.pedidos
-        console.log(this.teste);
-        
         console.log(this.pedidos)
       }
     )
+
+
+  }
+
+  pedidoSelecionado(pedido) {
+    this.router.navigate(['/detalhes-pedido', pedido])
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }

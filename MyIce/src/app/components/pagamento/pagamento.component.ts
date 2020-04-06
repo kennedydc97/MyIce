@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Validar } from 'src/app/models/Validar'
@@ -9,19 +9,26 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './pagamento.component.html',
   styleUrls: ['./pagamento.component.css']
 })
-export class PagamentoComponent implements OnInit {
+export class PagamentoComponent implements OnChanges {
 
   @Output() enviarCartao = new EventEmitter;
 
   valoresForm;
   conversao;
 
+  @Input() frete : number = null;
 
   validar: Validar = new Validar()
 
   formPagamento: FormGroup;
 
-  constructor(private fb: FormBuilder, private cliente: ClienteService) { }
+  constructor(private fb: FormBuilder, private cliente: ClienteService) {
+    this.formPagamento = this.createForm();
+
+    console.log(this.frete);
+    
+
+   }
 
   private createForm(): FormGroup {
     return this.fb.group({
@@ -44,25 +51,21 @@ export class PagamentoComponent implements OnInit {
           Validators.maxLength(100)
         ])),
       cpf: new FormControl('', Validators.compose([
+        ,
         Validators.required,
         Validators.maxLength(11),
         Validators.minLength(11),
         Validar.validarCpf
-      ]))
-
+      ])),
     });
 
 
-  }
-  ngOnInit(): void {
-    this.formPagamento = this.createForm();
 
-    console.log(this.valoresForm);
-    this.formPagamento.valueChanges.pipe(
-      debounceTime(1000)).subscribe(res => {
-        console.log(res);
-        this.valoresForm = res;
-      });
+
+  }
+  ngOnChanges(): void {
+    this.formPagamento.patchValue({freteSelecionado : this.frete})
+ 
   }
 
   permitirNumeros(evento: any) {
@@ -79,9 +82,13 @@ export class PagamentoComponent implements OnInit {
   }
 
   compraRealizada() {
+    if (this.frete != undefined && this.frete != 0) { 
     this.conversao = JSON.stringify(this.valoresForm);
-    localStorage.setItem('Pagamento', this.conversao);
+    sessionStorage.getItem(btoa(this.conversao));
     this.enviarCartao.emit();
+  } else {
+    alert("Selecione um frete para efetuar a sua compra!")
   }
+}
 
 }

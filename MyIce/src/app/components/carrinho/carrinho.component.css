@@ -75,7 +75,8 @@
  }
 
  .cart-items,.cart-total {
-    padding: 0;
+    padding: 20;
+    margin-left: 70px;
   }
 
   .container{

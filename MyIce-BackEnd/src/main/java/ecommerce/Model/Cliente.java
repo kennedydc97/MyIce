@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_cliente")
+@Table(name = "tb_cliente", uniqueConstraints ={@UniqueConstraint( columnNames = "ds_email", name = "nmr_cpf")} )
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
