@@ -24,9 +24,11 @@ export class NavComponent implements OnChanges {
     }
     
     setInterval(() => { 
-      if (this.storage.recuperarCarrinho() != null)     
+      if (this.storage.recuperarCarrinho() != null
+      )     
       this.quantidade = this.storage.recuperarCarrinho().length;
     }, 400);
+      
 
 
     if(this.storage.recuperarCarrinho() != null){

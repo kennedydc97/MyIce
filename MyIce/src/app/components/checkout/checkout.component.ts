@@ -114,18 +114,7 @@ export class CheckoutComponent implements OnInit {
 
 
     
-  cadastrarEndereco(endereco: Endereco) {
-    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-    this.cliente.cadastrarEndereco(endereco, this.usuario.idCliente).subscribe(
-      dados => {
-        if (this.enderecos.length == 0) {
-          this.principalEndereco = dados;
-        }
-        this.enderecos.push(dados)
-      }
-    )
-  this.modalRef.hide();
-}
+
 
   mudarEndereco(address: Address) {
     this.principalEndereco = address;

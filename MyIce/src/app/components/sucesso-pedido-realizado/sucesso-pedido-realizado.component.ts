@@ -25,11 +25,13 @@ export class SucessoPedidoRealizadoComponent implements OnInit {
       }
     )
   }
+  
 
   entrarPagCliente() {
     if(this.cliente.logado)
       this.router.navigate(["/meus-pedidos"])
     }
+
 }
 
 

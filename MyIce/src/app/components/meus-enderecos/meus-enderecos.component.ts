@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef} from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Endereco } from 'src/app/models/endereco';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
@@ -15,8 +18,10 @@ export class MeusEnderecosComponent implements OnInit {
   principalEndereco = null;
   enderecos = [];
   usuario;
+  modalRef: BsModalRef;
 
-  constructor(private cliente: ClienteService) { 
+
+  constructor(private cliente: ClienteService, private modalService: BsModalService) { 
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     this.cliente.buscarEndereco(this.usuario.idCliente).subscribe(
          dados => {
@@ -28,6 +33,23 @@ export class MeusEnderecosComponent implements OnInit {
         }
       );
   }
+  cadastrarEndereco(endereco: Endereco) {
+    this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+    this.cliente.cadastrarEndereco(endereco, this.usuario.idCliente).subscribe(
+      dados => {
+        if (this.enderecos.length == 0) {
+          this.principalEndereco = dados;
+        }
+        this.enderecos.push(dados)
+      }
+    )
+  this.modalRef.hide();
+}
+
+abrirModal(template: TemplateRef<any>) {
+  this.modalRef = this.modalService.show(template)
+}
+
 
   ngOnInit(): void {
   }
