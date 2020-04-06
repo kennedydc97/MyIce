@@ -59,7 +59,7 @@ export class CheckoutComponent implements OnInit {
       });
       this.subTotal = this.total;
     } else {
-      this.route.navigate(["/home"])
+      this.route.navigate(["/lista-de-produtos"])
     }
     this.enderecos = [];
 

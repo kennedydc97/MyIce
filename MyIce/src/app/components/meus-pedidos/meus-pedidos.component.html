@@ -12,57 +12,24 @@
       <br>
       <table border="2" bordercolor=black class="bordaTabela" *ngIf="pedidos.length != 0">
         <thead>
-            <th class="text-center responsividade">Nº Pedido</th>
-            <th class="text-center" style="width:200px">Data</th>
-            <th class="text-center" style="width:200px">Situação</th>
-            <th class="text-center" style="width:200px">Valor</th>
-            <th class="text-center responsividade">Detalhes</th>
+            <th class="text-center titulos">Nº Pedido</th>
+            <th class="text-center titulos">Data</th>
+            <th class="text-center titulos">Situação</th>
+            <th class="text-center titulos">Valor</th>
+            <th class="text-center titulos">Detalhes</th>
         </thead>
         <thead>
           <tr class="text-center" *ngFor="let item of pedidos">
             <th class="text-center">#{{item.idPedido}}</th>
-            <th class="text-center">{{item.dtPedido | date:"dd/MM/yyyy"}}</th>
+            <th class="text-center teste">{{item.dtPedido | date:"dd/MM/yyyy"}}</th>
             <th class="text-center">Em Processamento</th>
-            <th class="text-center">{{item.vlTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</th>
+            <th class="text-center">{{item.vlTotal | currency:"BRL"}}</th>
             <th class="text-center"><input type="image" src="assets/loupe (1).png" (click)="pedidoSelecionado(item.idPedido)" width="25px"></th>
         </thead>
       </table>
 
       <div *ngIf="pedidos == null || pedidos.length == 0" class="alert alert-warning" ><img src="./assets/carrinho.png" width="30" class="mr-3"> 
         Você não possui pedidos!</div>
-
-      
-
-     
-              <!-- <div class="d-flex justify-content-center">
-                <div class="card col-md-10" style="margin-top: 50px;">
-                     <div class="card-body">
-                       <h6 class="card-subtitle mb-2 text-muted">Endereço de envio</h6>
-                       <p class="card-text">
-                         <p>{{enderecos._endereco}}, {{enderecos._numero}} - {{enderecos._bairro}}</p>
-                         <p>{{enderecos._cidade}}, {{enderecos._estado}}</p>
-                         <p>CEP: {{endereco.cep}}</p>
-                     </div>
-              </div>
-            </div> -->
-
-              <!-- <div class="d-flex justify-content-center">
-                <div class="card col-md-10" style="margin-bottom: 50px;">
-                  Total
-                  <div class="card-body text-justify">
-                    <h5 class="text-center">Subtotal: R$ 10,00</h5>
-                    <br>
-                    <h5 class="card-title text-center">Frete: R$ 30,00</h5>
-                    <a class="card-text stretched-link">
-                      <p class="text-center"><b id="preco">Total: R$ 40,00</b></p>
-                    </a>
-                    <h5 class="text-center">em 1x no cartão de crédito MasterCard</h5>
-                  </div>
-                </div>
-              </div> -->
-
-
-
       </div>
   </form>
 </main>
