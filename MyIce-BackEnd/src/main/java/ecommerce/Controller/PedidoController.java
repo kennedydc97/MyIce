@@ -11,12 +11,6 @@ public class PedidoController {
     @Autowired
     private PedidoRepository repository;
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @PostMapping("/pedido")
-//    public Pedido save(@RequestBody Pedido pedido){
-//        return repository.save(pedido);
-//    }
-
     @PostMapping("/pedido")
     public ResponseEntity<?> criar(@RequestBody Pedido pedido) {
         if (pedido == null) {
@@ -40,11 +34,20 @@ public class PedidoController {
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/pedido/{id}")
     public ResponseEntity<Pedido> findPedidoByCliente(@PathVariable("id") Long id){
-        return ResponseEntity.ok().body(repository.findByCliente(id).get(0)); }
+        return ResponseEntity.ok().body(repository.findFirst1ByClienteOrderByDtPedidoDesc(id));
+    }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/pedido/{id_pedido}")
     public void deleteById(@PathVariable("id_pedido") Long idDoPedido){
         repository.deleteById(idDoPedido);
+    }
+
+    @ResponseStatus(HttpStatus.FOUND)
+    @GetMapping("/pedido/selecionado/{id}")
+    public ResponseEntity<Pedido> findPedidoByIdPedido(@PathVariable("id") Long id){
+        return repository.findById(id).map(pedido -> {
+            return ResponseEntity.ok().body(pedido);
+        }).orElse(ResponseEntity.notFound().build());
     }
 }
