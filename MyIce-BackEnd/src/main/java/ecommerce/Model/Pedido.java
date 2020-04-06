@@ -25,9 +25,8 @@ public class Pedido {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtPedido;
 
-
     @Column(name = "id_cliente")
-    private Long idCliente;
+    private Long cliente;
 
     @Column(name = "vl_frete")
     private BigDecimal vlFrete;
@@ -38,8 +37,8 @@ public class Pedido {
     @Column(name="ds_formapgto")
     private String formapgto;
 
-    @JoinColumn(name = "id_endereco")
-    private Long idEndereco;
+    @Column(name = "id_endereco")
+    private Long endereco;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")

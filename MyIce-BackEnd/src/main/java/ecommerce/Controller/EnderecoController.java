@@ -2,6 +2,7 @@ package ecommerce.Controller;
 
 import ecommerce.Model.Cliente;
 import ecommerce.Model.Endereco;
+import ecommerce.Model.Produto;
 import ecommerce.Repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,5 +39,13 @@ public class EnderecoController {
     @DeleteMapping("/endereco/{id_endereco}")
     public void deleteById(@PathVariable("id_endereco") Long idDoEndereco){
         repository.deleteById(idDoEndereco);
+    }
+
+    @ResponseStatus(HttpStatus.FOUND)
+    @GetMapping("/endereco/selecionado/{id}")
+    public ResponseEntity<Endereco> findEnderecoByIdEndereco(@PathVariable("id") Long id){
+       return repository.findById(id).map(endereco -> {
+          return ResponseEntity.ok().body(endereco);
+        }).orElse(ResponseEntity.notFound().build());
     }
 }
