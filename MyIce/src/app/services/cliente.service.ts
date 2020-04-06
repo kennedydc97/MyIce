@@ -128,14 +128,30 @@ export class ClienteService {
     )
   }
 
-  // public getEnderecos() {
-  //   let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-  //   let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco" + usuario.idCliente);
-  //   return url.pipe(
-  //     map(
-  //       data => data
-  //     )
-  //   )
+  public getPedido(id: number){
+    let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/selecionado/" + id);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
+  }
+
+  // update(c: Cadastro) {
+  //   let editarCliente = {
+  //     telefone: c.tel
+  //     // enderecos: [{
+  //     //   endereco: c.endereco,
+  //     //   numero: c.numeroCasa,
+  //     //   cep: c.cep,
+  //     //   bairro: c.bairro,
+  //     //   complemento: c.complementoCasa,
+  //     //   cidade: c.cidade,
+  //     //   estado: c.estado,
+  //     //   cliente: c.idCadastro
+  //     // }]
+  //   }
+  //   return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
   // }
 
 
@@ -158,6 +174,15 @@ export class ClienteService {
 
   public disparaEventoClienteLogado(c: Cadastro){
     this.clienteLogado.emit(c)
+  }
+  
+  public getEndereco(id: number){
+    let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco/selecionado/" + id);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
   }
 }
 

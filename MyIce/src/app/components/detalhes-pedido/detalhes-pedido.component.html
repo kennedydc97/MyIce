@@ -1,74 +1,68 @@
 <main class="container">
+  <form class="row" style="margin-top: 150px;">
     <div>
-        <h4><strong>Pedido (#)</strong></h4> 
 
-        <form>
+      <h4 *ngIf="pedido != undefined"><strong>Pedido #{{pedido.idPedido}}</strong></h4>
+      <br>
+      <table border="1" class="bordaTabela" *ngIf="pedido != undefined">
+        <thead>
+          <th class="text-center" style="width:160px">Produto</th>
+          <th class="text-center" style="width:200px">Detalhes</th>
+          <th class="text-center" style="width:200px">Quantidade</th>
+          <th class="text-center" style="width:200px">Preço</th>
+        </thead>
+        <thead>
+          <tr class="text-center" *ngFor="let item of pedido.itemPedido">
+            <th class="text-center"><img src={{item.produto.imagem}} width="20%" alt=""></th>
+            <th class="text-center">{{item.produto.nome}} - MI Ice</th>
+            <th class="text-center">{{item.quantidade}}</th>
+            <th class="text-center">{{item.produto.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</th>
+        </thead>
+      </table>
 
-        <div class="d-flex">
-          <div class="col-md-6">
-          <div class="card col" style="margin-bottom: 50px;">
-            <table class="table table-bordeless">
-              <thead>
-                <tr>
-                  <th scope="col">Detalhes do produto</th>
-                  <th scope="col"></th>
-                  <th scope="col">Quantidade</th>
-                  <th scope="col">Valor</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img src="/src/assets/gelodecoco.png" width="30" alt=""></th>
-                  <td colspan="2">
-                    <b>MI ICE</b>
-                    <br>
-                    <b>Gelo de coco</b>
-                  </td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
+      <br>
+
+      <div class="row mb-5" *ngIf="pedido != undefined">
+        <div class="card col" style="margin-top: 10px;" style="width: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Endereço de entrega</h5>
+            <p class="card-text">
+              <app-endereco *ngIf="principalEndereco != null" [endereco]="principalEndereco"></app-endereco>
+            </p>
+            <h5 class="card-title">Opção de entrega</h5>
+            <p class="card-text" *ngIf="pedido.vlFrete == 15">Frete normal - Até 7 dias úteis - R$15,00</p>
+            <p class="card-text" *ngIf="pedido.vlFrete == 30">Frete rápido - 2 dias úteis - R$30,00</p>
           </div>
         </div>
-        </div>
-   
-  
 
 
-
-<div class="col-md-6">
-    <form>
-
-
-      <div class="">
-      <br>
-      <div class="d-flex">
-        <div class="col-md-6">
-        <div class="card col" style="margin-bottom: 50px;">
-          <table class="table table-bordeless">
-            <thead>
-              <tr>
-                <th scope="col">Detalhes do produto</th>
-                <th scope="col"></th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Valor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><img src="/src/assets/gelodecoco.png" width="30" alt=""></th>
-                <td colspan="2">
-                  <b>MI ICE</b>
-                  <br>
-                  <b>Gelo de coco</b>
-                </td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="card col ml-3" style="margin-top: 10px;" style="width: 30rem; height: 10rem;">
+          <div class="card-body">
+            <h5 class="card-title">Método de pagamento</h5>
+            <h6><strong>Pago com Cartão de Crédito</strong></h6>
+            <br>
+            <p class="card-text">Valor total do pedido: {{(pedido.vlTotal + pedido.vlFrete).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</p>
+          </div>
         </div>
       </div>
-      </div>
 
- 
 
+    </div>
+  </form>
+</main>
+
+
+
+<!-- <div class="card text-center col-md-10" *ngFor="let item of teste">
+          <div class="card-header">
+           Pedido #{{item.idPedido}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Gelo de coco</h5>
+            <img class="card-img" src="assets/gelodecoco.png" alt="">
+            <a href="#" class="btn btn-primary">Visitar</a>
+          </div>
+          <div class="card-footer text-muted">
+            2 dias atrás
+          </div>
+        </div> -->
