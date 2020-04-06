@@ -15,6 +15,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { BuscaComponent } from './components/busca/busca.component';
 
 export const routes: Routes = [
   {
@@ -71,12 +72,21 @@ export const routes: Routes = [
   {
     path: 'meus-enderecos',
     component: MeusEnderecosComponent
-  }, {
+  }, 
+  {
     path: 'sucesso',
     component: SucessoPedidoRealizadoComponent
   },
   {
+    path: 'busca/:palavra',
+    component: BuscaComponent
+  },
+  {
     path: 'detalhes-pedido/:id',
+    component: DetalhesPedidoComponent
+  },
+  {
+    path: 'detalhes-pedido/',
     component: DetalhesPedidoComponent
   }
   

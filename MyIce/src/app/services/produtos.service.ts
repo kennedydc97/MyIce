@@ -1,23 +1,69 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { produtoAPI } from 'src/app/models/produtoAPI';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
 
-  constructor(private http: HttpClient) { }
+  carregando = true;
+  produtos: produtoAPI[] = [];
+  produtosFiltrados: produtoAPI[] = [];
 
-  public getProdutos(){
+  constructor(private http: HttpClient) {
+    this.carregarProdutos
+  }
+
+  private carregarProdutos() {
+
+    return new Promise((finalizado, erro) => {
+
+      this.http.get("http://localhost:8080/ecommerce/produto/lista").subscribe((produtos: produtoAPI[]) => {
+        this.produtos = produtos
+        this.carregando = false
+        finalizado();
+      })
+    });
+
+  }
+
+  buscarProduto(palavra: string) {
+
+    if (this.produtos.length === 0) {
+      this.carregarProdutos().then(() => {
+        this.filtrarProdutos(palavra);
+      })
+    } else {
+      this.filtrarProdutos(palavra)
+    }
+
+  }
+
+  private filtrarProdutos(palavra: string) {
+    this.produtosFiltrados=[]
+
+    palavra = palavra.toLocaleLowerCase();
+
+    this.produtos.forEach(prod => {
+
+      let nomeLower = prod.nome.toLocaleLowerCase();
+      let descLower = prod.descricao.toLocaleLowerCase();
+      if (nomeLower.indexOf(palavra) >= 0 || descLower.indexOf(palavra) >= 0) {
+        this.produtosFiltrados.push(prod)
+      }
+    })
+  }
+
+  public getProdutos() {
     return this.http.get("http://localhost:8080/ecommerce/produto/lista")
   }
 
-  public getCategoria(){
+  public getCategoria() {
     return this.http.get("http://localhost:8080/ecommerce/categoria/lista")
   }
 
-  public buscarProdutoId(id: number){
+  public buscarProdutoId(id: number) {
     return this.http.get("http://localhost:8080/ecommerce/produto/" + id);
   }
 }

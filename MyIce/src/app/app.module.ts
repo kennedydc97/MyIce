@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { NgxMaskModule } from 'ngx-mask';
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
@@ -27,11 +27,14 @@ import { MeusPedidosComponent } from './components/meus-pedidos/meus-pedidos.com
 import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
 import { DetalhesPedidoComponent } from './components/detalhes-pedido/detalhes-pedido.component';
 import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderecos.component';
-
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormasDeEnvioComponent } from './components/checkout/formas-de-envio/formas-de-envio.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
+import { BuscaComponent } from './components/busca/busca.component';
 
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -60,7 +63,7 @@ import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cada
     MinhaContaComponent,
     DetalhesPedidoComponent,
     MeusEnderecosComponent,
-  ],
+    BuscaComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,9 +71,13 @@ import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cada
     FormsModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

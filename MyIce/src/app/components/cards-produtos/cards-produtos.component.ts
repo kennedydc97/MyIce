@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards-produtos',
@@ -12,6 +13,7 @@ export class CardsProdutosComponent implements OnInit {
 
   produtoAPI: produtoAPI;
   produtos: any = []
+  produtosExibidos: any = []
   erro: any;
 
   getter() {
@@ -20,17 +22,20 @@ export class CardsProdutosComponent implements OnInit {
       (data: produtoAPI) => {
         this.produtoAPI = data;
         this.produtos = this.produtoAPI
+        this.produtosExibidos = this.produtos
       }, (error: any) => {
         console.error("ERROR", error)
       })
   }
 
-  constructor(private serviceProduto: ProdutosService) {
+  constructor(private serviceProduto: ProdutosService, private router: Router) {
     this.getter()
-    console.log(this.produtos)
-   }
-
+  }
+  
   ngOnInit(): void {
   }
 
+  produtoSelecionado(produto){
+    this.router.navigate(['/lista-de-produtos', produto.id])
+}
 }

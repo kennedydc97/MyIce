@@ -59,23 +59,24 @@ export class CheckoutComponent implements OnInit {
       });
       this.subTotal = this.total;
     } else {
-      this.route.navigate(["/home"])
+      this.route.navigate(["/lista-de-produtos"])
     }
     this.enderecos = [];
 
   }
 
+  
+  
   FormaDeEnvio(envio) {
-    if (envio != this.formaDeEnvio) {
-      this.total -= this.formaDeEnvio;
-      this.formaDeEnvio = envio;
-      this.total += this.formaDeEnvio;
-    }
+    if ( this.formaDeEnvio != null ) { 
+      if (envio != this.formaDeEnvio) {
+        this.total -= this.formaDeEnvio;
+        this.formaDeEnvio = envio;
+        this.total += this.formaDeEnvio;
+      }
   }
-
-
-
-
+  }
+ 
   ngOnInit(): void {
 
   }
@@ -90,6 +91,9 @@ export class CheckoutComponent implements OnInit {
   //     pedido => console.log(pedido)
   //   )
   // }
+
+  
+  
   finalizarCompra() {
       this.cliente.mandarPedido(this.principalEndereco.idEndereco, this.formaDeEnvio).subscribe(
         dados => {
@@ -106,6 +110,9 @@ export class CheckoutComponent implements OnInit {
         }
       )
       }
+
+
+
     
   cadastrarEndereco(endereco: Endereco) {
     this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))

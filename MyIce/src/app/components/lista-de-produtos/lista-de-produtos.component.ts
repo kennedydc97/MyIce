@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
-import { CategoriaAPI } from 'src/app/models/categoriaAPI';
+import { CategoriaAPI } from 'src/app/models/CategoriaAPI';
 
 @Component({
   selector: 'app-lista-de-produtos',

@@ -1,93 +1,88 @@
-<h1 class="row col-5 rounded" id="produtosMaisVendidos"><img src="assets/gloves (3).png" width="40px" alt="">&nbsp;<strong>Produtos mais vendidos</strong></h1>
+<section class="p-3">
+<div class="d-flex justify-content-center mt-4 p-3">
+    <h1 class="rounded" id="produtosMaisVendidos"><img src="assets/gloves (3).png" width="50vw"
+            alt="">&nbsp;<strong>Produtos mais vendidos</strong></h1>
+</div>
 
-<section class="p-5">
+    <div class="row justify-content-center" id="card">
 
-    <div class="row" id="card">
-
-        <div class="card col-lg-3">
-            <img src="assets/saco-de-gelo-1kg.png" class="card-img-top" alt="...">
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[0]?.imagem}} class="card-img-top" alt="...">
             <div class="card-body text-justify">
-                <h5 class="card-title text-center">Saco de Gelo 1kg</h5>
+                <h5 class="card-title text-center">{{produtos[0]?.nome}}</h5>
                 <p class="card-text">Nosso produto se diferencia por não conter em sua embalagem pedaços quebrados de
                     gelo...</p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$13,00 </s> <br> <b id="preco">por R$10,00</b></p>
+                <a *ngIf="produtos[0]" [routerLink]="['/lista-de-produtos', produtos[0]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[0]?.precoCheio | currency:"BRL"}} </s> <br> <b id="preco">por
+                            {{produtos[0]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>
 
 
-        <div class="card col-lg-3">
-            <img src="assets/formasdegelo.jpg" class="card-img-top" alt="...">
-            <br>
-            <br>
-            <div class="card-body text-justify">
-                <h5 class="card-title text-center">Formas de Gelo</h5>
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[1]?.imagem}} class="card-img-top" alt="...">
+            <div class="card-body text-justify mt-3">
+                <h5 class="card-title text-center">{{produtos[1]?.nome}}</h5>
                 <p class="card-text"><strong>Forma de gelo</strong> em silicone atóxico, próprio para alimentos, livre
                     de BPA...</p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$18,00 </s> <br> <b id="preco">por R$15,00</b></p>
+                <a *ngIf="produtos[1]" [routerLink]="['/lista-de-produtos', produtos[1]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[1]?.precoCheio | currency:"BRL"}} </s> <br> <b id="preco">por
+                            {{produtos[1]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>
 
-        <div class="card col-lg-3">
-            <img src="assets/bolsa-termica-compressao.png" class="card-img-top" alt="...">
-            <br>
-            <br>
-            <div class="card-body text-justify">
-                <h5 class="card-title text-center">Bolsa térmica para compressa</h5>
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[2]?.imagem}} class="card-img-top" alt="...">
+            <div class="card-body text-justify mt-3">
+                <h5 class="card-title text-center">{{produtos[2]?.nome}}</h5>
                 <p class="card-text">Utilizando-se do tratamento frio terapêutico, a <strong>Bolsa térmica para
                         compressa</strong>
                     trata...</p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$18,00 </s> <br> <b id="preco">por R$15,00</b></p>
+                <a *ngIf="produtos[2]" [routerLink]="['/lista-de-produtos', produtos[2]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[2]?.precoCheio | currency:"BRL"}} </s> <br> <b id="preco">por
+                            {{produtos[2]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>
-    </div>
 
-    <br>
-    <br>
 
-    <div class="row" id="card">
-        <div class="card col-lg-3">
-            <img src="assets/gelodecoco.png" class="card-img-top" alt="...">
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[3]?.imagem}} class="card-img-top" alt="...">
             <div class="card-body text-justify">
-                <h5 class="card-title text-center">Gelo de Coco</h5>
+                <h5 class="card-title text-center">{{produtos[3]?.nome}}</h5>
                 <p class="card-text">O potássio encontrado no <strong>Gelo de coco</strong> é essencial para a contração
                     muscular...</p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$16,65 </s> <br> <b id="preco">por R$15,00</b></p>
+                <a *ngIf="produtos[3]" [routerLink]="['/lista-de-produtos', produtos[3]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[3]?.precoCheio | currency:"BRL"}} </s> <br> <b id="preco">por
+                            {{produtos[3]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>
 
-        <div class="card col-lg-3">
-            <img src="assets/Olaf.png" class="card-img-top" alt="...">
-            <br>
-            <br>
-            <div class="card-body text-justify">
-                <h5 class="card-title text-center">Olaf deboas</h5>
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[4]?.imagem}} class="card-img-top" alt="...">
+            <div class="card-body text-justify mt-3">
+                <h5 class="card-title text-center">{{produtos[4]?.nome}}</h5>
                 <p class="card-text"><strong>Olaf</strong> é um personagem fictício que aparece no 53° filme de animação
                     dos estúdios...</p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$1.000,00</s> <br> <b id="preco">por R$800,00</b></p>
+                <a *ngIf="produtos[4]" [routerLink]="['/lista-de-produtos', produtos[4]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[4]?.precoCheio | currency:"BRL"}}</s> <br> <b id="preco">por
+                            {{produtos[4]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>
 
-        <div class="card col-lg-3">
-            <img src="assets/caixa-de-isopor.png" class="card-img-top" alt="...">
-            <br>
-            <br>
-            <br>
-            <div class="card-body text-justify">
-                <h5 class="card-title text-center">Caixa térmica de isopor</h5>
+        <div class="card col-lg-3 col-md-5  mr-5 mt-5">
+            <img src={{produtos[5]?.imagem}} class="card-img-top" alt="...">
+            <div class="card-body text-justify mt-3">
+                <h5 class="card-title text-center">{{produtos[5]?.nome}}</h5>
                 <p class="card-text">Mantenha a temperatura dos seus produtos por mais tempo com a <strong>caixa térmica
                         de...</strong></p>
-                <a routerLink="/lista-de-produtos" class="card-text stretched-link">
-                    <p> <s>de: R$50,00 </s> <br> <b id="preco">por R$24,00</b></p>
+                <a *ngIf="produtos[5]" [routerLink]="['/lista-de-produtos', produtos[5]?.idProduto]" class="card-text stretched-link">
+                    <p> <s>de: {{produtos[5]?.precoCheio | currency:"BRL"}} </s> <br> <b id="preco">por
+                            {{produtos[5]?.precoDesconto | currency:"BRL"}}</b></p>
                 </a>
             </div>
         </div>

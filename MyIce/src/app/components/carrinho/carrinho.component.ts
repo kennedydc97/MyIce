@@ -60,9 +60,11 @@ export class CarrinhoComponent implements OnInit {
     if(!this.cliente.logado()){
       this.router.navigate(["/checkout"])
     }else{
-      alert("você precisa estar logado")
+      alert("Você precisa realizar seu login!")
       this.router.navigate(["/login"])
     }
   }
+
+
 }
 

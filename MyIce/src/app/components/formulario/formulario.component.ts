@@ -6,7 +6,8 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
 import { Cadastro } from 'src/app/models/Cadastro';
-
+import { Validar } from 'src/app/models/validar'
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-formulario',
@@ -17,10 +18,11 @@ export class FormularioComponent implements OnInit {
   
   address: Address = new Address("","","","","","")
   validar: ValidacoesFormulario = new ValidacoesFormulario ()
+  validacao:Validar = new Validar()
 
   formCadastro: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { 
+  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService, private storage: StorageService) { 
     this.formCadastro = this.createForm()
     if(sessionStorage.getItem("usuario") != null){
       this.router.navigate(['/home']);
@@ -43,7 +45,7 @@ export class FormularioComponent implements OnInit {
       cpf:new FormControl("", Validators.compose([
         Validators.required,
         Validators.minLength(11),
-        ValidacoesFormulario.ValidaCpf
+        Validar.validarCpf
       ])),
       cep:new FormControl("",
         Validators.compose([
@@ -57,7 +59,7 @@ export class FormularioComponent implements OnInit {
         Validators.compose([Validators.required])),
         numero:new FormControl("",
         Validators.compose([Validators.required])),
-      complemento:new FormControl(""),
+      complementoCasa:new FormControl(""),
       uf:new FormControl("",
         Validators.compose([
           Validators.required,
@@ -75,11 +77,18 @@ export class FormularioComponent implements OnInit {
       console.log(data)
       let cadastro = JSON.stringify(data)
       sessionStorage.setItem("usuario", btoa(cadastro))
-      location.reload()
-      // this.router.navigate(['/home']);
+      this.clienteService.disparaEventoClienteLogado(this.formCadastro.value)
+      if(localStorage.getItem("carrinho") != null){
+        this.router.navigate(['/checkout'])
+      }else{
+        this.router.navigate(['/home']);
+      }
     })
   }
 
+  permitirNumeros(evento: any) {
+    this.validacao.cancelarLetras(evento);
+  }
 
   preencherEndereco(){
     if(this.formCadastro.value.cep.length == 8){
