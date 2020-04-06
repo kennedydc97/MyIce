@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Pedido } from 'src/app/models/Pedido';
 import { Router } from '@angular/router';
+import { Endereco } from 'src/app/models/endereco';
 
 @Component({
   selector: 'app-sucesso-pedido-realizado',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SucessoPedidoRealizadoComponent implements OnInit {
 
-  pedido: any;
+  pedido: Pedido;
+  endereco: Endereco;
 
 
   constructor( private cliente : ClienteService, private router: Router) { }

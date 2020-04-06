@@ -19,7 +19,7 @@
           <th class="text-center">#{{pedido.idPedido}}</th>
         <th class="text-center">#{{pedido.dtPedido | date:"dd/MM/yyyy"}}</th>
         <th class="text-center">Em Processamento</th>
-        <th class="text-center">{{pedido.vlTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</th>
+        <th class="text-center">{{pedido.vlTotal | currency:"BRL"}}</th>
       </thead>
     </table>
   

@@ -4,12 +4,14 @@
     <list default="true" id="91b0d1e8-cd42-4ca4-9e7a-e26c83fbb657" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyIceDB.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
 import { Cadastro } from 'src/app/models/Cadastro';
 import { Validar } from 'src/app/models/validar'
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-formulario',
@@ -21,7 +22,7 @@ export class FormularioComponent implements OnInit {
 
   formCadastro: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService) { 
+  constructor(private router: Router, private fb: FormBuilder, private cepService: CepService, private clienteService: ClienteService, private storage: StorageService) { 
     this.formCadastro = this.createForm()
     if(sessionStorage.getItem("usuario") != null){
       this.router.navigate(['/home']);
@@ -77,8 +78,11 @@ export class FormularioComponent implements OnInit {
       let cadastro = JSON.stringify(data)
       sessionStorage.setItem("usuario", btoa(cadastro))
       this.clienteService.disparaEventoClienteLogado(this.formCadastro.value)
-      // location.reload()
-      this.router.navigate(['/home']);
+      if(localStorage.getItem("carrinho") != null){
+        this.router.navigate(['/checkout'])
+      }else{
+        this.router.navigate(['/home']);
+      }
     })
   }
 

@@ -7,11 +7,12 @@ import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
+import { Entrega } from '../models/Entrega';
 
 const storage: StorageService = new StorageService();
 
 
-const enderecodb = (endereco, idCliente) =>{
+const enderecodb = (endereco, idCliente) => {
   return {
     "logradouro": endereco.logradouro,
     "numero": endereco.numero,
@@ -20,7 +21,7 @@ const enderecodb = (endereco, idCliente) =>{
     "localidade": endereco.localidade,
     "uf": endereco.uf,
     "cep": endereco.cep,
-    "cliente":idCliente
+    "cliente": idCliente
   }
 }
 
@@ -36,7 +37,7 @@ export class ClienteService {
     this.clienteLogado = new EventEmitter()
    }
 
-  cadastrarCliente(c: Cadastro){
+  cadastrarCliente(c: Cadastro) {
     let cadastrarCliente = {
       cpf: c.cpf,
       nome: c.nome,
@@ -59,50 +60,50 @@ export class ClienteService {
   logado(){
     if(sessionStorage.getItem("usuario") == null){
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  dados(login: Login){
-    return{
-      "email":login.email,
-      "password":login.password
+  dados(login: Login) {
+    return {
+      "email": login.email,
+      "password": login.password
     }
   }
 
-  fazerLogin(login: Login){
+  fazerLogin(login: Login) {
     let comunicacao = this.dados(login)
     let body: any
-    let url = this.http.post(`http://localhost:8080/ecommerce/login`,comunicacao)
+    let url = this.http.post(`http://localhost:8080/ecommerce/login`, comunicacao)
     return url.pipe(data => data)
   }
 
-  public buscarEndereco(idCliente){
+  public buscarEndereco(idCliente) {
     let url = this.http.get<any>("http://localhost:8080/ecommerce/endereco/" + idCliente)
     return url.pipe(map(
       endereco => endereco
     ))
   }
 
-  public mandarPedido(idEndereco, vlFrete){
+  public mandarPedido(idEndereco, vlFrete) {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     //pra login
     // let idCliente = 68;
-    let dtPedido = new Date(); 
+    let dtPedido = new Date();
     let carrinho = [];
     let total = 0;
-    let formapgto = "crédito";
-    storage.recuperarCarrinho().forEach(el => { 
+    let formapgto = "Cartão de Crédito";
+    storage.recuperarCarrinho().forEach(el => {
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     });
     // let cartao = JSON.parse(localStorage.getItem("Pagamento"));       
-    let pedido = this.formatoPedido(idEndereco, usuario.idCliente , carrinho, total, vlFrete, formapgto, dtPedido);
-    let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido )
+    let pedido = this.formatoPedido(idEndereco, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
+    let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido)
     return url.pipe(map(
-      pedido => pedido 
-      
+      pedido => pedido
+
     ))
   }
   // public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
@@ -111,13 +112,13 @@ export class ClienteService {
   // }
 
 
-  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido){
-    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, carrinho,  );
-      return pedido;
+  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, carrinho);
+    return pedido;
   }
 
 
-  public getPedidos(){
+  public getPedidos() {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/" + usuario.idCliente);
     return url.pipe(
@@ -127,8 +128,18 @@ export class ClienteService {
     )
   }
 
+  // public getEnderecos() {
+  //   let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+  //   let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco" + usuario.idCliente);
+  //   return url.pipe(
+  //     map(
+  //       data => data
+  //     )
+  //   )
+  // }
 
-  public cadastrarEndereco(endereco: Endereco, idCliente){
+
+  public cadastrarEndereco(endereco: Endereco, idCliente) {
     let url = this.http.post("http://localhost:8080/ecommerce/endereco", enderecodb(endereco, idCliente));
     return url.pipe(map(
       dados => dados
