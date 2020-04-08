@@ -6,13 +6,47 @@
 
       <app-pagina-do-cliente></app-pagina-do-cliente>
 
-      <div class="alinhar ">
-      <label class="titulo text-center p-4">
-         Consulte seus pedidos:
-      </label>
-      <input class="form-control coluna-3" type="text" name="search" [(ngModel)]="filter"/>
-    </div>
-      <table border="1" bordercolor=black class="bordaTabela" *ngIf="pedidos.length != 0">
+      <h4 class="titulo text-center p-4">CONSULTAR PEDIDOS 
+        <div class="subtitulo">Preencha os campos para localizar seus
+          pedidos antigos.</div>
+      </h4>
+      <div class="row d-flex justify-content-center">
+        <label>
+          Número do pedido
+        </label>
+
+        <input class="form-control coluna-3" type="text" name="search" [(ngModel)]="filter" />
+
+        <label>
+          <span>Mês</span>
+          <select class="span3" id="id_mes" name="mes" [(ngModel)]="filter">
+            <option value="" selected="selected">-</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </label>
+        <label>
+          <span>Ano</span>
+          <select class="span3" id="id_ano" name="ano" [(ngModel)]="filter">
+            <option value="" selected="selected">-</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+          </select>
+        </label>
+      </div>
+
+      <table border="1" bordercolor=gray class="bordaTabela" *ngIf="pedidos.length != 0">
         <thead>
           <th class="text-center titulos">Nº Pedido</th>
           <th class="text-center titulos">Data</th>

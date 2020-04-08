@@ -22,16 +22,16 @@
   font-size: larger;
   color: rgb(10, 16, 27);
   font-weight: bold;
-  text-align: right;
-  margin-right: -3vw;
+  margin-right: -4vw;
   color: rgb(34, 34, 63);
+
 }
 
 
 label{
-    width: 30%;
-
-}
+  font-weight: bold;
+  margin: 10px; 
+  margin-top: 20px;}
 
 .alinhar {
     display: flex;
@@ -44,7 +44,36 @@ label{
   }
 
   .coluna-3{
-    margin-top: 13px;
+    margin-top: 15px;
     width: 20%;
-
+    margin-right: 100px;
   }
+
+  select {
+    width: 80px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    height: 30px;
+
+
+}
+
+input {
+  height: 30px;
+}
+
+span {
+  margin-right: 1vw;
+
+}
+
+
+.subtitulo {
+  color: rgb(161, 156, 156);
+  font-size: smaller;
+  padding-top: 10px;
+  font-weight: normal;
+}
