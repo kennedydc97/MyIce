@@ -1,17 +1,50 @@
-.conteudoPaginaDoCliente{
-margin-top: 72px;
-display: flex;
-justify-content: center;
-}
-.container{
-display: flex;
-justify-content: center;
-}
-.bordaTabela{
-margin-top: 20px;
-margin-bottom: 60px;
+.conteudoPaginaDoCliente {
+  margin-top: 72px;
+  display: flex;
+  justify-content: center;
 }
 
-.titulos{
-    width: 15vw;
+.container {
+  display: flex;
+  justify-content: center;
 }
+
+.bordaTabela {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.titulos {
+  width: 15vw;
+}
+
+.titulo {
+  font-size: larger;
+  color: rgb(10, 16, 27);
+  font-weight: bold;
+  text-align: right;
+  margin-right: -3vw;
+  color: rgb(34, 34, 63);
+}
+
+
+label{
+    width: 30%;
+
+}
+
+.alinhar {
+    display: flex;
+    display: -webkit-flex; 
+    
+}
+
+.alinhamento{
+    text-align: right;
+  }
+
+  .coluna-3{
+    margin-top: 13px;
+    width: 20%;
+
+  }

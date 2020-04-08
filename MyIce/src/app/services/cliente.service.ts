@@ -8,6 +8,8 @@ import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
 import { Entrega } from '../models/Entrega';
+import { NumberFormatStyle } from '@angular/common';
+
 
 const storage: StorageService = new StorageService();
 
@@ -30,6 +32,11 @@ const enderecodb = (endereco, idCliente) => {
 })
 
 export class ClienteService {
+
+  pedidosFiltrados: Pedido[] = [];
+  pedidos: Pedido[] = [];
+  carregando = true;
+
 
   public clienteLogado: EventEmitter<Cadastro>;
 
@@ -137,23 +144,6 @@ export class ClienteService {
     )
   }
 
-  // update(c: Cadastro) {
-  //   let editarCliente = {
-  //     telefone: c.tel
-  //     // enderecos: [{
-  //     //   endereco: c.endereco,
-  //     //   numero: c.numeroCasa,
-  //     //   cep: c.cep,
-  //     //   bairro: c.bairro,
-  //     //   complemento: c.complementoCasa,
-  //     //   cidade: c.cidade,
-  //     //   estado: c.estado,
-  //     //   cliente: c.idCadastro
-  //     // }]
-  //   }
-  //   return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
-  // }
-
 
   public cadastrarEndereco(endereco: Endereco, idCliente) {
     let url = this.http.post("http://localhost:8080/ecommerce/endereco", enderecodb(endereco, idCliente));
@@ -184,8 +174,7 @@ export class ClienteService {
       )
     )
   }
+
+
 }
-
-
-
 
