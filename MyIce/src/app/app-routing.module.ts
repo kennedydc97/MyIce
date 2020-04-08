@@ -16,6 +16,7 @@ import { MeusEnderecosComponent } from './components/meus-enderecos/meus-enderec
 import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-realizado/sucesso-pedido-realizado.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { BuscaComponent } from './components/busca/busca.component';
+import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
 
 export const routes: Routes = [
   {
@@ -88,6 +89,10 @@ export const routes: Routes = [
   {
     path: 'detalhes-pedido/',
     component: DetalhesPedidoComponent
+  },
+  {
+    path: 'fale-conosco',
+    component: FaleConoscoComponent
   }
   
 ];

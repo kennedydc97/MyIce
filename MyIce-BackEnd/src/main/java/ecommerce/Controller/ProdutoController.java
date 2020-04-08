@@ -1,6 +1,8 @@
 package ecommerce.Controller;
 
+import ecommerce.Model.ItemPedido;
 import ecommerce.Model.Produto;
+import ecommerce.Repository.ItemPedidoRepository;
 import ecommerce.Repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,9 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoRepository repository;
+
+    @Autowired
+    private ItemPedidoRepository itemPedidoRepository;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/produto")
@@ -46,4 +51,5 @@ public class ProdutoController {
         produtoEntity.setCategoria(produto.getCategoria());
         return repository.save(produtoEntity);
     }
+
 }

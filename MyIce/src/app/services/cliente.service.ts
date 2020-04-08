@@ -7,6 +7,7 @@ import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
+import { Contato } from '../models/Contato';
 
 const storage: StorageService = new StorageService();
 
@@ -87,8 +88,6 @@ export class ClienteService {
 
   public mandarPedido(idEndereco, vlFrete) {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-    //pra login
-    // let idCliente = 68;
     let dtPedido = new Date();
     let carrinho = [];
     let total = 0;
@@ -96,8 +95,7 @@ export class ClienteService {
     storage.recuperarCarrinho().forEach(el => {
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
-    });
-    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));       
+    }); 
     let pedido = this.formatoPedido(idEndereco, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido)
     return url.pipe(map(
@@ -105,10 +103,6 @@ export class ClienteService {
 
     ))
   }
-  // public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
-  //   let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
-  //     return pedido;
-  // }
 
 
   public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
@@ -135,23 +129,6 @@ export class ClienteService {
       )
     )
   }
-
-  // update(c: Cadastro) {
-  //   let editarCliente = {
-  //     telefone: c.tel
-  //     // enderecos: [{
-  //     //   endereco: c.endereco,
-  //     //   numero: c.numeroCasa,
-  //     //   cep: c.cep,
-  //     //   bairro: c.bairro,
-  //     //   complemento: c.complementoCasa,
-  //     //   cidade: c.cidade,
-  //     //   estado: c.estado,
-  //     //   cliente: c.idCadastro
-  //     // }]
-  //   }
-  //   return this.http.put("http://localhost:8080/ecommerce/cliente", editarCliente);
-  // }
 
 
   public cadastrarEndereco(endereco: Endereco, idCliente) {
@@ -182,6 +159,16 @@ export class ClienteService {
         data => data
       )
     )
+  }
+
+  public faleConosco(c: Contato){
+    let mensagem = {
+      data: c.data,
+      email: c.email,
+      assunto: c.assunto,
+      mensagem: c.mensagem
+    }
+    return this.http.post("http://localhost:8080/ecommerce/contato", mensagem)
   }
 }
 

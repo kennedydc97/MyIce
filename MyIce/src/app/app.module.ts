@@ -33,6 +33,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 import { BuscaComponent } from './components/busca/busca.component';
+import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -63,7 +64,8 @@ registerLocaleData(localePt, 'pt');
     MinhaContaComponent,
     DetalhesPedidoComponent,
     MeusEnderecosComponent,
-    BuscaComponent,  ],
+    BuscaComponent,
+    FaleConoscoComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
