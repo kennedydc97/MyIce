@@ -1,6 +1,7 @@
 package ecommerce.Controller;
 
 import ecommerce.Model.Categoria;
+import ecommerce.Model.Produto;
 import ecommerce.Repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

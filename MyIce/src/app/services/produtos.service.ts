@@ -59,6 +59,10 @@ export class ProdutosService {
     return this.http.get("http://localhost:8080/ecommerce/produto/lista")
   }
 
+  public maisVendidos(){
+    return this.http.get("http://localhost:8080/ecommerce/maisvendidos")
+  }
+
   public getCategoria() {
     return this.http.get("http://localhost:8080/ecommerce/categoria/lista")
   }

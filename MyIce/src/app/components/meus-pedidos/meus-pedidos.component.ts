@@ -12,6 +12,7 @@ export class MeusPedidosComponent implements OnInit {
 
   pedido: Pedido;
   pedidos: Pedido[] = [];
+  filter: string;
 
   constructor(private cliente: ClienteService, private router: Router) {
     this.cliente.getPedidosLista().subscribe(

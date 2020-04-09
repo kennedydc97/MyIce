@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxMaskModule } from 'ngx-mask';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
 import { ListaDeProdutosComponent } from './components/lista-de-produtos/lista-de-produtos.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
@@ -34,6 +39,9 @@ import localePt from '@angular/common/locales/pt';
 import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 import { BuscaComponent } from './components/busca/busca.component';
 import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
+import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component';
+import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component'
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -65,7 +73,9 @@ registerLocaleData(localePt, 'pt');
     DetalhesPedidoComponent,
     MeusEnderecosComponent,
     BuscaComponent,
-    FaleConoscoComponent,  ],
+    FaleConoscoComponent,
+    EsqueciSenhaComponent,
+    NovaSenhaComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -74,7 +84,11 @@ registerLocaleData(localePt, 'pt');
     HttpClientModule,
     ModalModule.forRoot(),
     HttpClientModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    Ng2SearchPipeModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: LOCALE_ID,

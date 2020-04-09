@@ -17,6 +17,9 @@ import { SucessoPedidoRealizadoComponent } from './components/sucesso-pedido-rea
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { BuscaComponent } from './components/busca/busca.component';
 import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
+import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component'
+
+
 
 export const routes: Routes = [
   {
@@ -69,7 +72,11 @@ export const routes: Routes = [
   {
     path: 'minha-conta',
     component: MinhaContaComponent
+  }, {
+    path: 'esquecisenha',
+    component: EsqueciSenhaComponent
   },
+  
   {
     path: 'meus-enderecos',
     component: MeusEnderecosComponent

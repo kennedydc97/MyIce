@@ -8,6 +8,10 @@ import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
 import { Contato } from '../models/Contato';
+import { Entrega } from '../models/Entrega';
+import { NumberFormatStyle } from '@angular/common';
+import { FormGroup} from "@angular/forms";
+
 
 const storage: StorageService = new StorageService();
 
@@ -30,6 +34,11 @@ const enderecodb = (endereco, idCliente) => {
 })
 
 export class ClienteService {
+
+  pedidosFiltrados: Pedido[] = [];
+  pedidos: Pedido[] = [];
+  carregando = true;
+
 
   public clienteLogado: EventEmitter<Cadastro>;
 
@@ -170,8 +179,14 @@ export class ClienteService {
     }
     return this.http.post("http://localhost:8080/ecommerce/contato", mensagem)
   }
+
+
+  esqueciSenha(group: FormGroup){
+
+    let email: string = group.value.cliente;
+
+    return this.http.post("http://localhost:8080/ecommerce/esquecisenha/", email);
+
 }
-
-
-
+}
 

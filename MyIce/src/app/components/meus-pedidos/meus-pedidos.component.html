@@ -6,30 +6,66 @@
 
       <app-pagina-do-cliente></app-pagina-do-cliente>
 
+      <h4 class="titulo text-center p-4">CONSULTAR PEDIDOS 
+        <div class="subtitulo">Preencha os campos para localizar seus
+          pedidos antigos.</div>
+      </h4>
+      <div class="row d-flex justify-content-center">
+        <label>
+          Número do pedido
+        </label>
 
-      <header style="margin-top: 30px;" class="tituloProduto text-center">Resumo da compra
-      </header>
-      <br>
-      <table border="2" bordercolor=black class="bordaTabela" *ngIf="pedidos.length != 0">
+        <input class="form-control coluna-3" type="text" name="search" [(ngModel)]="filter" />
+
+        <label>
+          <span>Mês</span>
+          <select class="span3" id="id_mes" name="mes" [(ngModel)]="filter">
+            <option value="" selected="selected">-</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </label>
+        <label>
+          <span>Ano</span>
+          <select class="span3" id="id_ano" name="ano" [(ngModel)]="filter">
+            <option value="" selected="selected">-</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+          </select>
+        </label>
+      </div>
+
+      <table border="1" bordercolor=gray class="bordaTabela" *ngIf="pedidos.length != 0">
         <thead>
-            <th class="text-center titulos">Nº Pedido</th>
-            <th class="text-center titulos">Data</th>
-            <th class="text-center titulos">Situação</th>
-            <th class="text-center titulos">Valor</th>
-            <th class="text-center titulos">Detalhes</th>
+          <th class="text-center titulos">Nº Pedido</th>
+          <th class="text-center titulos">Data</th>
+          <th class="text-center titulos">Situação</th>
+          <th class="text-center titulos">Valor</th>
+          <th class="text-center titulos">Detalhes</th>
         </thead>
         <thead>
-          <tr class="text-center" *ngFor="let item of pedidos">
+          <tr class="text-center" *ngFor="let item of pedidos | filter:filter; let i = index">
             <th class="text-center">#{{item.idPedido}}</th>
             <th class="text-center teste">{{item.dtPedido | date:"dd/MM/yyyy"}}</th>
             <th class="text-center">Em Processamento</th>
             <th class="text-center">{{item.vlTotal | currency:"BRL"}}</th>
-            <th class="text-center"><input type="image" src="assets/loupe (1).png" (click)="pedidoSelecionado(item.idPedido)" width="25px"></th>
+            <th class="text-center"><input type="image" src="assets/loupe (1).png"
+                (click)="pedidoSelecionado(item.idPedido)" width="25px"></th>
         </thead>
       </table>
 
-      <div *ngIf="pedidos == null || pedidos.length == 0" class="alert alert-warning" ><img src="./assets/carrinho.png" width="30" class="mr-3"> 
+      <div *ngIf="pedidos == null || pedidos.length == 0" class="alert alert-warning"><img src="./assets/carrinho.png"
+          width="30" class="mr-3">
         Você não possui pedidos!</div>
-      </div>
-  </form>
-</main>
+    </div>
