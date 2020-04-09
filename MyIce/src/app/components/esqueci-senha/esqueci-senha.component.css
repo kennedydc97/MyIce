@@ -1,0 +1,39 @@
+.card{
+    width: 500px;
+    height: 250px;
+    background: #fff;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    padding-top: 30px;
+}
+
+.container{
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+input{
+    width: 350px;
+    margin-top: 30px;
+    /* margin-bottom: 50px; */
+}
+
+
+
+.titulo{
+    margin-top: 20px;
+    font-size: larger;
+    color: rgb(39, 108, 199);
+    font-weight: bold;
+    text-align: center;
+  }
+
+
+@media screen and (max-width: 812px) {
+    .card{
+        margin-left: -0.3em;
+        width: 22em;
+    }
+
+}

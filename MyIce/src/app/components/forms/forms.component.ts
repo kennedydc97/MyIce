@@ -5,6 +5,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { Cadastro } from 'src/app/models/Cadastro';
 
+
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
@@ -42,6 +43,9 @@ export class FormsComponent implements OnInit {
     // console.log("logado")
     // console.log(this.formularioLogin)
   }
+
+
+
 
 
   ngOnInit() {

@@ -12,7 +12,8 @@ import { debounceTime } from 'rxjs/operators';
 export class PagamentoComponent implements OnChanges {
 
   @Output() enviarCartao = new EventEmitter;
-
+  
+  cartao
   valoresForm;
   conversao;
 
@@ -59,10 +60,9 @@ export class PagamentoComponent implements OnChanges {
       ])),
     });
 
-
-
-
   }
+
+ 
   ngOnChanges(): void {
     this.formPagamento.patchValue({freteSelecionado : this.frete})
  
@@ -82,13 +82,13 @@ export class PagamentoComponent implements OnChanges {
   }
 
   compraRealizada() {
+    
     if (this.frete != undefined && this.frete != 0) { 
-    this.conversao = JSON.stringify(this.valoresForm);
-    sessionStorage.getItem(btoa(this.conversao));
     this.enviarCartao.emit();
   } else {
     alert("Selecione um frete para efetuar a sua compra!")
   }
 }
-
 }
+
+

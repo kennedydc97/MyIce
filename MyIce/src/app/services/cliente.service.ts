@@ -9,6 +9,7 @@ import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
 import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
+import { FormGroup} from "@angular/forms";
 
 
 const storage: StorageService = new StorageService();
@@ -175,6 +176,12 @@ export class ClienteService {
     )
   }
 
+  esqueciSenha(group: FormGroup){
 
+    let email: string = group.value.cliente;
+
+    return this.http.post("http://localhost:8080/ecommerce/esquecisenha/", email);
+
+}
 }
 
