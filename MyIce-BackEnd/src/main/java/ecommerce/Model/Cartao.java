@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -14,27 +14,24 @@ import java.util.Date;
 @Entity
 @Table(name = "tb_cartao")
 
-public class Cartao {
+public class Cartao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cartao")
-    private Long idCartao;
+    private Integer idCartao;
 
-    @NotEmpty
     @Column(name = "nmr_cartao")
     private String nmrCartao;
 
-    @NotEmpty
     @Column(name = "dt_validade")
-    private Date dtValidade;
+    private String dtValidade;
 
-    @NotEmpty
     @Column(name = "cvv")
     private String cvv;
 
-    @NotEmpty
     @Column(name = "nm_titular")
     private String nmTitular;
+
 
 }

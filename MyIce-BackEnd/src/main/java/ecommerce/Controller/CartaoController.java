@@ -4,7 +4,9 @@ import ecommerce.Model.Cartao;
 import ecommerce.Repository.CartaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -12,29 +14,54 @@ import java.util.List;
 public class CartaoController {
 
     @Autowired
-    private CartaoRepository repository;
+    private CartaoRepository cartaoRepository;
+
+
+    @GetMapping("/cartoes")
+    public ResponseEntity<List<Cartao>> find() {
+        return ResponseEntity.ok().body(cartaoRepository.findAll());
+    }
+
+    @GetMapping("/cartao/{id}")
+    public ResponseEntity<?> findById(@PathVariable("id") Long id) {
+        try{
+            return ResponseEntity.ok().body(cartaoRepository.findById(id).get());
+        }catch (Exception ex){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
+        }
+
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/cartao")
-    public Cartao save(@RequestBody Cartao cartao){
-        return repository.save(cartao);
+    @PostMapping("/cartoes")
+    public ResponseEntity<?> save(@RequestBody Cartao cartao) {
+
+        if(cartao == null) {
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Exception("Nenhum dado inserido!"));
+        }
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(cartaoRepository.save(cartao));
+        }catch (IllegalArgumentException ex){
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
+
+        }
     }
 
-    @ResponseStatus(HttpStatus.FOUND)
-    @GetMapping("/cartao/{id}")
-    public Cartao findCartaoById(@PathVariable("id") Long id){
-        return repository.findById(id).get();
+
+
+    @DeleteMapping("/cartao/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable("id") Long id){
+
+        return cartaoRepository.findById(id).map((cartao)->{
+            cartaoRepository.delete(cartao);
+            return ResponseEntity.status(204).build();
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cartão não encontrado"));
+
     }
 
-    @ResponseStatus(HttpStatus.FOUND)
-    @GetMapping("/cartao/lista")
-    public List<Cartao> find(){
-        return repository.findAll();
-    }
-
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    @DeleteMapping("/cartao/{id_cartao}")
-    public void deleteById(@PathVariable("id_cartao") Long idDoCartao){
-        repository.deleteById(idDoCartao);
-    }
 }
