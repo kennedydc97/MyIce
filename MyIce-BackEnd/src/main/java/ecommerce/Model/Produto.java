@@ -32,7 +32,7 @@ public class Produto {
     @Column(name = "img_produto")
     private String imagem;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 

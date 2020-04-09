@@ -21,7 +21,7 @@ public class ProdutoController {
     private ItemPedidoRepository itemPedidoRepository;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/produto")
+    @PostMapping("/criar-produto")
     public Produto save(@RequestBody Produto produto){
         return repository.save(produto);
     }
