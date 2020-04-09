@@ -2,6 +2,7 @@ package ecommerce.Controller;
 
 import ecommerce.Model.Produto;
 import ecommerce.Repository.ProdutoRepository;
+import ecommerce.Service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoRepository repository;
+
+    @Autowired
+    private ProdutoService produtoService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/produto")
@@ -46,4 +50,11 @@ public class ProdutoController {
         produtoEntity.setCategoria(produto.getCategoria());
         return repository.save(produtoEntity);
     }
+
+    @ResponseStatus(HttpStatus.FOUND)
+    @GetMapping("/maisvendidos")
+    public ResponseEntity<List<Produto>> buscarMaisVendidos(){
+        return ResponseEntity.ok().body(produtoService.buscarProdutosMaisVendidos());
+    }
+
 }

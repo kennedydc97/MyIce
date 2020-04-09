@@ -5,6 +5,7 @@ import ecommerce.Model.Endereco;
 import ecommerce.Repository.ClienteRepository;
 import ecommerce.Service.EmailService;
 import ecommerce.Service.UsuarioService;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,6 +55,25 @@ public class ClienteController {
             String erro = "Não foi possivel autenticar tente novamente";
             return ResponseEntity.badRequest().body(erro);
         }
+    }
+
+    @PutMapping("/password")
+    public ResponseEntity atualizarSenha(@RequestBody ObjectNode objectNode){
+
+        Integer id = objectNode.get("id").asInt();
+        String senhaAtual = objectNode.get("senhaAtual").asText();
+        senhaAtual = BCrypt.hashpw(senhaAtual, BCrypt.gensalt());
+        String novaSenha = objectNode.get("novaSenha").asText();
+        novaSenha = BCrypt.hashpw(novaSenha, BCrypt.gensalt() );
+        if(repository.findByIdClienteAndPassword(id, senhaAtual) != null ) {
+
+            Cliente userEntity = repository.findByIdClienteAndPassword(id,senhaAtual);
+            userEntity.setPassword(novaSenha);
+            return ResponseEntity.ok().body(repository.save(userEntity));
+        }else{
+            return ResponseEntity.badRequest().body(new Exception("Senha atual incorreta"));
+        }
+
     }
 
 
