@@ -22,14 +22,20 @@ export class CardsProdutosComponent implements OnInit {
       (data: produtoAPI) => {
         this.produtoAPI = data;
         this.produtos = this.produtoAPI
-        this.produtosExibidos = this.produtos
       }, (error: any) => {
         console.error("ERROR", error)
       })
   }
 
+  maisVendidos(){
+    this.serviceProduto.maisVendidos().subscribe((data: produtoAPI) => {
+      this.produtosExibidos = data;
+    })
+  }
+
   constructor(private serviceProduto: ProdutosService, private router: Router) {
     this.getter()
+    this.maisVendidos()
   }
   
   ngOnInit(): void {
