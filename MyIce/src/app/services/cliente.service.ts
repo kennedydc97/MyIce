@@ -10,28 +10,29 @@ import { Endereco } from '../models/endereco';
 import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
 import { FormGroup } from "@angular/forms";
+import { Contato } from '../models/Contato';
 
-interface iUsuario {
-  idCliente: number,
-  email: string,
-  nome: string,
-  sobrenome: string,
-  cpf: string,
-  nascimento: string,
+// interface iUsuario {
+//   idCliente: number,
+//   email: string,
+//   nome: string,
+//   sobrenome: string,
+//   cpf: string,
+//   nascimento: string,
 
 
-}
+// }
 
-interface iEndereco {
-  idEndereco: number,
-  logradouro: string,
-  numero: string,
-  cep: string,
-  bairro: string,
-  complemento: string,
-  localidade: string,
-  uf: string
-}
+// interface iEndereco {
+//   idEndereco: number,
+//   logradouro: string,
+//   numero: string,
+//   cep: string,
+//   bairro: string,
+//   complemento: string,
+//   localidade: string,
+//   uf: string
+// }
 
 
 const storage: StorageService = new StorageService();
@@ -198,6 +199,17 @@ export class ClienteService {
     )
   }
 
+  public faleConosco(c: Contato){
+    let mensagem = {
+      data: c.data,
+      email: c.email,
+      assunto: c.assunto,
+      mensagem: c.mensagem
+    }
+    return this.http.post("http://localhost:8080/ecommerce/contato", mensagem)
+  }
+
+
   esqueciSenha(group: FormGroup) {
 
     let email: string = group.value.cliente;
@@ -231,6 +243,17 @@ export class ClienteService {
           data => data
         )
       )
+    }
+
+    mandarMensagem(group: FormGroup){
+      let dados = {
+        "nome": group.value.nome,
+        "email": group.value.email,
+        "assunto":group.value.assunto,
+        "texto": group.value.mensagem,
+    }
+      return this.http.post("http://localhost:8080/ecommerce/contato", dados);
+  
     }
 
 }

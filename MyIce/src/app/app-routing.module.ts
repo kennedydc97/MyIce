@@ -18,6 +18,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { BuscaComponent } from './components/busca/busca.component';
 import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component'
 import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component'
+import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
+
 
 
 export const routes: Routes = [
@@ -100,6 +102,10 @@ export const routes: Routes = [
   {
     path: 'detalhes-pedido/',
     component: DetalhesPedidoComponent
+  },
+  {
+    path: 'fale-conosco',
+    component: FaleConoscoComponent
   }
   
 ];

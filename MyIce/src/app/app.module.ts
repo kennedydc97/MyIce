@@ -39,7 +39,8 @@ import localePt from '@angular/common/locales/pt';
 import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cadastrar-endereco.component';
 import { BuscaComponent } from './components/busca/busca.component';
 import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component';
-import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component'
+import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component';
+import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component'
 
 
 registerLocaleData(localePt, 'pt');
@@ -73,7 +74,8 @@ registerLocaleData(localePt, 'pt');
     MeusEnderecosComponent,
     BuscaComponent,
     EsqueciSenhaComponent,
-    NovaSenhaComponent  ],
+    NovaSenhaComponent,
+    FaleConoscoComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
