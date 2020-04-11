@@ -49,7 +49,7 @@ export class NovaSenhaComponent implements OnInit {
     this.cliente.alterarSenha(this.formSenha).subscribe(
       (data) => {
         this.toastr.success("", "Senha alterada com sucesso!");
-
+        this.router.navigate(['/minha-conta'])
       }, (erro) => {
         this.toastr.error("Senha atual incorreta", "Falha ao alterar senha");
       }
