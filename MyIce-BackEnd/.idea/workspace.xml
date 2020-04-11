@@ -4,21 +4,17 @@
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ClienteRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/cards-produtos/cards-produtos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/cards-produtos/cards-produtos.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/nova-senha/nova-senha.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/validacoesFormulario.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/produtos.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/produtos.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,38 +123,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585422355272" />
-    <state width="1323" height="293" key="GridCell.Tab.0.bottom" timestamp="1586470181778">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1586622346781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="293" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586470181778" />
-    <state width="1323" height="293" key="GridCell.Tab.0.center" timestamp="1586470181778">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586622346781" />
+    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1586622346781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="293" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586470181778" />
-    <state width="1323" height="293" key="GridCell.Tab.0.left" timestamp="1586470181778">
+    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586622346781" />
+    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1586622346781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="293" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586470181778" />
-    <state width="1323" height="293" key="GridCell.Tab.0.right" timestamp="1586470181778">
+    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586622346781" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1586622346781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="293" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586470181778" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1586444828748">
+    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586622346781" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586444828748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1586444828748">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586481472789" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586444828748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1586444828748">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586481472789" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586444828748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1586444828748">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586481472789" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586444828748" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586481472789" />
     <state x="213" y="22" key="Maven.ArtifactSearchDialog" timestamp="1586436353466">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -167,9 +163,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586443564123" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586348843860">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586615037727">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586348843860" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586615037727" />
   </component>
 </project>

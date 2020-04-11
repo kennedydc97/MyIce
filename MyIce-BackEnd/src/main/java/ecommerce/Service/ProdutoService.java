@@ -21,7 +21,7 @@ public class ProdutoService {
                 new StringBuffer()
                         .append("SELECT p.* ")
                         .append("FROM TB_PRODUTO p ")
-                        .append("INNER JOIN (SELECT ip.id_produto, SUM(ip.nmr_quantidade) AS quantidade FROM TB_ITEM_PEDIDO ip GROUP BY ip.id_produto ORDER BY 2 DESC) MAIS_VENDIDOS ON (MAIS_VENDIDOS.id_produto = p.id_produto)")
+                        .append("INNER JOIN (SELECT ip.id_produto, SUM(ip.nmr_quantidade) AS quantidade FROM TB_ITEM_PEDIDO ip GROUP BY ip.id_produto ORDER BY 2 DESC) MAIS_VENDIDOS ON (MAIS_VENDIDOS.id_produto = p.id_produto) limit 3")
                                 .toString();
         Query query = em.createNativeQuery(sql, Produto.class);
         produtos = query.getResultList();
