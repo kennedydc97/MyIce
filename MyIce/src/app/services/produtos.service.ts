@@ -63,6 +63,10 @@ export class ProdutosService {
     return this.http.get("http://localhost:8080/ecommerce/categoria/lista")
   }
 
+  public maisVendidos(){
+    return this.http.get("http://localhost:8080/ecommerce/maisvendidos")
+  }
+
   public buscarProdutoId(id: number) {
     return this.http.get("http://localhost:8080/ecommerce/produto/" + id);
   }

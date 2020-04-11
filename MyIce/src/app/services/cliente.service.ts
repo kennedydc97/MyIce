@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { StorageService } from './storage.service';
 import { map } from "rxjs/operators";
 import { Cadastro } from '../models/Cadastro';
@@ -9,7 +9,29 @@ import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
 import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
-import { FormGroup} from "@angular/forms";
+import { FormGroup } from "@angular/forms";
+
+interface iUsuario {
+  idCliente: number,
+  email: string,
+  nome: string,
+  sobrenome: string,
+  cpf: string,
+  nascimento: string,
+
+
+}
+
+interface iEndereco {
+  idEndereco: number,
+  logradouro: string,
+  numero: string,
+  cep: string,
+  bairro: string,
+  complemento: string,
+  localidade: string,
+  uf: string
+}
 
 
 const storage: StorageService = new StorageService();
@@ -41,9 +63,9 @@ export class ClienteService {
 
   public clienteLogado: EventEmitter<Cadastro>;
 
-  constructor(private http: HttpClient, private storage : StorageService) {
+  constructor(private http: HttpClient, private storage: StorageService) {
     this.clienteLogado = new EventEmitter()
-   }
+  }
 
   cadastrarCliente(c: Cadastro) {
     let cadastrarCliente = {
@@ -65,8 +87,8 @@ export class ClienteService {
     }
     return this.http.post("http://localhost:8080/ecommerce/cliente", cadastrarCliente);
   }
-  logado(){
-    if(sessionStorage.getItem("usuario") == null){
+  logado() {
+    if (sessionStorage.getItem("usuario") == null) {
       return true;
     } else {
       return false;
@@ -136,7 +158,7 @@ export class ClienteService {
     )
   }
 
-  public getPedido(id: number){
+  public getPedido(id: number) {
     let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/selecionado/" + id);
     return url.pipe(
       map(
@@ -153,7 +175,7 @@ export class ClienteService {
     ))
   }
 
-  public getPedidosLista(){
+  public getPedidosLista() {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
     let url = this.http.get("http://localhost:8080/ecommerce/pedidos/lista/" + usuario.idCliente);
     return url.pipe(
@@ -163,11 +185,11 @@ export class ClienteService {
     )
   }
 
-  public disparaEventoClienteLogado(c: Cadastro){
+  public disparaEventoClienteLogado(c: Cadastro) {
     this.clienteLogado.emit(c)
   }
-  
-  public getEndereco(id: number){
+
+  public getEndereco(id: number) {
     let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco/selecionado/" + id);
     return url.pipe(
       map(
@@ -176,12 +198,40 @@ export class ClienteService {
     )
   }
 
-  esqueciSenha(group: FormGroup){
+  esqueciSenha(group: FormGroup) {
 
     let email: string = group.value.cliente;
 
     return this.http.post("http://localhost:8080/ecommerce/esquecisenha/", email);
 
-}
+  }
+
+  alterarSenha(group: FormGroup) {
+    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+
+    let senha = {
+      "id": usuario.idCliente,
+      "senhaAtual": group.value.senhaAtual,
+      "novaSenha": group.value.novaSenha
+
+    }
+
+    return this.http.put("http://localhost:8080/ecommerce/password/", senha);
+
+  }
+
+  getCliente() {
+
+    let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+
+
+    let url = this.http.get("http://localhost:8080/ecommerce/cliente/" + usuario.idCliente);
+      return url.pipe(
+        map(
+          data => data
+        )
+      )
+    }
+
 }
 

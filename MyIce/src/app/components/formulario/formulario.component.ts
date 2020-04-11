@@ -5,7 +5,6 @@ import { CepService } from 'src/app/services/cep.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { ValidacoesFormulario } from 'src/app/models/validacoesFormulario';
-import { Cadastro } from 'src/app/models/Cadastro';
 import { Validar } from 'src/app/models/validar'
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -104,16 +103,6 @@ export class FormularioComponent implements OnInit {
       )
     }
   }
-  
-  // pegarCep(){
-  //     this.cepService.getCep(this.formCadastro.value).subscribe((data) => {
-  //       this.address.setEndereco(data.cep, data.logradouro, data.bairro, data.uf, data.localidade)
-  //       this.formCadastro.controls['endereco'].patchValue(data.logradouro);
-  //       this.formCadastro.controls['bairro'].patchValue(data.bairro);
-  //       this.formCadastro.controls['estado'].patchValue(data.uf);
-  //       this.formCadastro.controls['cidade'].patchValue(data.localidade);
-  //     })
-  // }
   
   ngOnInit() {
     this.formCadastro = this.createForm();

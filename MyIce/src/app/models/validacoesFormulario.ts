@@ -71,6 +71,20 @@ export class ValidacoesFormulario {
     controle.get('confirmaSenha').setErrors({ senhasNaoCoincidem: true });
   }
 
+  static senhasNovasCombinam(control: FormControl){
+    const novaSenha = control.get('novaSenha').value;
+    const confirmaSenha = control.get('confirmaSenha').value;
+
+    if(confirmaSenha.length == 0){
+        return null;
+    }
+    if(novaSenha == confirmaSenha){
+
+        return null
+    }else{
+        control.get('confirmaSenha').setErrors({senhasNaoCoincidem: true});
+    }
+}
 
   
 }

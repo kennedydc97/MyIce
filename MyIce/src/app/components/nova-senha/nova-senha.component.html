@@ -1,1 +1,41 @@
-<p>nova-senha works!</p>
+<main class="container">
+      <div style="margin-top: 72px;">
+        <app-pagina-do-cliente></app-pagina-do-cliente>
+        <div class="col-md-6 offset-md-3">
+
+        <div class="container">
+                <h2 class="titulo ">ALTERAR SENHA</h2>
+            <form [formGroup]="formSenha" (ngSubmit)="enviarSenhaNova()">
+                <div class="form-group">
+                    <label for="senhaAtual">Senha atual: </label>
+                    <input id="senhaAtual" formControlName="senhaAtual" class="form-control" placeholder="Digite a sua senha"
+                        name="senhaAtual" type="password" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Nova Senha:</label>
+                    <input class="form-control" type="password" id="senha" name="senha" placeholder="Digite sua senha"
+                        formControlName="novaSenha">
+                    </div>
+
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirme a Senha:</label>
+                    <input class="form-control" type="password" id="password" name="confirmaSenha"
+                        placeholder="Confirmar Senha" formControlName="confirmaSenha">
+                        <div *ngIf="!confirmaSenha.pristine && confirmaSenha.errors">
+                            <p *ngIf="confirmaSenha.errors.required" style="color: red;">
+                              Confirme sua senha.
+                            </p>
+                            <p *ngIf="confirmaSenha.errors.senhasNaoCoincidem" style="color: red;">
+                              As senhas não coincidem.
+                            </p>
+                          </div>
+                </div>
+                <div class="form-group">
+                    <button  type="submit" class="btn btn-primary" [disabled]="!formSenha.valid">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</main>
