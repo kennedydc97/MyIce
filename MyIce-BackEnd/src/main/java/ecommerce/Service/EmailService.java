@@ -29,16 +29,14 @@ public class EmailService {
 
     }
 
-    public void sendEmailMensagem(String email, String senha) {
+    public void sendEmailMensagem(String nome, String email, String assunto, String texto) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(email);
+        msg.setTo("suportemiice@gmail.com");
 
-        msg.setSubject("Pedido Realizado");
-        msg.setText("Olá! \n\n Esqueceu sua senha? Sem problemas! " +
-                "Nós do Mi Ice geramos uma nova senha para você. \n\n Sua nova senha é: " + senha);
+        msg.setSubject("Mensagem de " + nome);
+        msg.setText("Mensagem enviada pelo email'" + email + "', através do contato pelo nosso site Mi ice, com o assunto de '" + assunto + "'\n\n\n" + texto);
 
         javaMailSender.send(msg);
-
     }
 }
