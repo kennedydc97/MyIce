@@ -1,5 +1,6 @@
 package ecommerce.Model;
 
+import ecommerce.Enum.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,6 +40,9 @@ public class Pedido {
 
     @Column(name = "id_endereco")
     private Long endereco;
+
+    @Column(name = "ds_status")
+    private Status status = Status.AGUARDANDOPAGAMENTO;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")
