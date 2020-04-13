@@ -18,8 +18,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { BuscaComponent } from './components/busca/busca.component';
 import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
 import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component'
-
-
+import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component'
 
 export const routes: Routes = [
   {
@@ -65,6 +64,11 @@ export const routes: Routes = [
     path: 'pagina-do-cliente',
     component:PaginaDoClienteComponent
   },
+  {
+    path: 'nova-senha',
+    component:NovaSenhaComponent
+  },
+  
   {
     path: 'meus-pedidos',
     component:MeusPedidosComponent

@@ -1,7 +1,10 @@
 package ecommerce.Controller;
 
-import ecommerce.Model.Contato;
-import ecommerce.Repository.ContatoRepository;
+//import ecommerce.Model.Contato;
+//import ecommerce.Repository.ContatoRepository;
+
+import ecommerce.Service.EmailService;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContatoController {
 
     @Autowired
-    ContatoRepository repository;
+    private EmailService emailService;
 
     @PostMapping("/contato")
-    public ResponseEntity<?> enviarEmail(@RequestBody Contato contato){
-        return ResponseEntity.ok().body(repository.save(contato));
+    public ResponseEntity contatar(@RequestBody ObjectNode node){
+        String nome = node.get("nome").asText();
+        String email = node.get("email").asText();
+        String assunto = node.get("assunto").asText();
+        String texto = node.get("texto").asText();
+        emailService.sendEmailMensagem(nome, email, assunto, texto);
+        return ResponseEntity.ok().build();
     }
 }

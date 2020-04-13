@@ -1,32 +1,27 @@
 <main class="container">
-    <h2 class="mt-4 mb-4">FALE CONOSCO</h2>
-    <div class="row">
-    <form [formGroup]="formMensagem" class="form-row col-lg-7" (ngSubmit)="enviarMensagem()">
-        <div class="col-lg-12 form-group">
+    <div class="col-md-6 offset-md-3">
+    <h3 class="mt-4 mb-4">FALE CONOSCO</h3>
+    <form [formGroup]="formMensagem"  (ngSubmit)="enviarMensagem()">
+        <div class="form-group">
+            <label for="nome">Seu nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" formControlName="nome" placeholder="Nome do usuário">
+            </div>
+        <div class=" form-group">
             <label for="email"><b>E-mail:</b></label>
-            <input class="form-control col-lg-6" type="text" formControlName="email" placeholder="Digite seu email">
+            <input class="form-control" type="text" formControlName="email" placeholder="Digite seu email">
         </div>
-        <div class="col-lg-12 form-group">
-            <label for="assusnto"><b>Assunto:</b></label>
-            <select class="form-control col-lg-6" formControlName="assunto">
-                <option value="" disabled selected>Escolha o assunto</option>
-                <option value="Elogio">Elogio</option>
-                <option value="Dúvida">Dúvida</option>
-                <option value="Sugestão">Sugestão</option>
-                <option value="Reclamação">Reclamação</option>
-            </select>
+        <div class=" form-group">
+            <label for="assunto"><b>Assunto:</b></label>
+            <input class="form-control" type="text" formControlName="assunto" placeholder="Digite o assunto:  Elogios, sugestão, reclamação...">
         </div>
-        <div class="col-lg-8 form-group">
+        <div class="form-group">
             <label for="mensagem"><b>Mensagem:</b></label>
-            <textarea name="mensagem" class="form-control" formControlName="mensagem" cols="30" rows="10" placeholder="Digite aqui a sua mensagem..."
-                class="col-lg-12 p-3" id="mensagem" required></textarea>
+            <textarea name="mensagem" class="form-control inputMensagem" formControlName="mensagem" cols="30" rows="10" placeholder="Digite aqui a sua mensagem..."
+                 id="mensagem" required></textarea>
         </div>
-        <div class="col-lg-8 form-group d-flex justify-content-end">
+        <div class="form-group d-flex justify-content-end">
             <button class="btn btn-primary align-self-end" type="submit">Enviar</button>
         </div>
     </form>
-    <div class="col-lg-4">
-        <img src="./assets/contato.png" class="mt-5" width="80%" height="80%" alt="">
-    </div>
 </div>
 </main>

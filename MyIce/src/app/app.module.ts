@@ -40,8 +40,7 @@ import { CadastrarEnderecoComponent } from './components/cadastrar-endereco/cada
 import { BuscaComponent } from './components/busca/busca.component';
 import { FaleConoscoComponent } from './components/fale-conosco/fale-conosco.component';
 import { EsqueciSenhaComponent } from './components/esqueci-senha/esqueci-senha.component';
-import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component'
-
+import { NovaSenhaComponent } from './components/nova-senha/nova-senha.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -75,7 +74,8 @@ registerLocaleData(localePt, 'pt');
     BuscaComponent,
     FaleConoscoComponent,
     EsqueciSenhaComponent,
-    NovaSenhaComponent  ],
+    NovaSenhaComponent,
+    FaleConoscoComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

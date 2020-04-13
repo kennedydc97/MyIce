@@ -28,4 +28,15 @@ public class EmailService {
         javaMailSender.send(msg);
 
     }
+
+    public void sendEmailMensagem(String nome, String email, String assunto, String texto) {
+
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo("suportemiice@gmail.com");
+
+        msg.setSubject("Mensagem de " + nome);
+        msg.setText("Mensagem enviada pelo email'" + email + "', através do contato pelo nosso site Mi ice, com o assunto de '" + assunto + "'\n\n\n" + texto);
+
+        javaMailSender.send(msg);
+    }
 }

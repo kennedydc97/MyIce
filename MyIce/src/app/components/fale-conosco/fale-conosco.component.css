@@ -7,6 +7,16 @@
     border-radius: 5px;
 }
 
-h2{
+h3{
     color: #4d85fe;
+    text-align: center;
+    font-weight: bold;
+}
+
+label{
+    font-weight: bold;
+}
+
+.inputMensagem {
+    height: 150px;
 }

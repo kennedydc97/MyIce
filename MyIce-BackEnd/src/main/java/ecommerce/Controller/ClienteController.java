@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -58,28 +59,26 @@ public class ClienteController {
     }
 
     @PutMapping("/password")
-    public ResponseEntity atualizarSenha(@RequestBody ObjectNode objectNode){
+    public ResponseEntity atualizarSenha(@RequestBody ObjectNode objectNode) {
 
         Integer id = objectNode.get("id").asInt();
         String senhaAtual = objectNode.get("senhaAtual").asText();
-        senhaAtual = BCrypt.hashpw(senhaAtual, BCrypt.gensalt());
-        String novaSenha = objectNode.get("novaSenha").asText();
-        novaSenha = BCrypt.hashpw(novaSenha, BCrypt.gensalt() );
-        if(repository.findByIdClienteAndPassword(id, senhaAtual) != null ) {
+        String novaSenha = BCrypt.hashpw(objectNode.get("novaSenha").asText(), BCrypt.gensalt());
+        Cliente usuario = repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
+        if (BCrypt.checkpw(senhaAtual, usuario.getPassword())) {
 
-            Cliente userEntity = repository.findByIdClienteAndPassword(id,senhaAtual);
-            userEntity.setPassword(novaSenha);
-            return ResponseEntity.ok().body(repository.save(userEntity));
-        }else{
-            return ResponseEntity.badRequest().body(new Exception("Senha atual incorreta"));
+            usuario.setPassword(novaSenha);
+            return ResponseEntity.ok().body(repository.save(usuario));
+        } else {
+            return ResponseEntity.status(401).body(new Exception("Senha atual incorreta"));
         }
 
     }
 
-
-    @ResponseStatus(HttpStatus.FOUND)
+            @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/cliente/{id}")
-    public Cliente findClienteById(@PathVariable("id") Long id){
+    public Cliente findClienteById(@PathVariable("id") Integer id){
         return repository.findById(id).get();
     }
 
@@ -91,7 +90,7 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/cliente/{id_cliente}")
-    public void deleteById(@PathVariable("id_cliente") Long idDoCliente){
+    public void deleteById(@PathVariable("id_cliente") Integer idDoCliente){
         repository.deleteById(idDoCliente);
     }
 }
