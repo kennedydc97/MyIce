@@ -29,7 +29,7 @@
         <strong class = "tituloQuemComprou">Quem comprou isso, também viu isso</strong>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="card col-lg-3 mr-4 mt-5 col-md-4 col-5"
+        <div class="card col-lg-3 mt-5 col-md-4 col-5"
             *ngFor="let produto of produtoFiltrado  | slice: 0:4 ; index as i" style="width: 18rem;">
             <img src={{produto.imagem}} height="220px" class="card-img-top" alt="...">
             <div class="card-body">
