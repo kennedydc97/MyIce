@@ -26,14 +26,20 @@
                 </div>
             </div>
         </div>
-        <div> <strong>Quem comprou isso, também viu isso</strong>
-            <div><img src={{produtoTela?.imagem}} width="60%" alt=""></div>
-            <h4><strong>{{produtoTela?.nome}}</strong></h4>
-            <p>
-                <s>de: {{produtoTela?.precoCheio | currency:"BRL"}}</s>
-                <br>
-                <b id="preco">por: {{produtoTela?.precoDesconto | currency:"BRL"}}</b>
-            </p>
+        <strong>Quem comprou isso, também viu isso</strong>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="card col-lg-3 mr-4 mt-5 col-md-4 col-5"
+            *ngFor="let produto of produtoFiltrado  | slice: 0:3 ; index as i" style="width: 18rem;">
+            <img src={{produto.imagem}} height="220px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-primary"><strong>{{produto.nome}}</strong></h5>
+                <a [routerLink]="['/lista-de-produtos', produto.idProduto]" class="card-text stretched-link"
+                    id="cardsDosProdutos">
+                    <p id="precos"><s>de: {{produto.precoCheio | currency:"BRL"}}</s> <br> <b id="preco">
+                            por {{produto.precoDesconto | currency:"BRL"}}</b></p>
+                </a>
+            </div>
         </div>
     </div>
 </main>

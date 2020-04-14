@@ -4,6 +4,7 @@ import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
 import { Carrinho } from 'src/app/models/Carrinho';
 
+
 @Component({
   selector: 'app-produto-sozinho',
   templateUrl: './produto-sozinho.component.html',
@@ -13,16 +14,22 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   public produtoId;
   produtoTela: produtoAPI;
-  produto: any;
-  produtoFiltrado: produtoAPI[] = [];
+  produto: any = [];
+  produtoFiltrado: any = [];
   produtoLocal: Carrinho[] = []
 
 
   constructor(private route: ActivatedRoute, private service: ProdutosService) {
     this.produtoId = parseInt(this.route.snapshot.paramMap.get('id'));
     this.service.buscarProdutoId(this.produtoId).subscribe(
-      produto => this.produtoTela = produto
+      (produto) => {
+        this.produtoTela = produto;
+        this.getter();
+      }
     )
+
+    console.log(this.produtoFiltrado)
+
   }
 
   ngOnInit(): void {
@@ -55,12 +62,28 @@ export class ProdutoSozinhoComponent implements OnInit {
   getter() {
     this.service.getProdutos().subscribe(
       (data: produtoAPI) => {
+        console.log(data)
         this.produto = data
         this.produtoFiltrado = this.produto.filter((event) => {
-          return event.categoria.idCategoria == this.produto.categoria.idCategoria
+          return event.categoria.idCategoria == this.produtoTela.categoria.idCategoria
         });
       }, (error: any) => {
         console.log("ERROR", error)
       })
   }
+
+  // produtosRelacionados() {
+  //   this.service.getProdutosRelacionados(this.produtoTela.categoria.idCategoria).subscribe(
+  //     (data: produtoAPI) => {
+  //       console.log(data)
+  //       this.produto = data
+  //       this.produtoFiltrado = this.produto.filter(produto => {
+  //         produto.idProduto == this.produtoTela.idProduto
+  //       });
+  //     }, (error: any) => {
+  //       console.log("ERROR", error)
+  //     })
+  // }
+
+
 }
