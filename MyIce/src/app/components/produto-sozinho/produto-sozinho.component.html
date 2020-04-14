@@ -1,4 +1,4 @@
-<main class="container" >
+<main class="container">
     <p class="text-muted"><a routerLink="">Home</a> > <a routerLink="/lista-de-produtos">Produtos</a></p>
     <div class="row">
         <div class="col-lg-2">
@@ -20,10 +20,20 @@
                     </p>
                 </div>
                 <div class="col-lg-12 d-flex">
-                    <button id="adcCarrinho" type="button" routerLink="/carrinho" class="btn btn-success align-self-center ml-2" (click)="salvarProduto()">Adicionar
+                    <button id="adcCarrinho" type="button" routerLink="/carrinho"
+                        class="btn btn-success align-self-center ml-2" (click)="salvarProduto()">Adicionar
                         ao carrinho</button>
                 </div>
             </div>
+        </div>
+        <div> <strong>Quem comprou isso, também viu isso</strong>
+            <div><img src={{produtoTela?.imagem}} width="60%" alt=""></div>
+            <h4><strong>{{produtoTela?.nome}}</strong></h4>
+            <p>
+                <s>de: {{produtoTela?.precoCheio | currency:"BRL"}}</s>
+                <br>
+                <b id="preco">por: {{produtoTela?.precoDesconto | currency:"BRL"}}</b>
+            </p>
         </div>
     </div>
 </main>
