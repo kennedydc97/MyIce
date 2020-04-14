@@ -1,5 +1,6 @@
 package ecommerce.Controller;
 
+import ecommerce.Model.Categoria;
 import ecommerce.Model.Produto;
 import ecommerce.Repository.ProdutoRepository;
 import ecommerce.Service.ProdutoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,10 +27,10 @@ public class ProdutoController {
         return repository.save(produto);
     }
 
-    @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/produto/{id}")
-    public ResponseEntity<Produto> findProdutoById(@PathVariable("id") Long id){ return ResponseEntity.ok().body(repository.findById(id).get()); }
-
+    public ResponseEntity buscarId(@PathVariable Integer id) {
+        return ResponseEntity.ok().body(repository.findById(id));
+    }
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/produto/lista")
     public ResponseEntity<List<Produto>> find(){
@@ -37,18 +39,42 @@ public class ProdutoController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/produto/{id_produto}")
-    public void deleteById(@PathVariable("id_produto") Long idDoProduto){
+    public void deleteById(@PathVariable("id_produto") Integer idDoProduto){
         repository.deleteById(idDoProduto);
     }
 
-    @PutMapping("/produto")
-    public Produto modify(@RequestBody Produto produto){
-        Produto produtoEntity = repository.getOne(produto.getIdProduto());
-        produtoEntity.setDescricao(produto.getDescricao());
-        produtoEntity.setPrecoCheio(produto.getPrecoCheio());
-        produtoEntity.setPrecoDesconto(produto.getPrecoDesconto());
-        produtoEntity.setCategoria(produto.getCategoria());
-        return repository.save(produtoEntity);
+    @PutMapping("/alterar-produto")
+    public ResponseEntity<?> atualizar(@RequestBody Produto produto) {
+
+        Produto produtoEntity = repository.findById(produto.getIdProduto())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrada"));
+
+        if (produto.getNome() != null) {
+            produtoEntity.setNome(produto.getNome());
+        }
+
+        if (produto.getDescricao() != null) {
+            produtoEntity.setDescricao(produto.getDescricao());
+        }
+
+        if (produto.getPrecoCheio() != null) {
+            produtoEntity.setPrecoCheio(produto.getPrecoCheio());
+        }
+
+        if (produto.getPrecoDesconto() != null) {
+            produtoEntity.setPrecoDesconto(produto.getPrecoDesconto());
+        }
+
+        if (produto.getImagem() != null) {
+            produtoEntity.setImagem(produto.getImagem());
+        }
+
+
+        if (produto.getCategoria() != null) {
+            produtoEntity.setCategoria(produto.getCategoria());
+        }
+
+        return ResponseEntity.ok().body(repository.save(produtoEntity));
     }
 
     @ResponseStatus(HttpStatus.FOUND)

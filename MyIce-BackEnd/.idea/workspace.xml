@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,22 +126,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585422355272" />
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1586629443828">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom" timestamp="1586874420110">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586629443828" />
-    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1586629443828">
+    <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586874420110" />
+    <state width="1323" height="187" key="GridCell.Tab.0.center" timestamp="1586874420110">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586629443828" />
-    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1586629443828">
+    <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586874420110" />
+    <state width="1323" height="187" key="GridCell.Tab.0.left" timestamp="1586874420110">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586629443828" />
-    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1586629443828">
+    <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586874420110" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right" timestamp="1586874420110">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586629443828" />
+    <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586874420110" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -154,9 +166,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586443564123" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586615037727">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586866502144">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586615037727" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586866502144" />
   </component>
 </project>

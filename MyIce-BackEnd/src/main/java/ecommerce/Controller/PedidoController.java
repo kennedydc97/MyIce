@@ -1,9 +1,11 @@
 package ecommerce.Controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import ecommerce.Model.Endereco;
 import ecommerce.Model.Pedido;
 import ecommerce.Model.Produto;
 import ecommerce.Repository.PedidoRepository;
+import ecommerce.Service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +18,16 @@ import java.util.List;
 public class PedidoController {
 
     @Autowired
+    private EmailService emailService;
+
+    @Autowired
     private PedidoRepository repository;
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/pedido")
     public Pedido save(@RequestBody Pedido pedido){
         return repository.save(pedido);
+
     }
 
     @ResponseStatus(HttpStatus.FOUND)
@@ -49,4 +56,5 @@ public class PedidoController {
             return ResponseEntity.ok().body(pedido);
         }).orElse(ResponseEntity.notFound().build());
     }
+
 }

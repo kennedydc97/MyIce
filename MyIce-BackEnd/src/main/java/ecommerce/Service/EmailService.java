@@ -39,4 +39,15 @@ public class EmailService {
 
         javaMailSender.send(msg);
     }
+
+    public void sendEmailPedidoRealizado(String nome, String email, Long idPedido) {
+
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo(email);
+
+        msg.setSubject("Pedido Realizado" + nome);
+        msg.setText("Olá!  \n\n Sua compra foi realizada com sucesso! " +
+                "Nós do Mi Ice agradecemos pela confiança em nossa loja. \n\n Número do pedido: " + idPedido);
+        javaMailSender.send(msg);
+    }
 }

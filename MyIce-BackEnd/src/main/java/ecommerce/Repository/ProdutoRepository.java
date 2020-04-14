@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Long>  {
+public interface ProdutoRepository extends JpaRepository<Produto, Integer>  {
 
 
 
