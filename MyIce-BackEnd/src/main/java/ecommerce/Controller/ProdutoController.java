@@ -1,5 +1,6 @@
 package ecommerce.Controller;
 
+import ecommerce.Model.Categoria;
 import ecommerce.Model.Produto;
 import ecommerce.Repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,15 @@ public class ProdutoController {
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/produto/lista")
     public ResponseEntity<List<Produto>> find(){
+        return ResponseEntity.ok().body(repository.findAll());
+    }
+
+    @GetMapping("/produto-categoria/{categoria}")
+    public List<Produto> findByCategoria (@PathVariable("categoria")Categoria categoria){
+        return repository.findByCategoria(categoria);
+    }
+    @GetMapping("/find-product")
+    public ResponseEntity <List<Produto>> findProducts(){
         return ResponseEntity.ok().body(repository.findAll());
     }
 

@@ -4,13 +4,12 @@
     <list default="true" id="91b0d1e8-cd42-4ca4-9e7a-e26c83fbb657" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/EnderecoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/EnderecoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/meus-pedidos/meus-pedidos.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/pagina-do-cliente/pagina-do-cliente.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../banco talita/MyIce-BackEnd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -120,26 +119,26 @@
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585428595067" />
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586136257079" />
-    <state width="639" height="162" key="GridCell.Tab.0.bottom" timestamp="1586136799653">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586897091447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="639" height="162" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586136799653" />
-    <state width="639" height="162" key="GridCell.Tab.0.center" timestamp="1586136799653">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586897091447" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586897091447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="639" height="162" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586136799653" />
-    <state width="639" height="162" key="GridCell.Tab.0.left" timestamp="1586136799652">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586897091447" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586897091447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556608" />
-    <state width="639" height="162" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586136799652" />
-    <state width="639" height="162" key="GridCell.Tab.0.right" timestamp="1586136799653">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586897091447" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586897091447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="639" height="162" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586136799653" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586897091447" />
     <state x="11" y="7" key="SettingsEditor" timestamp="1585946228084">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
