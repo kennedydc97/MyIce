@@ -13,6 +13,8 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   public produtoId;
   produtoTela: produtoAPI;
+  produto: any;
+  produtoFiltrado: produtoAPI [] = [];
   produtoLocal: Carrinho[] = []
 
 
@@ -49,4 +51,15 @@ export class ProdutoSozinhoComponent implements OnInit {
       localStorage.setItem("carrinho", produto_json)
     }
   }
+
+  getter(){
+    this.service.getProdutos().subscribe(
+      (data: produtoAPI) =>{
+        this.produto = data
+        this.produtoFiltrado = this.produto.filter((event) => {
+          return event.categoria.idCategoria==this.produto.categoria.idCategoria
+        });
+      }
+      
+
 }

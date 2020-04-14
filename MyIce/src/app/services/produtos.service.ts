@@ -55,6 +55,10 @@ export class ProdutosService {
     })
   }
 
+  
+  public getProdutosRelacionados(){
+    return this.http.get(`http://localhost:8080/ecommerce/produtos-relacionados`)
+  }
   public getProdutos() {
     return this.http.get("http://localhost:8080/ecommerce/produto/lista")
   }
