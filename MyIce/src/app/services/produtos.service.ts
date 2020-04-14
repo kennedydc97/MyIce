@@ -56,8 +56,8 @@ export class ProdutosService {
   }
 
   
-  public getProdutosRelacionados(){
-    return this.http.get(`http://localhost:8080/ecommerce/produtos-relacionados`)
+  public getProdutosRelacionados(idCategoria){
+    return this.http.get(`http://localhost:8080/ecommerce/produto-categoria/${idCategoria}`)
   }
   public getProdutos() {
     return this.http.get("http://localhost:8080/ecommerce/produto/lista")

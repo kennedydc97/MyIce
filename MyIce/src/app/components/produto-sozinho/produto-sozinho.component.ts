@@ -14,7 +14,7 @@ export class ProdutoSozinhoComponent implements OnInit {
   public produtoId;
   produtoTela: produtoAPI;
   produto: any;
-  produtoFiltrado: produtoAPI [] = [];
+  produtoFiltrado: produtoAPI[] = [];
   produtoLocal: Carrinho[] = []
 
 
@@ -52,14 +52,15 @@ export class ProdutoSozinhoComponent implements OnInit {
     }
   }
 
-  getter(){
+  getter() {
     this.service.getProdutos().subscribe(
-      (data: produtoAPI) =>{
+      (data: produtoAPI) => {
         this.produto = data
         this.produtoFiltrado = this.produto.filter((event) => {
-          return event.categoria.idCategoria==this.produto.categoria.idCategoria
+          return event.categoria.idCategoria == this.produto.categoria.idCategoria
         });
-      }
-      
-
+      }, (error: any) => {
+        console.log("ERROR", error)
+      })
+  }
 }
