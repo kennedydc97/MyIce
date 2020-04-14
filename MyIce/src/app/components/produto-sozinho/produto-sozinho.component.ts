@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router,  } from '@angular/router'
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
 import { Carrinho } from 'src/app/models/Carrinho';
@@ -19,7 +19,7 @@ export class ProdutoSozinhoComponent implements OnInit {
   produtoLocal: Carrinho[] = []
 
 
-  constructor(private route: ActivatedRoute, private service: ProdutosService) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: ProdutosService) {
     this.produtoId = parseInt(this.route.snapshot.paramMap.get('id'));
     this.service.buscarProdutoId(this.produtoId).subscribe(
       (produto) => {
@@ -71,6 +71,10 @@ export class ProdutoSozinhoComponent implements OnInit {
         console.log("ERROR", error)
       })
   }
+
+  produtoSelecionado(produto){
+    this.router.navigate(['/lista-de-produtos', produto.id])
+}
 
   // produtosRelacionados() {
   //   this.service.getProdutosRelacionados(this.produtoTela.categoria.idCategoria).subscribe(
