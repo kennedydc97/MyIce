@@ -11,6 +11,7 @@ import { Contato } from '../models/Contato';
 import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
 import { FormGroup } from "@angular/forms";
+
 // interface iUsuario {
 //   idCliente: number,
 //   email: string,
@@ -121,12 +122,13 @@ export class ClienteService {
     let dtPedido = new Date();
     let carrinho = [];
     let total = 0;
+    let status = 1
     let formapgto = "Cartão de Crédito";
     storage.recuperarCarrinho().forEach(el => {
       total += el.produto.precoDesconto * el.qtd;
       carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
     }); 
-    let pedido = this.formatoPedido(idEndereco, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
+    let pedido = this.formatoPedido(idEndereco, status, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido)
     return url.pipe(map(
       pedido => pedido
@@ -135,8 +137,8 @@ export class ClienteService {
   }
 
 
-  public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
-    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, carrinho);
+  public formatoPedido(idEndereco, status, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
+    let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, status, carrinho);
     return pedido;
   }
 

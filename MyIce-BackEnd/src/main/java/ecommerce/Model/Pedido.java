@@ -42,7 +42,7 @@ public class Pedido {
     private Long endereco;
 
     @Column(name = "ds_status")
-    private Status status = Status.AGUARDANDOPAGAMENTO;
+    private Status status;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")

@@ -8,6 +8,7 @@ export class Pedido {
         public formapgto: string,
         public dtPedido: Date,
         public endereco: number,
+        public status: number,
         public itemPedido: produtoAPI[],
         public idPedido?: number
     ) { }

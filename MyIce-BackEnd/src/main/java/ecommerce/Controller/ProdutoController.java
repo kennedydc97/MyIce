@@ -59,4 +59,9 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoService.buscarProdutosMaisVendidos());
     }
 
+    @GetMapping("produtos-relacionados")
+    public ResponseEntity<List<Produto>> produtosRelacionados(){
+        return ResponseEntity.ok().body(produtoService.buscarProdutosRelacionados());
+    }
+
 }

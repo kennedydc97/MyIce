@@ -13,6 +13,7 @@ export class MeusPedidosComponent implements OnInit {
   pedido: Pedido;
   pedidos: Pedido[] = [];
   filter: string;
+  status: any[] = []
 
   constructor(private cliente: ClienteService, private router: Router) {
     this.cliente.getPedidosLista().subscribe(
@@ -20,8 +21,15 @@ export class MeusPedidosComponent implements OnInit {
         console.log(dados)
         this.pedidos = dados;
         console.log(this.pedidos)
+        this.pedidos.forEach(pedido => {
+          if(pedido.status == 1)
+          this.status.push("Aguardando pagamento")
+        });
+        console.log(this.status);
       }
     )
+
+    
 
 
   }

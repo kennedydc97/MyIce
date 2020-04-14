@@ -23,11 +23,11 @@
                         <p style="color: rgb(55, 119, 238); margin-bottom: 50px;">Seu pedido será enviado de acordo com o frete escolhido,
                             caso tenha alguma inconformidade, entre em contato antes da postagem.</p>
 
-                        <p class="">Código do pedido: {{pedido.idPedido}}</p>
-                        <p>Data do Pedido: {{pedido.dtPedido | date:"dd/MM/yyyy"}}</p>
+                        <p class="">Código do pedido: {{pedido?.idPedido}}</p>
+                        <p>Data do Pedido: {{pedido?.dtPedido | date:"dd/MM/yyyy"}}</p>
                         <p>Pago com cartão de crédito</p>
-                        <p>Valor do frete: {{pedido.vlFrete | currency:"BRL"}}</p>
-                        <p>Valor total dos Produtos: {{pedido.vlTotal | currency:"BRL"}}</p>
+                        <p>Valor do frete: {{pedido?.vlFrete | currency:"BRL"}}</p>
+                        <p>Valor total dos Produtos: {{pedido?.vlTotal | currency:"BRL"}}</p>
                         <!-- <p>Endereço de entrega: {{endereco.cep}}</p> -->
 
                         

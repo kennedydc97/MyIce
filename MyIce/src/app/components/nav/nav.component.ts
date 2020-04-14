@@ -21,6 +21,8 @@ export class NavComponent implements OnChanges {
     cliente.logado();
     if(sessionStorage.getItem("usuario") != null){
       this.usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
+      console.log(this.usuario);
+      
     }
     
     setInterval(() => { 

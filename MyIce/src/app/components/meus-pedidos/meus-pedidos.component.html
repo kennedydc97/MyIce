@@ -58,7 +58,11 @@
           <tr class="text-center" *ngFor="let item of pedidos | filter:filter; let i = index">
             <th class="text-center">#{{item.idPedido}}</th>
             <th class="text-center teste">{{item.dtPedido | date:"dd/MM/yyyy"}}</th>
-            <th class="text-center">Em Processamento</th>
+            <ng-template [ngIf]="item.status == 'AGUARDANDOPAGAMENTO'"><th class="text-center">Aguardando pagamento</th></ng-template>
+            <ng-template [ngIf]="item.status == 'EMSEPARACAO'"><th class="text-center">Em separação</th></ng-template>
+            <ng-template [ngIf]="item.status == 'ENVIADO'"><th class="text-center">Enviado</th></ng-template>
+            <ng-template [ngIf]="item.status == 'ENTREGUE'"><th class="text-center">Entregue</th></ng-template>
+            <ng-template [ngIf]="item.status == 'CANCELADO'"><th class="text-center bg-danger">Cancelado</th></ng-template>
             <th class="text-center">{{item.vlTotal | currency:"BRL"}}</th>
             <th class="text-center"><input type="image" src="assets/loupe (1).png"
                 (click)="pedidoSelecionado(item.idPedido)" width="25px"></th>
