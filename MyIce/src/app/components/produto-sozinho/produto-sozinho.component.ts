@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router,  } from '@angular/router'
+import { ActivatedRoute, Router, } from '@angular/router'
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
 import { Carrinho } from 'src/app/models/Carrinho';
@@ -27,6 +27,11 @@ export class ProdutoSozinhoComponent implements OnInit {
         this.getter();
       }
     )
+
+    this.service.produtoSozinho.subscribe(produto => {
+      this.produtoTela = produto
+    })
+
 
     console.log(this.produtoFiltrado)
 
@@ -72,22 +77,13 @@ export class ProdutoSozinhoComponent implements OnInit {
       })
   }
 
-  produtoSelecionado(produto){
-    this.router.navigate(['/lista-de-produtos', produto.id])
-}
+  produtoSelecionado(produto) {
+    this.router.navigate(['/lista-de-produtos', produto.idProduto])
+  }
 
-  // produtosRelacionados() {
-  //   this.service.getProdutosRelacionados(this.produtoTela.categoria.idCategoria).subscribe(
-  //     (data: produtoAPI) => {
-  //       console.log(data)
-  //       this.produto = data
-  //       this.produtoFiltrado = this.produto.filter(produto => {
-  //         produto.idProduto == this.produtoTela.idProduto
-  //       });
-  //     }, (error: any) => {
-  //       console.log("ERROR", error)
-  //     })
-  // }
-
+  mudarProdutoSozinho(produto) {
+    this.service.mudarProduto(produto)
+    window.scroll(0, 0)
+  }
 
 }

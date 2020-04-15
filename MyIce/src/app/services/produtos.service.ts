@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { produtoAPI } from 'src/app/models/produtoAPI';
 
@@ -10,9 +10,12 @@ export class ProdutosService {
   carregando = true;
   produtos: produtoAPI[] = [];
   produtosFiltrados: produtoAPI[] = [];
+  public produtoSozinho: EventEmitter <produtoAPI>
+
 
   constructor(private http: HttpClient) {
     this.carregarProdutos
+    this.produtoSozinho = new EventEmitter()
   }
 
   private carregarProdutos() {
@@ -54,6 +57,11 @@ export class ProdutosService {
       }
     })
   }
+
+  public mudarProduto(p: produtoAPI){
+    this.produtoSozinho.emit(p)
+  }
+
 
   
   public getProdutosRelacionados(idCategoria){
