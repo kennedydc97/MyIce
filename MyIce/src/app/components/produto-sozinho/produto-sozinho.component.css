@@ -20,3 +20,9 @@
 #filtros{
     height: 30px;
 }
+
+.tituloQuemComprou{
+    margin-top: 50px;
+    font-size: 25px;
+    color: #007bff;
+}

@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
+    <list default="true" id="40c1b01b-441e-4cf2-9cc1-881da247aa5c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/MyIce.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Enum/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Enum/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ApplicationEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ApplicationEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pedidoatual.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pedidoatual.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/ApplicationEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/ApplicationEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/pedidoatual.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pedidoatual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/produto-sozinho/produto-sozinho.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/produtos.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/produtos.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

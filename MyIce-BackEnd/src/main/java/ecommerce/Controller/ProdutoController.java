@@ -37,6 +37,11 @@ public class ProdutoController {
     public ResponseEntity<List<Produto>> find(){
         return ResponseEntity.ok().body(repository.findAll());
     }
+    
+    @GetMapping("/find-product")
+    public ResponseEntity <List<Produto>> findProducts(){
+        return ResponseEntity.ok().body(repository.findAll());
+    }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/produto/{id_produto}")

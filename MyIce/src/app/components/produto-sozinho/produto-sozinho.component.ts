@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router, } from '@angular/router'
 import { ProdutosService } from 'src/app/services/produtos.service';
 import { produtoAPI } from 'src/app/models/produtoAPI';
 import { Carrinho } from 'src/app/models/Carrinho';
+
 
 @Component({
   selector: 'app-produto-sozinho',
@@ -13,14 +14,27 @@ export class ProdutoSozinhoComponent implements OnInit {
 
   public produtoId;
   produtoTela: produtoAPI;
+  produto: any = [];
+  produtoFiltrado: any = [];
   produtoLocal: Carrinho[] = []
 
 
-  constructor(private route: ActivatedRoute, private service: ProdutosService) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: ProdutosService) {
     this.produtoId = parseInt(this.route.snapshot.paramMap.get('id'));
     this.service.buscarProdutoId(this.produtoId).subscribe(
-      produto => this.produtoTela = produto
+      (produto) => {
+        this.produtoTela = produto;
+        this.getter();
+      }
     )
+
+    this.service.produtoSozinho.subscribe(produto => {
+      this.produtoTela = produto
+    })
+
+
+    console.log(this.produtoFiltrado)
+
   }
 
   ngOnInit(): void {
@@ -49,4 +63,27 @@ export class ProdutoSozinhoComponent implements OnInit {
       localStorage.setItem("carrinho", produto_json)
     }
   }
+
+  getter() {
+    this.service.getProdutos().subscribe(
+      (data: produtoAPI) => {
+        console.log(data)
+        this.produto = data
+        this.produtoFiltrado = this.produto.filter((event) => {
+          return event.categoria == this.produtoTela.categoria
+        });
+      }, (error: any) => {
+        console.log("ERROR", error)
+      })
+  }
+
+  produtoSelecionado(produto) {
+    this.router.navigate(['/lista-de-produtos', produto.idProduto])
+  }
+
+  mudarProdutoSozinho(produto) {
+    this.service.mudarProduto(produto)
+    window.scroll(0, 0)
+  }
+
 }
