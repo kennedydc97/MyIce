@@ -1,9 +1,12 @@
 package ecommerce.Controller;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import ecommerce.Model.Cliente;
 import ecommerce.Model.Endereco;
 import ecommerce.Model.Pedido;
 import ecommerce.Model.Produto;
+import ecommerce.Repository.ClienteRepository;
+import ecommerce.Repository.EnderecoRepository;
 import ecommerce.Repository.PedidoRepository;
 import ecommerce.Service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,23 +24,34 @@ public class PedidoController {
     private EmailService emailService;
 
     @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
     private PedidoRepository repository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/pedido")
     public Pedido save(@RequestBody Pedido pedido){
-        return repository.save(pedido);
+
+        Pedido pedidoGerado = repository.save(pedido);
+        Cliente cliente = clienteRepository.findById(pedido.getCliente()).orElse(null);
+        Endereco endereco = enderecoRepository.findById(pedido.getEndereco()).orElse(null);
+        emailService.sendEmailPedido(cliente, pedidoGerado, endereco);
+        return pedidoGerado;
 
     }
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/pedidos/lista/{id}")
-    public ResponseEntity<List<Pedido>> findPedidosByCliente(@PathVariable("id") Long id){
+    public ResponseEntity<List<Pedido>> findPedidosByCliente(@PathVariable("id") Integer id){
         return ResponseEntity.ok().body(repository.findByClienteOrderByDtPedidoDesc(id)); }
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/pedido/{id}")
-    public ResponseEntity<Pedido> findPedidoByCliente(@PathVariable("id") Long id){
+    public ResponseEntity<Pedido> findPedidoByCliente(@PathVariable("id") Integer id){
         return ResponseEntity.ok().body(repository.findFirst1ByClienteOrderByDtPedidoDesc(id));
     }
 

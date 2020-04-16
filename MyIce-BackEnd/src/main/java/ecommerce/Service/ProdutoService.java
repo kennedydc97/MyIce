@@ -14,7 +14,6 @@ public class ProdutoService {
     @PersistenceContext
     private EntityManager em;
 
-
     public List<Produto> buscarProdutosMaisVendidos() {
         List<Produto> produtos = null;
         String sql =
@@ -26,5 +25,9 @@ public class ProdutoService {
         Query query = em.createNativeQuery(sql, Produto.class);
         produtos = query.getResultList();
         return produtos;
+
     }
+
+
+
 }

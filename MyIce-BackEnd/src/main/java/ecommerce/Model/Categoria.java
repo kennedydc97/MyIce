@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 
 @NoArgsConstructor
@@ -24,9 +23,6 @@ public class Categoria implements Serializable {
     @Column(name = "ds_categoria")
     private String descricao;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_categoria")
-    private List<Produto> categoriaProduto;
 
 
 }
