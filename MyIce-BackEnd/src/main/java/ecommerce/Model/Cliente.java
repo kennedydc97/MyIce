@@ -55,4 +55,8 @@ public class Cliente {
     @JoinColumn(name = "id_client")
     private List<Endereco> enderecos;
 
+
+
+
+
 }

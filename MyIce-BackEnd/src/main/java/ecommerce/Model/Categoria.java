@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @NoArgsConstructor
@@ -12,14 +13,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_categoria")
-public class Categoria {
+public class Categoria implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private Long idCategoria;
+    private Integer idCategoria;
 
     @Column(name = "ds_categoria")
     private String descricao;
+
+
 
 }

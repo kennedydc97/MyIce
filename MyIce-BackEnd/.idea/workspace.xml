@@ -2,17 +2,187 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Config/FreemarkerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Config/Mail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/NivelAcesso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/UsuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ApplicationEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/LOGO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/LOGO2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/LOGO3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/Olaf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/baldedegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/banner gelo para-eventos-festas OFICIAL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo qualidade.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/bolsa-termica-compressao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/caixa-de-isopor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/carousel promo-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/carrinho-de-compras.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/carrinho.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/cartao-de-credito.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/check-sucesso-pedido.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/conhecendo-a-fabrica.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/copyright-logo-png-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/cubosdegelo-carousel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/cubosdegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/excluir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/facebook-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/favicon-Mi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/favicon-Recuperado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/flocodegelo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/formas-de-pagamento.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/formas-de-pagamento.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/formasdegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/gelodecoco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/gloves (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/gloves direita.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/gloves esquerda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/gloves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/instagram-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/loginn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/loupe (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/lupa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/mais.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/maps-site.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/menos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/minha-conta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/pedido-concluido pinguin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/pinguim_adc_produto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/pinguin1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/produto1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/produto3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/produto4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/produto5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/promo-1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/saco de gelo mi ice 15KG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/saco de gelo mi ice 20Kg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/saco-de-gelo-1kg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/scarf (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/scarf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/snowflake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/truck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/twitter-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/wind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/youtube-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pedidoatual.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/LOGO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/LOGO2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/LOGO3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/Olaf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/baldedegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/banner gelo para-eventos-festas OFICIAL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/banner-não é apenas gelo qualidade.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/banner-não é apenas gelo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/banner-não é apenas gelo.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/bolsa-termica-compressao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/caixa-de-isopor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/carousel promo-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/carrinho-de-compras.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/carrinho.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/cartao-de-credito.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/check-sucesso-pedido.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/conhecendo-a-fabrica.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/copyright-logo-png-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/cubosdegelo-carousel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/cubosdegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/excluir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/facebook-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/favicon-Mi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/favicon-Recuperado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/flocodegelo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/formas-de-pagamento.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/formas-de-pagamento.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/formasdegelo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/gelodecoco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/gloves (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/gloves direita.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/gloves esquerda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/gloves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/instagram-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/loginn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/loupe (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/lupa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/mais.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/maps-site.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/menos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/minha-conta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/pedido-concluido pinguin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/pinguim_adc_produto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/pinguin1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/produto1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/produto3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/produto4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/produto5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/promo-1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/saco de gelo mi ice 15KG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/saco de gelo mi ice 20Kg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/saco-de-gelo-1kg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/scarf (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/scarf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/snowflake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/truck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/twitter-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/wind.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/assets/youtube-footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/UsuarioController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/NivelAcesso.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Usuario.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/UsuarioRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/ApplicationEmail.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/pedidoatual.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ProdutoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Enum/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Enum/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Enum/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Enum/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/CategoriaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ProdutoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/formulario/formulario.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Produto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/CategoriaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/ProdutoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/ProdutoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/ProdutoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/sucesso-pedido-realizado/sucesso-pedido-realizado.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/models/produtoAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/models/produtoAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +209,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZPFyMKdH5Lht31mtXph2pOIPTC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -49,15 +221,21 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../banco talita/MyIce-BackEnd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RCMenezes\Desktop\ProjetoGelo\MyIce\MyIce-BackEnd\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ecommerce" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ecommerce.Config" />
     </key>
   </component>
   <component name="RunManager">
@@ -68,7 +246,7 @@
       <module name="MyIce-BackEnd" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ecommerce.*" />
+          <option name="PATTERN" value="ecommerce.Config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,7 +310,7 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="479" y="245" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1585685561177" />
-    <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586433908856">
+    <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586982220293">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586433908856" />
@@ -141,26 +319,26 @@
     </state>
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585428595067" />
     <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586186873212" />
-    <state width="1323" height="162" key="GridCell.Tab.0.bottom" timestamp="1586866607529">
+    <state width="1323" height="162" key="GridCell.Tab.0.bottom" timestamp="1587043007126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="162" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586866607529" />
-    <state width="1323" height="162" key="GridCell.Tab.0.center" timestamp="1586866607529">
+    <state width="1323" height="162" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587043007126" />
+    <state width="1323" height="162" key="GridCell.Tab.0.center" timestamp="1587043007126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="162" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586866607529" />
-    <state width="1323" height="162" key="GridCell.Tab.0.left" timestamp="1586866607529">
+    <state width="1323" height="162" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587043007126" />
+    <state width="1323" height="162" key="GridCell.Tab.0.left" timestamp="1587043007125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556608" />
-    <state width="1323" height="162" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586866607529" />
-    <state width="1323" height="162" key="GridCell.Tab.0.right" timestamp="1586866607529">
+    <state width="1323" height="162" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587043007125" />
+    <state width="1323" height="162" key="GridCell.Tab.0.right" timestamp="1587043007126">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1280.680@0.0.1366.728" timestamp="1585441556609" />
-    <state width="1323" height="162" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586866607529" />
+    <state width="1323" height="162" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587043007126" />
     <state x="11" y="7" key="SettingsEditor" timestamp="1586712522835">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

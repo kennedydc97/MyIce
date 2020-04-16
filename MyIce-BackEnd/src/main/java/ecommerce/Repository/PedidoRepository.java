@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long>  {
-    List<Pedido> findByClienteOrderByDtPedidoDesc(Long cliente);
-    Pedido findFirst1ByClienteOrderByDtPedidoDesc(Long cliente);
+    List<Pedido> findByClienteOrderByDtPedidoDesc(Integer cliente);
+    Pedido findFirst1ByClienteOrderByDtPedidoDesc(Integer cliente);
 
 }

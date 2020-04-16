@@ -36,7 +36,7 @@ export class ListaDeProdutosComponent implements OnInit {
 
   categoriaSelecionada(categoriaAPI: CategoriaAPI) {
     if(categoriaAPI.idCategoria != 1){
-      this.produtos = this.produtosExibidos.filter(produto => produto.categoria.idCategoria == categoriaAPI.idCategoria)
+      this.produtos = this.produtosExibidos.filter(produto => produto.categoria == categoriaAPI.idCategoria)
     }else{
       this.produtos = this.produtosExibidos
     }

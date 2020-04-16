@@ -7,10 +7,11 @@ import { Login } from '../models/Login';
 import { Pedido } from '../models/Pedido';
 import { ItemPedidoAPI } from '../models/ItemPedidoAPI';
 import { Endereco } from '../models/endereco';
-import { Contato } from '../models/Contato';
 import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
 import { FormGroup } from "@angular/forms";
+import { Contato } from '../models/Contato';
+import { produtoAPI } from '../models/produtoAPI';
 
 // interface iUsuario {
 //   idCliente: number,
@@ -130,12 +131,25 @@ export class ClienteService {
     }); 
     let pedido = this.formatoPedido(idEndereco, status, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido)
+    console.log(pedido);
+    
     return url.pipe(map(
       pedido => pedido
-
     ))
   }
 
+  public formatoProduto(produto){
+    let prodAPI = new produtoAPI();
+    prodAPI.idProduto = produto.idProduto;
+    prodAPI.descricao = produto.descricao;
+    prodAPI.imagem = produto.imagem;
+    prodAPI.nome = produto.nome;
+    prodAPI.precoCheio = produto.precoCheio;
+    prodAPI.precoDesconto = produto.precoDesconto;
+    prodAPI.categoria = produto.categoria.idCategoria
+
+    return prodAPI;
+  }
 
   public formatoPedido(idEndereco, status, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
     let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, status, carrinho);
@@ -193,20 +207,11 @@ export class ClienteService {
     )
   }
 
-  public faleConosco(c: Contato){
-    let mensagem = {
-      data: c.data,
-      email: c.email,
-      assunto: c.assunto,
-      mensagem: c.mensagem
-    }
-    return this.http.post("http://localhost:8080/ecommerce/contato", mensagem)
-  }
 
 
   esqueciSenha(group: FormGroup) {
 
-    let email: string = group.value.cliente;
+    let email: string = group.value.cliente; 
 
     return this.http.post("http://localhost:8080/ecommerce/esquecisenha/", email);
 
@@ -249,6 +254,9 @@ export class ClienteService {
       return this.http.post("http://localhost:8080/ecommerce/contato", dados);
   
     }
+
+
+
 
 }
 

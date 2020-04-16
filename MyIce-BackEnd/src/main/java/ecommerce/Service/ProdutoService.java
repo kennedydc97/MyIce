@@ -18,10 +18,6 @@ public class ProdutoService {
     @PersistenceContext
     private EntityManager em;
 
-    @Autowired
-    private PedidoRepository pedidoRepository;
-
-
     public List<Produto> buscarProdutosMaisVendidos() {
         List<Produto> produtos = null;
         String sql =
@@ -33,15 +29,9 @@ public class ProdutoService {
         Query query = em.createNativeQuery(sql, Produto.class);
         produtos = query.getResultList();
         return produtos;
+
     }
 
-    public List<Produto> buscarProdutosRelacionados(){
-        List<Produto> produtos = null;
-        String sql = new StringBuffer().append("SELECT prod.* ").append("FROM TB_PRODUTO prod ").append("INNER JOIN " +
-                "(SELECT ip.* FROM TB_ITEM_PEDIDO ip INNER JOIN TB_PEDIDO p ON ip.id_pedido = p.id_pedido WHERE p" +
-                ".id_pedido = 392) relacionados on relacionados.id_produto = prod.id_produto").toString();
-        Query query = em.createNativeQuery(sql, Produto.class);
-        produtos = query.getResultList();
-        return produtos;
-    }
- }
+
+
+}

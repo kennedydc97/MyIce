@@ -86,6 +86,15 @@ export class CheckoutComponent implements OnInit {
   }
 
 
+  // finalizarCompra() {
+  //   this.cliente.mandarPedido(this.principalEndereco.idEndereco, 1).subscribe(
+  //     pedido => console.log(pedido)
+  //   )
+  // }
+
+
+  
+  
   finalizarCompra() {
       this.cliente.mandarPedido(this.principalEndereco.idEndereco, this.formaDeEnvio).subscribe(
         dados => {

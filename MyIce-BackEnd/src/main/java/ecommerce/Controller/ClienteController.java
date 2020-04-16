@@ -27,7 +27,7 @@ public class ClienteController {
 
     @Autowired
     private EmailService emailService;
-    
+
     @PostMapping("/cliente")
     public ResponseEntity criarCliente(@RequestBody Cliente cliente) {
         String password = BCrypt.hashpw(cliente.getPassword(), BCrypt.gensalt());
@@ -76,7 +76,7 @@ public class ClienteController {
 
     }
 
-            @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/cliente/{id}")
     public Cliente findClienteById(@PathVariable("id") Integer id){
         return repository.findById(id).get();
@@ -84,9 +84,13 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/cliente/lista")
-    public List<Cliente> find(){
-        return repository.findAll();
+    public ResponseEntity<List<Cliente>> listar() {
+
+        return ResponseEntity.ok().body(repository.findAll());
     }
+
+
+
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/cliente/{id_cliente}")

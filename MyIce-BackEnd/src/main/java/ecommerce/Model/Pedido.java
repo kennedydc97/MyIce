@@ -27,7 +27,7 @@ public class Pedido {
     private Date dtPedido;
 
     @Column(name = "id_cliente")
-    private Long cliente;
+    private Integer cliente;
 
     @Column(name = "vl_frete")
     private BigDecimal vlFrete;

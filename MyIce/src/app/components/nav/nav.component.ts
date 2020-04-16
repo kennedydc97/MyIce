@@ -73,7 +73,7 @@ export class NavComponent implements OnChanges {
     if(palavra.length < 1){
       return;
     }
-
+    
     this.router.navigate(['busca', palavra]);
   }
 
