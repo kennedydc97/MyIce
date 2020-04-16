@@ -42,6 +42,7 @@
                                         <tr>
                                             <td
                                                     style="color: #153643; font-family: 'Raleway', 'Extra-Light'; font-size: 16px; line-height: 20px; padding: 25px 0 0 0;">
+                                                <p>Status do pedido:<span th:text="${pedido.status}"></span></p>
                                                 <p>Pedido Nº: # <span th:text="${pedido.idPedido}"></span></p>
                                                 <p>Data: <span th:text="${#dates.format(pedido.dtPedido, 'dd/MM/yyyy')}"></span></p>
                                                 <p>Total: R$ <span th:text="${pedido.vlTotal}">,00</span></p>

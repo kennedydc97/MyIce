@@ -84,6 +84,26 @@ public class EmailService {
         }
     }
 
+    @Async
+    public String sendEmailPedidoStatus(Cliente cliente, Pedido pedido, Endereco endereco){
+
+        MimeMessagePreparator messagePreparator = mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setFrom("suportemiice@gmail.com");
+            messageHelper.setTo(cliente.getEmail());
+            messageHelper.setSubject("Atualizando pedido");
+            String content = applicationEmail.buildStatus(pedido, endereco);
+            messageHelper.setText(content, true);
+
+        };
+        try {
+            javaMailSender.send(messagePreparator);
+            return "Foi";
+        } catch (MailException e) {
+            return e.toString();
+        }
+    }
+
 }
 
 

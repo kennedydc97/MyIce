@@ -35,4 +35,6 @@ public enum Status {
 
         throw new IllegalArgumentException("id inválido: " + cod);
     }
+
+
 }

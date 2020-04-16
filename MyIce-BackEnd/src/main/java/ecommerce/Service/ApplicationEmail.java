@@ -23,4 +23,11 @@ public class ApplicationEmail {
         return templateEngine.process("pedidoatual", context);
     }
 
+    public String buildStatus(Pedido pedido, Endereco endereco){
+        Context context = new Context();
+        context.setVariable("pedido", pedido);
+        context.setVariable("endereco", endereco);
+        return templateEngine.process("statuspedido", context);
+    }
+
 }

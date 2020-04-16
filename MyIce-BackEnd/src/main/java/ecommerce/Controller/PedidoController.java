@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.Date;
 import java.util.List;
 
@@ -66,6 +68,34 @@ public class PedidoController {
         return repository.findById(id).map(pedido -> {
             return ResponseEntity.ok().body(pedido);
         }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("pedidos/lista")
+    public ResponseEntity<List<Pedido>> buscarTodosOsPedidos(){
+        return ResponseEntity.ok().body(repository.findAll());
+    }
+
+    @PutMapping("/pedido/status")
+    public ResponseEntity<?> modificar(@RequestBody Pedido pedido){
+        try{
+            Pedido pedidoEntity = repository.findById(pedido.getIdPedido()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "pedido não encontrado"));
+            pedidoEntity.setEndereco(pedido.getEndereco());
+            pedidoEntity.setStatus(pedido.getStatus());
+            pedidoEntity.setVlTotal(pedido.getVlTotal());
+            pedidoEntity.setVlFrete(pedido.getVlFrete());
+            pedidoEntity.setFormapgto(pedido.getFormapgto());
+            pedidoEntity.setIdPedido(pedido.getIdPedido());
+            pedidoEntity.setCliente(pedido.getCliente());
+            pedidoEntity.setItemPedido(pedido.getItemPedido());
+            pedidoEntity.setDtPedido(pedido.getDtPedido());
+            Cliente cliente = clienteRepository.findById(pedido.getCliente()).orElse(null);
+            Endereco endereco = enderecoRepository.findById(pedido.getEndereco()).orElse(null);
+            emailService.sendEmailPedidoStatus(cliente, pedido, endereco);
+            ResponseEntity.ok().body(repository.save(pedidoEntity));
+            return ResponseEntity.ok().body(pedidoEntity);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e);
+        }
     }
 
 }
