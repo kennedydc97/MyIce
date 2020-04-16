@@ -3,10 +3,7 @@ export class produtoAPI{
     public nome?: string;
     public descricao?: string;
     public imagem?: string; 
-    public categoria?: {
-        idCategoria?: number,
-        descricao?: string
-    };
+    public categoria?: number;
     public precoCheio?: number
     public precoDesconto?: number;
 }

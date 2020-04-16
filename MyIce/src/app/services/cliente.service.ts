@@ -11,6 +11,7 @@ import { Entrega } from '../models/Entrega';
 import { NumberFormatStyle } from '@angular/common';
 import { FormGroup } from "@angular/forms";
 import { Contato } from '../models/Contato';
+import { produtoAPI } from '../models/produtoAPI';
 
 // interface iUsuario {
 //   idCliente: number,
@@ -119,29 +120,36 @@ export class ClienteService {
 
   public mandarPedido(idEndereco, vlFrete) {
     let usuario = JSON.parse(atob((sessionStorage.getItem("usuario"))))
-    //pra login
-    // let idCliente = 68;
     let dtPedido = new Date();
     let carrinho = [];
     let total = 0;
     let formapgto = "Cartão de Crédito";
     storage.recuperarCarrinho().forEach(el => {
       total += el.produto.precoDesconto * el.qtd;
-      carrinho.push(new ItemPedidoAPI(el.produto, el.qtd))
+      carrinho.push(new ItemPedidoAPI(this.formatoProduto(el.produto), el.qtd))
     });
-    // let cartao = JSON.parse(localStorage.getItem("Pagamento"));       
     let pedido = this.formatoPedido(idEndereco, usuario.idCliente, carrinho, total, vlFrete, formapgto, dtPedido);
+
     let url = this.http.post<any>("http://localhost:8080/ecommerce/pedido", pedido)
+    console.log(pedido);
+    
     return url.pipe(map(
       pedido => pedido
-
     ))
   }
-  // public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto){
-  //   let pedido = new Pedido(idCliente, vlFrete, total, formapgto, idEndereco, carrinho );
-  //     return pedido;
-  // }
 
+  public formatoProduto(produto){
+    let prodAPI = new produtoAPI();
+    prodAPI.idProduto = produto.idProduto;
+    prodAPI.descricao = produto.descricao;
+    prodAPI.imagem = produto.imagem;
+    prodAPI.nome = produto.nome;
+    prodAPI.precoCheio = produto.precoCheio;
+    prodAPI.precoDesconto = produto.precoDesconto;
+    prodAPI.categoria = produto.categoria.idCategoria
+
+    return prodAPI;
+  }
 
   public formatoPedido(idEndereco, idCliente, carrinho, total, vlFrete, formapgto, dtPedido) {
     let pedido = new Pedido(idCliente, vlFrete, total, formapgto, dtPedido, idEndereco, carrinho);
@@ -199,20 +207,11 @@ export class ClienteService {
     )
   }
 
-  public faleConosco(c: Contato){
-    let mensagem = {
-      data: c.data,
-      email: c.email,
-      assunto: c.assunto,
-      mensagem: c.mensagem
-    }
-    return this.http.post("http://localhost:8080/ecommerce/contato", mensagem)
-  }
 
 
   esqueciSenha(group: FormGroup) {
 
-    let email: string = group.value.cliente;
+    let email: string = group.value.cliente; 
 
     return this.http.post("http://localhost:8080/ecommerce/esquecisenha/", email);
 
@@ -255,6 +254,9 @@ export class ClienteService {
       return this.http.post("http://localhost:8080/ecommerce/contato", dados);
   
     }
+
+
+
 
 }
 

@@ -92,6 +92,7 @@ export class CheckoutComponent implements OnInit {
   //   )
   // }
 
+
   
   
   finalizarCompra() {
