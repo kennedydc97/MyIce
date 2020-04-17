@@ -4,31 +4,79 @@
     <list default="true" id="63bc225b-5ac4-4af5-9611-bfd4654ab4d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/ItemPedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Repository/PedidoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Config/FreemarkerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Config/Mail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Model/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/Service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ecommerce/Service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ecommerce/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ClienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/ItemPedidoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Controller/PedidoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Categoria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Model/Pedido.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Repository/PedidoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/LOGO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/LOGO2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/LOGO3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/Olaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/baldedegelo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/banner gelo para-eventos-festas OFICIAL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo qualidade.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/banner-não é apenas gelo.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/bolsa-termica-compressao.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/caixa-de-isopor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/carousel promo-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/carrinho-de-compras.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/carrinho.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cartao-de-credito.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/check-sucesso-pedido.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/conhecendo-a-fabrica.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/copyright-logo-png-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cubosdegelo-carousel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/cubosdegelo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/excluir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/facebook-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/favicon-Mi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/favicon-Recuperado.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/flocodegelo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/formas-de-pagamento.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/formas-de-pagamento.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/formasdegelo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/gelodecoco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/gloves (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/gloves direita.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/gloves esquerda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/gloves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/google.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/instagram-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/loginn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/loupe (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lupa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/mais.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/maps-site.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/menos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minha-conta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/pedido-concluido pinguin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/pinguim_adc_produto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/pinguin1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/produto1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/produto3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/produto4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/produto5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/promo-1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/saco de gelo mi ice 15KG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/saco de gelo mi ice 20Kg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/saco-de-gelo-1kg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/scarf (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/scarf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/snowflake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/truck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/twitter-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/wind.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/youtube-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pedidoatual.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pedidoatual.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/EmailService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/Service/ProdutoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ecommerce/Service/ProdutoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ecommerce/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/checkout/checkout.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/services/cliente.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/pedidoatual.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pedidoatual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyIce/src/app/components/lista-de-produtos/lista-de-produtos.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MyIce/src/app/components/lista-de-produtos/lista-de-produtos.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,21 +115,23 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../PEDIDO/MyIce/MyIce-BackEnd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../projetoJSF" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\RCMenezes\Desktop\ProjetoGelo\MyIce\MyIce-BackEnd\src\main\resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ecommerce" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ecommerce.Config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RCMenezes\Desktop\ProjetoGelo\MyIce\MyIce-BackEnd\src\main\resources\static" />
+      <recent name="C:\Users\RCMenezes\Desktop\ProjetoGelo\MyIce\MyIce-BackEnd\src\main\resources\public" />
+      <recent name="C:\Users\RCMenezes\Desktop\ProjetoGelo\MyIce\MyIce-BackEnd\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -143,26 +193,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586982220293" />
-    <state x="804" y="120" key="FileChooserDialogImpl" timestamp="1587006357129">
+    <state x="804" y="120" key="FileChooserDialogImpl" timestamp="1587065309515">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587006357129" />
-    <state width="1323" height="242" key="GridCell.Tab.0.bottom" timestamp="1587012480707">
+    <state x="804" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587065309515" />
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom" timestamp="1587087498650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="242" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587012480707" />
-    <state width="1323" height="242" key="GridCell.Tab.0.center" timestamp="1587012480707">
+    <state width="1323" height="269" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587087498650" />
+    <state width="1323" height="269" key="GridCell.Tab.0.center" timestamp="1587087498649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="242" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587012480707" />
-    <state width="1323" height="242" key="GridCell.Tab.0.left" timestamp="1587012480707">
+    <state width="1323" height="269" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587087498649" />
+    <state width="1323" height="269" key="GridCell.Tab.0.left" timestamp="1587087498649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="242" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587012480707" />
-    <state width="1323" height="242" key="GridCell.Tab.0.right" timestamp="1587012480707">
+    <state width="1323" height="269" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587087498649" />
+    <state width="1323" height="269" key="GridCell.Tab.0.right" timestamp="1587087498649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="242" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587012480707" />
+    <state width="1323" height="269" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587087498649" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1586481472789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -187,10 +237,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586443564123" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586866502144">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1587040441002">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586866502144" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587040441002" />
+    <state x="65" y="0" key="new project wizard" timestamp="1587061954446">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1587061954446" />
     <state x="302" y="95" key="run.anything.popup" timestamp="1587008396264">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

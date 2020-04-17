@@ -1,6 +1,9 @@
 package ecommerce.Service;
 
 import ecommerce.Model.Produto;
+import ecommerce.Repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -13,6 +16,9 @@ public class ProdutoService {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Autowired
+    private ProdutoRepository repository;
 
     public List<Produto> buscarProdutosMaisVendidos() {
         List<Produto> produtos = null;
@@ -27,6 +33,7 @@ public class ProdutoService {
         return produtos;
 
     }
+
 
 
 
