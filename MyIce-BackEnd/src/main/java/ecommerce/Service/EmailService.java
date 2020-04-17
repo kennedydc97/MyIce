@@ -71,7 +71,7 @@ public class EmailService {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("suportemiice@gmail.com");
             messageHelper.setTo(cliente.getEmail());
-            messageHelper.setSubject("Atualizando pedido");
+            messageHelper.setSubject("Pedido Realizado");
             String content = applicationEmail.build(pedido, endereco);
             messageHelper.setText(content, true);
 

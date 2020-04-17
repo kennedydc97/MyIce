@@ -2,15 +2,16 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
     <tr>
         <td align="center" bgcolor="#70BBD9" style="padding: 40px 0 30px 0;">
-            <img src="img/LOGO.png" alt="Criando Mágica de E-mail" width="200" style="display: block;" />&nbsp;
+            <img src="https://github.com/kennedydc97/MyIce/blob/rafaella/MyIce-BackEnd/src/main/resources/assets/LOGO2.png?raw=true"
+                 alt="Criando Mágica de E-mail" width="200" style="display: block;"/>&nbsp;
             <br>
         </td>
     </tr>
@@ -45,8 +46,10 @@
                                                 <p>Pedido Nº: # <span th:text="${pedido.idPedido}"></span></p>
                                                 <p>Status do
                                                     pedido:<span th:text="${pedido.status.getDescricao()}"></span></p>
-                                                <p>Data: <span th:text="${#dates.format(pedido.dtPedido, 'dd/MM/yyyy')}"></span></p>
-                                                <p>Total: R$ <span th:text="${pedido.vlTotal}">,00</span></p>
+                                                <p>Data: <span
+                                                        th:text="${#dates.format(pedido.dtPedido, 'dd/MM/yyyy')}"></span>
+                                                </p>
+                                                <p>Total: R$ <span th:text="${pedido.vlTotal}"></span>,00</p>
                                             </td>
                                         </tr>
                                     </table>
@@ -64,10 +67,11 @@
                                         <tr>
                                             <td
                                                     style="color: #153643; font-family: 'Raleway', 'Extra-Light'; font-size: 16px; line-height: 20px; padding: 25px 0 0 0;">
-                                                <p> <span th:text="${endereco.logradouro}"></span>
+                                                <p><span th:text="${endereco.logradouro}"></span>
                                                     <span th:text="${endereco.numero}"></span>
                                                     <span th:text="${endereco.localidade}"></span>
                                                     <span th:text="${endereco.uf}"></span></p>
+                                                <span th:text="${endereco.cep}"></span></p>
 
                                             </td>
                                         </tr>
@@ -85,24 +89,28 @@
                             <td width="260" valign="top">
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tr th:each="produto : ${pedido.itemPedido}">
-                                        <td valign="top" class="" >
-                                            <img th:src="@{${produto.produto.imagem}}" style=width="100px">
+                                        <td valign="top" class=""><br> <br>
+                                            <img th:src="${produto.produto.imagem}" width="80">
                                         </td>
                                         <td width="260" valign="top"
-                                            style="padding: 40px 30px 40px 30px; font-family: 'Raleway', 'Extra-Light';"><p> Produto: <span th:text="${produto.produto.nome}"></span></p> </td>
+                                            style="padding: 40px 30px 40px 30px; font-family: 'Raleway', 'Extra-Light';">
+                                            <p> Produto:</p>
+                                            <p><span th:text="${produto.produto.nome}"></span></p></td>
                                         <td style="font-size: 0; line-height: 0;" width="10">
                                             &nbsp;
                                         </td>
                                         <td width="260" valign="top"
                                             style="padding: 40px 30px 40px 30px; font-family: 'Raleway', 'Extra-Light';">
-                                            <p>Quantidade: <span th:text="${produto.quantidade}"></span> </p>
+                                            <p>Quantidade:</p>
+                                            <p><span th:text="${produto.quantidade}"></span></p>
                                         </td>
                                         <td style="font-size: 0; line-height: 0;" width="10">
                                             &nbsp;
                                         </td>
                                         <td width="260" valign="top"
                                             style="padding: 40px 30px 40px 30px; font-family: 'Raleway', 'Extra-Light';">
-                                            <p>Preço Unitário: <span th:text="${produto.produto.precoDesconto}"></span></p>
+                                            <p>Preço Unitário:</p>
+                                            <p> R$ <span th:text="${produto.produto.precoDesconto}"></span>,00</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -118,7 +126,8 @@
                             <tr>
                                 <td style="color: #000000; font-family: 'Raleway', 'Extra-Light';">
                                     <b><strong>OBSERVAÇÕES:</strong></b>
-                                    <p>• A data de entrega do seu pedido é uma estimativa e pode sofrer alterações, se houver
+                                    <p>• A data de entrega do seu pedido é uma estimativa e pode sofrer alterações, se
+                                        houver
                                         feriados regionais na rota de entrega do seu pedido ou na sua localidade.</p>
                                     <p>• Acompanhe o seu pedido através do site, no menu MEUS PEDIDOS.</p>
                                 </td>
@@ -135,7 +144,7 @@
                 <tr>
                     <td>
                     <td width="75%" style="color: #32758F; font-family: 'Raleway', 'Extra-Light'; font-size: 20px;">
-                        <b>&reg; Mi Ice, 2020</b><br />
+                        <b>&reg; Mi Ice, 2020</b><br/>
                     </td>
                     </td>
                     <td align="right">
@@ -143,29 +152,37 @@
                             <tr>
                                 <td>
                                     <a href="http://www.twitter.com/" type="button" class="btn-floating btn-fb">
-                                        <i class="fab fa-google-plus-g"><img src="img/twitter-footer.png" width="38" height="38"
-                                                                             style="display: block;" class="fab fa-facebook-f" border="0"></i>
+                                        <i class="fab fa-google-plus-g"><img
+                                                src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
+                                                width="38" height="38"
+                                                style="display: block;" class="fab fa-facebook-f" border="0"></i>
                                     </a>
                                 </td>
                                 <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
                                 <td>
                                     <a href="http://www.facebook.com/" type="button" class="btn-floating btn-fb">
-                                        <i class="fab fa-google-plus-g"><img src="img/facebook-footer.png" width="38" height="38"
-                                                                             style="display: block;" class="fab fa-facebook-f" border="0"></i>
+                                        <i class="fab fa-google-plus-g"><img
+                                                src="https://imagepng.org/wp-content/uploads/2017/09/facebook-icone-icon.png"
+                                                width="38" height="38"
+                                                style="display: block;" class="fab fa-facebook-f" border="0"></i>
                                     </a>
                                 </td>
                                 <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
                                 <td>
                                     <a href="http://www.instagram.com/" type="button" class="btn-floating btn-fb">
-                                        <i class="fab fa-google-plus-g"><img src="img/instagram-footer.png" width="38" height="38"
-                                                                             style="display: block;" class="fab fa-facebook-f" border="0"></i>
+                                        <i class="fab fa-google-plus-g"><img
+                                                src="https://imagepng.org/wp-content/uploads/2017/08/instagram-icone-icon-1.png"
+                                                width="38" height="38"
+                                                style="display: block;" class="fab fa-facebook-f" border="0"></i>
                                     </a>
                                 </td>
                                 <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
                                 <td>
                                     <a href="http://www.youtube.com/" type="button" class="btn-floating btn-fb">
-                                        <i class="fab fa-google-plus-g"><img src="img/youtube-footer.png" width="38" height="38"
-                                                                             style="display: block;" class="fab fa-facebook-f" border="0"></i>
+                                        <i class="fab fa-google-plus-g"><img
+                                                src="https://imagepng.org/wp-content/uploads/2017/09/youtube-play-icone-1.png"
+                                                width="38" height="38"
+                                                style="display: block;" class="fab fa-facebook-f" border="0"></i>
                                     </a>
                                 </td>
                             </tr>
